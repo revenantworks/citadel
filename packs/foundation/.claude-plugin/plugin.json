@@ -1,0 +1,9 @@
+{
+  "name": "foundation",
+  "description": "revenant-foundation \u2014 eight standalone smiths for building, auditing, and maintaining skills, prompts, messages, agent specs, research docs, eval suites, brand identity, and token budgets.",
+  "author": {
+    "name": "Revenant"
+  },
+  "repository": "https://github.com/revenantworks/citadel",
+  "license": "MIT"
+}

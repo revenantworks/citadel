@@ -1,0 +1,24 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+.*.swp
+.idea/
+.vscode/
+
+# Python (skills ship no code, but keep local scratch out)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Packaging artifacts — built on release, never committed
+*.skill
+*.zip
+/dist/
+/build/
+
+# Local environment
+.env
+*.log

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "revenant",
+  "description": "The Revenant citadel \u2014 marketplace of Revenant Agent Skill packs. Each pack installs as one plugin; every skill inside stands alone.",
+  "owner": {
+    "name": "Revenant"
+  },
+  "plugins": [
+    {
+      "name": "foundation",
+      "source": "./packs/foundation",
+      "description": "Eight standalone smiths: skillsmith (skills & packs), promptsmith (prompts), commsmith (messages), agentsmith (agent specs), loresmith (research verdicts & playbooks), evalsmith (eval suites), brandsmith (brand & drift), tokensmith (token footprint). Each routes on its own description and works alone; together they cover the full build-audit-ship loop.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": ["agent-skills", "skills", "prompts", "evals", "branding", "token-optimization", "pack"],
+      "repository": "https://github.com/revenantworks/citadel"
+    }
+  ]
+}

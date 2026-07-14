@@ -1,0 +1,36 @@
+name: pack-ci
+
+on:
+  push:
+    branches: [main]
+    tags: ["*-v*", "v*"]
+  pull_request:
+
+# Two jobs from one script:
+#   check  — every push/PR: registry↔manifest drift + per-skill validation, no writes
+#   release — on tag v*: sync + build dist zips, attach every member zip to the release
+
+jobs:
+  check:
+    if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install pyyaml
+      - run: python3 tools/build.py --check
+
+  release:
+    if: contains(github.ref, '-v') || startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install pyyaml
+      - run: python3 tools/build.py
+      - name: Attach member zips to the release
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: gh release create "${GITHUB_REF_NAME}" dist/*.zip --generate-notes || gh release upload "${GITHUB_REF_NAME}" dist/*.zip --clobber
