@@ -1,6 +1,7 @@
 {
   "name": "foundation",
-  "description": "revenant-foundation \u2014 eight standalone smiths for building, auditing, and maintaining skills, prompts, messages, agent specs, research docs, eval suites, brand identity, and token budgets.",
+  "version": "1.0.0",
+  "description": "revenant-foundation — eight standalone smiths for building, auditing, and maintaining skills, prompts, messages, agent specs, research docs, eval suites, brand identity, and token budgets.",
   "author": {
     "name": "Revenant"
   },

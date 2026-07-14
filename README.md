@@ -1,4 +1,4 @@
-# citadel
+# Citadel
 
 ![pack-ci](https://github.com/revenantworks/citadel/actions/workflows/pack-ci.yml/badge.svg)
 
