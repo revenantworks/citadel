@@ -3,7 +3,7 @@ name: revenant-foundation-skillsmith
 description: Builds, audits, brands, ports, and pack-integrates Agent Skills — from a one-line intent to a packaged, install-ready skill or multi-skill pack passing best practices and its pack's policy profile. Trigger when someone wants to create, build, improve, audit, score, or package a skill or SKILL.md; when a whole pack should be designed and built for a domain or role; when they ask whether a skill fills a real niche; when a skill needs a brand applied (naming, palette, voice); when a skill set needs porting, rebranding, or sanitizing for a new owner; when a member change must propagate across a pack (roster, registry, release set); or when they say "skillsmith" (subcommands "configure" — brand and naming, "refresh" — baseline, "port" — re-issue a set, "pack" — whole-pack build, "integrate" — propagation ("keep going" after a pack build)). Every build ships trigger evals; packages as .skill, zip, or Claude Code plugin. For prompts rather than skills, promptsmith is the right tool.
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   profile: standalone
   pack: foundation
   brand: revenant
@@ -38,7 +38,7 @@ A standard build touches **at most three** reference files: `rubrics.md`, `build
 - `description-crafting.md` — writing or fixing a description / trigger boundary
 - `eval-authoring.md` — generating a built skill's trigger evals and test suite
 - `pack.md` — boundary doubt about a sibling's territory, or stamping a pack member's manifest
-- `evals/` — maintenance of skillsmith itself only *(version-control archive only; not in installs)*
+- `evals/` — maintenance of skillsmith itself only *(maintenance archive — never loaded at runtime)*
 
 ## Restraint — when not to build
 

@@ -3,7 +3,7 @@ name: revenant-foundation-promptsmith
 description: Builds, scores, and hardens LLM prompts — from a rough idea to a copy-paste-ready artifact — and recommends which model tier to run each prompt on (Claude by default). Trigger when someone wants to write, fix, improve, debug, or rewrite a prompt, meta-prompt, prompt template, or system prompt; when they ask why a prompt isn't working or how to make it better; when task parameters (audience, tone, format, model, constraints) need assembling into a working prompt; when they need instructions or a system prompt for an agent or bot; when they ask which model or tier a prompt should run on; or when they say "promptsmith" (including "promptsmith refresh" to update its model data). Covers build-from-scratch, improve-existing, system prompts, agent instruction sets, structured-output prompts, multi-model targets, and savable prompt cards. For building or auditing skill packages rather than prompts, skillsmith is the right tool; for pure token or cost trims that keep behavior unchanged, tokensmith.
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   profile: standalone
   pack: foundation
   brand: revenant
@@ -42,7 +42,7 @@ Loads cost time and context. A standard build touches **at most two** reference 
 - `worked-examples.md` — unsure what good finished output looks like
 - `prompt-card.md` — **only when the user requests the card**
 - `pack.md` — boundary doubt only: the live request may belong to a pack sibling (outside the standard budget)
-- `evals/` — maintenance of promptsmith itself only *(version-control archive only; not in installs)*
+- `evals/` — maintenance of promptsmith itself only *(maintenance archive — never loaded at runtime)*
 
 ## Restraint — knowing when not to build
 

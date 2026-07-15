@@ -7,7 +7,7 @@
 | Parameter | Value |
 |---|---|
 | Brand / company token | `revenant` — the **Revenant** house brand ("always comes back"; assistant nickname "Rev"). Skills are house products |
-| Identity map | GitHub org `revenantworks` (to create — separate Revenant identity; repo relocating there) · tags RVNT / REV |
+| Identity map | GitHub org `revenantworks` (live — separate Revenant identity; hosts the canonical repo) · tags RVNT / REV |
 | Voice | House voice — calm, exact, inevitable; short declaratives, no exclamation marks, no hype. Docs plain technical; release notes dry + max one flavor line; social minimal, lowercase fine |
 | Tagline | "Always comes back." (alts: "Nothing stays dead here." · "Down is temporary.") — HTML-artifact and README flavor only; never in descriptions or instruction content |
 | Sign-off | Releases: "Back online." · social: "— RVNT" — house surfaces; persona sign-offs live in brandsmith's definition (the firewall governs use) |
@@ -36,7 +36,7 @@
 
 **foundation capstone:** Forge Run — one orchestration prompt driving all eight smiths end-to-end (stored 2026-07-12 · roster updated to eight 2026-07-13 · roster reconfirmed 2026-07-14, pack self-audit, no change; re-run after any member's major version bump). First live run: brandsmith, 2026-07-13.
 
-**foundation canonical repo:** `github.com/revenantworks/citadel` — source of truth for member drift audits (registered 2026-07-13). **Subject to relocation** — planned move to the `revenantworks` org (decided 2026-07-14; personal-account copy goes private as archive); on the move, update this row and restamp the pack manifests. Nothing else carries the URL: manifests are generated from here, and every other file says "the registered canonical repo."
+**foundation canonical repo:** `github.com/revenantworks/citadel` — source of truth for member drift audits (registered 2026-07-13). Relocated from the personal account 2026-07-14; the prior copy is a private archive. Nothing else carries the URL: manifests are generated from here, and every other file says "the registered canonical repo."
 
 New packs and members are added here by "skillsmith configure" or at build time (name + profile per pack; one row per member; custom profiles list their policies inline).
 

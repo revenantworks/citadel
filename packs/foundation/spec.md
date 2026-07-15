@@ -14,14 +14,16 @@
 
 | Member | Job (one line) | Status | Version @ pack 1.0.0 |
 |---|---|---|---|
-| `revenant-foundation-skillsmith` | Builds, audits, brands, and ports Agent Skills and packs | SHIPPED | 1.0.0 |
-| `revenant-foundation-promptsmith` | Builds, scores, and hardens prompts with model-tier routing | SHIPPED | 1.0.0 |
+| `revenant-foundation-skillsmith` | Builds, audits, brands, and ports Agent Skills and packs | SHIPPED | 1.0.0 ¹ |
+| `revenant-foundation-promptsmith` | Builds, scores, and hardens prompts with model-tier routing | SHIPPED | 1.0.0 ¹ |
 | `revenant-foundation-commsmith` | Shapes messages per channel, audience, and saved voice; audits drift | SHIPPED | 1.0.0 |
 | `revenant-foundation-agentsmith` | Designs and audits autonomous agent systems | SHIPPED | 1.0.0 |
 | `revenant-foundation-loresmith` | Research-verified verdicts and playbook reference docs | SHIPPED | 1.0.0 |
 | `revenant-foundation-brandsmith` | Builds the brand definition; audits everything for drift (7 categories); exports payloads + HTML guide card | SHIPPED | 1.0.0 |
 | `revenant-foundation-evalsmith` | Authors and audits eval suites — build-time, zero runtime deps | SHIPPED | 1.0.0 |
 | `revenant-foundation-tokensmith` | Measures, budgets, and slims the token footprint of LLM-facing artifacts | SHIPPED | 1.0.0 |
+
+¹ Now 1.0.1 — 2026-07-14 post-launch pack audit, P2 doc fixes; column preserves the pack-1.0.0 snapshot.
 
 ## Trigger-partition table
 
