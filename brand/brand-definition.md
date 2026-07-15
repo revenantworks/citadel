@@ -11,7 +11,7 @@ A revenant is the one that returns — intelligent, purposeful, impossible to ke
 | Element | Value |
 |---|---|
 | Brand | **Revenant** — public house brand; all public releases, repos, products, comms |
-| Handles | GitHub identity **revenantworks** (canonical repo `revenantworks/citadel`) · brand domain `revenantworks.dev` |
+| Handles | GitHub identity **revenantworks** (canonical repo `revenantworks/citadel`) |
 | Ownership / exceptions | Anything these rules don't cover, or any exception, is the brand owner's call — decided once, then recorded here |
 
 ## Tag registry
