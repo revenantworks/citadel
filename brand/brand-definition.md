@@ -1,6 +1,6 @@
 # Revenant — Brand Guide *(house · public edition)*
 
-> **Last built: 2026-07-14 · derived from definition v1.2.2.** This public edition covers the **Revenant** brand only — the identity everything in this repository ships under. The full internal definition (including non-house sections) is maintained separately and re-exports here on change.
+> **Last built: 2026-07-14 · derived from definition v1.3.1.** This public edition covers the **Revenant** brand only — the identity everything in this repository ships under. The full internal definition (including non-house sections) is maintained separately and re-exports here on change.
 
 ## Essence
 

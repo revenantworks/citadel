@@ -12,6 +12,21 @@ The Revenant packs marketplace — canonical home of every **Revenant** Agent Sk
 
 Future packs slot in as new folders under `packs/` and new rows in the marketplace catalog — one repo, one marketplace, forever.
 
+### foundation — the eight smiths
+
+Each routes on its own description and works alone; together they cover the build → audit → ship loop.
+
+| Smith | What it makes |
+|---|---|
+| **skillsmith** | Builds, audits, brands, and ports Agent Skills and whole packs |
+| **promptsmith** | Builds, scores, and hardens prompts, with model-tier routing |
+| **commsmith** | Shapes messages per channel, audience, and saved voice; audits message drift |
+| **agentsmith** | Designs and audits autonomous-agent systems — guardrails, trust tiers, kill switches |
+| **loresmith** | Research-verified verdicts and versioned playbook reference docs, every claim evidence-tagged |
+| **brandsmith** | Builds a brand definition and audits repos, packs, and artifacts for drift |
+| **evalsmith** | Authors and audits eval suites — build-time generator, zero runtime dependency |
+| **tokensmith** | Measures, budgets, and slims the token footprint of LLM-facing artifacts |
+
 ## Install
 
 **Claude Code — a whole pack, one command.** This repository is its own plugin marketplace:
@@ -26,6 +41,8 @@ Future packs slot in as new folders under `packs/` and new rows in the marketpla
 **Claude API** — upload a member zip via the Skills API (`/v1/skills`) and reference its `skill_id` with the code execution tool.
 
 Alternatively, copy any single skill folder from `packs/<pack>/skills/` into `~/.claude/skills/` (personal) or `.claude/skills/` (project).
+
+**Before you install:** every skill here is plain-text and MIT-licensed — read any `SKILL.md` and its `references/` before use. Anthropic recommends running Skills only from sources you trust and auditing third-party skills first; this repo is public and auditable end to end.
 
 ## Layout
 
