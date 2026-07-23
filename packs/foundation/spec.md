@@ -62,12 +62,13 @@ Batches: **3A** skillsmith Entry — Upkeep (5A) ✅ · **3B** promptsmith Entry
 - [x] 5E durable tier hints — DONE. promptsmith: the tier taxonomy is the durable, snapshot-free layer both Entry — Model and the Model line draw on. tokensmith: model-tier questions now route to promptsmith `Entry — Model` specifically, plus a durable tier→cost note (tokensmith reasons in tiers, never names a model).
 - [x] 5C foundation `CLAUDE.md` — DONE. Always-on router + conventions at `packs/foundation/CLAUDE.md` (pack-scoped, not repo-root — foundation is one pack in a multi-pack marketplace). Not a skill — standing context. Sections: reaching for the right smith (task→smith table), how they compose (neutral→brandsmith apply; skillsmith→evalsmith; promptsmith model owns model data; skillsmith upkeep sweeps freshness; loresmith decides), conventions (neutral default, one-gate, audits report-only, declared deps, stamped+swept volatile surfaces). Repo README updated: CLAUDE.md discoverability line + 3 stale smith rows fixed (skillsmith no "brands", commsmith no "saved voice", brandsmith now brand+voice). **Phase 3 COMPLETE.**
 
-**Phase 4 — Baseline refreshes** (restamp 2026-07-23) ⬜ NEXT
-- [ ] skillsmith `rubrics.md` re-verify + restamp
-- [ ] promptsmith `model-snapshot.md` — genuine lineup re-research (Fable 5 / Opus 4.8 / Sonnet 5 / Haiku 4.5 / effort) + restamp
-- [ ] tokensmith `measurement.md` re-verify + restamp
-- [ ] U-9 agentsmith `platform-notes.md` new stamped baseline
-- [ ] U-10 commsmith `channel-profiles.md` → stamped baseline
+**Phase 4 — Baseline refreshes** (restamp 2026-07-23) 🔶 IN PROGRESS
+Batches: **4A** promptsmith model-snapshot ✅ · **4B** skillsmith rubrics + tokensmith measurement ⬜ NEXT · **4C** agentsmith platform-notes (U-9) + commsmith channel-profiles stamp (U-10) ⬜.
+- [ ] skillsmith `rubrics.md` re-verify + restamp — 4B
+- [x] promptsmith `model-snapshot.md` — DONE (restamped 2026-07-23, genuine re-research vs vendor docs + registries). Real drift caught since the 07-06 stamp: OpenAI → **GPT-5.6 family** (Sol/Terra/Luna, GA 07-09, 1M ctx ×3; 5.5 Pro stays S); Gemini → **3.6 Flash** (07-21 workhorse, −17% output tokens) + **3.5 Flash-Lite** (C), with **3.5 Pro flagged partner-only/never-recommend** (Gemini S slot empty; 3.1 Pro = top GA); Grok → **4.5** (07-08, A-tier, 500K-ctx caveat vs 4.3's 1M / 4.1 Fast's 2M; >200K surcharge on 4.5/4.3); DeepSeek → V4-Flash at C, **V4 Pro promo expired 05-31** (standard rate now). Claude column CONFIRMED correct as stamped (Sonnet 5 GA 06-30; Sonnet 4.6 legacy; intro pricing to 08-31; effort xhigh Sonnet 5+, max Fable 5). Also fixed the file's stale refresh pointer (Behavior notes → Maintenance ⇒ Entry — Refresh). Rides in unreleased 1.1.0 (no patch bump).
+- [ ] tokensmith `measurement.md` re-verify + restamp — 4B
+- [ ] U-9 agentsmith `platform-notes.md` new stamped baseline — 4C
+- [ ] U-10 commsmith `channel-profiles.md` → stamped baseline — 4C
 
 **Phase 5 — Toolchain + validation** ⬜
 - [ ] U-7 extend build.py: validate every declared volatile surface exists, is stamped, sane cadence
