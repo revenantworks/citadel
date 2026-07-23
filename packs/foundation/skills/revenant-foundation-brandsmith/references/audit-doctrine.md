@@ -30,7 +30,7 @@ Anchors per category: **7+** on-brand · **4–6** drifts — inconsistencies a 
 
     name · register · cadence · lexicon-do · lexicon-don't · sign-off · allowed surfaces
 
-**skillsmith configure payload:**
+**Structural payload (skillsmith consumes it):**
 
     brand/company token · identity map rows · palette role tokens (role/token/value) · voice line · license default · wordmark rule
 

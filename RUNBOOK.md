@@ -7,8 +7,10 @@
 1. Make the change (member content, registry row, roster).
 2. `python tools/build.py` - regenerates every `references/pack.md` from the
    registry, validates all members (name/folder match, description <=1024
-   chars, body <=500 lines, CHANGELOG head == frontmatter version), builds
-   `dist/` zips. `--check` = CI mode, writes nothing.
+   chars, body <=500 lines, CHANGELOG head == frontmatter version, and the
+   `metadata.volatile` block - legal classes, files exist, calendar surfaces
+   stamped with a sane cadence), builds `dist/` zips. `--check` = CI mode,
+   writes nothing.
 3. Commit, tag `<pack>-vX.Y.Z`, push branch + tag.
 
 ## Install / update on claude.ai
@@ -24,13 +26,12 @@ Config-carrying surfaces:
 
 | Member | Neutral file in repo | Swap in your... |
 |---|---|---|
-| brandsmith | `references/brand-definition.md` | active brand definition |
-| commsmith | `references/voices.md` | saved voices |
+| brandsmith | `references/brand-definition.md` | active brand definition (identity + voice) |
 | promptsmith | `references/prompt-card.md` | install edition of the card |
 
-> **Coming in the 1.1.0 build (Phase 1, brand decoupling):** `voices.md` folds
-> into brandsmith's definition, reducing the swap surfaces from three to two
-> ({brand-definition, prompt-card}). Revisit this table when that phase lands.
+> Since 1.1.0 (brand decoupling): voice lives inside brandsmith's definition,
+> so the swap surfaces are two - {brand-definition, prompt-card}. commsmith
+> ships fully neutral with nothing to swap.
 
 ## Install / update in Claude Code
 `/plugin marketplace add revenantworks/citadel` once, then
