@@ -4,13 +4,26 @@ All notable changes to the citadel repository and its packs are recorded here.
 The format follows Keep a Changelog and packs use Semantic Versioning; releases
 tag per pack as `<pack>-vX.Y.Z`, and each member keeps its own `CHANGELOG.md`.
 
-## [Unreleased]
+## [foundation-v1.1.0] - 2026-07-23
 
-`tools/build.py` now validates each member's `metadata.volatile` block (U-7,
-Forge Run 3 Phase 5): the block must exist (`[]` for none), classes must be
-`calendar` or `event-driven`, declared files must exist, and calendar surfaces
-additionally need a sane `cadence_days` (7–365) and a dated header stamp —
-checked in both `--check` (CI) and full-build modes.
+**Forge Run 3 — brand decoupling, uniformity, upkeep.** All eight members move
+to 1.1.0. brandsmith becomes the single home of brand and voice — every other
+smith outputs spec-clean neutral, and `brandsmith apply` is the one door for
+branding a built skill, prompt card, or report (skillsmith dropped `configure`
+and the cascade; commsmith dropped `voice`; tokensmith dropped its per-run
+`brand:` switch; the prompt card ships unbranded). A uniform layer lands across
+the pack: `metadata.volatile` declarations (4 calendar / 3 event-driven / 2
+none), matching Volatile-surfaces and Anti-patterns sections, canonical README
+skeletons, and a pack CLAUDE.md router. New capabilities: `skillsmith upkeep`
+(pack-wide staleness sweep over the volatile declarations), `promptsmith model`
+(standalone tier + model recommendation), `agentsmith refresh` (new stamped
+`platform-notes.md` baseline). All four calendar baselines re-verified against
+primary sources and restamped 2026-07-23 (model lineups, skill-format sources,
+cache mechanics, agent-platform enforcement). `tools/build.py` now validates
+the `metadata.volatile` block (U-7) — existence, legal classes, sane cadence,
+dated stamps — in both `--check` and full-build modes. Eval suites refreshed
+diff-scoped across the pack; the 12-row trigger-partition test re-run clean at
+the release bar.
 
 ## [foundation-v1.0.0] - 2026-07-14
 

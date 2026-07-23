@@ -74,11 +74,11 @@ Batches: **4A** promptsmith model-snapshot ✅ · **4B** skillsmith rubrics + to
 - [x] U-7 build.py `validate_volatile()` — DONE. Stdlib parse (no yaml dep); rules: block required on all 8 (`[]` for none) · class ∈ {calendar, event-driven} · declared file exists · calendar needs sane cadence_days 7–365 + dated header stamp (`Last verified/restamped/stamped: YYYY-MM-DD`, not future) · event-driven must not carry cadence_days. Wired into validate_skill, runs in --check and full modes; docstring updated; root CHANGELOG gained an Unreleased note. **Two real bugs the 8-case negative-test matrix caught before shipping:** (1) the `[]` regex had optional brackets, so the bare `volatile:` line of every LIST also matched and the validator early-returned — passed clean trees, validated nothing; fixed to require literal `[]`. (2) stamp search window was 6 lines — rubrics.md legitimately stamps its volatile *section* (~line 18, only that section is volatile), previously masked by bug 1; widened to 40 lines with a comment. All 7 failure modes proven firing on exactly the mutated member; clean trees pass.
 - [x] Run build.py full — DONE (sandbox): 8/8 dist zips at 1.1.0, 0 manifests synced (no registry drift), all validation incl. U-7 green. dist/ is gitignored (release artifacts; CI attaches on tag).
 
-**Phase 6 — Eval + release integrity** 🔶 IN PROGRESS
-Batches: **6A** eval refresh ×8 ✅ · **6B** trigger-partition re-test + dated changelogs + tag ⬜ NEXT.
+**Phase 6 — Eval + release integrity** ✅ DONE 2026-07-23
+Batches: **6A** eval refresh ×8 ✅ · **6B** partition re-test + release metadata + tag ✅.
 - [x] evalsmith event-driven refresh ×8 — DONE (2026-07-23, diff-scoped, touched cases only). **skillsmith**: trigger #7 → upkeep, #8 flipped to brandsmith boundary (34 rows, 17/17); cases 11–12 → Upkeep (sweep report-only + refresh-on-approval/degradation), 15–16 → neutral build + brandsmith routing; brand-config→pack-registry rename in 17, brand:-switch removed from 18; header/contents/provenance updated. **commsmith**: #7 flipped (definition→brandsmith) + #23 added as the application-side pair (23 q, 11/12); firewall cases re-anchored to handed-in profiles; Case 19 → definition-routes/application-stays two-turn. **brandsmith**: #12 FLIPPED to SHOULD (Entry — Apply is its own; 22 q, 13/9); Case 9 → structural-payload export; Case 10 names apply; Case 12 → T2 runs Apply per application-doctrine. **promptsmith**: #25 added (Entry — Model, live task no prompt; 25 q, 12/13); prompt-in-play edge note corrected; Case 29 added (standalone rec contract + loresmith boundary). **agentsmith**: #23 added (refresh; 23 q, 12/11); Case 16 added (refresh scope). **tokensmith**: Case 15 → always-neutral + brandsmith routing, retired brand: switch purged. **loresmith + evalsmith**: swept clean, zero stale, entries unchanged — no edits. Count integrity verified per file (declared = actual everywhere); pack-wide stale sweep zero. Changelog notes ×6.
-- [ ] Re-run the 12-row trigger-partition test as a set (release bar) — 6B
-- [ ] All 8 → 1.1.0, dated CHANGELOG ×8, pack tag `foundation-v1.1.0` — 6B
+- [x] 12-row trigger-partition re-test — DONE 2026-07-23, 12/12 single-destination against live descriptions; sharp pairs verified on-disk; the four new 1.1.0 claims partition cleanly (results recorded in the Trigger-partition table section below).
+- [x] Release metadata — DONE: all 8 CHANGELOGs already head `## [1.1.0] - 2026-07-23` (created release-dated); marketplace.json foundation plugin 1.0.0 → 1.1.0; root CHANGELOG's Unreleased converted to the dated `[foundation-v1.1.0] - 2026-07-23` entry. Tag `foundation-v1.1.0` is the user's push step (CI attaches the 8 member zips on tag). **Phase 6 COMPLETE.**
 
 **Phase 7 — Capstone + final optimization** ⬜
 - [ ] tokensmith optimization pass over all 8 final SKILL.mds
@@ -109,12 +109,7 @@ per-surface staleness window. First upkeep due ~2026-09-21 (all stamps reset 07-
 
 ## Trigger-partition table
 
-Re-run 2026-07-14 against the real shipped descriptions — **12/12 route to
-exactly one destination**; every member appears once; two near-misses exit the
-pack correctly. **Phase 1 changed 3 descriptions** (skillsmith dropped brand/configure;
-commsmith neutral-voice default; brandsmith now brand+voice+apply) — the boundaries
-sharpened rather than blurred (skillsmith=skills, brandsmith=brand/voice, commsmith=messages),
-but this makes the Phase 6 set re-run a real check, not a formality.
+**Re-run 2026-07-23 against the live descriptions at the 1.1.0 release bar — 12/12 route to exactly one destination.** The three Phase-1 description changes sharpened the boundaries as predicted; the four new 1.1.0 claims (skillsmith upkeep, promptsmith Entry — Model, brandsmith Entry — Apply, agentsmith refresh) partition cleanly — verified per sharp pair against on-disk text: row 7 (evalsmith claims suite-authoring for existing targets; skillsmith only ships suites with builds), row 11 (skillsmith's explicit niche clause vs loresmith's no-skill verdict framing), row 12 (reciprocal promptsmith↔tokensmith boundary sentences intact), row 10 (agentsmith's security-harness partition line intact), and the Model claim (promptsmith owns run-target picks incl. live tasks; loresmith owns sourced product comparisons — the one boundary worth watching in real usage; eval pair #25 vs #16 covers it). Per-skill trigger evals (6A) cover the new entries individually; this set test confirms no new overlap. *(Original 2026-07-14 run: same 12/12 result against the 1.0.0 descriptions.)*
 
 | # | Realistic request | Routes to |
 |---|---|---|
