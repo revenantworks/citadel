@@ -8,16 +8,16 @@ Emit it as a claude.ai artifact on surfaces that render HTML, or as a single sel
 
 ## Contents
 
-- Fill rules — header & branding · structure chip · TL;DR · prompt block · score gauge · Run on · Variables / Assumed / Test · additional rules
+- Fill rules — header · structure chip · TL;DR · prompt block · score gauge · Run on · Variables / Assumed / Test · additional rules
 - Template — the full self-contained HTML
 
 ---
 
 ## Fill rules
 
-### Header and branding
+### Header
 
-The header is a `revenant-foundation-promptsmith` brand lockup — an accent mark plus the highlighted `revenant-foundation-promptsmith` wordmark — with a dynamic title beneath it: a concise 3–6 word name for what the prompt does (e.g. "Security Audit → CISO Summary," "Cold Email Rewriter"). The footer echoes the `revenant-foundation-promptsmith` mark. Keep the wordmark constant on every card; only the title changes. Set the page `<title>` to `revenant-foundation-promptsmith — <name>` so saved files and browser tabs are identifiable.
+The header shows a neutral **Prompt Card** label — an accent mark plus the words "Prompt Card" — with a dynamic title beneath it: a concise 3–6 word name for what the prompt does (e.g. "Security Audit → CISO Summary," "Cold Email Rewriter"). The footer echoes the neutral label. Only the title changes. Set the page `<title>` to `Prompt Card — <name>` so saved files and browser tabs are identifiable. The card ships **brand-neutral** — to apply the revenant identity (palette, wordmark lockup), run `brandsmith apply` on the card; branding is never baked in here.
 
 ### Structure chip and footer recap
 
@@ -52,7 +52,7 @@ Keep a section only if it has content — delete the whole `<div class="section"
 - **Improvement runs:** you may add a `Changed` section before Score, summarizing what was removed / added and why.
 - **No Keep going options on the card:** they belong in chat, not on a saved card — a recipient can't act on them.
 - **Stay single-file and fully offline:** no external scripts, fonts, CDNs, network calls, or `localStorage` / `sessionStorage`, so the saved `.html` works anywhere with no dependencies.
-- **Brand-neutral by default:** the template ships a neutral dark theme. You may re-skin the wordmark, title, and colors — just keep any exported card honest about what it is.
+- **Brand-neutral by default:** the template ships a neutral dark theme and a neutral "Prompt Card" label — no brand identity is applied here. To brand a card (palette, wordmark), run `brandsmith apply`; brandsmith is the single home of brand application. Keep any exported card honest about what it is.
 
 ---
 
@@ -66,7 +66,7 @@ Keep a section only if it has content — delete the whole `<div class="section"
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>revenant-foundation-promptsmith — Security Audit → CISO Summary</title>
+<title>Prompt Card — Security Audit → CISO Summary</title>
 <style>
   :root {
     --bg: #0d0f14; --surface: #151821; --surface2: #1b1f2a;
@@ -169,7 +169,7 @@ Keep a section only if it has content — delete the whole `<div class="section"
       <div class="brandlock">
         <span class="dot"></span>
         <div class="brandtext">
-          <span class="brand">revenant-foundation-promptsmith</span>
+          <span class="brand">Prompt Card</span>
           <span class="cardtitle">Security Audit &rarr; CISO Summary</span>
         </div>
       </div>
@@ -255,7 +255,7 @@ Return only the three bullets — no preamble, no heading.</code></pre>
     </div>
 
     <div class="foot">
-      <span class="footbrand"><span class="dot-sm"></span>revenant-foundation-promptsmith</span>
+      <span class="footbrand"><span class="dot-sm"></span>Prompt Card</span>
       <span>CO-STAR &middot; 6.4 &rarr; 8.8 &middot; Sonnet 5</span>
     </div>
 

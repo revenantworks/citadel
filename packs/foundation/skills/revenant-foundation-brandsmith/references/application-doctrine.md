@@ -28,6 +28,8 @@ change for a rebrand — the definition changes the values, this maps where they
 Unconfigured elements fall back to neutral — spec-clean, nothing invented.
 Partial definitions are normal: apply what exists, skip what doesn't, silently.
 
+**Sibling artifacts are apply targets.** Every other smith builds neutral; their outputs come here to be branded, and brandsmith is the *only* place brand is applied. Canonical targets: a promptsmith **prompt card** (its neutral "Prompt Card" header takes the wordmark lockup and the palette), a tokensmith **report / budget sheet** (its neutral HTML takes the palette), and any skill's HTML artifact. None of them apply brand themselves — Apply is the single door.
+
 ## What never inherits
 
 - **The description field.** Descriptions are routing, not branding: trigger

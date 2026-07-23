@@ -98,7 +98,7 @@ The current `revenant-foundation-promptsmith` release is the reference implement
 - SKILL.md ≤500 lines; long references carry TOCs; links one level deep
 - Profile declared; every dependency declared; absence behavior stated where relevant
 - Volatile facts stamped; no rot outside stamped files; no Windows paths
-- evals/ present (or absence justified); brand cascade applied or `brand: neutral` honored
+- evals/ present (or absence justified); built spec-clean neutral — structural identity stamped from `pack-registry.md`, no brand styling applied (brandsmith brands on invoke)
 - Named commands and in-request switches surfaced in the README table when any exist
 - CHANGELOG at 1.0.0; LICENSE present; zip archives everything, .skill excludes evals/
 - Plugin target (only when requested): plugin.json parses and its name is the pack namespace; components at repo root; workflows carry `disable-model-invocation: true`; `.skill` + zip still emitted

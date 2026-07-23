@@ -46,7 +46,8 @@ Follows the [Agent Skills](https://agentskills.io/) open standard. Upload the fo
 | In-request switch | Effect |
 |---|---|
 | "just slim it" | Pre-approves **lossless rungs only** — rung 9 (lossy) always gates |
-| `brand: <token>` / `brand: neutral` | Per-run report flavor; default is neutral (C-2), never touching the artifact's instruction content |
+
+Reports, sheets, and rewrites always ship **neutral** (C-2) — to brand a report (palette, wordmark), run `brandsmith apply`. Brand is never applied here and never touches a slimmed artifact's own instruction content.
 
 ## Staying current
 

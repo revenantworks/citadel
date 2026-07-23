@@ -93,7 +93,7 @@ An artifact plus intent to shrink it ("slim this system prompt", "get this SKILL
 
 **Dependencies** (standalone profile): web search for Refresh verification, the surface's native file tools for delivery — where file tools are absent, every deliverable degrades gracefully to in-chat content the user can save. No scripts shipped, none assumed.
 
-**Neutral default** (C-2): reports, sheets, and rewrites ship spec-clean. Brand voice or palette applies only on explicit per-run opt-in, and never inside the slimmed artifact's own instruction content.
+**Neutral** (C-2): reports, sheets, and rewrites always ship spec-clean — no brand is applied here. To brand a report (palette, wordmark), run `brandsmith apply`; brandsmith is the single home of brand application. Brand never touches a slimmed artifact's own instruction content.
 
 **Bare invocation** ("tokensmith", no artifact): reply exactly — *"tokensmith here. I measure and shrink what prompts, skills, and instruction files cost — without changing what they do (`tokensmith audit` scores without rewriting; `tokensmith budget` plans a set; `tokensmith refresh` re-verifies the numbers). What goes on the scale?"* — and stop.
 
