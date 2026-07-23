@@ -10,4 +10,4 @@ Verified as of **2026-07-12**.
 | elements-of-style (adopt-don't-build register) | Clarity baseline for all registers — adopted as a writing-quality source, not rebuilt. |
 | Platform norms (Slack/Teams/YouTube/Discord published guidance, verified in build research) | Channel-profile contracts. |
 
-Channel-profile contracts are durable editorial guidance distilled at build time; they carry no stamped baseline because they encode norms, not volatile facts. The one volatile file is `references/voices.md` (saved voices, stamped).
+Channel-profile contracts are editorial guidance distilled at build time; they encode norms rather than fast-moving facts, so `references/channel-profiles.md` is declared **event-driven** in `metadata.volatile` — restamped when a platform's conventions visibly change, not on a calendar. Voice is no longer stored here: voice definitions live in brandsmith, which commsmith consumes via an exported voice profile.

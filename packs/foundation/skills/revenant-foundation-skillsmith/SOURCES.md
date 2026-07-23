@@ -33,13 +33,6 @@ This skill is assembled from public, citable material. Everything below was veri
 | anthropics/knowledge-work-plugins — https://github.com/anthropics/knowledge-work-plugins | Role-plugin reference architecture (skills + commands + connectors); pattern source for role-shaped packs. |
 | Claude Code plugin docs — https://code.claude.com/docs/en/plugins | Plugin target format: `.claude-plugin/plugin.json` manifest, `skills/` with `disable-model-invocation: true` for explicit workflows (legacy `commands/` noted), optional `.mcp.json`, marketplace registration, `claude plugin validate`. |
 
-## Brand-as-skill pattern
-
-*Applies to: `references/brand-config.md`, `references/brand-inheritance.md`.*
-
-- Anthropic — "Package your brand guidelines in a skill." https://claude.com/resources/use-cases/package-your-brand-guidelines-in-a-skill — brand identity as an installable, automatically-applied skill; composability with other skills.
-- The brand-guidelines reference skill in anthropics/skills — palette, typography, and voice encoded as reusable tokens; the role-token approach (encode roles like "accent," not just hex values) so the system applies to artifact types not anticipated.
-
 ## Pack integration & surfaces (added at 1.1.0)
 
 *Applies to: Entry — Integrate, `references/pack-integration.md`, the Packaging upload-path fix.*
