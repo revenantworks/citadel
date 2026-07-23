@@ -1,8 +1,8 @@
 # Assertion Suite — agentsmith
 
-Provenance: derived from revenant-foundation-agentsmith v1.0.0, 2026-07-14.
+Provenance: derived from revenant-foundation-agentsmith v1.0.0, 2026-07-14; Case 16 added 2026-07-23 for 1.1.0 Entry — Refresh.
 
-15 cases — blast radius first, all ten areas covered or excused, caps as numbers, kill-switch drill, protected resources by identifier, trust tiers, zero-signal, audit scoreline and injected-content handling, all three restraint paths, prompt handoff, spot-check switch, and bare invocation.
+16 cases — blast radius first, all ten areas covered or excused, caps as numbers, kill-switch drill, protected resources by identifier, trust tiers, zero-signal, audit scoreline and injected-content handling, all three restraint paths, prompt handoff, spot-check switch, refresh scope, and bare invocation.
 
 Each case: **Input** + **Assert**. `<no-spec>` = correctly delivered no spec.
 
@@ -66,5 +66,9 @@ Each case: **Input** + **Assert**. `<no-spec>` = correctly delivered no spec.
 ### Case 15 — restraint: already-sound spec
 **Input:** "agentsmith audit" + a spec covering all ten areas with named caps, both kill-switch layers, and tiered untrusted-content handling.
 **Assert:** per-area scores land honestly high (≥7); response states the spec is sound; catalog is empty or Optional-only; no manufactured findings.
+
+### Case 16 — refresh scope
+**Input:** "agentsmith refresh"
+**Assert:** `<no-spec>` — no blast radius, no checklist pass; only `references/platform-notes.md` is regenerated, with a fresh Last-verified stamp; `design-checklist.md` and the trust-tier rule are untouched; a dated CHANGELOG line, a patch-version bump, and a repackaged handback close the run.
 
 Sanity-check flag: generated examples deserve a human pass.

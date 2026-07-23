@@ -1,8 +1,8 @@
 # Trigger Evals — description tuning
 
-Provenance: derived from revenant-foundation-skillsmith v1.0.0, 2026-07-14 (queries 27–30 added at 1.1.0 for Entry — Integrate; 31–34 added at 1.2.0 for Entry — Pack).
+Provenance: derived from revenant-foundation-skillsmith v1.0.0, 2026-07-14 (queries 27–30 added for Entry — Integrate; 31–34 for Entry — Pack; refreshed 2026-07-23 for the 1.1.0 decoupling — #7 now covers Entry — Upkeep, #8 flipped to the brandsmith boundary).
 
-Thirty-four queries for checking whether the `description` fires skillsmith at the right times. Eighteen should trigger, sixteen should not. Manual checklist, fully self-contained — read each cold against name + description only and compare to the expected column.
+Thirty-four queries for checking whether the `description` fires skillsmith at the right times. Seventeen should trigger, seventeen should not. Manual checklist, fully self-contained — read each cold against name + description only and compare to the expected column.
 
 | # | Query | Should trigger? | Why |
 |---|---|---|---|
@@ -12,8 +12,8 @@ Thirty-four queries for checking whether the `description` fires skillsmith at t
 | 4 | "Audit my skill against current best practices." | ✅ yes | Audit-existing |
 | 5 | "Does this SKILL.md meet the spec? Score it." | ✅ yes | Audit + scoring |
 | 6 | "Is there actually a niche for a skill that does invoice triage?" | ✅ yes | Niche/market analysis |
-| 7 | "skillsmith configure" | ✅ yes | Brand/naming configuration |
-| 8 | "Apply my company's branding to the skills we generate." | ✅ yes | Brand inheritance setup |
+| 7 | "skillsmith upkeep" | ✅ yes | Pack-wide staleness sweep |
+| 8 | "Apply my company's branding to the skills we generate." | ❌ no | Brand application — brandsmith's job, on invoke |
 | 9 | "Package this skill folder so I can install it." | ✅ yes | Release packaging |
 | 10 | "skillsmith refresh" | ✅ yes | Baseline maintenance |
 | 11 | "Write me a prompt that summarizes legal contracts." | ❌ no | Prompt, not skill — promptsmith's job |
@@ -43,4 +43,4 @@ Thirty-four queries for checking whether the `description` fires skillsmith at t
 
 **Edge notes.** #31 vs #34 is the pack boundary — a pack of *skills* routes here; a pack of *prompts* is promptsmith's even with identical phrasing. #33 marks lookup vs build. #28 vs #29 is the integrate boundary — pack/roster/member vocabulary routes here; "integrate" against an app or API does not. #30 only fires when a pack build just offered the continuation.
 
-**Original edge notes.** #1 vs #11 is the sharpest boundary — "build a skill that does X" wants a package; "write a prompt that does X" wants promptsmith. #8 vs #17 splits applying an existing brand (configure) from inventing one (out of scope). #24 is the port near-miss — "port" alone is ambiguous; the description anchors it to skill sets. #26 vs #25 marks the evalsmith line — a suite for a skill being built ships with the build; a suite for an existing skill routes to evalsmith. If real usage misses the yes-set, push the trigger verbs harder; if it fires on the no-set, tighten the boundary sentences.
+**Original edge notes.** #1 vs #11 is the sharpest boundary — "build a skill that does X" wants a package; "write a prompt that does X" wants promptsmith. #8 and #17 both mark the brandsmith boundary — applying a brand and inventing one alike route there; skillsmith builds neutral. #24 is the port near-miss — "port" alone is ambiguous; the description anchors it to skill sets. #26 vs #25 marks the evalsmith line — a suite for a skill being built ships with the build; a suite for an existing skill routes to evalsmith. If real usage misses the yes-set, push the trigger verbs harder; if it fires on the no-set, tighten the boundary sentences.

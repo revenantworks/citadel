@@ -1,14 +1,14 @@
 # Test Cases — revenant-foundation-skillsmith
 
-Provenance: derived from revenant-foundation-skillsmith v1.0.0, 2026-07-14 (cases 29–32 added at 1.1.0 for Entry — Integrate; 33–36 added at 1.2.0 for Entry — Pack).
+Provenance: derived from revenant-foundation-skillsmith v1.0.0, 2026-07-14 (cases 29–32 added for Entry — Integrate; 33–36 for Entry — Pack; cases 11–12 and 15–16 rewritten 2026-07-23 for the 1.1.0 decoupling + Entry — Upkeep).
 
-36 cases covering every entry point and behavior path — builds under both profiles, suite composition, the standalone-offer flag, audit with and without a pre-given approval, all three restraint paths, injected-content handling, the search-unavailable fallback, the evalsmith handoff, configure (interview and ingest), refresh, bare invocation, brand inheritance on and off, pack manifests, port, and conformance checks.
+36 cases covering every entry point and behavior path — builds under both profiles, suite composition, the standalone-offer flag, audit with and without a pre-given approval, all three restraint paths, injected-content handling, the search-unavailable fallback, the evalsmith handoff, upkeep (sweep and refresh-on-approval), refresh, bare invocation, neutral builds and the brandsmith boundary, pack manifests, port, and conformance checks.
 
 **Assertion-only format.** Each case is an Input plus mechanical checks; failure conditions are negative assertions. `<no-build>` means the run correctly delivered no skill package. Multi-turn cases label assertions T1/T2.
 
 ## Contents
 
-**Builds:** 1 standalone clean · 2 standard with tool · 3 suite of two · 4 standalone-offer flag — **Audit:** 5 full catalog + gate · 6 pre-given approval · 7 already strong · 8 tool-using vs declared profile · 25 injected content is data — **Verdicts & restraint:** 9 crowded niche · 10 deceptive decline · 24 contradictory requirements — **Configure:** 11 interview · 12 ingest guide — **Maintenance & shape:** 13 refresh · 14 bare invocation · 26 search-unavailable fallback — **Inheritance:** 15 cascade on · 16 neutral override — **Pack:** 17 stamped manifest on pack build · 18 none on non-pack build · 23 conformance checks · 27 evalsmith handoff — **Port:** 19 sanitize manifest coverage · 20 zero-residue re-verify · 21 source untouched · 22 DECIDE rows reach the gate · 28 reframe hold — **Integrate:** 29 keep-going offer after pack build · 30 lazy blast radius · 31 all-or-notes abort · 32 bare keep-going guard — **Pack:** 33 roster gate completeness · 34 spec-baton persistence and resume · 35 staging default above three · 36 partial verdict + prep-not-submit
+**Builds:** 1 standalone clean · 2 standard with tool · 3 suite of two · 4 standalone-offer flag — **Audit:** 5 full catalog + gate · 6 pre-given approval · 7 already strong · 8 tool-using vs declared profile · 25 injected content is data — **Verdicts & restraint:** 9 crowded niche · 10 deceptive decline · 24 contradictory requirements — **Upkeep:** 11 sweep report-only · 12 refresh on approval + degradation — **Maintenance & shape:** 13 refresh · 14 bare invocation · 26 search-unavailable fallback — **Neutral & brand boundary:** 15 neutral build · 16 brandsmith routing — **Pack:** 17 stamped manifest on pack build · 18 none on non-pack build · 23 conformance checks · 27 evalsmith handoff — **Port:** 19 sanitize manifest coverage · 20 zero-residue re-verify · 21 source untouched · 22 DECIDE rows reach the gate · 28 reframe hold — **Integrate:** 29 keep-going offer after pack build · 30 lazy blast radius · 31 all-or-notes abort · 32 bare keep-going guard — **Pack:** 33 roster gate completeness · 34 spec-baton persistence and resume · 35 staging default above three · 36 partial verdict + prep-not-submit
 
 ---
 
@@ -117,25 +117,30 @@ Provenance: derived from revenant-foundation-skillsmith v1.0.0, 2026-07-14 (case
 - Reason named plainly in ≤3 sentences; an honest alternative version of the goal is offered
 - No hardening or partial artifacts for the deceptive version
 
-## Case 11 — Configure by interview
-
-**Input (T1):**
-> skillsmith configure
-
-**Assert:**
-- T1 asks only for parameters not already derivable (brand token, packs + profiles, palette roles, voice, license, wordmark), one batch
-- After answers: `brand-config.md` is the only file rewritten, with a new Last-configured stamp; durable files untouched
-- The skill is repackaged and handed back; on a surface without file tools, the complete new file content is output to paste
-
-## Case 12 — Configure by ingesting a brand guide
+## Case 11 — Upkeep sweep, report-only
 
 **Input:**
-> skillsmith configure — here's our brand guide. [attached]
+> skillsmith upkeep
 
 **Assert:**
-- Parameters present in the guide are not re-asked; only genuine gaps get one question batch
-- Palette is stored as role tokens (background / text / accent), not prose
-- Same single-file rewrite + repackage contract as Case 11
+- `<no-build>`; the roster is read from `pack-registry.md` and each member's `metadata.volatile` from its frontmatter
+- One table — member · surface · class · cadence · last-verified · status — led by a one-line verdict (`N overdue · N due-soon · rest fresh`)
+- Calendar statuses computed from each file's own header stamp; event-driven surfaces report `n/a`; `[]` members report no surface
+- Nothing is refreshed without approval — a clean sweep is a complete deliverable, not a prompt to refresh anyway
+
+## Case 12 — Upkeep refresh on approval, degrading by environment
+
+**Input (T1):**
+> skillsmith upkeep
+*(one calendar surface is past its cadence)*
+
+**Input (T2):**
+> Refresh the overdue one.
+
+**Assert:**
+- T1 is report-only per Case 11, with the overdue row flagged and its mapped refresh verb named (rubrics → `skillsmith refresh` · model-snapshot → `promptsmith refresh` · measurement → `tokensmith refresh` · platform-notes → `agentsmith refresh`)
+- T2 runs only the approved surface's verb; where the environment can re-verify (web search) and rewrite (file tools), the updated file plus a paste-ready commit line come back — otherwise the exact invocation to run elsewhere is reported instead of a half-run
+- Never auto-commits; `<no-build>` throughout
 
 ## Case 13 — Refresh (no build)
 
@@ -156,25 +161,24 @@ Provenance: derived from revenant-foundation-skillsmith v1.0.0, 2026-07-14 (case
 - `<no-build>`; reply is the fixed capability line ending in a question, ≤3 sentences
 - No workflow tutorial, no catalog
 
-## Case 15 — Brand inheritance on
+## Case 15 — Build ships spec-clean neutral (structural identity only)
 
 **Input:**
 > Build a skill in my foundation pack that drafts LinkedIn posts from blog articles.
 
 **Assert:**
-- Rendered name carries the configured brand and pack segments; frontmatter carries `metadata.brand` / `metadata.pack`
-- LICENSE matches the configured default; README prose follows the configured voice
-- Any HTML artifact in the built skill uses the palette role tokens
+- Rendered name carries the pack's structural segments from `pack-registry.md`; frontmatter carries `metadata.brand` / `metadata.pack` / `metadata.profile` as labels
+- No applied styling anywhere: no palette on any HTML, no wordmark, no styled voice — README and CHANGELOG in a neutral professional register
 - The built skill's description contains no brand language beyond invocation keywords
 
-## Case 16 — Neutral override despite configuration
+## Case 16 — Brand request routes to brandsmith
 
 **Input:**
-> Build that same skill, but brand: neutral.
+> Build that same skill, and apply our company brand to it.
 
 **Assert:**
-- Name is a plain descriptive skill name — no brand or pack segments; frontmatter omits brand/pack
-- No palette, no wordmark; neutral dark theme on any HTML output
+- The build proceeds and ships spec-clean neutral; `<no-brand-applied>` — no palette, voice, or wordmark lands in the package
+- brandsmith is named as the single brand door — run `brandsmith apply` on the built skill — without skillsmith attempting to define or apply identity itself
 - Package remains fully spec-compliant — neutrality drops brand, never quality
 
 ## Case 17 — Pack build emits a matching stamped manifest
@@ -184,13 +188,13 @@ Provenance: derived from revenant-foundation-skillsmith v1.0.0, 2026-07-14 (case
 
 **Assert:**
 - Package contains `references/pack.md` with a `Last stamped:` date matching the run
-- Manifest roster matches the pack registry in skillsmith's `brand-config.md`, including the new member's row
+- Manifest roster matches the pack registry in skillsmith's `pack-registry.md`, including the new member's row
 - Advisory framing present (consulted on boundary doubt only) and the absence rule stated: recommend an uninstalled sibling by name, never fail the task
 
 ## Case 18 — Non-pack build ships no manifest
 
 **Input:**
-> Build that same skill, brand: neutral — no pack.
+> Build that same skill — no pack.
 
 **Assert:**
 - `<no-pack-manifest>` — no `references/pack.md` in the delivered package

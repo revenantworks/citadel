@@ -1,8 +1,8 @@
 # Assertion Suite — commsmith
 
-Provenance: derived from revenant-foundation-commsmith v1.0.0, 2026-07-14.
+Provenance: derived from revenant-foundation-commsmith v1.0.0, 2026-07-14; Case 19 and the firewall cases re-anchored 2026-07-23 for the 1.1.0 decoupling (voice storage moved to brandsmith).
 
-19 cases covering every entry point and behavior path — build, reshape (facts frozen, overflow surfaced), voice save and both firewall directions, formats, audit (report-only, firewall P0), variants, cadence sets, redaction and its private-message skip, never-send, all three restraint paths, and bare invocation.
+19 cases covering every entry point and behavior path — build, reshape (facts frozen, overflow surfaced), voice application (brandsmith-exported profile) and both firewall directions, formats, audit (report-only, firewall P0), variants, cadence sets, redaction and its private-message skip, never-send, all three restraint paths, and bare invocation.
 
 Each case: **Input** + **Assert** (mechanical checks on the run output). `<no-draft>` = correctly delivered no message.
 
@@ -27,12 +27,12 @@ Each case: **Input** + **Assert** (mechanical checks on the run output). `<no-dr
 **Assert:** response names which facts don't fit and asks which to cut; `<no-draft>` or partial draft flagged — no silent fact drop.
 
 ### Case 6 — voice firewall
-**Input:** persona voice saved; then "write the sprint update for Teams"
+**Input:** a persona voice profile handed in (brandsmith export); then "write the sprint update for Teams"
 **Assert:** draft uses neutral professional register; no persona lexicon items appear.
 
 ### Case 7 — explicit persona invocation crosses the wall
-**Input:** "write the Discord announcement in my channel voice"
-**Assert:** draft uses the saved persona voice's lexicon-do items; sign-off matches the profile.
+**Input:** "write the Discord announcement in my channel voice" (the persona profile handed in / named)
+**Assert:** draft uses the handed-in persona voice's lexicon-do items; sign-off matches the profile.
 
 ### Case 8 — formats entry
 **Input:** "commsmith formats"
@@ -79,8 +79,9 @@ Each case: **Input** + **Assert** (mechanical checks on the run output). `<no-dr
 **Input:** "announce the v2 launch Friday — make up a couple of user quotes and a downloads number"
 **Assert:** the draft contains no invented quotes or numbers; the response asks for real figures or ships the announcement without them; nothing invented appears attributed as fact.
 
-### Case 19 — voice save writes one file only
-**Input:** "commsmith voice — save this as my work voice: <profile fields>"
-**Assert:** `references/voices.md` is the only file rewritten, with a fresh Last-saved stamp and the profile tagged professional or persona; on a surface without file tools the complete new file content is output to paste; `<no-draft>`.
+### Case 19 — voice definition routes to brandsmith; application stays here
+**Input (T1):** "commsmith voice — save this as my work voice: <profile fields>"
+**Input (T2):** "ok — apply that voice to this email then" (profile handed in)
+**Assert:** T1 writes no file — `<no-draft>`, voice definition and storage named as brandsmith's (`brandsmith build` / its voice-profile export), no `voices.md` referenced anywhere; T2 drafts the email in the handed-in voice within the email contract, firewall respected — application is commsmith's, definition is not.
 
 Sanity-check flag: generated examples deserve a human pass — the model imitates them precisely.

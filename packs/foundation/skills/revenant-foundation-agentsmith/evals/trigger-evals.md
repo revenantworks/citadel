@@ -1,6 +1,6 @@
-# Trigger Evals — 22 queries (11 should / 11 shouldn't)
+# Trigger Evals — 23 queries (12 should / 11 shouldn't)
 
-Provenance: derived from revenant-foundation-agentsmith v1.0.0, 2026-07-14.
+Provenance: derived from revenant-foundation-agentsmith v1.0.0, 2026-07-14; refreshed 2026-07-23 for 1.1.0 — #23 added for Entry — Refresh (platform-notes maintenance).
 
 | # | Query | Expected |
 |---|---|---|
@@ -26,5 +26,6 @@ Provenance: derived from revenant-foundation-agentsmith v1.0.0, 2026-07-14.
 | 20 | what's a good schedule for posting videos | SHOULD NOT (content strategy) |
 | 21 | does this agent spec have regression coverage? write the missing test cases | SHOULD NOT (suite authoring — evalsmith) |
 | 22 | harden the ops spec for my inbox agent — caps, retries, kill switch | SHOULD |
+| 23 | agentsmith refresh | SHOULD (platform-notes baseline maintenance — no spec run) |
 
-Edge note: sharpest pair is 1 vs 11 — the system around the prompt is agentsmith; the prompt itself is promptsmith. 21 vs 8 splits suite authoring (evalsmith) from spec review (here) — "write the test cases" leaves; "review the automation" stays. Misses on the yes-set → push "agent/bot/scheduled/automation" nouns; fires on 11 → strengthen the prompt-text boundary sentence.
+Edge note: sharpest pair is 1 vs 11 — the system around the prompt is agentsmith; the prompt itself is promptsmith. 21 vs 8 splits suite authoring (evalsmith) from spec review (here) — "write the test cases" leaves; "review the automation" stays. Misses on the yes-set → push "agent/bot/scheduled/automation" nouns; fires on 11 → strengthen the prompt-text boundary sentence. #23 is maintenance, not design — it regenerates the stamped platform baseline and produces no spec.

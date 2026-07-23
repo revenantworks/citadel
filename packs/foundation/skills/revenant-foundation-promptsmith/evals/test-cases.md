@@ -1,8 +1,8 @@
 # Test Cases — revenant-foundation-promptsmith
 
-Provenance: derived from revenant-foundation-promptsmith v1.0.0, 2026-07-14.
+Provenance: derived from revenant-foundation-promptsmith v1.0.0, 2026-07-14; Case 29 added 2026-07-23 for 1.1.0 Entry — Model.
 
-28 cases covering every entry point and behavior path — happy-path builds, all three restraint paths, interview mode (offer, run, and mid-exit in one case), all four Keep-going follow-up paths, knowledge-vacuum flagging, structure switches, long-context placement, bare invocation, chaining decisions, adaptive-thinking targets, tier routing and vendor overrides, refresh maintenance mode, quiet-build trace output, and pack-sibling handoff.
+29 cases covering every entry point and behavior path — happy-path builds, all three restraint paths, interview mode (offer, run, and mid-exit in one case), all four Keep-going follow-up paths, knowledge-vacuum flagging, structure switches, long-context placement, bare invocation, chaining decisions, adaptive-thinking targets, tier routing and vendor overrides, the standalone Model entry, refresh maintenance mode, quiet-build trace output, and pack-sibling handoff.
 
 **Assertion-only format.** Each case is an Input plus mechanical checks — the expected-behavior / failure-condition prose of earlier versions is folded into the assertions, with failure conditions expressed as negative assertions ("no X"). Every check resolves to a yes/no by inspecting the run output: a literal string or pattern that must (or must not) appear (shown in `code`), a numeric comparison against a printed score, or the `<no-prompt>` flag — the run delivered no copy-paste prompt block, the correct result for restraint and guidance cases. A case passes only if every assertion holds. Multi-turn cases label assertions T1/T2/T3 by turn.
 
@@ -307,3 +307,7 @@ Provenance: derived from revenant-foundation-promptsmith v1.0.0, 2026-07-14.
 ## Case 28 — score-only run stops at the report
 **Input:** "Score this prompt, don't rewrite it: <prompt>"
 **Assert:** baseline scoreline printed; top findings listed; no rewritten prompt block appears (`<no-prompt>`); at most a one-line offer to improve — no Keep-going selection beyond it.
+
+## Case 29 — Entry — Model: standalone recommendation, no prompt built
+**Input:** "promptsmith model — which model for triaging ~500 support emails a day into six buckets?"
+**Assert:** `<no-prompt>` — no prompt block, no phase ladder, no Keep-going selection; exactly one recommendation in the form `Tier X — vendor + model · effort/depth · one-line why`; the flip condition (what moves it a tier) is stated; the model name comes from `model-snapshot.md` — past a 60-day stamp the run verifies first or recommends by tier name; the cheaper-first note (raise reasoning depth before jumping a tier) appears when it applies; no sourced multi-model comparison is produced (that is loresmith's verdict).

@@ -1,6 +1,6 @@
 # Test Cases — revenant-foundation-brandsmith
 
-16 cases covering every entry point and behavior path — build by ingest and by interview, audit with and without a stored definition (including an already-consistent target), all four exports (including the HTML guide card), the neutral-core and firewall laws, restraint, bare invocation, gating, and both consumer boundaries. Provenance: derived from revenant-foundation-brandsmith v1.0.0, 2026-07-14.
+16 cases covering every entry point and behavior path — build by ingest and by interview, Entry — Apply on a built skill, audit with and without a stored definition (including an already-consistent target), all four exports (including the HTML guide card), the neutral-core and firewall laws, restraint, bare invocation, gating, and the commsmith consumer boundary. Provenance: derived from revenant-foundation-brandsmith v1.0.0, 2026-07-14; Cases 9, 10, and 12 rewritten 2026-07-23 for 1.1.0 (Apply absorbed; export shape renamed).
 
 Each case: **Input** + **Assert** (mechanical checks on run output). `<no-definition>` = correctly refused to invent identity.
 
@@ -36,21 +36,21 @@ Each case: **Input** + **Assert** (mechanical checks on run output). `<no-defini
 **Input:** "brandsmith export — voice profile for commsmith."
 **Assert:** one block with all seven fields (name → allowed surfaces); names the definition version it was cut from.
 
-### Case 9 — export configure payload
-**Input:** "brandsmith export for skillsmith configure."
+### Case 9 — export structural payload
+**Input:** "brandsmith export — the structural payload for skillsmith."
 **Assert:** payload carries token, identity map, palette roles, voice line, license, wordmark; nothing outside the shape.
 
 ### Case 10 — bare invocation
 **Input:** "brandsmith"
-**Assert:** one-line intro naming build/audit/export; states whether a definition is stored; nothing else.
+**Assert:** one-line intro naming build/apply/audit/export; states whether a definition is stored; nothing else.
 
 ### Case 11 — one gate, apply-all skips
 **Input:** "brandsmith audit <tree> — apply all."
 **Assert:** no gate question; scoreline + catalog in one turn.
 
-### Case 12 — consumer boundaries hold
+### Case 12 — message voice routes out; Apply runs here
 **Input:** T1 — "make this email on-brand." T2 — "apply the brand to the skill you're building."
-**Assert:** T1 routes to commsmith with an offer to export the voice profile; T2 routes to skillsmith's cascade with the configure payload offered; `<no-build>` on doing either itself.
+**Assert:** T1 routes to commsmith with an offer to export the voice profile — brandsmith drafts no message; T2 runs Entry — Apply per the application doctrine: name segments confirmed (never silently renamed), palette role tokens land on any HTML, the voice register lands on README/CHANGELOG prose (never the description field), the wordmark on HTML artifacts; unconfigured elements stay neutral and per-element exclusions are honored without ceremony.
 
 ### Case 13 — restraint: already-consistent target
 **Input:** "brandsmith audit <tree that conforms to the stored definition throughout>"
