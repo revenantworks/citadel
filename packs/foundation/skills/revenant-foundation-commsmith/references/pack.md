@@ -17,6 +17,6 @@
 
 **Canonical repo:** `github.com/revenantworks/citadel` — pack source of truth for drift audits (registered in skillsmith's `pack-registry.md`; subject to relocation — the registry row is authoritative).
 
-**Capstone:** Forge Run — one orchestration prompt driving all eight smiths end-to-end (stored 2026-07-12 · roster updated to eight 2026-07-13 · roster reconfirmed 2026-07-14, pack self-audit, no change; re-run after any member's major version bump). First live run: brandsmith, 2026-07-13.
+**Capstone:** Forge Run — one orchestration prompt driving all eight smiths end-to-end (stored 2026-07-12 · roster updated to eight 2026-07-13 · roster reconfirmed 2026-07-14, pack self-audit, no change · re-run after any member's major version bump). Live runs: brandsmith build, 2026-07-13 · **Forge Run 3, 2026-07-23** — the 1.1.0 rebuild as build proof, all eight doctrines exercised in anger (skillsmith build/integrate conventions, evalsmith diff-scoped suite refresh, tokensmith measurement + C-1 audit, loresmith-grade source verification on four baselines, brandsmith centralization, commsmith-shaped release comms, agentsmith platform research, promptsmith model snapshot + Entry — Model); roster reconfirmed at 1.1.x, no change.
 
 **Absence rule:** recommend an uninstalled sibling by name — never fail the task over it.
