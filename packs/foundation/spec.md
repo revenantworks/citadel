@@ -44,14 +44,14 @@ Target: all 8 members → **1.1.0**, pack tag `foundation-v1.1.0`.
 - **Deferred doc cleanup (named, not silent):** README ×3 (skillsmith/commsmith/brandsmith — removed `configure`/`voice` commands + deleted-file tree lines) → Phase 2 U-6 full README rewrite. SOURCES ×2 volatile-file footnotes (brand-config/voices) → Phase 2. evals ×2 (skillsmith `configure` test, commsmith `voice` test) → Phase 6 evalsmith refresh. None are runtime-loaded or build-validated; pack builds clean.
 
 **Phase 2 — Uniformity layer** (all 8) 🔶 IN PROGRESS
-Staged in batches (SKILL.md work split from READMEs): **2A** skillsmith+promptsmith ✅ · **2B** commsmith+agentsmith+brandsmith ✅ · **2C** loresmith+evalsmith+tokensmith (SKILL.md) ⬜ NEXT · **2D** README normalization ×8 (U-6, absorbs Phase 1 doc cleanup) ⬜. (Re-split from an earlier 6-in-one 2B — too large for one clean pass.)
+Staged in batches (SKILL.md work split from READMEs): **2A** skillsmith+promptsmith ✅ · **2B** commsmith+agentsmith+brandsmith ✅ · **2C** loresmith+evalsmith+tokensmith ✅ — **all 8 SKILL.md uniform** · **2D** README normalization ×8 (U-6, absorbs Phase 1 doc cleanup) ⬜ NEXT.
 Volatile taxonomy (decided 2026-07-23): **calendar** (stamped, 60d) = skillsmith rubrics.md, promptsmith model-snapshot.md, tokensmith measurement.md · **event-driven** (restamp on trigger) = skillsmith pack-registry.md, brandsmith brand-definition.md, commsmith channel-profiles.md · **none** = loresmith (re-verifies every run), evalsmith (refresh is target-triggered), **agentsmith TEMP** (platform-notes.md is genuine Phase 4 U-9 research; declared none now, Phase 4 upgrades it + adds its refresh path). metadata.volatile format = YAML list of {file, class, cadence_days?} or [] for none; last-verified date lives in each file's own header stamp (not duplicated in frontmatter); build.py U-7 (Phase 5) validates existence + stamp for calendar class only. NOTE for 2D: commsmith SOURCES.md still calls channel-profiles.md "durable, no stamped baseline" — now declared event-driven; reconcile in the README/SOURCES pass.
-- [~] U-1 `metadata.volatile:` frontmatter block ×8 — 5/8 (skillsmith, promptsmith, agentsmith, commsmith, brandsmith)
-- [~] U-2 uniform `## Volatile surfaces` block — 5/8 (loresmith/evalsmith get class:none + why in 2C)
-- [~] U-3 standardize Restraint-section position (6 move it before entries) — 3/6 (commsmith, agentsmith, brandsmith moved; loresmith/evalsmith/tokensmith in 2C; skillsmith/promptsmith were already canonical)
+- [x] U-1 `metadata.volatile:` frontmatter block ×8 — DONE (all 8; calendar ×3, event-driven ×3, none ×2 counting agentsmith-temp)
+- [x] U-2 uniform `## Volatile surfaces` block ×8 — DONE (loresmith/evalsmith/agentsmith declare none + why)
+- [x] U-3 standardize Restraint-section position — DONE (6 moved: commsmith/agentsmith/brandsmith/loresmith/evalsmith/tokensmith; skillsmith/promptsmith were already canonical; every SKILL.md now Load budget → Volatile surfaces → Restraint → entries)
 - [x] U-4 promptsmith first-class `## Entry — Refresh` — DONE (promoted from Behavior-notes Maintenance; cross-refs fixed)
-- [~] U-5 uniform `## Anti-patterns` section ×8 — 5/8 (skillsmith, promptsmith, agentsmith, commsmith, brandsmith)
-- [ ] U-6 normalize README skeleton ×8 — batch 2D
+- [x] U-5 uniform `## Anti-patterns` section ×8 — DONE (all 8)
+- [ ] U-6 normalize README skeleton ×8 — batch 2D (only Phase 2 item remaining)
 - [x] 5F native-first Packaging rework (skillsmith) — DONE in Phase 1 (landed with the skillsmith rewrite)
 
 **Phase 3 — New capabilities** ⬜

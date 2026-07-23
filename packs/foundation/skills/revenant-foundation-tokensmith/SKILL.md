@@ -3,10 +3,14 @@ name: revenant-foundation-tokensmith
 description: Measures and shrinks the token footprint of LLM-facing text artifacts — prompts, system prompts, SKILL.md bodies, agent specs, CLAUDE.md and project instructions, reference docs — at build time, cutting cost without changing behavior. Trigger when someone wants to slim, compress, or token-optimize an artifact; when something must fit a token or context budget or a cached prefix; when they ask why a prompt, skill, or instruction file costs so many tokens; when an artifact set needs token budgets or a load plan ("tokensmith budget"); when an artifact should be scored for token waste without rewriting it ("tokensmith audit"); or when they say "tokensmith" ("tokensmith refresh" re-verifies ratios and cache mechanics). Covers measure-first estimates with stated methods, a waste taxonomy, a lossless/lossy technique ladder, cache-aware structure, and net-cost accounting. For prompt quality or wording, promptsmith; for skill best-practice conformance, skillsmith; for shortening human-facing messages, commsmith.
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   profile: standalone
   pack: foundation
   brand: revenant
+  volatile:
+    - file: references/measurement.md
+      class: calendar
+      cadence_days: 60
 ---
 
 # revenant-foundation-tokensmith
@@ -27,6 +31,18 @@ Every token an artifact carries is context its user can't spend. tokensmith puts
 ## Load budget
 
 A slim or audit touches **at most two** reference files: `measurement.md` + `waste-taxonomy.md`. A budget run uses the same two. `pack.md` only on boundary doubt about a sibling's territory. Refresh regenerates `measurement.md`'s baseline only. Never load the whole folder.
+
+## Volatile surfaces
+
+One file carries state that ages; everything else is durable doctrine.
+
+- `references/measurement.md` — **calendar** (60-day). The estimation ratios, cache mechanics and rates, and platform reference points, re-verified against primary sources via `tokensmith refresh` (Entry — Refresh); the last-verified date lives in the file's own header stamp.
+
+The `metadata.volatile` block declares this so `skillsmith upkeep` can include tokensmith in a pack-wide sweep.
+
+## Restraint — when not to slim
+
+**Already lean:** the audit says so — motivated findings only, never manufactured ones. **Churn beats savings:** projected recovery under ~10% on an artifact under ~500 tokens isn't worth the diff noise or the cache re-write; say so and stop. **The legibility floor:** an instruction artifact compressed past the point a cold reader can follow it has traded behavior for tokens — symbol registers and telegraphic "caveman" compression belong to runtime output styles, not to artifacts that must instruct reliably. **Mid-flight artifacts** (version-pinned, mid-incident): measure now, slim at the next version bump.
 
 ## Entry — Slim *(default)*
 
@@ -62,9 +78,14 @@ An artifact plus intent to shrink it ("slim this system prompt", "get this SKILL
 
 "tokensmith refresh": no slimming. Re-verify `measurement.md`'s baseline — estimation ratios, cache mechanics and rates, platform reference points — against current primary sources (Anthropic docs first, cross-checks second). Regenerate that file's baseline and Last-verified stamp **only**; the taxonomy and doctrine stay untouched. Dated CHANGELOG line, patch bump. Suggest a refresh when the stamp is >60 days old or platform pricing/mechanics visibly change.
 
-## Restraint — when not to slim
+## Anti-patterns
 
-**Already lean:** the audit says so — motivated findings only, never manufactured ones. **Churn beats savings:** projected recovery under ~10% on an artifact under ~500 tokens isn't worth the diff noise or the cache re-write; say so and stop. **The legibility floor:** an instruction artifact compressed past the point a cold reader can follow it has traded behavior for tokens — symbol registers and telegraphic "caveman" compression belong to runtime output styles, not to artifacts that must instruct reliably. **Mid-flight artifacts** (version-pinned, mid-incident): measure now, slim at the next version bump.
+- **A savings claim with no before/after pair.** Every count states its method; a claim without a measured before and after is a defect, and word counts are never presented as token counts.
+- **A silent lossy cut.** Lossless rungs apply freely; anything that drops a stated behavior, constraint, or eval anchor is cataloged and gated — "just slim it" pre-approves lossless only.
+- **Crossing the lossless floor uninvited.** Stop at the budget or the lossless floor, whichever comes first; a floor short of the budget is reported as exactly that, never silently crossed.
+- **Compressing past legibility.** Symbol registers and telegraphic compression belong to runtime output, not to artifacts that must instruct reliably — past a cold reader's grasp, tokens were bought with behavior.
+- **Churn that beats the savings.** Sub-10% recovery on a small artifact isn't worth the diff noise or a cache re-write — say so and stop.
+- **Slimming a live session.** tokensmith slims the artifacts that feed sessions, never the sessions themselves — runtime context is the platform's job.
 
 ## Behavior notes
 
