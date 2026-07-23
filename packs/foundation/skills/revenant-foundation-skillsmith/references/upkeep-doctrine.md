@@ -43,6 +43,7 @@ Each calendar surface is refreshed by exactly one verb — the owning skill's ow
 | `references/rubrics.md` | skillsmith | `skillsmith refresh` |
 | `references/model-snapshot.md` | promptsmith | `promptsmith refresh` |
 | `references/measurement.md` | tokensmith | `tokensmith refresh` |
+| `references/platform-notes.md` | agentsmith | `agentsmith refresh` |
 
 This map is derived, not hardcoded elsewhere: any member declaring a calendar surface is refreshed by that member's refresh entry. If a new calendar surface joins the pack, it appears in the sweep automatically (it's in `metadata.volatile`) and refreshes through its own member's verb.
 
@@ -65,10 +66,10 @@ One table, whatever the environment:
 | skillsmith   | rubrics.md         | calendar     | 60d     | 2026-07-23    | fresh (Nd left)   |
 | promptsmith  | model-snapshot.md  | calendar     | 60d     | 2026-07-23    | fresh (Nd left)   |
 | tokensmith   | measurement.md     | calendar     | 60d     | 2026-07-23    | fresh (Nd left)   |
+| agentsmith   | platform-notes.md  | calendar     | 60d     | 2026-07-23    | fresh (Nd left)   |
 | skillsmith   | pack-registry.md   | event-driven | —       | —             | n/a (roster trig) |
 | brandsmith   | brand-definition.md| event-driven | —       | —             | n/a (build trig)  |
 | commsmith    | channel-profiles.md| event-driven | —       | —             | n/a (norms trig)  |
-| agentsmith   | —                  | none         | —       | —             | no surface        |
 | loresmith    | —                  | none         | —       | —             | no surface        |
 | evalsmith    | —                  | none         | —       | —             | no surface        |
 ```

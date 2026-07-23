@@ -1,5 +1,7 @@
 # Channel Profiles — the Form Contracts
 
+> **Last restamped: 2026-07-23** *(event-driven — restamped when a platform's conventions visibly change, never on a clock)*. This file is commsmith's one volatile surface, declared in `metadata.volatile`; ask for a channel-profile update in an ordinary request when a platform's norms move.
+
 Load the target channel's section on every draft. Four fields per profile: **register** (tone), **length contract** (ceiling, not target), **structure**, **subject/title rules**.
 
 ## Contents

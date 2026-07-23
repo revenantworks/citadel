@@ -39,7 +39,7 @@ A **voice** is not stored here. Neutral professional is the built-in default; a 
 
 One file carries state that can drift; everything else is durable doctrine.
 
-- `references/channel-profiles.md` — **event-driven**. The per-channel tone registers and length contracts; restamped when a platform's conventions visibly change (asked for in an ordinary request), never on a clock.
+- `references/channel-profiles.md` — **event-driven**. The per-channel tone registers and length contracts; restamped when a platform's conventions visibly change (asked for in an ordinary request), never on a clock. The last-restamped date lives in the file's own header stamp.
 
 The `metadata.volatile` block declares this so `skillsmith upkeep` can include commsmith in a pack-wide sweep.
 

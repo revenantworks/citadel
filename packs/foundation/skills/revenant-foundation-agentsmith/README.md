@@ -12,6 +12,7 @@ revenant-foundation-agentsmith/
 ├── README.md · LICENSE · CHANGELOG.md · SOURCES.md
 ├── references/
 │   ├── design-checklist.md       # the ten control areas (loaded every run)
+│   ├── platform-notes.md         # calendar-volatile, stamped — what platforms provide to enforce the checklist
 │   └── pack.md                   # foundation-pack advisory manifest (stamped)
 └── evals/                        # in full folder-zips, excluded from .skill
     ├── trigger-evals.md          # should/shouldn't queries
@@ -20,7 +21,7 @@ revenant-foundation-agentsmith/
 
 ## Install
 
-Follows the [Agent Skills](https://agentskills.io/) open standard. Drop the folder into your skills directory or upload the archive in Claude settings. Trigger it by asking to design or audit an agent, bot, or scheduled automation, or by saying `agentsmith` (subcommand: `agentsmith audit`).
+Follows the [Agent Skills](https://agentskills.io/) open standard. Drop the folder into your skills directory or upload the archive in Claude settings. Trigger it by asking to design or audit an agent, bot, or scheduled automation, or by saying `agentsmith` (subcommands: `agentsmith audit`, `agentsmith refresh`).
 
 ## Entry points
 
@@ -28,6 +29,7 @@ Follows the [Agent Skills](https://agentskills.io/) open standard. Drop the fold
 |---|---|
 | **design** | New agent from intent → blast radius → ten-area ops spec, one gate |
 | **audit** | "agentsmith audit" at an existing agent/spec → 1–10 per area, finding catalog (P0/P1/P2), one gate |
+| **refresh** | Re-verifies `platform-notes.md` against current platform docs; regenerates only that stamped file |
 
 ## Commands & switches
 
@@ -35,6 +37,7 @@ Follows the [Agent Skills](https://agentskills.io/) open standard. Drop the fold
 |---|---|
 | `agentsmith` | Bare invocation — capability line, then asks what agent to spec or audit |
 | `agentsmith audit` | Points the checklist at an existing agent, prompt, or spec |
+| `agentsmith refresh` | Re-verify the platform-notes baseline (enforcement surfaces, schedulers, kill-switch state); patch bump + repackage. Run at the 60-day stamp |
 
 | In-request switch | Effect |
 |---|---|
@@ -43,7 +46,7 @@ Follows the [Agent Skills](https://agentskills.io/) open standard. Drop the fold
 
 ## Staying current
 
-No volatile surface (`metadata.volatile: []`). The ten-area checklist encodes durable control doctrine, not facts that age on a clock, so there is nothing to refresh and `skillsmith upkeep` skips it. When the pack's audit norms move, audits inherit them through the pack.
+One volatile surface, declared in `metadata.volatile`: `references/platform-notes.md` is **calendar** (60-day) — what current platforms provide to enforce the checklist (permission/hook/sandbox layers, schedulers, kill-switch and injection state), re-verified by `agentsmith refresh`. The ten-area checklist itself is durable control doctrine and never restamped; `skillsmith upkeep` sweeps the platform notes with the pack.
 
 ## Changelog
 
