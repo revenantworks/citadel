@@ -56,11 +56,11 @@ Volatile taxonomy (decided 2026-07-23): **calendar** (stamped, 60d) = skillsmith
 - [x] 5F native-first Packaging rework (skillsmith) — DONE in Phase 1 (landed with the skillsmith rewrite)
 
 **Phase 3 — New capabilities** 🔶 IN PROGRESS
-Batches: **3A** skillsmith Entry — Upkeep (5A) ✅ · **3B** promptsmith Entry — Model (5B) + tier hints (5E) ⬜ NEXT · **3C** foundation CLAUDE.md (5C) ⬜.
+Batches: **3A** skillsmith Entry — Upkeep (5A) ✅ · **3B** promptsmith Entry — Model (5B) + tier hints (5E) ✅ · **3C** foundation CLAUDE.md (5C) ⬜ NEXT.
 - [x] 5A skillsmith `## Entry — Upkeep` — DONE. Pack-wide staleness sweep: reads every member's metadata.volatile, reports calendar-surface status vs cadence (report-only default), runs the mapped refresh verb per overdue surface on approval (rubrics→skillsmith refresh · model-snapshot→promptsmith refresh · measurement→tokensmith refresh), degrades by environment (read-stamps portable; run-refresh needs search+file tools; never auto-commit). New reference `upkeep-doctrine.md`; `upkeep` in description + bare-invocation + README. skillsmith desc now 1022/1024 chars.
-- [ ] 5B promptsmith `## Entry — Model` (recommend tier+model for a live task/conversation; sole home of model data)
-- [ ] 5E durable tier hints in tokensmith + promptsmith (snapshot-free; point to promptsmith Entry — Model for specific names)
-- [ ] 5C foundation `CLAUDE.md` (always-on router + preferences) — not a skill
+- [x] 5B promptsmith `## Entry — Model` — DONE. Standalone tier + model recommendation for a live task (no prompt built); reuses the Phase 5 tier taxonomy (durable S/A/B/C) with names from `model-snapshot.md` (tier-name fallback past the stamp); delivers tier + model + effort + flip condition. Boundary: the Model line stays Phase 5's (attached to a build); a sourced multi-model comparison is loresmith. `promptsmith model` added to bare-invocation + README (description already covered the trigger, left at 1004/1024).
+- [x] 5E durable tier hints — DONE. promptsmith: the tier taxonomy is the durable, snapshot-free layer both Entry — Model and the Model line draw on. tokensmith: model-tier questions now route to promptsmith `Entry — Model` specifically, plus a durable tier→cost note (tokensmith reasons in tiers, never names a model).
+- [ ] 5C foundation `CLAUDE.md` (always-on router + preferences) — not a skill — batch 3C (last Phase 3 item)
 
 **Phase 4 — Baseline refreshes** (restamp 2026-07-23) ⬜
 - [ ] skillsmith `rubrics.md` re-verify + restamp

@@ -62,7 +62,7 @@ Three cases where the right call is no prompt: **already good enough** (score ho
 
 ## Phase 1 — Intake
 
-**Bare invocation** ("promptsmith", no task): reply exactly — *"promptsmith here. I build, score, and harden prompts — from a rough idea to a copy-paste-ready artifact (`promptsmith refresh` updates its model data). What do you want to write or improve?"* — and stop.
+**Bare invocation** ("promptsmith", no task): reply exactly — *"promptsmith here. I build, score, and harden prompts — from a rough idea to a copy-paste-ready artifact (`promptsmith model` recommends a tier + model for a task; `promptsmith refresh` updates its model data). What do you want to write or improve?"* — and stop.
 
 **Refresh invocation** ("promptsmith refresh" / update model data): skip the build; run Entry — Refresh below.
 
@@ -195,6 +195,17 @@ The four choices are fixed by spec — labels that differ are wrong however rele
 ## Entry — Refresh
 
 **"promptsmith refresh"** (or any ask to update model data): no prompt build, no phase ladder, no Keep going selection. (1) Re-research current lineups against the canonical sources named in `model-snapshot.md` — vendor docs first, registries as cross-check. (2) Regenerate `model-snapshot.md` only, with a new Last-verified stamp; never touch durable files. (3) Dated CHANGELOG line; bump the patch version. (4) On claude.ai, repackage and hand back the `.skill`/zip; in Claude Code, edit in place. Suggest a refresh when the stamp is >60 days old or a major model launches.
+
+## Entry — Model
+
+**"promptsmith model"** (or any "which model / which tier should I use for X", "cheapest model that can do Y", "is [model] right for Z" — a live task, not a prompt to build). No prompt is produced: this is the Tier routing logic (Phase 5) invoked directly. The tier taxonomy is durable; only the model *names* come from `model-snapshot.md`.
+
+1. **Read the task's demands** from the conversation — reasoning depth, horizon, volume/latency, stakes, any vendor constraint. Ask one thing only if genuinely undetermined.
+2. **Pick the tier** (S/A/B/C per Phase 5 — frontier / flagship / balanced / fast). Default vendor Claude unless one is named or a Phase 5 override applies (Grok / DeepSeek / Gemini triggers).
+3. **Name the model** from `model-snapshot.md`; past its 60-day stamp, verify against the snapshot's canonical sources or recommend by **tier name** — never a possibly-retired string, never a gated model as a default.
+4. **Deliver one recommendation:** `Tier X — vendor + model · effort/depth · one-line why`, plus the **flip condition** (what moves it up or down a tier) and the cheaper-first note when it applies (raise reasoning-depth before jumping a tier). No prompt block, no phase ladder, no Keep going selection.
+
+The Model line *attached to a built prompt* is Phase 5's job — Entry — Model is the standalone answer when no prompt is in play. A sourced comparison across several models for a decision is loresmith's verdict, not this.
 
 ## Anti-patterns
 

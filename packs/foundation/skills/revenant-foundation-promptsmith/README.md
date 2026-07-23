@@ -38,6 +38,7 @@ Follows the [Agent Skills](https://agentskills.io/) open standard. Drop the fold
 | **build** | Idea or parameters → seven-phase pipeline → prompt in a code block under the Phase 7 header, with a footer (TL;DR, Model line, before → after score, structure) and the Keep going selection |
 | **improve** | An existing prompt → score → confirm structure → rebuild → re-score, with a `Changed` diff instead of the phase ladder |
 | **score** | "score this / don't rewrite" → the five-dimension baseline + top findings, no rewrite |
+| **model** | `promptsmith model` → recommend a tier + model for a live task (no prompt built); tier taxonomy is durable, names from the snapshot |
 | **refresh** | `promptsmith refresh` → re-verify and regenerate `model-snapshot.md` only; patch bump + repackage |
 
 A **quiet build** ("quiet build" / "just the prompt") collapses Phases 1–6 into one trace line. The **HTML prompt card** is hard opt-in — produced only via the Keep going selection or an explicit request — and carries a mandatory **Run on** section so a saved card never strands its reader.
@@ -49,6 +50,7 @@ Named invocations — everything else routes on natural requests ("write me a pr
 | Invocation | What it does |
 |---|---|
 | `promptsmith` | Bare invocation — capability line naming the refresh subcommand, then asks what to write or improve |
+| `promptsmith model` | Recommend a capability tier + the cheapest model clearing it for a live task — flip condition included; no prompt produced. Names come from `model-snapshot.md` (tier-name fallback past the stamp) |
 | `promptsmith refresh` | Re-verify model lineups against the canonical sources in `references/model-snapshot.md`; regenerate the snapshot only, patch bump + repackage. Run at the 60-day stamp or when a major model launches |
 
 | In-request switch | Effect |
