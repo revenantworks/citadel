@@ -22,6 +22,7 @@ revenant-foundation-skillsmith/
 │   ├── description-crafting.md   # trigger writing, boundary sentences, discoverability test
 │   ├── pack-design.md            # whole-pack design: capability map, roster catalog, session staging
 │   ├── pack-integration.md       # integrate doctrine: registry → roster → manifests → release
+│   ├── upkeep-doctrine.md        # upkeep sweep: cadence math, refresh-verb map, degradation by environment
 │   ├── eval-authoring.md         # trigger evals + assertion suites for built skills
 │   └── pack.md                   # foundation-pack advisory manifest (stamped)
 └── evals/                        # maintenance / QA assets — in full folder-zips, excluded from .skill
@@ -31,7 +32,7 @@ revenant-foundation-skillsmith/
 
 ## Install
 
-Follows the [Agent Skills](https://agentskills.io/) open standard. Drop the folder into your platform's skills directory, or upload the archive in Claude settings. Trigger it by asking to build, audit, score, or package a skill, or by saying `skillsmith` (subcommands: `skillsmith refresh`, `skillsmith integrate`, `skillsmith pack`, `skillsmith port`).
+Follows the [Agent Skills](https://agentskills.io/) open standard. Drop the folder into your platform's skills directory, or upload the archive in Claude settings. Trigger it by asking to build, audit, score, or package a skill, or by saying `skillsmith` (subcommands: `skillsmith refresh`, `skillsmith integrate`, `skillsmith pack`, `skillsmith port`, `skillsmith upkeep`).
 
 ## Entry points
 
@@ -40,6 +41,7 @@ Follows the [Agent Skills](https://agentskills.io/) open standard. Drop the fold
 | **build** | Intent → research → niche verdict → one design catalog + gate → package → self-audit → handback |
 | **audit** | Point at any existing skill: dual scoring (best practices + its declared profile), niche verdict, one fix catalog + gate, one consolidated rewrite |
 | **refresh** | Re-verifies the best-practices baseline against canonical sources; regenerates only the stamped section |
+| **upkeep** | Pack-wide staleness sweep: reads every member's `metadata.volatile`, reports each calendar surface's status vs cadence (report-only default), runs the mapped refresh verb per overdue surface on approval — degrading by environment |
 | **port** | Point at an existing skill set + a target: identity-scrubbed, renamed, re-verified copy with a PORT-REPORT — source never modified |
 | **integrate** | Propagate a new or changed member across its pack: registry row, capstone roster line, `pack.md` restamp ×N, packages rebuilt per policy, repo-sync bundle + upload checklist. Offered as "keep going" after every pack build |
 | **pack** | Design and build a whole pack from a domain or role: capability map with adopt-don't-build tiers → one roster gate (trigger-partition table, session plan) → staged builds → set discoverability test → integrate → optional plugin/marketplace prep |
@@ -54,6 +56,7 @@ Named invocations — everything else routes on natural requests ("build me a sk
 |---|---|
 | `skillsmith` | Bare invocation — capability line, then asks what to build or check |
 | `skillsmith refresh` | Re-verify the best-practices baseline in `references/rubrics.md`; patch bump + repackage. Run at the 60-day stamp or when the skill format changes |
+| `skillsmith upkeep` | Sweep the whole pack for stale calendar surfaces (reads each member's `metadata.volatile`); report due/overdue, refresh the approved ones per their owning skill's verb, degrade by environment |
 | `skillsmith port` | Re-issue a skill set for a new owner or purpose — sanitize sweep + rename + stale-ref refresh + PORT-REPORT; the source set is never modified |
 | `skillsmith integrate [member]` | One-operation pack propagation with all-or-notes integrity and a count check; blast radius per the pack's `restamp: eager \| lazy` policy (default lazy) |
 | `skillsmith pack [domain]` | Whole-pack design and build: one roster gate, a persisted `<pack>-spec.md` baton, staged multi-session builds above 3 members, plugin prep on request |

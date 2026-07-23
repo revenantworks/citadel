@@ -1,6 +1,6 @@
 ---
 name: revenant-foundation-skillsmith
-description: Builds, audits, ports, and pack-integrates Agent Skills — from a one-line intent to a packaged, install-ready skill or multi-skill pack passing best practices and its pack's policy profile. Builds spec-clean neutral by default. Trigger when someone wants to create, build, improve, audit, score, or package a skill or SKILL.md; when a whole pack should be designed and built for a domain or role; when they ask whether a skill fills a real niche; when a skill set needs porting or sanitizing for a new owner; when a member change must propagate across a pack (roster, registry, release set); or when they say "skillsmith" (subcommands "refresh" — baseline, "port" — re-issue a set, "pack" — whole-pack build, "integrate" — propagation ("keep going" after a pack build)). Every build ships trigger evals; packages as .skill, zip, or Claude Code plugin. For prompts rather than skills, promptsmith is the right tool; to define, apply, or audit a brand or voice, brandsmith is the right tool.
+description: Builds, audits, ports, and pack-integrates Agent Skills — from a one-line intent to a packaged, install-ready skill or multi-skill pack passing best practices and its pack's policy profile. Builds spec-clean neutral by default. Trigger when someone wants to create, build, improve, audit, score, or package a skill or SKILL.md; when a whole pack should be designed and built for a domain or role; when they ask whether a skill fills a real niche; when a skill set needs porting or sanitizing for a new owner; when a member change must propagate across a pack (roster, registry, release set); or when they say "skillsmith" (subcommands "refresh" — baseline, "port" — re-issue a set, "pack" — whole-pack build, "integrate" — propagation ("keep going" after a pack build), "upkeep" — pack staleness sweep). Every build ships trigger evals; packages as .skill, zip, or Claude Code plugin. For prompts rather than skills, promptsmith is the right tool; to define, apply, or audit a brand or voice, brandsmith is the right tool.
 license: MIT
 metadata:
   version: "1.1.0"
@@ -39,6 +39,7 @@ A standard build touches **at most two** reference files: `rubrics.md` and `buil
 - `build-templates.md` — every build; skeletons, naming render, suites & composition
 - `pack-registry.md` — every build (structural source: naming template, token, profile, license, roster); integrate and pack runs read + write it
 - `pack-integration.md` — every integrate run and the keep-going continuation after a pack-member build
+- `upkeep-doctrine.md` — every upkeep run: the pack-wide staleness sweep, cadence math, calendar-surface → refresh-verb map, degradation by environment
 - `pack-design.md` — every pack run: capability-map tiers, the roster catalog, the pack-spec baton, session staging
 - `description-crafting.md` — writing or fixing a description / trigger boundary
 - `eval-authoring.md` — generating a built skill's trigger evals and test suite
@@ -62,7 +63,7 @@ The `metadata.volatile` block declares these machine-readably so `skillsmith upk
 
 ## Entry — Build
 
-**Bare invocation** ("skillsmith", no task): reply exactly — *"skillsmith here. I build, audit, and port Agent Skills — one skill or a whole pack (`skillsmith pack` designs and builds a roster from a domain; `skillsmith integrate` propagates a member across its pack; `skillsmith refresh` re-verifies the baseline). I build neutral — for brand or voice, that's brandsmith. What do you want to build or check?"* — and stop.
+**Bare invocation** ("skillsmith", no task): reply exactly — *"skillsmith here. I build, audit, and port Agent Skills — one skill or a whole pack (`skillsmith pack` designs and builds a roster from a domain; `skillsmith integrate` propagates a member across its pack; `skillsmith refresh` re-verifies the baseline; `skillsmith upkeep` sweeps the pack for stale volatile surfaces). I build neutral — for brand or voice, that's brandsmith. What do you want to build or check?"* — and stop.
 
 1. **Intent.** Capture what was given; mine the conversation and attachments before asking anything. "Turn this into a skill" means extract the workflow already demonstrated in the conversation — tools used, step order, corrections made — and confirm the gaps. A skill idea plus parameters is enough to proceed; interview only what is genuinely ambiguous, one batch, with a "just build it" fast path.
 2. **Pack & profile.** Resolve the pack from `pack-registry.md` (or register a new pack: name + profile). The pack's profile governs the build; the user may override per build. When the declared profile is looser than the skill needs — it could do its job standalone-clean — say so once and offer the stricter build; construct to the declared profile either way, without nagging.
@@ -128,6 +129,17 @@ Bare "keep going" outside a pack build's continuation offer is ordinary conversa
 ## Entry — Refresh
 
 "skillsmith refresh": no build. Re-verify the best-practices baseline in `rubrics.md` against its canonical sources (Anthropic docs first, community references as cross-check). Regenerate the baseline section and its Last-verified stamp **only**; profile definitions and durable guidance stay untouched. A refreshed pack member also gets its `references/pack.md` regenerated from `pack-registry.md` with a fresh stamp. Dated CHANGELOG line, patch-version bump, repackage per Packaging. Suggest a refresh when the stamp is >60 days old or the skill format visibly changes.
+
+## Entry — Upkeep
+
+"skillsmith upkeep": no build. A pack-wide staleness sweep of every member's calendar-class volatile surface — the payoff of the `metadata.volatile` blocks each member carries. Doctrine detail in `upkeep-doctrine.md`.
+
+1. **Enumerate + read.** List the pack's members from `pack-registry.md`; read each member's frontmatter `metadata.volatile` block. Members are readable directly in a repo workspace, or from the registered canonical repo otherwise.
+2. **Sweep.** For each **calendar** surface, read the referenced file's Last-verified / Last-stamped header and compute status against its `cadence_days` — **OVERDUE** (age ≥ cadence), **due-soon** (within 7 days of the window), or **fresh**. Event-driven surfaces report `n/a` (they restamp on their trigger, not a clock); `none`-class members report no surface.
+3. **Report — the default.** One table: member · surface · class · cadence · last-verified · status. Nothing is refreshed without approval; a clean sweep is a complete deliverable.
+4. **On approval, refresh per surface.** Each overdue calendar surface maps to one refresh verb (`rubrics.md` → `skillsmith refresh` · `model-snapshot.md` → `promptsmith refresh` · `measurement.md` → `tokensmith refresh`); run the ones approved. **Degrade by environment** (`upkeep-doctrine.md` — Degradation): where a surface can be re-verified (web search) and rewritten (file tools) here, do it and hand back the updated file + a paste-ready commit line; where it can't, report the due list and the exact refresh invocations to run in the right environment. Never auto-commit, and never run a refresh the environment can't complete — report it instead.
+
+Upkeep reads and refreshes; it never changes what a skill *does*. A member whose content needs changing is a Build or Audit job on that member.
 
 ## Packaging
 
