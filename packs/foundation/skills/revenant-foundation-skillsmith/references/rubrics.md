@@ -44,11 +44,11 @@ Rubric A is universal: every skill, any profile, is scored against it. Profiles 
 
 **standard** — tools, scripts, packages, and MCPs allowed, each declared with install/availability notes and per-surface behavior (e.g., "no network on the plain API"). Scripts state run-vs-read. Sibling-skill references allowed under the composition contract: which siblings, and absence behavior (degrade or hard-require) stated in the description or compatibility notes.
 
-**custom** — a pack-defined policy list registered in `brand-config.md` (e.g., "internal-only: may assume the org's MCP server; must not call public web"). Audits score against the listed policies verbatim. A custom profile that omits the universal rule is invalid.
+**custom** — a pack-defined policy list registered in `pack-registry.md` (e.g., "internal-only: may assume the org's MCP server; must not call public web"). Audits score against the listed policies verbatim. A custom profile that omits the universal rule is invalid.
 
 ## Pack conformance checks
 
-A pack may register conformance checks in `brand-config.md` — pack-charter rules scored on every member audit alongside Rubric A and the declared profile. Standard anchors; a failed check is a P1 finding naming the exact addition. Registered for `foundation` (adopted 2026-07-13):
+A pack may register conformance checks in `pack-registry.md` — pack-charter rules scored on every member audit alongside Rubric A and the declared profile. Standard anchors; a failed check is a P1 finding naming the exact addition. Registered for `foundation` (adopted 2026-07-13):
 
 - **C-1 drift-audit verb** — the skill carries a first-class way to score an existing artifact of its own kind against the standard it implements and report drift *without rewriting it* (a dedicated audit or verification entry, or a stated score-only path).
 - **C-2 neutral default** — outputs default to a spec-clean neutral identity; brand and persona voice are strictly opt-in per run. A skill with no identity surface at all passes as structurally N/A.
@@ -57,4 +57,4 @@ Checks are pack charter, not universal law: a skill outside the registering pack
 
 ## Audit application notes
 
-Read the audited skill's declared profile first; score against that. Tools on a standard-profile skill are checked for declaration quality, not existence. A skill with no declared profile is scored against Rubric A plus the universal rule only, with a P1 finding to declare one. When the audited skill's pack registers a canonical repo (brand-config registry), drift audits also diff the installed copy against that repo's current state and report installed-vs-canonical drift alongside Rubric A; when the repo is unreachable, score rubric-only and say so. When a build request's profile is looser than the skill needs, note once that a standalone-clean build is possible — an offer, not a nag.
+Read the audited skill's declared profile first; score against that. Tools on a standard-profile skill are checked for declaration quality, not existence. A skill with no declared profile is scored against Rubric A plus the universal rule only, with a P1 finding to declare one. When the audited skill's pack registers a canonical repo (pack-registry), drift audits also diff the installed copy against that repo's current state and report installed-vs-canonical drift alongside Rubric A; when the repo is unreachable, score rubric-only and say so. When a build request's profile is looser than the skill needs, note once that a standalone-clean build is possible — an offer, not a nag.

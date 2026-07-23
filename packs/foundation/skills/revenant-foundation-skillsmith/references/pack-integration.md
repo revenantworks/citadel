@@ -1,6 +1,6 @@
 # Pack Integration — Durable
 
-> Loaded for every Entry — Integrate run and for the keep-going continuation after a pack-member build. The registry in `brand-config.md` is the single canonical roster; everything here reads from it and writes downstream of it.
+> Loaded for every Entry — Integrate run and for the keep-going continuation after a pack-member build. The registry in `pack-registry.md` is the single canonical roster; everything here reads from it and writes downstream of it.
 
 ## Why this entry exists
 
@@ -10,8 +10,8 @@ Adding or changing a pack member used to end at the member's package, leaving th
 
 | Touch | Where | Rule |
 |---|---|---|
-| Registry row | `brand-config.md` → pack members table | One row per member; add/amend first — everything else derives from it |
-| Capstone roster line | `brand-config.md` capstone entry (and the stored capstone card, when reachable) | Member add updates the roster line **only**; a capstone re-run triggers on a member's next major version bump or on request — never on an add |
+| Registry row | `pack-registry.md` → pack members table | One row per member; add/amend first — everything else derives from it |
+| Capstone roster line | `pack-registry.md` capstone entry (and the stored capstone card, when reachable) | Member add updates the roster line **only**; a capstone re-run triggers on a member's next major version bump or on request — never on an add |
 | Roster manifest | `references/pack.md` in **every** member | Generated once from the registry, fresh Last-stamped date, then written byte-identical to all N |
 | Packages | Per Packaging | Blast radius set by the pack's `restamp` policy (below) |
 | Uploads | Per surface | Checklist split *due now / rides next release* — see Surface modes |
@@ -27,7 +27,7 @@ Either way the **repo** copies are always fully restamped — policy governs pac
 
 ## Surface modes
 
-**Chat (no repo access):** deliver (1) rebuilt member archives per the pack's packaging default, (2) one **repo-sync bundle** — a zip of only the changed files at repo-relative paths (`skills/<member>/references/pack.md`, `skills/<registry-member>/references/brand-config.md`, …) so it unzips over the repo root — (3) a paste-ready commit line, (4) the upload checklist. The bundle is additive-only: it never deletes repo files.
+**Chat (no repo access):** deliver (1) rebuilt member archives per the pack's packaging default, (2) one **repo-sync bundle** — a zip of only the changed files at repo-relative paths (`skills/<member>/references/pack.md`, `skills/<registry-member>/references/pack-registry.md`, …) so it unzips over the repo root — (3) a paste-ready commit line, (4) the upload checklist. The bundle is additive-only: it never deletes repo files.
 
 **Repo workspace (Claude Code or equivalent):** edit in place. When the repo carries a pack build script (`tools/build.py` by convention), run it — it re-derives `pack.md` from the registry, syncs all members, validates every skill, and rebuilds `dist/` — instead of packaging natively. `--check` mode is the CI drift guard: it fails when any member's `pack.md` disagrees with the registry.
 

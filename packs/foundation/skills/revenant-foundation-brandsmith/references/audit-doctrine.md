@@ -26,7 +26,7 @@ Anchors per category: **7+** on-brand · **4–6** drifts — inconsistencies a 
 
 ## Export shapes
 
-**Voice profile** (commsmith `voices.md` shape):
+**Voice profile** (the native shape commsmith consumes):
 
     name · register · cadence · lexicon-do · lexicon-don't · sign-off · allowed surfaces
 

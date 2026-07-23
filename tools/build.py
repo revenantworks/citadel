@@ -2,7 +2,7 @@
 """citadel — multi-pack build: sync, validate, package.
 
 Single source of truth: the pack tables in
-packs/foundation/skills/revenant-foundation-skillsmith/references/brand-config.md.
+packs/foundation/skills/revenant-foundation-skillsmith/references/pack-registry.md.
 Every pack under packs/ is derived from its `**<pack> members**` table there —
 no second manifest to drift. The marketplace catalog is cross-checked, not derived.
 
@@ -24,7 +24,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PACKS = ROOT / "packs"
 DIST = ROOT / "dist"
-REGISTRY = PACKS / "foundation" / "skills" / "revenant-foundation-skillsmith" / "references" / "brand-config.md"
+REGISTRY = PACKS / "foundation" / "skills" / "revenant-foundation-skillsmith" / "references" / "pack-registry.md"
 MARKETPLACE = ROOT / ".claude-plugin" / "marketplace.json"
 
 CHECK = "--check" in sys.argv
@@ -89,7 +89,7 @@ def render_pack_md(pack: str, profile: str, members, cap, repo, conf) -> str:
     rows = "\n".join(f"| `{m}` | {j} | {r} |" for m, j, r in members)
     return f"""# Pack — {pack} *({profile} profile)*
 
-> Advisory only — consulted on boundary doubt; initial routing stays at the name + description level. **Last stamped: {date.today().isoformat()}** ({n_word}-member roster + canonical repo; generated from the registry in skillsmith's `brand-config.md`).
+> Advisory only — consulted on boundary doubt; initial routing stays at the name + description level. **Last stamped: {date.today().isoformat()}** ({n_word}-member roster + canonical repo; generated from the registry in skillsmith's `pack-registry.md`).
 
 | Member | Job | Route there when |
 |---|---|---|
@@ -97,7 +97,7 @@ def render_pack_md(pack: str, profile: str, members, cap, repo, conf) -> str:
 
 **Pack conformance checks** (adopted {adopted}, scored on every member audit): **{checks.replace(' · ', '** · **')}**.
 
-**Canonical repo:** {repo} — pack source of truth for drift audits (registered in skillsmith's `brand-config.md`; subject to relocation — the registry row is authoritative).
+**Canonical repo:** {repo} — pack source of truth for drift audits (registered in skillsmith's `pack-registry.md`; subject to relocation — the registry row is authoritative).
 
 **Capstone:** {cap}
 

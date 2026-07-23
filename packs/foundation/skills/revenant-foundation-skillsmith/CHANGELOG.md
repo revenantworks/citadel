@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.0] - 2026-07-23
+
+Brand decoupled (Forge Run 3, Phase 1). skillsmith now builds spec-clean neutral and stamps only structural identity; the `configure` entry and the brand cascade were removed — brand definition, voice, and application are brandsmith's, applied on invoke. Registry split: the structural roster moved from the retired `brand-config.md` to the new `pack-registry.md` (build.py derives manifests from there); the cascade doctrine `brand-inheritance.md` moved to brandsmith as `application-doctrine.md`. Packaging reworked native-first (validate by inspection; shell only for multi-file archives). Description updated to match; routing boundary preserved.
+
 ## [1.0.1] - 2026-07-14
 
 Registry notes in references/brand-config.md updated to the completed-relocation

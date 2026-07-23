@@ -17,7 +17,7 @@ Read on every build. Skeletons are starting points, not quotas — include only 
 
 ## Naming render rules
 
-Template: **`<brand>-<pack>-<skill>`** — three segments from `brand-config.md` (brand) + the pack registry (pack) + the build (skill). Render lowercase, hyphens only, no leading/trailing/consecutive hyphens. **64-char guard:** if the rendered name exceeds 64 chars, warn and propose a shorter skill segment or pack token before proceeding — never silently truncate. Unbranded (neutral) builds drop brand and pack and use a plain descriptive skill name, gerund form preferred (e.g. `auditing-contracts`). The folder name always equals the rendered `name` exactly.
+Template: **`<brand>-<pack>-<skill>`** — three segments from `pack-registry.md` (brand) + the pack registry (pack) + the build (skill). Render lowercase, hyphens only, no leading/trailing/consecutive hyphens. **64-char guard:** if the rendered name exceeds 64 chars, warn and propose a shorter skill segment or pack token before proceeding — never silently truncate. Unbranded (neutral) builds drop brand and pack and use a plain descriptive skill name, gerund form preferred (e.g. `auditing-contracts`). The folder name always equals the rendered `name` exactly.
 
 ## Frontmatter skeleton
 
@@ -25,7 +25,7 @@ Template: **`<brand>-<pack>-<skill>`** — three segments from `brand-config.md`
 ---
 name: <rendered-name>
 description: <what + when, third person, ≤1024 chars — see description-crafting.md>
-license: <from brand-config, default MIT>
+license: <from pack-registry, default MIT>
 metadata:
   version: "1.0.0"
   profile: <standalone | standard | custom:<pack-policy>>

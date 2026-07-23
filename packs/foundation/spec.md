@@ -30,23 +30,27 @@ Target: all 8 members → **1.1.0**, pack tag `foundation-v1.1.0`.
 - [x] D-3 · this baton's version contradiction reconciled to the shipped 1.0.0 state
 - [x] D-4 · RUNBOOK claude.ai/swap section corrected (config-carrying surfaces named)
 
-**Phase 1 — Brand decoupling** ⬜ NEXT
-- [ ] Split skillsmith `brand-config.md`: brand half → brandsmith; pack-registry half → skillsmith `pack-registry.md` (build.py derives from here)
-- [ ] Move `brand-inheritance.md` (cascade doctrine) skillsmith → brandsmith
-- [ ] Fold `voices.md` into brandsmith's definition; commsmith sheds it
-- [ ] skillsmith build path → neutral-default + thin brand-token stamp only
-- [ ] commsmith → channel-correct + neutral-default; voice sourced from brandsmith on request
-- [ ] Point build.py at `pack-registry.md`'s new location
-- [ ] Swap masters → 2 surfaces {brand-definition (incl. voices), prompt-card}
+**Phase 1 — Brand decoupling** ✅ DONE 2026-07-23
+- [x] Split skillsmith `brand-config.md`: brand styling → brandsmith definition; structural roster → skillsmith `pack-registry.md` (build.py derives from here)
+- [x] Move cascade doctrine skillsmith `brand-inheritance.md` → brandsmith `application-doctrine.md` (reframed as on-invoke Apply)
+- [x] Fold `voices.md` into brandsmith's definition (Voice profile section); commsmith sheds it
+- [x] skillsmith build path → neutral-default + structural-identity stamp only; `## Entry — Configure` removed
+- [x] commsmith → channel-correct + neutral-voice default; voice sourced from brandsmith export on request; `## Entry — Voice` removed
+- [x] brandsmith → single home of brand + voice; new `## Entry — Apply`; Export voice profile now native
+- [x] Point build.py at `pack-registry.md`; all 8 `pack.md` regenerated; `build.py --check` clean, count 8=8=8
+- [x] 5F native-first Packaging (skillsmith) — landed here early (validate-by-inspection default, optional shell hard-check, zip only as multi-file fallback); Phase 2's 5F box is satisfied
+- [x] 3 changed skills bumped to 1.1.0 on main w/ dated CHANGELOG entries (ride to the Phase 6 tag)
+- Swap masters now 2 surfaces {brandsmith brand-definition (incl. voice profile), promptsmith prompt-card} — commsmith voices.md retired from the swap set
+- **Deferred doc cleanup (named, not silent):** README ×3 (skillsmith/commsmith/brandsmith — removed `configure`/`voice` commands + deleted-file tree lines) → Phase 2 U-6 full README rewrite. SOURCES ×2 volatile-file footnotes (brand-config/voices) → Phase 2. evals ×2 (skillsmith `configure` test, commsmith `voice` test) → Phase 6 evalsmith refresh. None are runtime-loaded or build-validated; pack builds clean.
 
-**Phase 2 — Uniformity layer** (all 8) ⬜
+**Phase 2 — Uniformity layer** (all 8) ⬜ NEXT
 - [ ] U-1 `metadata.volatile:` frontmatter block ×8
 - [ ] U-2 uniform `## Volatile surfaces` block (loresmith/evalsmith declare class:none + why)
 - [ ] U-3 standardize Restraint-section position (6 move it before entries)
 - [ ] U-4 promptsmith first-class `## Entry — Refresh`
 - [ ] U-5 uniform `## Anti-patterns` section ×8
 - [ ] U-6 normalize README skeleton ×8
-- [ ] 5F native-first Packaging rework (skillsmith): no mandatory shell; validate by inspection, shell one-liner optional; zip = multi-file-in-shell fallback only
+- [x] 5F native-first Packaging rework (skillsmith) — DONE in Phase 1 (landed with the skillsmith rewrite)
 
 **Phase 3 — New capabilities** ⬜
 - [ ] 5A skillsmith `## Entry — Upkeep` (pack-wide stamp check via metadata.volatile; report-only default; runs refresh verbs on approval; degrades per surface)
@@ -86,12 +90,12 @@ per-surface staleness window. First upkeep due ~2026-09-21 (all stamps reset 07-
 
 | Member | Job (one line) | Status | Version @ pack 1.0.0 |
 |---|---|---|---|
-| `revenant-foundation-skillsmith` | Builds, audits, brands, and ports Agent Skills and packs | SHIPPED | 1.0.0 ¹ |
+| `revenant-foundation-skillsmith` | Builds, audits, and ports Agent Skills and packs (neutral by default) | SHIPPED | 1.0.0 ¹ |
 | `revenant-foundation-promptsmith` | Builds, scores, and hardens prompts with model-tier routing | SHIPPED | 1.0.0 ¹ |
-| `revenant-foundation-commsmith` | Shapes messages per channel, audience, and saved voice; audits drift | SHIPPED | 1.0.0 |
+| `revenant-foundation-commsmith` | Shapes messages per channel and audience; neutral-voice default; audits drift | SHIPPED | 1.0.0 |
 | `revenant-foundation-agentsmith` | Designs and audits autonomous agent systems | SHIPPED | 1.0.0 |
 | `revenant-foundation-loresmith` | Research-verified verdicts and playbook reference docs | SHIPPED | 1.0.0 |
-| `revenant-foundation-brandsmith` | Builds the brand definition; audits everything for drift (7 categories); exports payloads + HTML guide card | SHIPPED | 1.0.0 |
+| `revenant-foundation-brandsmith` | Single home of brand + voice; defines, applies on invoke, audits for drift, exports payloads + HTML guide card | SHIPPED | 1.0.0 |
 | `revenant-foundation-evalsmith` | Authors and audits eval suites — build-time, zero runtime deps | SHIPPED | 1.0.0 |
 | `revenant-foundation-tokensmith` | Measures, budgets, and slims the token footprint of LLM-facing artifacts | SHIPPED | 1.0.0 |
 
@@ -101,8 +105,10 @@ per-surface staleness window. First upkeep due ~2026-09-21 (all stamps reset 07-
 
 Re-run 2026-07-14 against the real shipped descriptions — **12/12 route to
 exactly one destination**; every member appears once; two near-misses exit the
-pack correctly. Re-run again as a set at Phase 6 (descriptions untouched by the
-1.1.0 build, so expected to hold).
+pack correctly. **Phase 1 changed 3 descriptions** (skillsmith dropped brand/configure;
+commsmith neutral-voice default; brandsmith now brand+voice+apply) — the boundaries
+sharpened rather than blurred (skillsmith=skills, brandsmith=brand/voice, commsmith=messages),
+but this makes the Phase 6 set re-run a real check, not a formality.
 
 | # | Realistic request | Routes to |
 |---|---|---|
@@ -183,4 +189,10 @@ Strong incumbents own these jobs — recorded, linked, left out of the roster.
   re-run, combine analysis, capability map, F1+F2 applied, release kit assembled.
 - 2026-07-23 — Forge Run 3 approved; full 1.1.0 plan written into this baton;
   Phase 0 (repo hygiene) executed (homepage, doc removals, version
-  reconciliation, RUNBOOK swap correction). Next: Phase 1 brand decoupling.
+  reconciliation, RUNBOOK swap correction).
+- 2026-07-23 — **Phase 1 (brand decoupling) executed** in sandbox, verified
+  `build.py --check` clean (count 8=8=8). brandsmith = single home of brand+voice;
+  skillsmith + commsmith build neutral by default; registry split to
+  `pack-registry.md`; 3 skills → 1.1.0. Delivered as repo-sync bundle + git
+  commands (3 `git rm` deletions). Doc cleanup for READMEs/SOURCES/evals deferred
+  to Phase 2/6 (listed under Phase 1). Next: Phase 2 uniformity layer.

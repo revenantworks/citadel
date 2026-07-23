@@ -34,7 +34,9 @@ Templates per artifact class (repos, skills, packs, files, titles) go here — e
 
 Faces per brand role, hierarchy, open-license fallback stacks.
 
-### Voice + register map *(empty)*
+### Voice profile + register map *(empty)*
+
+The single home of voice: name · register · cadence · lexicon do/don't · sign-off · allowed surfaces, plus which surfaces get which register. commsmith consumes this profile (via export) to apply a voice to one message; Entry — Apply consumes it to set prose register on a README, CHANGELOG, or artifact. With none defined, everything downstream defaults to neutral professional.
 ### Taglines / sign-offs *(empty)*
 
 Each with its allowed surfaces.

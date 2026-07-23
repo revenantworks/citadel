@@ -16,4 +16,4 @@ Write ten realistic requests before finalizing: seven that should trigger, three
 
 ## Anti-patterns
 
-Vague capability statements ("helps with documents"); author-side vocabulary the user won't type; when-to-use guidance buried in the body; breadth that annexes an adjacent skill's triggers; brand language occupying trigger budget (brand belongs in name and README — see `brand-inheritance.md`).
+Vague capability statements ("helps with documents"); author-side vocabulary the user won't type; when-to-use guidance buried in the body; breadth that annexes an adjacent skill's triggers; brand language occupying trigger budget (brand belongs in name and README, and is applied by brandsmith — never in the description).

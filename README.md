@@ -53,7 +53,7 @@ brand/                            # the Revenant house brand guide + HTML card
 tools/build.py                    # registry-derived sync + validation + dist zips (--check = CI mode)
 ```
 
-Member versions are independent semver; pack releases tag as `<pack>-vX.Y.Z` and CI attaches every member zip to the release. Single source of truth for rosters: the pack tables in skillsmith's `brand-config.md` — `tools/build.py` derives the manifests and refuses drift.
+Member versions are independent semver; pack releases tag as `<pack>-vX.Y.Z` and CI attaches every member zip to the release. Single source of truth for rosters: the pack tables in skillsmith's `pack-registry.md` — `tools/build.py` derives the manifests and refuses drift.
 
 Always comes back.
 
