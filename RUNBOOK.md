@@ -13,17 +13,33 @@
 
 ## Install / update on claude.ai
 Per skill: download the member zip from Releases -> Customize -> Skills -> + ->
-Create skill -> upload (updating is delete-then-re-upload). **brandsmith:**
-repo zips ship a *neutral* `references/brand-definition.md`; keep your
-configured definition file when updating (swap it into the new zip first).
+Create skill -> upload. Updating is delete-then-re-upload; no CLI exists for
+consumer skill upload, so this is the one unavoidable manual step.
+
+**Config-carrying members ship *neutral* in the repo by law — swap your private
+config in before uploading.** `apply-install-swaps.py` overlays your private
+files onto the neutral repo copies and emits install-ready zips; upload those,
+not the neutral `dist/` zips. The script hard-fails if pointed at neutral copies.
+Config-carrying surfaces:
+
+| Member | Neutral file in repo | Swap in your... |
+|---|---|---|
+| brandsmith | `references/brand-definition.md` | active brand definition |
+| commsmith | `references/voices.md` | saved voices |
+| promptsmith | `references/prompt-card.md` | install edition of the card |
+
+> **Coming in the 1.1.0 build (Phase 1, brand decoupling):** `voices.md` folds
+> into brandsmith's definition, reducing the swap surfaces from three to two
+> ({brand-definition, prompt-card}). Revisit this table when that phase lands.
 
 ## Install / update in Claude Code
 `/plugin marketplace add revenantworks/citadel` once, then
-`/plugin install <pack>@revenant`.
+`/plugin install <pack>@revenant`. No zips, no swaps - installs from the repo;
+config lives in your local `~/.claude` copy.
 
 ## Add a member or a pack
-New member: build it, add its registry row (brand-config.md members table),
-run `python tools/build.py`, upload per policy. New pack: add the pack row +
+New member: build it, add its registry row (registry members table), run
+`python tools/build.py`, upload per policy. New pack: add the pack row +
 `**<pack> members**` table to the registry, create `packs/<pack>/` with its
 `.claude-plugin/plugin.json`, add the marketplace catalog entry, run the build.
 
