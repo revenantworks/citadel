@@ -4,6 +4,14 @@ All notable changes to the citadel repository and its packs are recorded here.
 The format follows Keep a Changelog and packs use Semantic Versioning; releases
 tag per pack as `<pack>-vX.Y.Z`, and each member keeps its own `CHANGELOG.md`.
 
+## [Unreleased]
+
+`tools/build.py` now validates each member's `metadata.volatile` block (U-7,
+Forge Run 3 Phase 5): the block must exist (`[]` for none), classes must be
+`calendar` or `event-driven`, declared files must exist, and calendar surfaces
+additionally need a sane `cadence_days` (7–365) and a dated header stamp —
+checked in both `--check` (CI) and full-build modes.
+
 ## [foundation-v1.0.0] - 2026-07-14
 
 **Citadel 1.0 - launch release.** First public release under

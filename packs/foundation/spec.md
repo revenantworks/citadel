@@ -70,11 +70,11 @@ Batches: **4A** promptsmith model-snapshot ✅ · **4B** skillsmith rubrics + to
 - [x] U-9 agentsmith `platform-notes.md` — DONE (new stamped baseline, verified 2026-07-23, real research). Contents: enforcement surfaces per platform (Claude Code 3-gate permissions/sandbox/hooks incl. hook-CVE attack-surface notes + exit-0 footgun; Cowork native cadences hourly/daily/weekly/weekdays; OpenAI Agents SDK guardrails/resumable approvals, Agent Builder EOL 2026-11-30; MCP allowlists + server CVEs), scheduling surfaces, layered kill-switch doctrine (CISA/NSA 2026-04 guidance, EU/SG regs, governance-gap stats), injection state (unsolved — blast-radius limitation; agent commits leak credentials ~2× baseline), checklist-area→mechanism map. agentsmith volatile [] → calendar 60d; Volatile surfaces + Load budget rewritten; new `## Entry — Refresh`; description 1019/1024; README updated. skillsmith upkeep-doctrine verb map + example gained the 4th calendar row.
 - [x] U-10 commsmith `channel-profiles.md` — DONE: event-driven header stamp added (Last restamped 2026-07-23) so the declaration, file, and upkeep read one dated surface; SKILL volatile section points at it. **Phase 4 COMPLETE.**
 
-**Phase 5 — Toolchain + validation** ⬜ NEXT
-- [ ] U-7 extend build.py: validate every declared volatile surface exists, is stamped, sane cadence
-- [ ] Run build.py — regenerate pack.md ×8, validate, build dist zips
+**Phase 5 — Toolchain + validation** ✅ DONE 2026-07-23
+- [x] U-7 build.py `validate_volatile()` — DONE. Stdlib parse (no yaml dep); rules: block required on all 8 (`[]` for none) · class ∈ {calendar, event-driven} · declared file exists · calendar needs sane cadence_days 7–365 + dated header stamp (`Last verified/restamped/stamped: YYYY-MM-DD`, not future) · event-driven must not carry cadence_days. Wired into validate_skill, runs in --check and full modes; docstring updated; root CHANGELOG gained an Unreleased note. **Two real bugs the 8-case negative-test matrix caught before shipping:** (1) the `[]` regex had optional brackets, so the bare `volatile:` line of every LIST also matched and the validator early-returned — passed clean trees, validated nothing; fixed to require literal `[]`. (2) stamp search window was 6 lines — rubrics.md legitimately stamps its volatile *section* (~line 18, only that section is volatile), previously masked by bug 1; widened to 40 lines with a comment. All 7 failure modes proven firing on exactly the mutated member; clean trees pass.
+- [x] Run build.py full — DONE (sandbox): 8/8 dist zips at 1.1.0, 0 manifests synced (no registry drift), all validation incl. U-7 green. dist/ is gitignored (release artifacts; CI attaches on tag).
 
-**Phase 6 — Eval + release integrity** ⬜
+**Phase 6 — Eval + release integrity** ⬜ NEXT
 - [ ] evalsmith event-driven refresh across all 8 (structure changed) — touched cases only
 - [ ] Re-run the 12-row trigger-partition test as a set (release bar)
 - [ ] All 8 → 1.1.0, dated CHANGELOG ×8, pack tag `foundation-v1.1.0`

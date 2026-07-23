@@ -6,6 +6,10 @@ packs/foundation/skills/revenant-foundation-skillsmith/references/pack-registry.
 Every pack under packs/ is derived from its `**<pack> members**` table there —
 no second manifest to drift. The marketplace catalog is cross-checked, not derived.
 
+Validation covers frontmatter identity/description/body limits, CHANGELOG-version
+agreement, and the `metadata.volatile` block (U-7): legal classes, and for
+calendar-class surfaces a sane cadence, an existing file, and a dated header stamp.
+
 Usage:
   python3 tools/build.py            sync pack.md -> all members in all packs, validate, build dist/ zips
   python3 tools/build.py --check    CI mode: validate + report drift, write nothing, exit 1 on any problem
@@ -105,6 +109,70 @@ def render_pack_md(pack: str, profile: str, members, cap, repo, conf) -> str:
 """
 
 
+def validate_volatile(folder: Path, fm: str) -> None:
+    """U-7: validate the metadata.volatile block (stdlib parse, no yaml needed).
+
+    Rules: block must exist (uniform layer); entries need file + class
+    (calendar | event-driven); the referenced file must exist. Calendar
+    entries additionally need a sane cadence_days (7-365) and a dated
+    header stamp (Last verified/restamped/stamped: YYYY-MM-DD) in the
+    file's first lines; event-driven entries must not carry cadence_days.
+    """
+    m = re.search(r"^\s*volatile:\s*\[\s*\]\s*$", fm, re.M)
+    block_m = re.search(r"^(\s*)volatile:\s*$((?:\n\1\s+.*)+)", fm, re.M)
+    if not m and not block_m:
+        fail(f"{folder.name}: metadata.volatile missing (uniform layer requires it — [] for none)")
+        return
+    if m:  # volatile: []
+        return
+    entries, cur = [], None
+    for line in block_m.group(2).splitlines():
+        if not line.strip():
+            continue
+        item = re.match(r"\s*-\s+file:\s*(\S+)", line)
+        kv = re.match(r"\s+(class|cadence_days):\s*(\S+)", line)
+        if item:
+            cur = {"file": item.group(1)}
+            entries.append(cur)
+        elif kv and cur is not None:
+            cur[kv.group(1)] = kv.group(2)
+        else:
+            fail(f"{folder.name}: metadata.volatile has an unparseable line: {line.strip()!r}")
+    if not entries:
+        fail(f"{folder.name}: metadata.volatile block declares no entries (use [] for none)")
+    for e in entries:
+        ref, cls = e.get("file", "?"), e.get("class")
+        if cls not in ("calendar", "event-driven"):
+            fail(f"{folder.name}: volatile {ref}: class {cls!r} not calendar|event-driven")
+            continue
+        target = folder / ref
+        if not target.is_file():
+            fail(f"{folder.name}: volatile {ref}: declared file does not exist")
+            continue
+        if cls == "event-driven":
+            if "cadence_days" in e:
+                fail(f"{folder.name}: volatile {ref}: event-driven must not carry cadence_days")
+            continue
+        # calendar
+        cad = e.get("cadence_days")
+        if not (cad and cad.isdigit() and 7 <= int(cad) <= 365):
+            fail(f"{folder.name}: volatile {ref}: calendar cadence_days {cad!r} not a sane integer (7-365)")
+        # Stamp may sit at the file head (model-snapshot, measurement, platform-notes)
+        # or at the head of the file's volatile *section* (rubrics.md ~line 18) —
+        # 40 lines covers both; the strict "Last …:" form avoids prose dates.
+        head = "\n".join(target.read_text(encoding="utf-8").splitlines()[:40])
+        stamp = re.search(r"Last (?:verified|restamped|stamped):\s*(\d{4}-\d{2}-\d{2})", head)
+        if not stamp:
+            fail(f"{folder.name}: volatile {ref}: calendar file has no dated header stamp")
+        else:
+            try:
+                d = date.fromisoformat(stamp.group(1))
+                if d > date.today():
+                    fail(f"{folder.name}: volatile {ref}: stamp {stamp.group(1)} is in the future")
+            except ValueError:
+                fail(f"{folder.name}: volatile {ref}: stamp {stamp.group(1)!r} is not a valid date")
+
+
 def validate_skill(folder: Path) -> str | None:
     """Return the member's version, recording problems as we go."""
     sk = folder / "SKILL.md"
@@ -139,6 +207,7 @@ def validate_skill(folder: Path) -> str | None:
     body_lines = parts[2].count("\n")
     if body_lines > 500:
         fail(f"{folder.name}: SKILL.md body {body_lines} lines > 500")
+    validate_volatile(folder, fm)
     fm_ver = ver.group(1) if ver else "0.0.0"
     changelog = folder / "CHANGELOG.md"
     if changelog.exists():
