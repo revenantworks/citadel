@@ -2,7 +2,7 @@
 
 ## [1.1.0] - 2026-07-23
 
-Became the single home of brand and voice (Forge Run 3, Phase 1). Absorbed the voice profile (commsmith consumes it via export) and the skill-application cascade as the new `application-doctrine.md`; added Entry — Apply to brand a built skill, artifact, repo, or document on invoke. Export's voice profile is now native rather than commsmith-shaped; boundary sentences inverted (skillsmith builds neutral; commsmith applies a message voice by consuming the export). Description and load budget updated.
+Became the single home of brand and voice (Forge Run 3, Phase 1). Absorbed the voice profile (commsmith consumes it via export) and the skill-application cascade as the new `application-doctrine.md`; added Entry — Apply to brand a built skill, artifact, repo, or document on invoke. Export's voice profile is now native rather than commsmith-shaped; boundary sentences inverted (skillsmith builds neutral; commsmith applies a message voice by consuming the export). Description and load budget updated. Phase 2 uniformity layer (same version, unreleased): added the `metadata.volatile` block (`brand-definition.md` event-driven), a matching `## Volatile surfaces` section, a uniform `## Anti-patterns` section, and moved Restraint to the canonical position (after Load budget).
 
 ## [1.0.0] - 2026-07-14
 

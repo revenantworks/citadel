@@ -3,10 +3,11 @@ name: revenant-foundation-agentsmith
 description: Designs and audits the system around an autonomous or scheduled agent — everything but the prompt text. Trigger when someone wants to design, spec, harden, review, or audit an agent, bot, scheduled task, or automation that acts on its own; when they ask about guardrails, kill switches, run cadence, retries, failure handling, protected resources, output contracts, or agent-to-agent handoffs; when untrusted content (email, web pages, documents) flows through an agent and needs isolation; or when they say "agentsmith" ("agentsmith audit" points the checklist at an existing agent or spec). Design mode covers cadence, soft-vs-hard guardrail tiers, kill-switch layers, protected-resource declarations, handoff schemas, output contracts, the zero-signal rule, failure/retry rules, injection hygiene, and trust tiers for untrusted content. Audit mode scores an existing spec on the same checklist. For the agent's prompt text, promptsmith is the right tool; code-level threat coverage belongs to a security harness.
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   profile: standalone
   pack: foundation
   brand: revenant
+  volatile: []
 ---
 
 # revenant-foundation-agentsmith
@@ -27,6 +28,14 @@ The system around the prompt. An agent that acts on its own needs decisions no p
 
 Both modes touch **one** reference file: `design-checklist.md` — the ten control areas with their options and defaults. Reach further only for `pack.md` on boundary doubt about a sibling's territory.
 
+## Volatile surfaces
+
+**None.** agentsmith encodes durable agent-design doctrine — the ten control areas and the trust-tier rule don't age on a clock, and nothing is cached to a baseline that could go stale. `metadata.volatile: []`, so `skillsmith upkeep` correctly skips it.
+
+## Restraint — when not to spec
+
+**No kill switch possible** (the action is irreversible and instant at the agent's own discretion — moving money without review, deleting without trash): agentsmith won't polish that design; it says the human-approval gate is the spec and stops. **Deceptive or harassing purpose:** decline in one sentence, offer the legitimate version. **An already-sound spec** under audit: say so; motivated findings only.
+
 ## Entry — Design
 
 A new agent from intent ("a morning scan that emails me watchlist signals"). Mine the conversation for what acts, on what schedule, touching which resources; ask one batch only for what's genuinely missing. Then walk `design-checklist.md` — all ten areas, in order — and emit the **ops spec**: one section per area, each carrying the chosen control and the one-line why. Protected resources are declared by name with the rule that guards them. The spec closes with the kill-switch drill: the exact phrase or action that halts the agent, and the hard layer behind it.
@@ -45,9 +54,13 @@ Any agent that reads content it didn't author (email bodies, web pages, fetched 
 
 An agent whose reader can also act is one crafted email away from being someone else's agent — that sentence goes in every spec that earns it.
 
-## Restraint — when not to spec
+## Anti-patterns
 
-**No kill switch possible** (the action is irreversible and instant at the agent's own discretion — moving money without review, deleting without trash): agentsmith won't polish that design; it says the human-approval gate is the spec and stops. **Deceptive or harassing purpose:** decline in one sentence, offer the legitimate version. **An already-sound spec** under audit: say so; motivated findings only.
+- **Speccing without blast radius.** The first question is what the agent can damage; every control is sized to that answer — a spec that skips it is not a spec.
+- **A reader that can also act.** Any tier touching untrusted content runs read-only; free-form text from a lower tier never becomes an instruction in a higher one.
+- **A scheduled agent with no zero-signal line.** Silence is a failure mode — a no-findings run emits a dated "no signal" so a dead run is distinguishable from a quiet one.
+- **Polishing an undesignable agent.** When no kill switch is possible (irreversible and instant at the agent's discretion), the human-approval gate *is* the spec — don't decorate around it.
+- **Padding past the checklist.** Ten areas is a ceiling, not a quota — a read-only summarizer needs three sections and says why the rest don't apply.
 
 ## Behavior notes
 

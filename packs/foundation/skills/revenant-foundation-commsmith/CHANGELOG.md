@@ -2,7 +2,7 @@
 
 ## [1.1.0] - 2026-07-23
 
-Brand decoupled (Forge Run 3, Phase 1). Voice ownership moved to brandsmith — the volatile `voices.md` and the `commsmith voice` entry were removed. commsmith now drafts neutral professional by default and applies a specific voice only when named or handed in, consuming brandsmith's exported voice profile. Description updated; channel and message behavior otherwise unchanged.
+Brand decoupled (Forge Run 3, Phase 1). Voice ownership moved to brandsmith — the volatile `voices.md` and the `commsmith voice` entry were removed. commsmith now drafts neutral professional by default and applies a specific voice only when named or handed in, consuming brandsmith's exported voice profile. Description updated; channel and message behavior otherwise unchanged. Phase 2 uniformity layer (same version, unreleased): added the `metadata.volatile` block (`channel-profiles.md` event-driven), a matching `## Volatile surfaces` section, a uniform `## Anti-patterns` section, and moved Restraint to the canonical position (after Load budget).
 
 ## [1.0.0] - 2026-07-14
 

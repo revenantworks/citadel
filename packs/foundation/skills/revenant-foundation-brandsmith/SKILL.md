@@ -7,6 +7,9 @@ metadata:
   profile: standalone
   pack: foundation
   brand: revenant
+  volatile:
+    - file: references/brand-definition.md
+      class: event-driven
 ---
 
 # revenant-foundation-brandsmith
@@ -32,6 +35,18 @@ Every run touches `brand-definition.md` (volatile, stamped — the single update
 - `audit-doctrine.md` — build interview shape, audit categories, guide-card fill rules
 - `pack.md` — boundary doubt only
 
+## Volatile surfaces
+
+One file carries state; everything else is durable doctrine.
+
+- `references/brand-definition.md` — **event-driven**. The active identity and voice profile; rewritten only by "brandsmith build" (each build bumps the definition version and re-stamps the header), never on a clock. Ships neutral — with none defined, every output defaults spec-clean.
+
+The `metadata.volatile` block declares this so `skillsmith upkeep` can include brandsmith in a pack-wide sweep.
+
+## Restraint — when not to produce
+
+**No definition and asked to apply or audit against one:** say so; offer Build or the neutral hygiene audit — inventing identity is the one failure this skill exists to prevent. **Conflicting guides handed in:** surface the conflict, one batch, before writing anything. **An already-consistent target under audit:** say so — motivated findings only.
+
 ## Entry — Build
 
 "brandsmith build" or any define/rebuild/consolidate ask. **Ingest first:** an attached brand guide, style sheet, or asset set is read before anything is asked; the interview covers only what ingestion left open — one batch: identity map (parent brand, sub-brands, handles, org names, community terms) · naming conventions as templates per artifact class (repos, skills, packs, files, titles) · palette as role tokens (background / text / accent — roles, not just hex) · **voice profile** (name · register · cadence · lexicon do/don't · sign-off · allowed surfaces — the profile commsmith and Apply consume) with a register map (which surfaces get which register) · taglines and sign-offs with their allowed surfaces · wordmark rule · typography roles · logo usage · imagery & iconography direction · motion rules · functional job-color tokens (status colors, distinct from identity accents) · accessibility floor · application quick-specs · **firewall map** (which identities never co-occur, and where). Groups an ingested guide already covers are never re-asked; thin answers ship as marked stubs, not padding. Conflicting inputs surface as questions, never silent picks. Gate once, then rewrite `brand-definition.md` — new Last-built stamp, definition version bumped. History note per change: renames record the old value so audits can hunt stale strings.
@@ -48,9 +63,13 @@ Every run touches `brand-definition.md` (volatile, stamped — the single update
 
 "brandsmith export" (or a sibling needs the brand). Four payloads, each complete in one block: a **voice profile** (name · register · cadence · lexicon do/don't · sign-off · allowed surfaces) — the profile commsmith consumes to apply a voice to one message · a **skillsmith structural payload** (brand token · naming template · license default — the label-level fields a neutral build stamps; styling is applied later via Entry — Apply) · a **style one-pager** for humans · or a **brand-guide card** — one self-contained, fully offline HTML file rendering the active definition (architecture, palette swatches, typography, tag registry, voice, marks, usage rules; fill rules in `audit-doctrine.md`), brand-styled from the definition and neutral-themed when none is stored; emit as an artifact where the surface renders HTML, else a saveable single-file code block — never a Markdown substitute. Exports are handoffs, not links — consumers stay independent, and an absent consumer never blocks the export.
 
-## Restraint — when not to produce
+## Anti-patterns
 
-**No definition and asked to apply or audit against one:** say so; offer Build or the neutral hygiene audit — inventing identity is the one failure this skill exists to prevent. **Conflicting guides handed in:** surface the conflict, one batch, before writing anything. **An already-consistent target under audit:** say so — motivated findings only.
+- **Inventing a brand to fill silence.** With no definition stored, every output defaults neutral — brandsmith never fabricates an identity to apply or audit against.
+- **Silent rewrites.** Consistency is enforced by report; an audit catalogs drift and fixes land on approval — never a quiet rewrite.
+- **Baking brand into someone else's build.** Branding is a deliberate invocation (Entry — Apply); skillsmith and commsmith build neutral, and brandsmith brands the result only when asked.
+- **Brand in a skill's description.** The description field is routing, not branding — a brand term appears there only when it is itself an invocation keyword.
+- **Padding a definition.** A definition is as long as the identity demands; thin answers ship as marked stubs, not filler.
 
 ## Behavior notes
 

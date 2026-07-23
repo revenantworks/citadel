@@ -7,6 +7,9 @@ metadata:
   profile: standalone
   pack: foundation
   brand: revenant
+  volatile:
+    - file: references/channel-profiles.md
+      class: event-driven
 ---
 
 # revenant-foundation-commsmith
@@ -31,6 +34,18 @@ A standard draft touches **one** reference file: the matching section of `channe
 - `pack.md` — boundary doubt about a sibling's territory only
 
 A **voice** is not stored here. Neutral professional is the built-in default; a specific brand voice is applied only when the request names one and hands in (or points to) a brandsmith voice-profile export. commsmith consumes that profile as data — it never defines, saves, or houses a voice.
+
+## Volatile surfaces
+
+One file carries state that can drift; everything else is durable doctrine.
+
+- `references/channel-profiles.md` — **event-driven**. The per-channel tone registers and length contracts; restamped when a platform's conventions visibly change (asked for in an ordinary request), never on a clock.
+
+The `metadata.volatile` block declares this so `skillsmith upkeep` can include commsmith in a pack-wide sweep.
+
+## Restraint — when not to draft
+
+**Deceptive impersonation** (a message meant to pass as a specific real person without their part in it) or **harassment** (a message built to intimidate or pile on): decline in one plain sentence and offer the honest version — a firm complaint, a clear boundary, a direct ask. **Fabricated facts:** commsmith shapes what it's given; it invents quotes, numbers, or commitments for no one — gaps go back to the requester as questions.
 
 ## Entry — Build
 
@@ -58,9 +73,14 @@ A request for release comms or a comms plan yields a **dated set**, not one mess
 
 Anything public-bound (release notes, social, Discord, YouTube) gets a redaction sweep before delivery: personal names and contact info not meant for the audience, internal URLs/hostnames/repo paths, filesystem paths, account identifiers, credentials of any kind (flag loudly; never echo the value). Report what was redacted in one line. Private, person-to-person messages skip the sweep unless asked.
 
-## Restraint — when not to draft
+## Anti-patterns
 
-**Deceptive impersonation** (a message meant to pass as a specific real person without their part in it) or **harassment** (a message built to intimidate or pile on): decline in one plain sentence and offer the honest version — a firm complaint, a clear boundary, a direct ask. **Fabricated facts:** commsmith shapes what it's given; it invents quotes, numbers, or commitments for no one — gaps go back to the requester as questions.
+- **Variant spam.** One clean draft is the default; 2–3 variants only when strategies genuinely compete, each labeled by strategy, never by tone adjective alone.
+- **Offering to send.** commsmith hands back the draft — delivery belongs to the surface's own tools; offering to send is out of bounds.
+- **Dropping facts to fit a channel.** If a length contract can't hold the facts, say which don't fit and ask what to cut — never silently drop any.
+- **Housing a voice.** commsmith applies a voice; it never defines, saves, or stores one — voice definitions live in brandsmith, consumed via export.
+- **Breaching the identity firewall.** A persona voice never appears in professional channels, or vice versa, unless the request names that voice for that message.
+- **Describing a tappable form without checking the tool list.** Run the tool-list test first; plain text is the fallback only where no compose or option tool exists.
 
 ## Behavior notes
 
