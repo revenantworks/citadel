@@ -1,22 +1,24 @@
 #!/usr/bin/env python3
 """citadel — apply-install-swaps: overlay private config onto neutral members.
 
-Config-carrying members ship *neutral* in the repo by law. Before uploading to
-claude.ai, overlay your private files onto the neutral copies and build
-install-ready zips. The two swap surfaces (since 1.1.0):
+Brand-carriage law (owner decision, 2026-07-23): the ONLY brand carrier
+anywhere is the locally configured brandsmith. Every other member is
+brandless in the repo AND in your installs; branded artifacts (prompt cards
+included) are produced at need via `brandsmith apply`, never stored.
+
+One swap surface:
 
   brandsmith   references/brand-definition.md   (active identity + voice)
-  promptsmith  references/prompt-card.md        (install edition of the card)
 
 Usage:
   python3 tools/apply-install-swaps.py <swaps-dir>
 
-<swaps-dir> holds your private copies named exactly `brand-definition.md`
-and/or `prompt-card.md` — either or both. For each present swap the script
-verifies it differs from the repo's neutral copy (hard-fail otherwise — a
-neutral overlay means you pointed it at the wrong file), overlays it onto a
-temp copy of the member, and zips to `dist/install/<member>-<ver>+install.zip`.
-Members with no swap present are skipped; upload their plain `dist/` zips.
+<swaps-dir> holds your private copy named exactly `brand-definition.md`. The
+script verifies it differs from the repo's neutral copy (hard-fail otherwise —
+a neutral overlay means you pointed it at the wrong file), overlays it onto a
+temp copy of brandsmith, and zips to `dist/install/<member>-<ver>+install.zip`.
+Every other member uploads from its plain `dist/` zip. A `prompt-card.md` in
+the swaps dir is ignored with a note — that swap retired under the law above.
 The repo tree is never modified. Stdlib only.
 """
 import re
@@ -32,8 +34,8 @@ OUT = ROOT / "dist" / "install"
 
 SWAPS = {
     "brand-definition.md": ("revenant-foundation-brandsmith", "references/brand-definition.md"),
-    "prompt-card.md": ("revenant-foundation-promptsmith", "references/prompt-card.md"),
 }
+RETIRED = {"prompt-card.md": "retired 2026-07-23 — only brandsmith carries brand; branded cards come from `brandsmith apply` at need"}
 
 
 def member_version(folder: Path) -> str:
@@ -52,6 +54,9 @@ def main() -> int:
         return 1
 
     built = 0
+    for fname, why in RETIRED.items():
+        if (swaps_dir / fname).is_file():
+            print(f"  – ignoring {fname}: {why}")
     for fname, (member, rel) in SWAPS.items():
         src = swaps_dir / fname
         if not src.is_file():
@@ -78,7 +83,7 @@ def main() -> int:
         built += 1
 
     if built == 0:
-        print("✗ nothing built — the swaps dir held neither swap file.")
+        print("✗ nothing built — the swaps dir held no brand-definition.md.")
         return 1
     print(f"\ninstall zips: {built} built · upload these, not the neutral dist/ zips · repo tree untouched")
     return 0

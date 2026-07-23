@@ -47,7 +47,8 @@ Each run, do exactly this:
    commit line, e.g.:
      git add -A && git commit -m "chore(foundation): upkeep — <surfaces> re-verified + restamped <date>" && git push
    Remind me that installed claude.ai copies need re-upload after the push
-   (RUNBOOK: swap surfaces are brand-definition.md and prompt-card.md).
+   (RUNBOOK: the one swap surface is brandsmith's brand-definition.md; all
+   other members upload plain).
 
 HARD RULES: never commit, push, or write to the repo yourself — files and
 commands only. If web search is unavailable, report the due list with each

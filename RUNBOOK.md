@@ -18,20 +18,21 @@ Per skill: download the member zip from Releases -> Customize -> Skills -> + ->
 Create skill -> upload. Updating is delete-then-re-upload; no CLI exists for
 consumer skill upload, so this is the one unavoidable manual step.
 
-**Config-carrying members ship *neutral* in the repo by law — swap your private
-config in before uploading.** `apply-install-swaps.py` overlays your private
-files onto the neutral repo copies and emits install-ready zips; upload those,
-not the neutral `dist/` zips. The script hard-fails if pointed at neutral copies.
-Config-carrying surfaces:
+**Brand-carriage law (owner decision, 2026-07-23): the ONLY brand carrier
+anywhere — repo or installs — is the locally configured brandsmith.** Every
+other member is brandless everywhere; branded artifacts (prompt cards
+included) are produced at need via `brandsmith apply`, never stored.
+`apply-install-swaps.py` overlays your private definition onto the neutral
+repo copy and emits the install-ready zip; upload that one, and plain `dist/`
+zips for the other seven. The script hard-fails if pointed at the neutral copy.
+The single config-carrying surface:
 
 | Member | Neutral file in repo | Swap in your... |
 |---|---|---|
 | brandsmith | `references/brand-definition.md` | active brand definition (identity + voice) |
-| promptsmith | `references/prompt-card.md` | install edition of the card |
 
-> Since 1.1.0 (brand decoupling): voice lives inside brandsmith's definition,
-> so the swap surfaces are two - {brand-definition, prompt-card}. commsmith
-> ships fully neutral with nothing to swap.
+> History: 1.0.x had three swap surfaces; 1.1.0 folded voice into the
+> definition (two); the 2026-07-23 law retired the prompt-card swap (one).
 
 ## Install / update in Claude Code
 `/plugin marketplace add revenantworks/citadel` once, then
