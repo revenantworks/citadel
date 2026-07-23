@@ -1,34 +1,52 @@
 # revenant-foundation-evalsmith
 
-Authors and audits eval suites for skills, prompts, and agent specs — a build-time generator, never a runtime dependency. What it writes stays inside the target: self-contained manual checklists a reader can run cold.
+Authors and audits eval suites for skills, prompts, and agent specs — a build-time generator, never a runtime dependency. What separates it from benchmark harnesses and QA tooling: what it writes stays **inside the target** as self-contained manual checklists a reader can run cold, with no evalsmith, script, or harness present. Derives what a target claims to do, then writes the suite that proves it — or scores the suite it already has. Zero scripts, so it behaves identically on claude.ai, Claude Code, and the API.
 
-## Commands
+**Workflow:** Intake → Read target → Coverage map → Generate / Score / Refresh → Handback
 
-| Say | Get |
+## Package contents
+
+```
+revenant-foundation-evalsmith/
+├── SKILL.md                      # entry point — three entries, coverage map, zero-dep law
+├── README.md · LICENSE · CHANGELOG.md · SOURCES.md
+├── references/
+│   ├── eval-doctrine.md          # coverage maps, mechanics, count integrity, audit scoring
+│   └── pack.md                   # foundation-pack advisory manifest (stamped)
+└── evals/                        # in full folder-zips, excluded from .skill
+    ├── test-cases.md             # assertion-only suite
+    └── trigger-evals.md          # should/shouldn't queries
+```
+
+## Install
+
+Follows the [Agent Skills](https://agentskills.io/) open standard. Drop the folder into your skills directory or upload the archive in Claude settings. Trigger it by asking to write trigger evals, test cases, or an assertion suite, or by saying `evalsmith` (subcommands: `evalsmith audit`, `evalsmith refresh`).
+
+## Entry points
+
+| Entry | What it does |
 |---|---|
-| "write trigger evals / test cases for <target>" | Coverage map → trigger evals + assertion suite, gated once |
-| "evalsmith audit" (+ a suite or target) | Five-check scoreline + finding catalog with exact fixes |
-| "evalsmith refresh" (after the target changed) | Diff-scoped regeneration, counts re-verified |
-| "evalsmith" | One-line intro + what it needs |
+| **generate** | A target → coverage map → trigger evals + assertion suite, gated once, for the target's `evals/` folder |
+| **audit** | "evalsmith audit" at an existing suite → five-check scoreline (coverage, boundary pairs, assertion mechanics, count integrity, self-containment) + finding catalog with exact fixes |
+| **refresh** | "evalsmith refresh" after the target changed → diff-scoped regeneration (only touched cases, retired paths named), counts re-verified |
 
-## The law
+## Commands & switches
 
-Generated suites are data, not calls — no step in them may require evalsmith, a script, or a harness. Self-containment is the first thing its own audits check.
+| Invocation | What it does |
+|---|---|
+| `evalsmith` | Bare invocation — one-line intro + what it needs |
+| `evalsmith audit` | Score an existing suite (or a target whose suite should be checked) |
+| `evalsmith refresh` | Re-derive after the tested target changed |
 
-## Package
+| In-request switch | Effect |
+|---|---|
+| "apply all" / "just write it" | Skips the single gate |
+| a subjective-output target | Trigger evals still apply; the assertion suite is skipped with a stated reason (`<no-suite>`) |
 
-    revenant-foundation-evalsmith/
-    ├── SKILL.md
-    ├── README.md · CHANGELOG.md · SOURCES.md · LICENSE
-    ├── references/
-    │   ├── eval-doctrine.md          # coverage maps, mechanics, count integrity, audit scoring
-    │   └── pack.md                   # foundation roster (advisory)
-    └── evals/                        # version-control archive; excluded from .skill payloads
-        ├── test-cases.md             # 13-case assertion-only suite
-        └── trigger-evals.md          # 20 should/shouldn't queries
+## Staying current
 
-## Versioning
+No volatile surface (`metadata.volatile: []`). evalsmith stores no baseline of its own — `evalsmith refresh` fires when the *target* it tested changes (event-driven), not when an internal baseline ages, so nothing here goes stale on a clock and `skillsmith upkeep` skips it.
 
-Semver; history in CHANGELOG.md. Provenance: built 2026-07-13 under an owner override of the roadmap's §2.6 extraction trigger, with the zero-runtime-dependency law as the build condition.
+## Changelog
 
-MIT — see LICENSE.
+See [CHANGELOG.md](CHANGELOG.md). Provenance: foundation skill #7 — built with the zero-runtime-dependency law as the build condition.

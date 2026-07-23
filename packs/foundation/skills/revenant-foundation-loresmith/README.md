@@ -14,7 +14,7 @@ revenant-foundation-loresmith/
 │   ├── verdict-mode.md           # criteria → verification → one recommendation
 │   ├── playbook-mode.md          # template-first living reference docs
 │   └── pack.md                   # foundation-pack advisory manifest (stamped)
-└── evals/                        # excluded from .skill payloads
+└── evals/                        # in full folder-zips, excluded from .skill
     ├── trigger-evals.md
     └── test-cases.md
 ```
