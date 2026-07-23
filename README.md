@@ -18,14 +18,16 @@ Each routes on its own description and works alone; together they cover the buil
 
 | Smith | What it makes |
 |---|---|
-| **skillsmith** | Builds, audits, brands, and ports Agent Skills and whole packs |
+| **skillsmith** | Builds, audits, and ports Agent Skills and whole packs (neutral by default) |
 | **promptsmith** | Builds, scores, and hardens prompts, with model-tier routing |
-| **commsmith** | Shapes messages per channel, audience, and saved voice; audits message drift |
+| **commsmith** | Shapes messages per channel and audience; neutral-voice default; audits message drift |
 | **agentsmith** | Designs and audits autonomous-agent systems — guardrails, trust tiers, kill switches |
 | **loresmith** | Research-verified verdicts and versioned playbook reference docs, every claim evidence-tagged |
-| **brandsmith** | Builds a brand definition and audits repos, packs, and artifacts for drift |
+| **brandsmith** | Single home of brand + voice — defines, applies on invoke, and audits repos, packs, and artifacts for drift |
 | **evalsmith** | Authors and audits eval suites — build-time generator, zero runtime dependency |
 | **tokensmith** | Measures, budgets, and slims the token footprint of LLM-facing artifacts |
+
+Installed together, foundation ships an always-on router — [`packs/foundation/CLAUDE.md`](packs/foundation/CLAUDE.md) — copy it into your project (or `~/.claude/`) so Claude reaches for the right smith and holds the pack's conventions without being asked.
 
 ## Install
 
