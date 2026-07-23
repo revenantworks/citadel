@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.0] - 2026-07-23
+
+Uniformity layer (Forge Run 3, Phase 2). Added the `metadata.volatile` frontmatter block declaring `model-snapshot.md` as a calendar (60-day) surface, and a matching `## Volatile surfaces` section, so `skillsmith upkeep` can sweep it pack-wide. Promoted model-data refresh from a Behavior-notes subsection to a first-class `## Entry — Refresh` (cross-references updated). Added a uniform `## Anti-patterns` section consolidating the skill's own failure modes. No change to the build pipeline, scoring, or output contract.
+
 ## [1.0.1] - 2026-07-14
 
 The load-budget line for evals/

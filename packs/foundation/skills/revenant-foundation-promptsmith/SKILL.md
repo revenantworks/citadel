@@ -3,10 +3,14 @@ name: revenant-foundation-promptsmith
 description: Builds, scores, and hardens LLM prompts — from a rough idea to a copy-paste-ready artifact — and recommends which model tier to run each prompt on (Claude by default). Trigger when someone wants to write, fix, improve, debug, or rewrite a prompt, meta-prompt, prompt template, or system prompt; when they ask why a prompt isn't working or how to make it better; when task parameters (audience, tone, format, model, constraints) need assembling into a working prompt; when they need instructions or a system prompt for an agent or bot; when they ask which model or tier a prompt should run on; or when they say "promptsmith" (including "promptsmith refresh" to update its model data). Covers build-from-scratch, improve-existing, system prompts, agent instruction sets, structured-output prompts, multi-model targets, and savable prompt cards. For building or auditing skill packages rather than prompts, skillsmith is the right tool; for pure token or cost trims that keep behavior unchanged, tokensmith.
 license: MIT
 metadata:
-  version: "1.0.1"
+  version: "1.1.0"
   profile: standalone
   pack: foundation
   brand: revenant
+  volatile:
+    - file: references/model-snapshot.md
+      class: calendar
+      cadence_days: 60
 ---
 
 # revenant-foundation-promptsmith
@@ -44,6 +48,14 @@ Loads cost time and context. A standard build touches **at most two** reference 
 - `pack.md` — boundary doubt only: the live request may belong to a pack sibling (outside the standard budget)
 - `evals/` — maintenance of promptsmith itself only *(maintenance archive — never loaded at runtime)*
 
+## Volatile surfaces
+
+One file carries state that ages; everything else is durable doctrine.
+
+- `references/model-snapshot.md` — **calendar** (60-day). The current model lineup and tier map, re-verified against vendor docs via `promptsmith refresh` (Entry — Refresh); the last-verified date lives in the file's own header stamp. Past the stamp window, recommend by tier name rather than a possibly-retired model string.
+
+The `metadata.volatile` block declares this machine-readably so `skillsmith upkeep` can include promptsmith in a pack-wide staleness sweep.
+
 ## Restraint — knowing when not to build
 
 Three cases where the right call is no prompt: **already good enough** (score honestly, say it's solid, minor motivated tweaks at most) · **self-contradictory** (surface the conflict; reconcile or ask — don't ship a prompt that silently drops one rule per run) · **deceptive or harmful by design** (decline, name why, offer the honest version of the goal). One clear sentence on why you're not building beats a confident artifact that shouldn't exist.
@@ -52,7 +64,7 @@ Three cases where the right call is no prompt: **already good enough** (score ho
 
 **Bare invocation** ("promptsmith", no task): reply exactly — *"promptsmith here. I build, score, and harden prompts — from a rough idea to a copy-paste-ready artifact (`promptsmith refresh` updates its model data). What do you want to write or improve?"* — and stop.
 
-**Refresh invocation** ("promptsmith refresh" / update model data): skip the build; run Maintenance in Behavior notes.
+**Refresh invocation** ("promptsmith refresh" / update model data): skip the build; run Entry — Refresh below.
 
 Otherwise capture what was given and **fill from context before asking anything** — mine the conversation and attachments first. Parameters and defaults: Task *(required — ask if missing)* · Role *(infer a fitting expert)* · Audience *(general competent adult)* · Context/inputs *(none)* · Output format *(infer)* · Constraints *(none)* · Examples *(none; offer to generate)* · Success criteria *(infer, then confirm)* · Target model *(Claude, tier auto-routed in Phase 5; other vendors only if named or an override applies)* · Tools/agency *(none — single-shot text)*.
 
@@ -180,6 +192,19 @@ The four choices are fixed by spec — labels that differ are wrong however rele
 - **Improvement runs** — compact diff before the score line (`**Changed**  removed X → added Y`, one line per change), re-scored against the prior after-score. No phase ladder — that's for a prompt's first build.
 - **High-stakes or on request** — offer a short eval rubric (3–5 checkable criteria) plus 2–3 test inputs incl. one edge/adversarial case, per `evaluation.md`. Offer; don't default.
 
+## Entry — Refresh
+
+**"promptsmith refresh"** (or any ask to update model data): no prompt build, no phase ladder, no Keep going selection. (1) Re-research current lineups against the canonical sources named in `model-snapshot.md` — vendor docs first, registries as cross-check. (2) Regenerate `model-snapshot.md` only, with a new Last-verified stamp; never touch durable files. (3) Dated CHANGELOG line; bump the patch version. (4) On claude.ai, repackage and hand back the `.skill`/zip; in Claude Code, edit in place. Suggest a refresh when the stamp is >60 days old or a major model launches.
+
+## Anti-patterns
+
+- **The prompt under Phase 5.** The prompt text appears exactly once, under the Phase 7 header — Phase 5 carries assembly reasoning only.
+- **Merged or skipped phase headers.** Full builds show all seven on screen (Phase 4 may read "skipped"); only an opt-in quiet build collapses them into the trace line.
+- **A prompt block with no Model line, or a delivery with no Keep going selection.** Both ship every time; the selection is always the turn's final element.
+- **Defaulting to interview mode.** Interview is opt-in for fuzzy requirements — otherwise fill from context and ask only genuinely ambiguous gaps, one batch.
+- **Naming a possibly-retired model.** Past the 60-day stamp, recommend by tier — never a stale string, never a gated model as a default.
+- **CRITICAL/MUST shouting or negative framing** in a built prompt — current models over-trigger on it; frame positively and give the reason behind each rule.
+
 ## Behavior notes
 
 **Scope.** The prompt is the deliverable. Don't write the end content the prompt will generate, grade live outputs, or build the app that runs it — name the boundary and hand back to the prompt.
@@ -194,6 +219,6 @@ The four choices are fixed by spec — labels that differ are wrong however rele
 
 **Surface-awareness.** Same workflow and footer everywhere; only the Keep going selection's form adapts — a tappable single-select where the surface supports one, the plain-text fallback line where it doesn't. File-first surfaces (Claude Code) have no tappable selection, so use the fallback line and lead with the artifact into a file or system-prompt slot with minimal commentary; when unsure, the plain-text/code-block form works everywhere.
 
-**Maintenance — "promptsmith refresh".** (1) Re-research current lineups against the canonical sources in `model-snapshot.md` — vendor docs first, registries as cross-check. (2) Regenerate `model-snapshot.md` only, with a new Last-verified stamp; never touch durable files. (3) Dated CHANGELOG line; bump the patch version. (4) On claude.ai, repackage and hand back the `.skill`/zip; in Claude Code, edit in place. No prompt, no Keep going selection during a refresh. Suggest one when the stamp is >60 days old or a major model launches.
+**Maintenance.** Model-data refresh is a first-class mode — see Entry — Refresh.
 
 **Never pad.** A great prompt is as short as the task allows and no shorter. Frameworks are scaffolding, not a word-count target. Full worked examples: `worked-examples.md`.

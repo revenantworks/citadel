@@ -7,6 +7,12 @@ metadata:
   profile: standalone
   pack: foundation
   brand: revenant
+  volatile:
+    - file: references/rubrics.md
+      class: calendar
+      cadence_days: 60
+    - file: references/pack-registry.md
+      class: event-driven
 ---
 
 # revenant-foundation-skillsmith
@@ -40,6 +46,15 @@ A standard build touches **at most two** reference files: `rubrics.md` and `buil
 - `evals/` — maintenance of skillsmith itself only *(maintenance archive — never loaded at runtime)*
 
 To define, apply, or audit a **brand or voice**, that is brandsmith's job — skillsmith builds neutral and leaves branding to a deliberate brandsmith invocation.
+
+## Volatile surfaces
+
+Two files carry state that ages; everything else is durable doctrine.
+
+- `references/rubrics.md` — **calendar** (60-day). The best-practices baseline, re-verified against Anthropic's docs on cadence via `skillsmith refresh`; the last-verified date lives in the file's own header stamp.
+- `references/pack-registry.md` — **event-driven**. The pack roster and structure; restamped only when membership or pack structure changes (via `skillsmith integrate`), never on a clock.
+
+The `metadata.volatile` block declares these machine-readably so `skillsmith upkeep` can sweep the whole pack for anything past its window.
 
 ## Restraint — when not to build
 
@@ -126,6 +141,14 @@ A `.skill` is a zip of the skill folder with development assets excluded, rename
 Advise keeping the shipped archive under the user's own version control — installed skills carry no history for them.
 
 **Optional plugin target** *(packs, on request — `.skill` stays the default)*: a pack can additionally ship as a Claude Code plugin repo, registerable in a plugin marketplace — `.claude-plugin/plugin.json` manifest (its `name` is the slash namespace), each member under `skills/`, explicit workflows as skills with `disable-model-invocation: true` (a pack's capstone prompt maps here, e.g. `/foundation:forge-run`), optional `.mcp.json` for declared servers. Layout and rules in `build-templates.md` — Plugin target.
+
+## Anti-patterns
+
+- **Building over a crowded niche silently.** A CROWDED/THIN verdict is information the user acts on, not an override to route around — name the incumbents, propose the adjacent niche, let them decide.
+- **Applying brand at build.** skillsmith ships neutral and stamps structural identity only; palette, voice, wordmark, and taglines are brandsmith's, on invoke — never baked into a build.
+- **Padding a skill to look complete.** Frameworks, sections, and reference files are scaffolding, not a quota; every token competes with the user's own context.
+- **Drip-feeding a settled catalog.** One gate, one approval round — never re-open an approved design with unsolicited additions.
+- **Describing a tappable gate without checking the tool list.** Run the tool-list test first; the plain-text fallback is only for surfaces whose tool list has no option-presenting tool.
 
 ## Behavior notes
 
