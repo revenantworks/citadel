@@ -24,7 +24,7 @@ Read each cold against name + description only. Provenance: derived from revenan
 | 18 | "audit this agent's guardrails" | SHOULD NOT — agentsmith |
 | 19 | "trademark search for my company name" | SHOULD NOT — legal research |
 | 20 | "make my slides look nicer" | SHOULD NOT — no brand standard invoked |
-
-**Edge note.** Sharpest pairs: 5 vs 11 — "is this on-brand" (judge against the standard) routes here; "make it on-brand" for a *message* is commsmith consuming the exported voice. 11 vs 12 marks the decoupling boundary — voice on a message stays with commsmith; branding a built skill or artifact is Entry — Apply, here. Tuning rule: misses on 1–10/12 → push apply/audit/define triggers; fires on 11 or 13–20 → tighten the consumer boundary in the closing sentence.
 | 21 | "give me an HTML brand guide card from my definition" | SHOULD — guide-card export |
 | 22 | "add typography and logo usage rules to my brand definition" | SHOULD — build/rebuild covers the extended groups |
+
+**Edge note.** Sharpest pairs: 5 vs 11 — "is this on-brand" (judge against the standard) routes here; "make it on-brand" for a *message* is commsmith consuming the exported voice. 11 vs 12 marks the decoupling boundary — voice on a message stays with commsmith; branding a built skill or artifact is Entry — Apply, here. Tuning rule: misses on 1–10/12/21–22 → push apply/audit/define triggers; fires on 11 or 13–20 → tighten the consumer boundary in the closing sentence.

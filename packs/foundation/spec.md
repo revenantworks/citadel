@@ -9,10 +9,23 @@
 **Pack:** foundation · **Profile:** standalone · **Brand:** revenant ·
 **Stamped:** 2026-07-23 · **Shipped release:** Citadel 1.0 — pack **1.0.0**,
 tag `foundation-v1.0.0` (Releases: "Foundation 1.0.0 — Citadel launch") ·
-**Current status:** **SHIPPED** — pack **1.1.0** tagged `foundation-v1.1.0`
-2026-07-23 (Forge Run 3 complete; skillsmith + brandsmith at 1.1.1 on main via
-the 7A post-release audit; next upkeep due ~2026-09-21 via the Cowork task in
-`upkeep-task.md`).
+**Current status:** **SHIPPED** — pack **1.1.1** tagged `foundation-v1.1.1`
+2026-07-24 (hygiene release: 2026-07-24 pack-wide audit, all findings fixed, all 8
+members patch-bumped, build.py guards added — see root CHANGELOG; next upkeep due
+~2026-09-21 via the Cowork task in `upkeep-task.md`).
+
+**Deferral register (opens the 1.2.0 pass — touch each member once when it runs):**
+① machine-readable routing-seam table generated into each member's `references/pack.md`
+via the registry pipeline + a build.py boundary-pair check · ② description regime
+(600–800 chars, headroom rule, `promptsmith model` token, boundary sentences only where
+evals prove false fires) with the new build.py warns as instrumentation and the
+evals/RESULTS.md baselines as before/after · ③ anti-patterns dedup + one-statement-
+per-law + body↔reference single-home; footprint warn→fail flip · ④ promptsmith
+framework-name menu (CO-STAR/RISEN) + fast path + hostile-interpreter pass; commsmith
+Humanize entry · ⑤ skillsmith release-doctrine reference (this release is its worked
+example) · ⑥ spec.md split (spec/ledger/decisions) before the next Forge Run ·
+⑦ pack-registry relocation out of skillsmith when pack #2 becomes real (owner call) ·
+⑧ security-scan doctrine; multi-host export (owner call).
 
 ---
 

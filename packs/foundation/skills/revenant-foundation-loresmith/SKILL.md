@@ -3,7 +3,7 @@ name: revenant-foundation-loresmith
 description: Turns research into verified knowledge products, two modes. Trigger when someone wants a researched recommendation, comparison, or go/no-go — "which X should I pick", "is Y worth it", "compare A vs B and recommend one" — with sources checked live and every claim tagged by evidence quality (documented / vendor-reported / estimate / unverified); when they want a reference doc, guide, or playbook built template-first — answer up front, versioned, verified against primary sources; when an existing doc needs a verification pass or several overlapping docs need consolidating; or when they say "loresmith" ("loresmith verdict" / "loresmith playbook" pick the mode). Verdict mode ends in one direct recommendation, never a hedge. Playbook mode maintains living, versioned reference docs. For prompts, promptsmith; for skills, skillsmith; for shaping a message to a channel, commsmith; broad multi-source research reports are a research tool's job — loresmith produces decisions and reference docs, not reports.
 license: MIT
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   profile: standalone
   pack: foundation
   brand: revenant

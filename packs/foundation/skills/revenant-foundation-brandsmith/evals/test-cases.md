@@ -1,6 +1,6 @@
 # Test Cases — revenant-foundation-brandsmith
 
-16 cases covering every entry point and behavior path — build by ingest and by interview, Entry — Apply on a built skill, audit with and without a stored definition (including an already-consistent target), all four exports (including the HTML guide card), the neutral-core and firewall laws, restraint, bare invocation, gating, and the commsmith consumer boundary. Provenance: derived from revenant-foundation-brandsmith v1.0.0, 2026-07-14; Cases 9, 10, and 12 rewritten 2026-07-23 for 1.1.0 (Apply absorbed; export shape renamed).
+16 cases covering every entry point and behavior path — build by ingest and by interview, Entry — Apply on a built skill, audit with and without a stored definition (including an already-consistent target), all four exports (including the HTML guide card), the neutral-core and firewall laws, restraint, bare invocation, gating, and the commsmith consumer boundary. Provenance: derived from revenant-foundation-brandsmith v1.0.0, 2026-07-14; Cases 9, 10, and 12 rewritten 2026-07-23 for 1.1.0 (Apply absorbed; export shape renamed). Re-anchored to v1.1.2, 2026-07-24 (foundation-v1.1.1 hygiene pass; suite content reviewed at the 2026-07-23 6A refresh).
 
 Each case: **Input** + **Assert** (mechanical checks on run output). `<no-definition>` = correctly refused to invent identity.
 
@@ -59,7 +59,6 @@ Each case: **Input** + **Assert** (mechanical checks on run output). `<no-defini
 ### Case 14 — export style one-pager
 **Input:** "brandsmith export — the style one-pager"
 **Assert:** one page: identity map, naming templates each with one rendered example, palette table, voice attributes, tagline surfaces; no doctrine text; names the definition version it was cut from.
-**Assert:** one page; identity map, naming templates with an example each, palette table, voice attributes, tagline surfaces; no doctrine text; names the definition version.
 
 ### Case 15 — export the brand-guide card
 **Input:** "brandsmith export — guide card" with a definition stored.

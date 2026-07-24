@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.2] - 2026-07-24
+
+foundation-v1.1.1 hygiene release (pack-wide audit; every finding mechanically verified).
+
+- references/pack-integration.md: 'registering the pack is a Configure job' -- Configure was retired in 1.1.0; now routes to the registry row + build step
+- SOURCES.md: predecessor-era '(added at 1.2.0)' heading dated correctly (2026-07-14; the 1.2.x numbering never shipped, per spec D-3)
+- packaging step: provenance-restamp-on-version-bump reminder added (pairs with the new build.py warn)
+- evals: provenance re-anchored
+
 ## [1.1.1] - 2026-07-23
 
 Post-release audit fix (Forge Run 3, Phase 7A): the Entry — Upkeep inline refresh-verb map gained the fourth calendar surface (`platform-notes.md` → `agentsmith refresh`), matching `upkeep-doctrine.md` — the two had diverged when agentsmith's surface landed in Phase 4C. No behavior change beyond the corrected map.

@@ -30,7 +30,7 @@ Native schedulers: Cowork scheduled tasks (hourly / daily / weekly / weekdays �
 
 ## Kill-switch & governance state
 
-A real kill-switch is **layered**, not one button: session termination → permission revocation → circuit breakers → rollback → full deactivation, with depth scaled to the agent's autonomy. Joint CISA/NSA guidance (2026-04) tells operators to assess failure scenarios before deploying agentic AI and keep intervene/deactivate ability once running; EU and Singapore frameworks treat deactivation ability as a core requirement. The gap is real: only ~21% of enterprises report mature agent governance, and more than a third admit they could not shut down a rogue agent today — the reason the checklist makes kill-switch layers a first-class area rather than an ops afterthought.
+A real kill-switch is **layered**, not one button: session termination → permission revocation → circuit breakers → rollback → full deactivation, with depth scaled to the agent's autonomy. Joint CISA/NSA guidance (2026-04) tells operators to assess failure scenarios before deploying agentic AI and keep intervene/deactivate ability once running; EU and Singapore frameworks treat deactivation ability as a core requirement. The gap is real: only ~21% of enterprises report mature agent governance, and more than a third admit they could not shut down a rogue agent today *(industry-survey figures from the 2026-07-23 build-time research pass — vendor/analyst-reported, directional not audited)* — the reason the checklist makes kill-switch layers a first-class area rather than an ops afterthought.
 
 ## Injection state of the art
 

@@ -1,6 +1,6 @@
 # Test Cases — revenant-foundation-evalsmith
 
-13 cases covering every entry point and behavior path — generate for all three target kinds, pack cross-boundary pairs, audit clean and defective suites, refresh scoping, restraint, the zero-dep law, bare invocation, gating, and the sibling boundary. Provenance: derived from revenant-foundation-evalsmith v1.0.0, 2026-07-14.
+13 cases covering every entry point and behavior path — generate for all three target kinds, pack cross-boundary pairs, audit clean and defective suites, refresh scoping, restraint, the zero-dep law, bare invocation, gating, and the sibling boundary. Provenance: derived from revenant-foundation-evalsmith v1.0.0, 2026-07-14. Re-anchored to v1.1.1, 2026-07-24 (foundation-v1.1.1 hygiene pass; suite content reviewed at the 2026-07-23 6A refresh).
 
 Each case: **Input** + **Assert** (mechanical checks on run output). `<no-suite>` / `<no-build>` = correct absence.
 

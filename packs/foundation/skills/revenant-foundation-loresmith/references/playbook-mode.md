@@ -21,7 +21,7 @@ v1.0 — <date> — initial, verified
 
 ## 2. Fill rules
 
-Answer before explanation in every section. Tags inline per the verdict-mode legend. Steps are numbered and testable; opinions are marked as such; version-sensitive facts carry their checked version ("as of vX.Y").
+Answer before explanation in every section. Tags inline, four grades — **[documented]** (primary source read this run) · **[vendor-reported]** (the seller says so) · **[estimate]** (derived; arithmetic shown from tagged inputs) · **[unverified]** (found, not confirmed) — the same legend verdict mode uses, inlined here because this file loads alone. Steps are numbered and testable; opinions are marked as such; version-sensitive facts carry their checked version ("as of vX.Y").
 
 ## 3. Verification pass
 

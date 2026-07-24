@@ -1,6 +1,6 @@
 # Assertion Suite — loresmith
 
-Provenance: derived from revenant-foundation-loresmith v1.0.0, 2026-07-14.
+Provenance: derived from revenant-foundation-loresmith v1.0.0, 2026-07-14. Re-anchored to v1.1.1, 2026-07-24 (foundation-v1.1.1 hygiene pass; suite content reviewed at the 2026-07-23 6A refresh).
 
 18 cases — the verdict contract end-to-end (answer first, tags, dated checks, estimates, no-upgrade, visible disqualification, flip condition, tie handling), provisional mode, the playbook gate and its skip, header contract, touched-section re-verify, consolidation, the verification pass (form and fact), all three restraint paths, and bare invocation.
 

@@ -40,7 +40,7 @@ This skill is assembled from public, citable material. Everything below was veri
 - Claude Help Center — "Use skills in Claude" (verified 2026-07-13). https://support.claude.com/en/articles/12512180-use-skills-in-claude — custom skills upload as zips at Customize → Skills, per-account, code execution required; update = re-upload. Grounds the lazy-restamp default: installed-surface uploads are manual, one at a time.
 - Claude Code docs — "Discover and install prebuilt plugins through marketplaces" (verified 2026-07-13). https://code.claude.com/docs/en/discover-plugins — `/plugin marketplace add <owner>/<repo>` + `/plugin install <name>@<marketplace>`; a repo carrying `.claude-plugin/marketplace.json` is its own marketplace. Grounds the plugin lane: one pack, one install on the Code surface.
 
-## Pack design (added at 1.2.0)
+## Pack design (added 2026-07-14; originally recorded under predecessor-era "1.2.0" numbering that never shipped — see spec D-3)
 
 *Applies to: Entry — Pack, `references/pack-design.md`.*
 

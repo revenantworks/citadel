@@ -1,6 +1,6 @@
 # Trigger Evals — revenant-foundation-tokensmith
 
-> **Provenance:** target `revenant-foundation-tokensmith` v1.0.0 · suite derived 2026-07-13 (evalsmith doctrine; runnable cold, no tooling). Twenty queries — ten should fire the description, ten shouldn't. Read each cold against **name + description only** and compare to the expected column.
+> **Provenance:** target `revenant-foundation-tokensmith` v1.0.0 · suite derived 2026-07-13 (evalsmith doctrine; runnable cold, no tooling). Twenty queries — ten should fire the description, ten shouldn't. Read each cold against **name + description only** and compare to the expected column. Re-anchored to v1.1.1, 2026-07-24 (foundation-v1.1.1 hygiene pass; suite content reviewed at the 2026-07-23 6A refresh).
 
 ## Should trigger (10)
 

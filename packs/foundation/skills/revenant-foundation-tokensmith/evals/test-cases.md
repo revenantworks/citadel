@@ -1,6 +1,6 @@
 # Assertion Suite — revenant-foundation-tokensmith
 
-> **Provenance:** target `revenant-foundation-tokensmith` v1.0.0 · suite derived 2026-07-13 (evalsmith doctrine; self-contained, runnable cold by inspection). **Eighteen cases**, assertion-only — each is an Input plus mechanical yes/no Asserts against the run output. Multi-turn assertions are labeled T1/T2.
+> **Provenance:** target `revenant-foundation-tokensmith` v1.0.0 · suite derived 2026-07-13 (evalsmith doctrine; self-contained, runnable cold by inspection). **Eighteen cases**, assertion-only — each is an Input plus mechanical yes/no Asserts against the run output. Multi-turn assertions are labeled T1/T2. Re-anchored to v1.1.1, 2026-07-24 (foundation-v1.1.1 hygiene pass; suite content reviewed at the 2026-07-23 6A refresh).
 
 ## Contents
 

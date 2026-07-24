@@ -1,6 +1,6 @@
 # Assertion Suite — agentsmith
 
-Provenance: derived from revenant-foundation-agentsmith v1.0.0, 2026-07-14; Case 16 added 2026-07-23 for 1.1.0 Entry — Refresh.
+Provenance: derived from revenant-foundation-agentsmith v1.0.0, 2026-07-14; Case 16 added 2026-07-23 for 1.1.0 Entry — Refresh. Re-anchored to v1.1.1, 2026-07-24 (foundation-v1.1.1 hygiene pass; suite content reviewed at the 2026-07-23 6A refresh).
 
 16 cases — blast radius first, all ten areas covered or excused, caps as numbers, kill-switch drill, protected resources by identifier, trust tiers, zero-signal, audit scoreline and injected-content handling, all three restraint paths, prompt handoff, spot-check switch, refresh scope, and bare invocation.
 

@@ -3,7 +3,7 @@ name: revenant-foundation-tokensmith
 description: Measures and shrinks the token footprint of LLM-facing text artifacts — prompts, system prompts, SKILL.md bodies, agent specs, CLAUDE.md and project instructions, reference docs — at build time, cutting cost without changing behavior. Trigger when someone wants to slim, compress, or token-optimize an artifact; when something must fit a token or context budget or a cached prefix; when they ask why a prompt, skill, or instruction file costs so many tokens; when an artifact set needs token budgets or a load plan ("tokensmith budget"); when an artifact should be scored for token waste without rewriting it ("tokensmith audit"); or when they say "tokensmith" ("tokensmith refresh" re-verifies ratios and cache mechanics). Covers measure-first estimates with stated methods, a waste taxonomy, a lossless/lossy technique ladder, cache-aware structure, and net-cost accounting. For prompt quality or wording, promptsmith; for skill best-practice conformance, skillsmith; for shortening human-facing messages, commsmith.
 license: MIT
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   profile: standalone
   pack: foundation
   brand: revenant

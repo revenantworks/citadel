@@ -1,17 +1,17 @@
 # Trigger Evals — 20 queries (10 should / 10 shouldn't)
 
-Provenance: derived from revenant-foundation-loresmith v1.0.0, 2026-07-14.
+Provenance: derived from revenant-foundation-loresmith v1.0.0, 2026-07-14. Re-anchored to v1.1.1, 2026-07-24 (foundation-v1.1.1 hygiene pass; suite content reviewed at the 2026-07-23 6A refresh).
 
 | # | Query | Expected |
 |---|---|---|
 | 1 | which budget 3D printer should I buy under $400 — compare and pick one | SHOULD |
-| 2 | is the Cable Matters USB4 switch worth it over the cheaper one | SHOULD |
+| 2 | is the premium USB4 switch worth it over the cheaper one | SHOULD |
 | 3 | loresmith verdict — Unity vs Godot for my project | SHOULD |
 | 4 | build me a playbook for setting up a new monitor with this GPU | SHOULD |
 | 5 | make a reference doc for our release checklist, answer up front | SHOULD |
 | 6 | verify this guide against current docs and update it | SHOULD |
 | 7 | I have three overlapping setup docs — consolidate them | SHOULD |
-| 8 | go/no-go on switching the trading agent to the new data source | SHOULD |
+| 8 | go/no-go on switching a scheduled agent to a new data source | SHOULD |
 | 9 | compare these two hosting plans with actual evidence, not vibes | SHOULD |
 | 10 | which of these skills registries should I list on first | SHOULD |
 | 11 | write me a 30-page research report on the AI agent market | SHOULD NOT (report — research tool) |

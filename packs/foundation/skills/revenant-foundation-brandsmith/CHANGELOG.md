@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.2] - 2026-07-24
+
+foundation-v1.1.1 hygiene release (pack-wide audit; every finding mechanically verified).
+
+- trigger-evals: rows 21-22 (guide-card export, extended-groups rebuild) moved into the main table -- they sat after the edge note, orphaned from count checks
+- test-cases: Case 14 duplicate assert removed (kept the more specific first form)
+- evals: provenance re-anchored
+
 ## [1.1.1] - 2026-07-23
 
 Post-release audit fix (Forge Run 3, Phase 7A): `audit-doctrine.md`'s export shape renamed from the retired "skillsmith configure payload" to "Structural payload (skillsmith consumes it)" — the Phase 1 rename had reached the README and evals but not the doctrine file. Shape contents unchanged.

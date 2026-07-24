@@ -10,7 +10,7 @@
       "name": "foundation",
       "source": "./packs/foundation",
       "description": "Eight standalone smiths: skillsmith (skills & packs), promptsmith (prompts), commsmith (messages), agentsmith (agent specs), loresmith (research verdicts & playbooks), evalsmith (eval suites), brandsmith (brand & voice), tokensmith (token footprint). Each routes on its own description and works alone; together they cover the full build-audit-ship loop.",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "license": "MIT",
       "category": "productivity",
       "keywords": [

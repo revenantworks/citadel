@@ -1,6 +1,6 @@
 # Test Cases — revenant-foundation-promptsmith
 
-Provenance: derived from revenant-foundation-promptsmith v1.0.0, 2026-07-14; Case 29 added 2026-07-23 for 1.1.0 Entry — Model.
+Provenance: derived from revenant-foundation-promptsmith v1.0.0, 2026-07-14; Case 29 added 2026-07-23 for 1.1.0 Entry — Model. Re-anchored to v1.1.1, 2026-07-24 (foundation-v1.1.1 hygiene pass; suite content reviewed at the 2026-07-23 6A refresh).
 
 29 cases covering every entry point and behavior path — happy-path builds, all three restraint paths, interview mode (offer, run, and mid-exit in one case), all four Keep-going follow-up paths, knowledge-vacuum flagging, structure switches, long-context placement, bare invocation, chaining decisions, adaptive-thinking targets, tier routing and vendor overrides, the standalone Model entry, refresh maintenance mode, quiet-build trace output, and pack-sibling handoff.
 

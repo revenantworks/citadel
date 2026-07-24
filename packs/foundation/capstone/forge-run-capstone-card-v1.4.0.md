@@ -1,4 +1,4 @@
-FORGE RUN v1.3.0 — foundation capstone: ship one skill, end to end
+FORGE RUN v1.4.0 — foundation capstone: ship one skill, end to end
 
 TRIGGER + INPUTS
 Run this when a new skill (or a major rework) should ship through the full
@@ -41,11 +41,12 @@ agentic surface" and continue. Never skip silently.
 LEG 4 — skillsmith · build (consults brandsmith + evalsmith)
 Run the Build entry with the <verdict> requirements (plus <ops_spec> and
 <inner_prompts> when present) as the intent: fresh research → design
-catalog → one gate → build (brand cascade applied from the currently
-registered brand-config.md — brandsmith's last build; falls back to
-brand: neutral if brandsmith has never run) → evals/ authored under
-evalsmith's doctrine when evalsmith is installed (eval-authoring.md is the
-stated fallback — its absence never fails the build) → self-audit
+catalog → one gate → build (**spec-clean neutral per the brand-carriage
+law** — structural identity stamped from pack-registry.md; brand and voice
+are applied only at need via `brandsmith apply`, never stored) → evals/
+authored under evalsmith's doctrine when evalsmith is installed
+(eval-authoring.md is the stated fallback — its absence never fails the
+build) → self-audit
 (lean-body + quiet-mode norms) → package .skill + full zip → model-matrix
 probe list (balanced + fast tier minimum) → pack.md restamps and the
 registry row. HANDOFF →
@@ -97,22 +98,21 @@ STATUS: PENDING
 
 RUN 3 — full-set proof (all eight members active in one run)
 For this run only, the two consults become visible checkpoints:
-· LEG 0 (Run 3 only) — brandsmith: verify the registered brand-config.md
-  is current before anything builds; refresh if stale.
-  HANDOFF → <brand_check>config version · verified date</brand_check>.
+· LEG 0 (Run 3 only) — brandsmith: verify the locally configured
+  brand definition is current before anything builds; refresh if stale.
+  HANDOFF → <brand_check>definition version · verified date</brand_check>.
 · LEG 4 ADDENDUM (Run 3 only) — evalsmith authors the suite AND issues
   its own audit line on it; the audit score ships inside <release>.
-Intent predicate — the chosen {{skill_intent}} must activate every member:
-· carries at least one inner prompt (Leg 1 acts, not just stands)
-· is or contains an agent (Leg 3 produces the ops spec, not the skip)
-· ships under the registered brand, not neutral (Leg 0 is meaningful)
-· plus the always-on Legs 2, 4, 5, 6.
-Precondition: Phase 2 brandsmith Build complete — a live brand to cascade.
-Success test: all eight members' fingerprints visible in the output
-contract (<brand_check>, <inner_prompts>, <verdict>, <ops_spec>,
-<release> with evalsmith audit line, <budget_sheet> +
-<efficiency_verdict>, comms set).
-STATUS: PENDING — gated behind Phase 2
+Historical predicate note: the original v1.3.0 predicate required shipping
+"under the registered brand, not neutral" — that line predates the
+2026-07-23 brand-carriage law, under which every ship is neutral and
+branded artifacts are produced at need, never stored. Leg 0's definition
+check is the law-era equivalent.
+STATUS: COMPLETE 2026-07-23 — credited per the registry capstone line and
+spec.md Phase 7: the Forge Run 3 / 1.1.0 pack rebuild itself was the live
+run — all eight doctrines exercised in anger on a real full-pack ship; no
+separate demo theater. (Recorded in pack-registry.md's capstone line;
+build.py propagated it to all 8 references/pack.md manifests.)
 
 RE-RUN CONDITION
 Re-run after any foundation member's major version bump. Adding a new pack
@@ -121,5 +121,11 @@ re-run. Ladder runs are proof work, not re-run triggers. v1.3.0 changes no
 leg machinery (additive ladder only), so Run 1 retains this card's
 live-run credit against the OD12 release bar — recorded as OD13, ratify or
 flip. Run log: brandsmith 2026-07-13 · Run 1 complete 2026-07-14 (v1.2.1
-legs, unchanged here). Roster reconfirmed 2026-07-14 (pack self-audit —
-no change).
+legs, unchanged here) · Roster reconfirmed 2026-07-14 (pack self-audit —
+no change) · Run 3 credited 2026-07-23 (the 1.1.0 rebuild as the live run;
+registry capstone line). v1.4.0 (2026-07-24, foundation-v1.1.1): brand-
+carriage-law alignment — brand-config references removed, Leg 4 builds
+neutral, Run-3 status reconciled to the registry; the stored branded HTML
+twin deleted (a stored branded artifact violates the law — regenerate at
+need via `brandsmith apply`). No leg machinery changed; Run 2 remains the
+open ladder item.

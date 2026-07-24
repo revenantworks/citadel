@@ -1,6 +1,6 @@
 # Test Cases — revenant-foundation-skillsmith
 
-Provenance: derived from revenant-foundation-skillsmith v1.0.0, 2026-07-14 (cases 29–32 added for Entry — Integrate; 33–36 for Entry — Pack; cases 11–12 and 15–16 rewritten 2026-07-23 for the 1.1.0 decoupling + Entry — Upkeep).
+Provenance: derived from revenant-foundation-skillsmith v1.0.0, 2026-07-14 (cases 29–32 added for Entry — Integrate; 33–36 for Entry — Pack; cases 11–12 and 15–16 rewritten 2026-07-23 for the 1.1.0 decoupling + Entry — Upkeep). Re-anchored to v1.1.2, 2026-07-24 (foundation-v1.1.1 hygiene pass; suite content reviewed at the 2026-07-23 6A refresh).
 
 36 cases covering every entry point and behavior path — builds under both profiles, suite composition, the standalone-offer flag, audit with and without a pre-given approval, all three restraint paths, injected-content handling, the search-unavailable fallback, the evalsmith handoff, upkeep (sweep and refresh-on-approval), refresh, bare invocation, neutral builds and the brandsmith boundary, pack manifests, port, and conformance checks.
 

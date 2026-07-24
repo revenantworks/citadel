@@ -22,3 +22,6 @@ venv/
 # Local environment
 .env
 *.log
+
+# local Claude Code settings (never ship)
+.claude/

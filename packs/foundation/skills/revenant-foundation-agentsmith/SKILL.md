@@ -3,7 +3,7 @@ name: revenant-foundation-agentsmith
 description: Designs and audits the system around an autonomous or scheduled agent — everything but the prompt text. Trigger when someone wants to design, spec, harden, review, or audit an agent, bot, scheduled task, or automation that acts on its own; when they ask about guardrails, kill switches, run cadence, retries, failure handling, protected resources, output contracts, or agent-to-agent handoffs; when untrusted content (email, web pages, documents) flows through an agent and needs isolation; or when they say "agentsmith" (subcommands "audit" — score an existing spec, "refresh" — platform notes). Design mode covers cadence, soft-vs-hard guardrail tiers, kill-switch layers, protected-resource declarations, handoff schemas, output contracts, the zero-signal rule, failure/retry rules, injection hygiene, and trust tiers for untrusted content. Audit mode scores an existing spec on the same checklist. For the agent's prompt text, promptsmith is the right tool; code-level threat coverage belongs to a security harness.
 license: MIT
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   profile: standalone
   pack: foundation
   brand: revenant

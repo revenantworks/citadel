@@ -3,7 +3,7 @@ name: revenant-foundation-commsmith
 description: Shapes any message to its channel and audience — one message in, the right form out. Drafts in a neutral professional voice by default; applies a specific brand voice only when named or handed in (brandsmith owns voice definitions). Trigger when someone wants to write, draft, rewrite, reshape, shorten, or polish an email, text, Slack or Teams message, release notes, a YouTube title, a social post, or a Discord announcement; when they ask to make a message more formal, more casual, or fit a channel; when a message should be checked for drift against its channel norms or voice; when they need release comms or a dated comms plan; or when they say "commsmith" (subcommands "commsmith formats", "commsmith audit"). Covers per-channel registers, length contracts, structure and title rules, strategy-labeled variants when stakes compete, and pre-publish PII/secret redaction. It never sends. For long-form docs, loresmith; for prompts, promptsmith; to define or save a voice, brandsmith.
 license: MIT
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   profile: standalone
   pack: foundation
   brand: revenant

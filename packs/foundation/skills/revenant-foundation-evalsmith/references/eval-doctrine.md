@@ -44,6 +44,10 @@ When targets are pack siblings, add **cross-boundary pairs**: for each adjacent-
 
 Five checks, 1–10 each, standard anchors (7+ trustworthy · 4–6 tests something, misses paths · 1–3 decorative): coverage vs. the derived map · boundary pairs present · assertion mechanics · count integrity · self-containment (the zero-runtime-dependency law — no step requires evalsmith, a script, or a harness; a human with the file can run it cold). Overall = average, one decimal. P0 = can't run cold, or a coverage hole on a restraint path.
 
+## Provenance discipline
+
+When the target's version bumps, the suite's provenance line updates **in the same commit**: keep the derivation history, append "re-anchored to vX.Y.Z, YYYY-MM-DD". A suite whose head names an older target version with no dated re-anchor is a finding — the exact staleness class this skill audits others for, and the pack's build gate warns on it. Recording a run: a dated `evals/RESULTS.md` section (date · target version · runner · per-row verdicts · pass rate; irreducible-judgment rows tagged `JUDGE`) — a protocol, never an executor.
+
 ## Ecosystem note
 
 skill-creator's eval tooling (evals.json, subagent runs, grading, benchmarks, blind A/B — per the Claude Code skills docs) is the adopted automation lane. A standard-profile target may request an `evals.json` emit alongside the manual pair; standalone targets stay manual by design — no tooling dependency, ever.

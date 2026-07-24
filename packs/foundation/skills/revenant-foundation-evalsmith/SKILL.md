@@ -1,9 +1,9 @@
 ---
 name: revenant-foundation-evalsmith
-description: Authors and audits eval suites for skills, prompts, and agent specs — a build-time generator, never a runtime dependency — suites it writes live inside the target and run by hand without evalsmith present. Trigger when someone wants trigger evals, test cases, an assertion suite, or regression coverage written for a skill, SKILL.md, prompt card, or agent spec; when an existing suite needs scoring — coverage per entry point and behavior path, boundary pairs, assertion mechanics, count integrity; when a suite should be refreshed after the thing it tests changed; or when they say "evalsmith" ("evalsmith audit" — score an existing suite, "evalsmith refresh" — re-derive after changes). Covers should/shouldn't trigger sets with near-misses, assertion-only cases, coverage maps, and count-integrity checks. For building the skill itself, skillsmith; for the prompt under test, promptsmith; for code unit tests and QA, engineering test tooling; automated benchmark loops belong to skill-creator's eval tools.
+description: Authors and audits eval suites for skills, prompts, and agent specs — a build-time generator, never a runtime dependency — suites it writes live inside the target and are run by hand without evalsmith present. Trigger when someone wants trigger evals, test cases, an assertion suite, or regression coverage written for a skill, SKILL.md, prompt card, or agent spec; when an existing suite needs scoring — coverage per entry point and behavior path, boundary pairs, assertion mechanics, count integrity; when a suite should be refreshed after the thing it tests changed; or when they say "evalsmith" ("evalsmith audit" — score an existing suite, "evalsmith refresh" — re-derive after changes). Covers should/shouldn't trigger sets with near-misses, assertion-only cases, coverage maps, and count-integrity checks. For building the skill itself, skillsmith; for the prompt under test, promptsmith; for code unit tests and QA, engineering test tooling; automated benchmark loops belong to skill-creator's eval tools.
 license: MIT
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   profile: standalone
   pack: foundation
   brand: revenant

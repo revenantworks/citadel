@@ -1,6 +1,6 @@
 # Trigger Evals — 20 queries (10 should / 10 shouldn't)
 
-Read each cold against name + description only. Provenance: derived from revenant-foundation-evalsmith v1.0.0, 2026-07-14.
+Read each cold against name + description only. Provenance: derived from revenant-foundation-evalsmith v1.0.0, 2026-07-14. Re-anchored to v1.1.1, 2026-07-24 (foundation-v1.1.1 hygiene pass; suite content reviewed at the 2026-07-23 6A refresh).
 
 | # | Query | Expected |
 |---|---|---|

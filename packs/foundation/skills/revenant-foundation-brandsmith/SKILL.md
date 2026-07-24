@@ -3,7 +3,7 @@ name: revenant-foundation-brandsmith
 description: Defines a brand and voice and keeps everything conforming to them — identity, naming, palette roles, voice, taglines, firewall rules — across skills, packs, artifacts, docs, and repos, and applies them on request. Ships neutral — no brand exists until one is built or handed in, and outputs default spec-clean. Trigger when someone wants to create, define, rebuild, or consolidate a brand, voice, or style guide ("brandsmith build"); when a built skill, artifact, repo, or document should have the brand or voice applied ("brandsmith apply"); when a repo, file tree, skill set, or artifact should be checked for brand or voice drift — wrong names, off-palette colors, off-voice copy, stale handles or taglines ("brandsmith audit"); when a voice profile, config payload, or HTML brand-guide card should be exported ("brandsmith export"); or when they say "brandsmith". The single home of brand and voice — commsmith applies a message voice via its export; skillsmith builds neutral for brandsmith to brand on invoke.
 license: MIT
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
   profile: standalone
   pack: foundation
   brand: revenant

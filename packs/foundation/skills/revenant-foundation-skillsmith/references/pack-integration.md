@@ -41,4 +41,4 @@ Three numbers must agree before delivery: registry member rows · rows in the re
 
 ## Failure and fallback
 
-No file tools on the surface → integration-notes only (every touch named, paste-ready content included). Registry unreadable or pack unregistered → stop; registering the pack is a Configure job. Sibling folders absent in chat (nothing uploaded to integrate against) → deliver the regenerated `pack.md`, the registry diff, and notes; never fabricate sibling packages from memory.
+No file tools on the surface → integration-notes only (every touch named, paste-ready content included). Registry unreadable or pack unregistered → stop; register the pack first (registry row + marketplace entry + build run per the RUNBOOK — the old Configure entry that owned this was retired at 1.1.0). Sibling folders absent in chat (nothing uploaded to integrate against) → deliver the regenerated `pack.md`, the registry diff, and notes; never fabricate sibling packages from memory.

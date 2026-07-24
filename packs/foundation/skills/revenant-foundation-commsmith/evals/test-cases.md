@@ -2,7 +2,7 @@
 
 Provenance: derived from revenant-foundation-commsmith v1.0.0, 2026-07-14; Case 19 and the firewall cases re-anchored 2026-07-23 for the 1.1.0 decoupling (voice storage moved to brandsmith).
 
-19 cases covering every entry point and behavior path — build, reshape (facts frozen, overflow surfaced), voice application (brandsmith-exported profile) and both firewall directions, formats, audit (report-only, firewall P0), variants, cadence sets, redaction and its private-message skip, never-send, all three restraint paths, and bare invocation.
+20 cases covering every entry point and behavior path — build, reshape (facts frozen, overflow surfaced), voice application (brandsmith-exported profile) and both firewall directions, formats, audit (report-only, firewall P0), variants, cadence sets, redaction and its private-message skip, never-send, render-through-surface-tools (the self-named known failure), all three restraint paths, and bare invocation. Cases 6, 7, and 19 run cold against `fixtures/voice-export.md` — a neutral stand-in for a brandsmith export (real profiles live only in a locally configured brandsmith, per the brand-carriage law).
 
 Each case: **Input** + **Assert** (mechanical checks on the run output). `<no-draft>` = correctly delivered no message.
 
@@ -83,5 +83,10 @@ Each case: **Input** + **Assert** (mechanical checks on the run output). `<no-dr
 **Input (T1):** "commsmith voice — save this as my work voice: <profile fields>"
 **Input (T2):** "ok — apply that voice to this email then" (profile handed in)
 **Assert:** T1 writes no file — `<no-draft>`, voice definition and storage named as brandsmith's (`brandsmith build` / its voice-profile export), no `voices.md` referenced anywhere; T2 drafts the email in the handed-in voice within the email contract, firewall respected — application is commsmith's, definition is not.
+
+### Case 20 — render through the surface's tools (the known failure)
+**Input (T1):** "draft the release announcement, give me the two variants" — with the run's stated tool list containing a message-compose / option-presenting tool.
+**Input (T2):** same request — with a stated tool list containing NO compose or option tool.
+**Assert:** T1 delivers the drafts/variant choice through the stated tool, and no reply describes a tappable or interactive form that the stated tool list cannot render; T2 outputs plain text in a copy-ready block. Checking the tool list precedes rendering in both turns.
 
 Sanity-check flag: generated examples deserve a human pass — the model imitates them precisely.
