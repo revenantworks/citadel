@@ -3,6 +3,27 @@
 Pack releases tag as `<pack>-vX.Y.Z`; member versions are independent semver.
 This log starts at the foundation 1.0.0 baseline.
 
+## [foundation-v1.1.1] - 2026-08-01
+
+Install-parity release: the tooling fix from `4800918` reaching the copies
+that actually load. Cut for delivery, not for new capability.
+
+- **The pack version is the plugin cache key.** `claude plugin update`
+  compares pack versions, so a member-only bump never reaches an installed
+  user: the marketplace clone moves, the loaded cache does not, and the
+  update reports "already at the latest version". skillwright 1.0.1 rode main
+  and stayed unreachable until this bump — which is the whole reason it
+  exists. Recorded in `release-doctrine.md` — Install parity and RUNBOOK
+  step 5.
+- **skillwright 1.0.1** — release-doctrine's Install parity described one
+  installed copy where Claude Code has two (the clone an install reads from,
+  the cache it loads); now states both surfaces, the two-step order, the
+  cache-key rule, and that parity knows nothing about claude.ai.
+- **`tools/build.py --parity`** diffs the clone **and** the loaded cache,
+  names which surface drifted, and skips each cleanly when absent (CI-safe).
+  Verified against a real stale cache, not trusted on a clean run.
+- Roster and seams unchanged (9 members, 12 seams); no member behavior moved.
+
 ## [foundation-v1.1.0] - 2026-08-01
 
 - **promptwright 1.1.0** — Entry — Model gains plan grain: a handed-in plan

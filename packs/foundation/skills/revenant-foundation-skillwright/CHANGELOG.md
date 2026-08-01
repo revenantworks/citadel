@@ -11,8 +11,13 @@ the clone does not move the cache, so clone-current and loaded-stale is a
 real, silent state — observed at foundation 1.1.0, where a session kept
 loading promptwright 1.0.0 while `--parity` reported clean. The section now
 names both surfaces, the two-step order, and a third honest limit (parity
-knows nothing about claude.ai). `tools/build.py --parity` was extended to
-match in the same pass; the tool and the doctrine move together by design.
+knows nothing about claude.ai). It also records the mechanism underneath:
+**the pack version is the cache key**, so `claude plugin update` compares
+pack versions and a member-only bump is undeliverable — it reports "already
+at the latest version" and serves the old body. That is the practical edge of
+Two clocks: the member clock says what changed, the pack clock says what
+ships. `tools/build.py --parity` was extended to match in the same pass; the
+tool and the doctrine move together by design.
 
 No entry point, gate, or count changed — a corrected description of a
 mechanism that already behaved this way, so no eval row moves and no run is

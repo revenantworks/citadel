@@ -31,7 +31,10 @@
       `~/.claude/plugins/cache/revenant/<pack>/<version>/`, the copy Claude
       Code actually LOADS. Restart to apply. Skipping this is how a session
       kept loading a superseded member while parity reported clean
-      (2026-08-01, promptwright 1.1.0).
+      (2026-08-01, promptwright 1.1.0). **This compares PACK versions**, so a
+      member-only bump is undeliverable - it reports "already at the latest
+      version" and serves the old body. A member fix reaches an install only
+      when a pack bump carries it.
 
    Then `python tools/build.py --parity` must report clean - it now checks
    **both** surfaces and names which one drifted. Then re-upload changed

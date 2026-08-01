@@ -8,6 +8,16 @@
 
 ---
 
+## Release — foundation 1.1.1, tag `foundation-v1.1.1` (2026-08-01)
+
+Delivery release, no new capability: cut so the parity fix and skillwright
+1.0.1 below reach the copies that actually load, since the pack version is
+the cache key. Build clean (`--check` clean, count integrity 9 = 9 = 9, 0
+manifests synced), tag pushed, CI attaches assets. Owner surfaces after the
+tag: clone refreshed, plugin updated, `--parity` clean on **both** surfaces —
+the first parity run in this repo's history that actually inspected the
+loaded copy. claude.ai re-upload still owed (spec.md register ⑨).
+
 ## Post-tag fixes riding main after `foundation-v1.1.0` (2026-08-01)
 
 **skillwright 1.0.1** — the install-parity blind spot, found by using the
@@ -24,10 +34,16 @@ detector was verified against the real stale 1.0.0 cache still on disk rather
 than trusted on a clean run — a parity check that has only ever printed clean
 is unproven.
 
-These ride main **after** the tag was cut, the documented pattern (the 1.1.1
-audit fixes did the same after `foundation-v1.1.0`). The published tag was
-**not** moved: `dist/` zips are the upload source of truth for anything
-installed from this state, and the fixes fold into the next pack version.
+These rode main **after** the tag was cut, the documented pattern, and the
+published tag was **not** moved. Then the attempt to deliver them found the
+rule underneath: **the pack version is the plugin cache key.** `claude plugin
+update` compares *pack* versions, so skillwright 1.0.1 was unreachable — the
+clone moved to it, the loaded cache stayed at 1.0.0, and the update reported
+"already at the latest version". A post-tag member patch is undelivered work
+until a pack bump carries it, which is what `foundation-v1.1.1` was cut to do
+(release entry below). Recorded in `release-doctrine.md` — Install parity and
+RUNBOOK step 5, because nothing in the repo said it and the failure is silent
+on both ends.
 
 ## Release — foundation 1.1.0, tag `foundation-v1.1.0` (2026-08-01)
 

@@ -8,12 +8,16 @@
 
 **Pack:** foundation · **Profile:** standalone · **Brand:** revenant ·
 **Stamped:** 2026-08-01 ·
-**Current status:** **SHIPPED** — pack **1.1.0**, tag `foundation-v1.1.0`
-(2026-08-01): one member touched, **promptwright 1.1.0** (Entry — Model gains
-plan grain — per-subtask target tables, the living-table and standing-rule
-contracts), pack version bumped in one stroke (`build.py --bump-pack`) per
-release-doctrine's Two clocks. Roster and seams unchanged (9 members, 12
-seams). Preceded by the 2026-07-31 wright baseline: all nine members
+**Current status:** **SHIPPED** — pack **1.1.1**, tag `foundation-v1.1.1`
+(2026-08-01), a delivery release carrying the install-parity fix and
+**skillwright 1.0.1** to the copies that load; cut because the pack version
+is the plugin cache key, so the member patch was undeliverable without it
+(`ledger.md`). Preceded the same day by pack **1.1.0**, tag
+`foundation-v1.1.0`: one member touched, **promptwright 1.1.0** (Entry —
+Model gains plan grain — per-subtask target tables, the living-table and
+standing-rule contracts), pack version bumped in one stroke (`build.py
+--bump-pack`) per release-doctrine's Two clocks. Roster and seams unchanged
+across both (9 members, 12 seams). Preceded by the 2026-07-31 wright baseline: all nine members
 baselined under the wright motif and reset to **1.0.0** (pack, plugin
 manifest, marketplace entry, members), content carried forward unchanged. The
 version references in the history sections below are predecessor-era
