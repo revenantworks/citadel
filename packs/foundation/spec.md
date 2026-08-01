@@ -13,7 +13,7 @@
 and reset to **1.0.0** (pack, plugin manifest, marketplace entry, members),
 content carried forward unchanged. The
 version references in the history sections below are predecessor-era
-designations, frozen as written; the owner's archive resolves them. Full
+designations, frozen as written. Full
 parity reached
 2026-08-01: release assets live (nine zips), Claude Code plugin installed at
 1.0.0, cold trigger baselines re-measured on the wright listing (97/97,
@@ -145,8 +145,7 @@ bullet so the split holds on the surface that loads first, not only at descripti
 ## Approved roster
 
 *Re-baselined 2026-07-31: all nine members reset to 1.0.0 under the wright
-motif, content carried forward; earlier designations resolve through the
-owner's archive.*
+motif, content carried forward; earlier designations frozen as written.*
 
 | Member | Job (one line) | Status | Version |
 |---|---|---|---|
