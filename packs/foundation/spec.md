@@ -113,7 +113,7 @@ the pack's last open FAIL — was closed at `50a05f7` (2026-07-25/26). skillwrig
 37-query cold trigger re-run is discharged (37/37, all watch rows held). No member version bumped —
 each fix is a suite or doctrine correction against unchanged behavior, so every ledger's
 version still describes the code under test.
-Prior release: pack 1.1.1, tag `foundation-v1.1.1` 2026-07-24 (hygiene release; next
+Prior release: the 2026-07-24 hygiene release, predecessor-era (next
 upkeep due ~2026-09-21 via the Cowork task in `upkeep-task.md`).
 
 **Deferral register (opens the 1.2.0 pass — touch each member once when it runs):**

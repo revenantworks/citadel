@@ -123,7 +123,7 @@ live-run credit against the OD12 release bar — recorded as OD13, ratify or
 flip. Run log: brandwright 2026-07-13 · Run 1 complete 2026-07-14 (v1.2.1
 legs, unchanged here) · Roster reconfirmed 2026-07-14 (pack self-audit —
 no change) · Run 3 credited 2026-07-23 (the 1.1.0 rebuild as the live run;
-registry capstone line). v1.4.0 (2026-07-24, foundation-v1.1.1): brand-
+registry capstone line). v1.4.0 (the 2026-07-24 pack release, predecessor-era): brand-
 carriage-law alignment — brand-config references removed, Leg 4 builds
 neutral, Run-3 status reconciled to the registry; the stored branded HTML
 twin deleted (a stored branded artifact violates the law — regenerate at

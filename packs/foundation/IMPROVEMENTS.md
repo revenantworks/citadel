@@ -1,8 +1,15 @@
-# foundation — what improved (1.0.0 → 1.3.2)
+# foundation — what improved (2026-07-13 → 2026-07-27)
 
 *A narrative companion to the per-member `CHANGELOG.md` files and the root
 `CHANGELOG.md`. The changelogs record every edit; this records what the edits
-add up to. Stamped 2026-07-27, pack **1.3.2** (`foundation-v1.3.2`).*
+add up to. Stamped 2026-07-27.*
+
+> **Frozen, and dated rather than versioned.** Every version number below is a
+> **predecessor-era** designation from before the 2026-07-31 re-baseline; those
+> releases and their tags no longer exist, and two of the names have since been
+> reused by unrelated releases (root `CHANGELOG.md`). The narrative is left
+> verbatim because it records what was true when written — read it by date.
+> Improvements made after 2026-07-31 are not tracked here.
 
 The pack went from a uniform launch baseline to eight wrights that are
 neutral-by-default, single-homed, security-scanned inside and out,

@@ -3,6 +3,18 @@
 Pack releases tag as `<pack>-vX.Y.Z`; member versions are independent semver.
 This log starts at the foundation 1.0.0 baseline.
 
+> **Predecessor-era version numbers do not resolve.** The pack re-baselined to
+> 1.0.0 on 2026-07-31 and the pre-1.0 history was destroyed with no archive, so
+> tag names from before that date (`foundation-v1.1.x` through `v1.4.x`,
+> 2026-07-14 → 2026-07-27) name releases that no longer exist anywhere, as do
+> the commit SHAs recorded beside them. **Two of those names have since been
+> reused:** today's `foundation-v1.1.0` and `foundation-v1.1.1` are new
+> releases unrelated to the predecessor tags of the same name. Where a
+> pre-2026-07-31 designation appears in a frozen record — the eval `RESULTS.md`
+> ledgers, `spec.md`'s history sections, `IMPROVEMENTS.md` — it is left verbatim
+> because it records what was true when written; read it as a date, not a tag.
+> Live code and runbooks cite dates instead, for exactly this reason.
+
 ## [foundation-v1.1.1] - 2026-08-01
 
 Install-parity release: the tooling fix from `4800918` reaching the copies

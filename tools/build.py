@@ -28,8 +28,8 @@ Usage:
   python3 tools/build.py --footprint  measured SKILL.md body tokens per member against its registry budget,
                                     plus the pack total; report only, writes nothing, never fails
 
-Validation also covers (added at foundation-v1.1.1): pack plugin.json == marketplace entry version
-(hard fail — the 1.0.0/1.1.0 split-brain class), eval provenance freshness and eval-table orphan
+Validation also covers (added 2026-07-24): pack plugin.json == marketplace entry version
+(hard fail — the split-brain class), eval provenance freshness and eval-table orphan
 rows (WARN this release; flip to fail at the next tagged release), description >=1000 chars and
 and body footprint. The footprint gate was RESCOPED 2026-07-25: >500 body lines stays a hard fail (the
 agentskills.io norm), while the 5k-token figure is this pack's own advisory and now gates on whether the
@@ -355,7 +355,7 @@ def validate_volatile(folder: Path, fm: str) -> None:
         # 40 lines covers both; the strict "Last …:" form avoids prose dates.
         head = "\n".join(target.read_text(encoding="utf-8").splitlines()[:40])
         # One grammar only: "Last verified:" — matches the Cowork upkeep task's grep exactly.
-        # (Narrowed at foundation-v1.1.1 from verified|restamped|stamped; all four calendar
+        # (Narrowed 2026-07-24 from verified|restamped|stamped; all four calendar
         # files already used the strict form, so this was a zero-content-change tightening.)
         stamp = re.search(r"Last verified:\s*(\d{4}-\d{2}-\d{2})", head)
         if not stamp:
@@ -477,7 +477,7 @@ def validate_skill(folder: Path, budget: tuple[int, str] | None = None) -> str |
 
 
 def validate_evals(folder: Path, fm_ver: str) -> None:
-    """Eval-suite integrity (added foundation-v1.1.1; WARN this release, fail at the next tag).
+    """Eval-suite integrity (added 2026-07-24; WARN this release, fail at the next tag).
 
     1. Provenance freshness: an evals/*.md head naming an older member version with no
        dated reconfirmation line is the exact defect class evalwright audits others for.
@@ -509,8 +509,8 @@ def validate_evals(folder: Path, fm_ver: str) -> None:
 
 def check_marketplace(packs: dict[str, str]) -> None:
     """Cross-check the catalog: every pack has an entry; every entry's source exists;
-    the pack's own plugin.json version matches the catalog (added foundation-v1.1.1 —
-    hard fail: the 1.0.0-vs-1.1.0 split-brain shipped for a month, CI-invisible)."""
+    the pack's own plugin.json version matches the catalog (added 2026-07-24 —
+    hard fail: a plugin.json/marketplace split-brain shipped for a month, CI-invisible)."""
     if not MARKETPLACE.exists():
         fail("missing .claude-plugin/marketplace.json")
         return

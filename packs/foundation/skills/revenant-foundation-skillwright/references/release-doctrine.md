@@ -1,6 +1,6 @@
 # Release Doctrine — cutting a pack version
 
-> What a pack release requires beyond the member work. Loaded only when the deliverable **is** a release or the close of a versioned pass — no build, audit, port, or integrate run reads it. The worked example throughout is this pack's own shipped history, readable in the repo: the `foundation-v1.1.1` hygiene release, the `foundation-v1.1.0` run before it, and the 1.2.0 pass that opened after.
+> What a pack release requires beyond the member work. Loaded only when the deliverable **is** a release or the close of a versioned pass — no build, audit, port, or integrate run reads it. The worked example throughout is this pack's own shipped history — the 2026-07-24 hygiene release, the 2026-07-23 run before it, and the pass that opened after. Those releases are cited **by date, not by tag**: they predate the 2026-07-31 re-baseline, so their tags and commits no longer exist and two of their names have since been reused by unrelated releases. The lessons hold; the version numbers do not resolve.
 
 Nothing here is a rule this file invents. Each section below names the mechanism that owns its step — the pack build script, the CI job, the RUNBOOK loop, or the pack-spec baton — what it looks like when it fires, and what the release still has to decide by hand. Where a step has no mechanism behind it, it says so and stands as adopted practice the pack has kept release to release, owed by hand. **The eval ledger is the mixed section:** two of its checks are gated and the rest is owed by hand, so read that one step by step rather than as a whole.
 
@@ -61,7 +61,7 @@ The build also prints a non-fatal warning count. Warnings are instrumentation, n
 
 CI builds the member zips on a version tag and attaches them to the release; installers are pointed at Releases, so a tag whose assets lag main hands out stale skills. Confirm the attach after pushing — "CI is configured to attach" and "the assets are on the release" are two different facts, and only the second one installs.
 
-When a tag predates fixes that landed after it — the 1.1.1 audit fixes rode main after `foundation-v1.1.0` was cut — the locally built `dist/` zips are the upload source of truth (they are build artifacts, gitignored, never committed), and a re-tag for asset parity is the documented option. Either way, state which build the upload set came from.
+When a tag predates fixes that landed after it — as on 2026-07-24, when a hygiene release's audit fixes rode main after the tag was cut — the locally built `dist/` zips are the upload source of truth (they are build artifacts, gitignored, never committed), and a re-tag for asset parity is the documented option. Either way, state which build the upload set came from.
 
 ## The deferral register — findings recorded as evidence
 

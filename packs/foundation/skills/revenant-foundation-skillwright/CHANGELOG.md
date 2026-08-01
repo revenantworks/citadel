@@ -1,5 +1,19 @@
 # Changelog — revenant-foundation-skillwright
 
+## [1.0.2] — 2026-08-01
+
+`references/release-doctrine.md` cited predecessor-era releases by tag name.
+Two of those names — `foundation-v1.1.0` and `foundation-v1.1.1` — were reused
+by unrelated releases cut 2026-08-01, so the doctrine read as though its
+worked example described them; its header also pointed readers at that history
+as "readable in the repo" when the pre-re-baseline tags and commits no longer
+exist. Both now cite **dates**, with the collision stated once in the header
+and the reuse recorded in the root `CHANGELOG.md`.
+
+No rule, gate, count, or entry point moved — the same guidance, anchored to
+something that still resolves. Delivery to an install rides the next pack
+bump, per the cache-key rule in 1.0.1.
+
 ## [1.0.1] — 2026-08-01
 
 Doc correction in `references/release-doctrine.md` — Install parity. The
