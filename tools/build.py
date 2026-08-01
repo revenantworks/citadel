@@ -22,7 +22,8 @@ Usage:
   python3 tools/build.py --only revenant-foundation-tokenwright   limit zip build to one member (sync still runs)
   python3 tools/build.py --bump-pack <pack> <X.Y.Z>   one-stroke version write: marketplace entry +
                                     pack plugin.json + root CHANGELOG scaffold (prevents split-brain bumps)
-  python3 tools/build.py --parity   diff installed marketplace-clone SKILL.md descriptions against repo HEAD;
+  python3 tools/build.py --parity   diff BOTH installed copies' SKILL.md frontmatter against repo HEAD —
+                                    the marketplace clone AND the plugin cache Claude Code actually loads;
                                     exit 1 on drift; skips cleanly when no local install exists (CI-safe)
   python3 tools/build.py --footprint  measured SKILL.md body tokens per member against its registry budget,
                                     plus the pack total; report only, writes nothing, never fails
@@ -569,31 +570,81 @@ def bump_pack(pack: str, ver: str) -> int:
     return 0
 
 
-def parity(packs: dict[str, str]) -> int:
-    """Diff installed marketplace-clone SKILL.md frontmatter vs repo HEAD (owner-machine detector).
+def _frontmatter(p: Path) -> str:
+    return p.read_text(encoding="utf-8").split("---")[1]
 
-    The live drift mechanism: ~/.claude/plugins/marketplaces/<mkt> is a git clone that only
-    moves on /plugin marketplace update — it served pre-1.1.0 descriptions for a month.
-    Skips cleanly when no clone exists (CI-safe).
+
+def parity(packs: dict[str, str]) -> int:
+    """Diff both installed copies' SKILL.md frontmatter vs repo HEAD (owner-machine detector).
+
+    TWO surfaces drift independently, and checking only the first is how a session kept
+    loading a superseded member while this command reported clean (2026-08-01, promptwright
+    1.1.0):
+
+      clone — ~/.claude/plugins/marketplaces/<mkt>, a git clone that moves only on
+              /plugin marketplace update. It served pre-1.1.0 descriptions for a month.
+      cache — ~/.claude/plugins/cache/<mkt>/<pack>/<version>/, the copy Claude Code actually
+              LOADS, written only on /plugin install|update. A refreshed clone does not move
+              it: the clone is where an update reads FROM, the cache is what it writes TO,
+              so clone-clean and cache-stale is a real and silent state.
+
+    Note the cache flattens the pack root — `skills/<member>/`, not `packs/<pack>/skills/`.
+    Each surface skips cleanly when absent (CI-safe).
     """
-    mkt = Path.home() / ".claude" / "plugins" / "marketplaces" / "revenant"
-    if not mkt.is_dir():
-        print("parity: no local marketplace clone — skipped (nothing installed here)")
-        return 0
+    home = Path.home() / ".claude" / "plugins"
+    mkt = home / "marketplaces" / "revenant"
     drifted = 0
-    for pack in packs:
-        for repo_sk in sorted((PACKS / pack / "skills").glob("*/SKILL.md")):
-            member = repo_sk.parent.name
-            inst_sk = mkt / "packs" / pack / "skills" / member / "SKILL.md"
-            if not inst_sk.is_file():
-                print(f"  ✗ {member}: not present in installed clone"); drifted += 1
+    checked = 0
+
+    if not mkt.is_dir():
+        print("clone: no local marketplace clone — skipped (nothing installed here)")
+    else:
+        checked += 1
+        print("clone — ~/.claude/plugins/marketplaces/revenant")
+        for pack in packs:
+            for repo_sk in sorted((PACKS / pack / "skills").glob("*/SKILL.md")):
+                member = repo_sk.parent.name
+                inst_sk = mkt / "packs" / pack / "skills" / member / "SKILL.md"
+                if not inst_sk.is_file():
+                    print(f"  ✗ {member}: not present in the clone"); drifted += 1
+                elif _frontmatter(repo_sk) != _frontmatter(inst_sk):
+                    print(f"  ✗ {member}: clone frontmatter drifts from repo HEAD"); drifted += 1
+                else:
+                    print(f"  ✓ {member}")
+
+    installed = home / "installed_plugins.json"
+    if not installed.is_file():
+        print("cache: no installed_plugins.json — skipped (no plugin installed here)")
+    else:
+        entries = json.loads(installed.read_text(encoding="utf-8")).get("plugins", {})
+        for pack in packs:
+            recs = entries.get(f"{pack}@revenant") or []
+            if not recs:
+                print(f"cache: {pack} not installed — skipped")
                 continue
-            fm = lambda p: p.read_text(encoding="utf-8").split("---")[1]
-            if fm(repo_sk) != fm(inst_sk):
-                print(f"  ✗ {member}: installed frontmatter drifts from repo HEAD"); drifted += 1
-            else:
-                print(f"  ✓ {member}")
-    print("parity:", f"DRIFT ({drifted}) — run /plugin marketplace update revenant (or git pull the clone)" if drifted else "clean")
+            checked += 1
+            for rec in recs:
+                root = Path(rec.get("installPath", ""))
+                print(f"cache — {root} ({rec.get('scope', '?')} scope, v{rec.get('version', '?')})")
+                if not root.is_dir():
+                    print(f"  ✗ {pack}: installPath does not exist"); drifted += 1
+                    continue
+                for repo_sk in sorted((PACKS / pack / "skills").glob("*/SKILL.md")):
+                    member = repo_sk.parent.name
+                    inst_sk = root / "skills" / member / "SKILL.md"
+                    if not inst_sk.is_file():
+                        print(f"  ✗ {member}: not present in the loaded cache"); drifted += 1
+                    elif _frontmatter(repo_sk) != _frontmatter(inst_sk):
+                        print(f"  ✗ {member}: LOADED copy drifts from repo HEAD"); drifted += 1
+                    else:
+                        print(f"  ✓ {member}")
+
+    if not checked:
+        print("parity: nothing installed here — skipped")
+        return 0
+    print("parity:", f"DRIFT ({drifted}) — refresh the clone (/plugin marketplace update revenant), "
+          f"THEN the loaded copy (claude plugin update <pack>@revenant); both, in that order"
+          if drifted else "clean")
     return 1 if drifted else 0
 
 

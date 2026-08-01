@@ -21,11 +21,21 @@
 4. Commit, tag `<pack>-vX.Y.Z`, push branch + tag. Confirm CI attached the
    member zips to the Release - README points installers at Releases, so a
    tag whose assets lag main ships stale skills.
-5. Owner machine: `/plugin marketplace update revenant` (or `git -C
-   ~/.claude/plugins/marketplaces/revenant pull`), then
-   `python tools/build.py --parity` must report clean - the installed
-   clone only moves on update and served pre-1.1.0 descriptions for a
-   month. Then re-upload changed members on claude.ai per below.
+5. Owner machine, **both steps, in this order** - two copies drift
+   independently and refreshing the first does not move the second:
+   1. `claude plugin marketplace update revenant` (or `git -C
+      ~/.claude/plugins/marketplaces/revenant pull`) - refreshes the clone,
+      which is what an install reads FROM. It served pre-1.1.0 descriptions
+      for a month.
+   2. `claude plugin update <pack>@revenant` - rewrites
+      `~/.claude/plugins/cache/revenant/<pack>/<version>/`, the copy Claude
+      Code actually LOADS. Restart to apply. Skipping this is how a session
+      kept loading a superseded member while parity reported clean
+      (2026-08-01, promptwright 1.1.0).
+
+   Then `python tools/build.py --parity` must report clean - it now checks
+   **both** surfaces and names which one drifted. Then re-upload changed
+   members on claude.ai per below.
 
 ## Install / update on claude.ai
 Per skill: download the member zip from Releases -> Customize -> Skills -> + ->

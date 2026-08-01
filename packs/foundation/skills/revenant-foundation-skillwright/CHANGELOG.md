@@ -1,5 +1,23 @@
 # Changelog — revenant-foundation-skillwright
 
+## [1.0.1] — 2026-08-01
+
+Doc correction in `references/release-doctrine.md` — Install parity. The
+section described Claude Code as having **one** installed copy (the
+marketplace clone) when it has **two**: the clone an install reads from, and
+`~/.claude/plugins/cache/<marketplace>/<pack>/<version>/`, the copy Claude
+Code actually loads and that only `claude plugin update` rewrites. Refreshing
+the clone does not move the cache, so clone-current and loaded-stale is a
+real, silent state — observed at foundation 1.1.0, where a session kept
+loading promptwright 1.0.0 while `--parity` reported clean. The section now
+names both surfaces, the two-step order, and a third honest limit (parity
+knows nothing about claude.ai). `tools/build.py --parity` was extended to
+match in the same pass; the tool and the doctrine move together by design.
+
+No entry point, gate, or count changed — a corrected description of a
+mechanism that already behaved this way, so no eval row moves and no run is
+owed.
+
 ## [1.0.0] — 2026-07-31
 
 Baseline release. The 1.0 feature set:

@@ -8,6 +8,27 @@
 
 ---
 
+## Post-tag fixes riding main after `foundation-v1.1.0` (2026-08-01)
+
+**skillwright 1.0.1** — the install-parity blind spot, found by using the
+release rather than reading it. `--parity` checked the marketplace clone only,
+so it reported clean while the session went on loading promptwright **1.0.0**:
+Claude Code loads `~/.claude/plugins/cache/<mkt>/<pack>/<version>/`, which a
+clone refresh does not touch — only `claude plugin update` rewrites it. Two
+surfaces, drifting independently, one of them checked. Fixed in the same pass
+on both sides: `tools/build.py --parity` now diffs the clone **and** the
+loaded cache, names which drifted, and skips each cleanly when absent
+(CI-safe); `release-doctrine.md` — Install parity now states both surfaces and
+the two-step order; `RUNBOOK.md` step 5 splits into the two commands. The
+detector was verified against the real stale 1.0.0 cache still on disk rather
+than trusted on a clean run — a parity check that has only ever printed clean
+is unproven.
+
+These ride main **after** the tag was cut, the documented pattern (the 1.1.1
+audit fixes did the same after `foundation-v1.1.0`). The published tag was
+**not** moved: `dist/` zips are the upload source of truth for anything
+installed from this state, and the fixes fold into the next pack version.
+
 ## Release — foundation 1.1.0, tag `foundation-v1.1.0` (2026-08-01)
 
 Closes the promptwright plan-grain pass below per release-doctrine's Release
