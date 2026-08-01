@@ -1,6 +1,6 @@
 # revenant-foundation-evalwright
 
-Authors and audits eval suites for skills, prompts, and agent specs — a build-time generator, never a runtime dependency. What separates it from benchmark harnesses and QA tooling: what it writes stays **inside the target** as self-contained manual checklists a reader can run cold, with no evalwright, script, or harness present. Derives what a target claims to do, then writes the suite that proves it — or scores the suite it already has. Zero scripts, so it behaves identically on claude.ai, Claude Code, and the API.
+Authors and audits eval suites for skills, prompts, and agent specs — a build-time generator, never a runtime dependency. What separates it from benchmark harnesses and QA tooling: what it writes stays **inside the target** as self-contained manual checklists a reader can run cold, with no evalwright, script, or harness present. Derives what a target claims to do, then writes the suite that proves it, or scores the suite it already has. Zero scripts, so it behaves identically on claude.ai, Claude Code, and the API.
 
 **Workflow:** Intake → Read target → Coverage map → Generate / Score / Refresh → Handback · a non-production state exits at the step it can't complete, in the shape SKILL.md's *Restraint* gives it
 
@@ -45,7 +45,7 @@ Follows the [Agent Skills](https://agentskills.io/) open standard. Drop the fold
 
 ## Staying current
 
-No volatile surface (`metadata.volatile: []`). evalwright stores no baseline of its own — `evalwright refresh` fires when the *target* it tested changes (event-driven), not when an internal baseline ages, so nothing here goes stale on a clock and `skillwright upkeep` skips it.
+No volatile surface (`metadata.volatile: []`). evalwright stores no baseline of its own: `evalwright refresh` fires when the *target* it tested changes (event-driven), not when an internal baseline ages, so nothing here goes stale on a clock and `skillwright upkeep` skips it.
 
 ## Changelog
 

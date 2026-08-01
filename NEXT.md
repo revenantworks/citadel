@@ -7,9 +7,9 @@ plugin install + parity, and the nine claude.ai re-uploads (owner,
 2026-08-01).
 
 1. **Re-verify `audit/COLLISION.md` when its 60-day stamp ages out**
-   (~2026-09-29) — the naming verdict rests on July-2026 collision data; a
+   (~2026-09-29). The naming verdict rests on July-2026 collision data; a
    claimant going commercial (skillwright.app especially) triggers a revisit.
 2. **Optional, if you want your brand in the installed brandwright:** run
    `python tools/apply-install-swaps.py <dir-with-your-brand-definition.md>`
-   and re-upload the `+install` zip it produces — the copy uploaded today is
+   and re-upload the `+install` zip it produces. The copy uploaded today is
    the neutral one.

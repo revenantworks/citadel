@@ -1,6 +1,6 @@
 # revenant-foundation-rigwright
 
-**What separates it from its neighbors:** every other tool in this space generates a config. rigwright decides *which layer the rule belongs in first*, and can score a config you already have without rewriting it. `/init` will write you a CLAUDE.md; it will not tell you that four of your rules are unenforceable as prose and belong in a hook, or that a fifth is paying context rent on every session to say something that mattered twice.
+Every other tool in this space generates a config; rigwright decides *which layer the rule belongs in first*, and can score a config you already have without rewriting it — that's what separates it from its neighbors. `/init` will write you a CLAUDE.md; it will not tell you that four of your rules are unenforceable as prose and belong in a hook, or that a fifth is paying context rent on every session to say something that mattered twice.
 
 The rig is everything Claude reads before the work starts — standing instructions and files a session opens with, whether you remember they are there or not. rigwright authors that layer and audits it when it has silted up.
 

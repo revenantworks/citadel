@@ -1,5 +1,16 @@
 # Changelog — revenant-foundation-agentwright
 
+## [1.0.2] — 2026-08-01
+
+A prose/register pass. The duplicated quarantined-reader rule under
+*Anti-patterns* now cross-references its one home under *Trust tiers* instead
+of restating it in full, plus a spelling fix ("honour" → "honor", matching
+the rest of the pack) and an emphasis-style fix (an ALL-CAPS "IS" replaced
+with the doc's own bold-for-emphasis convention). A handful of dash-joined
+sentences were split for readability where a single em dash was doing a
+comma-splice's job. No rule, gate, count, or entry point moved, so no eval
+re-anchor is owed.
+
 ## [1.0.1] — 2026-08-01
 
 Frozen-record marker added to the `evals/` files that cite predecessor-era

@@ -1,6 +1,13 @@
 # revenant-foundation-promptwright
 
-A prompt-engineering skill for agentic LLMs. Turns a rough idea, a set of parameters, or an existing prompt into a robust, scored, copy-paste-ready artifact. What separates it from framework-based prompt builders: every prompt ships with a **model recommendation** routed by capability tier (Claude by default, any major vendor on request), every draft gets a **hostile read** — the prompt as a maximally-literal model would take it, hunting lines that can be obeyed while defeating the intent — model data self-updates via a snapshot with a 60-day staleness rule (`promptwright refresh`), finished prompts export as savable offline **HTML prompt cards**, a lean load budget caps a standard build at two reference reads, and restraint rules keep it from building prompts that shouldn't exist.
+A prompt-engineering skill for agentic LLMs. Turns a rough idea, a set of parameters, or an existing prompt into a robust, scored, copy-paste-ready artifact. What separates it from framework-based prompt builders:
+
+- Every prompt ships with a **model recommendation** routed by capability tier (Claude by default, any major vendor on request).
+- Every draft gets a **hostile read** — the prompt as a maximally-literal model would take it, hunting lines that can be obeyed while defeating the intent.
+- Model data self-updates via a snapshot with a 60-day staleness rule (`promptwright refresh`).
+- Finished prompts export as savable offline **HTML prompt cards**.
+- A lean load budget caps a standard build at two reference reads.
+- Restraint rules keep it from building prompts that shouldn't exist.
 
 Name a framework and you get it — CO-STAR, RISEN, TIDD-EC, BAB, RTF/APE, Chain of Thought, Agent/System — with what each stands for and which job it wins carried in the skill itself. Say nothing and promptwright picks.
 

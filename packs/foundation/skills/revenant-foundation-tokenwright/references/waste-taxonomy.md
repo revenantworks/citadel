@@ -27,7 +27,7 @@ Read on every slim, audit, and budget run. W-codes name the waste; the ladder or
 | W9 | Cache-busting placement | Volatile content interleaved into a stable prefix; unstable ordering | Reorder stable-first; isolate volatiles in stamped files (8) |
 | W10 | Resident-when-conditional | Always-on cost that only some sessions use (schemas, modes, personas) | Move behind a trigger-loaded surface (7) |
 
-Audit findings cite W-codes; severity (P0/P1/P2) is assigned per the Audit entry in SKILL.md — the code says *what kind* of waste, the P-level says *how much it matters here*.
+Audit findings cite W-codes; severity (P0/P1/P2) is assigned per the Audit entry in SKILL.md: the code says *what kind* of waste, the P-level says *how much it matters here*.
 
 ## Technique ladder — safety-ordered
 

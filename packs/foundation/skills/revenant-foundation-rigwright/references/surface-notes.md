@@ -4,7 +4,7 @@
 
 The layer stack decides *where* a rule belongs; this file records what each surface currently *provides and constrains*. A run that stays at the placement level never opens this file — SKILL.md *Load budget* is the source of that rule.
 
-**Verification discipline.** Rows marked **[published]** come from Anthropic documentation. Rows marked **[reported]** come from consistent secondary sources with no published figure behind them — these are presented to the user as guidance, never as hard limits the build validates against. Never silently promote a reported figure to a published one on refresh; if the vendor publishes it, move the row and note the move.
+**Verification discipline.** Rows marked **[published]** come from Anthropic documentation. Rows marked **[reported]** come from consistent secondary sources with no published figure behind them: these are presented to the user as guidance, never as hard limits the build validates against. Never silently promote a reported figure to a published one on refresh; if the vendor publishes it, move the row and note the move.
 
 ## Contents
 
@@ -20,7 +20,7 @@ The layer stack decides *where* a rule belongs; this file records what each surf
 
 ## Claude Projects (claude.ai)
 
-**[published]** A Project is a self-contained workspace holding custom instructions, a knowledge base, and its own chats. Instructions apply to every chat in the Project. **Context is not shared between chats** in the same Project unless it lives in the instructions or the knowledge base — this is the single most misunderstood property of the surface and it drives the knowledge-file plan: anything two chats both need is a knowledge file, not something said once in a chat.
+**[published]** A Project is a self-contained workspace holding custom instructions, a knowledge base, and its own chats. Instructions apply to every chat in the Project. **Context is not shared between chats** in the same Project unless it lives in the instructions or the knowledge base. This is the single most misunderstood property of the surface and it drives the knowledge-file plan: anything two chats both need is a knowledge file, not something said once in a chat.
 
 **[published]** Structure is flat. Projects do not nest, and one Project cannot read another's knowledge. **[published]** On paid plans (Pro, Max, Team, Enterprise) the knowledge base auto-scales via RAG when it approaches the context limit, expanding capacity substantially rather than failing. Free accounts are capped and must prune instead. **[published]** Team and Enterprise plans can share a Project with per-member permission levels.
 
@@ -63,9 +63,9 @@ Two directories, different jobs: `./.claude/` in the repo is team configuration 
 | `.claude/skills/<name>/SKILL.md` | Project skills | Yes |
 | `.claude/agents/<name>.md` | Project subagents | Yes |
 
-**[published]** Settings files merge, with more specific scopes overriding broader ones and a managed enterprise layer above all of them. Permission rules evaluate **deny first, then ask, then allow**, first match wins — so a broad allow cannot accidentally unlock something a specific deny already caught. Hooks are configured under the `hooks` key in `settings.json`.
+**[published]** Settings files merge, with more specific scopes overriding broader ones and a managed enterprise layer above all of them. Permission rules evaluate **deny first, then ask, then allow**, first match wins, so a broad allow cannot accidentally unlock something a specific deny already caught. Hooks are configured under the `hooks` key in `settings.json`.
 
-**Emit rule.** A generated `settings.json` ships with explicit deny rules for destructive commands and never with a blanket allow. The generated default is the finding in an audit even where prose invites the user to tighten it — a config ships as written.
+**Emit rule.** A generated `settings.json` ships with explicit deny rules for destructive commands and never with a blanket allow. The generated default is the finding in an audit even where prose invites the user to tighten it: a config ships as written.
 
 ## MCP server configuration
 

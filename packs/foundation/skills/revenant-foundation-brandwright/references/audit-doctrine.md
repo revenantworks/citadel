@@ -8,7 +8,7 @@ The interview groups and the order they are asked in are stated in the SKILL bod
 
 ## Audit — per-category sweep notes
 
-The categories, their count, and their order are stated in the SKILL body's Entry — Audit and bind whether or not this file is open. What follows are glosses **keyed to that list, in its order** — one note per category, each opening with the body's own name for it verbatim, adding no category, reordering none, and never an independent sequence to count against. Sweep every file or surface in the target; the catalog cites file + line/location per finding.
+The categories, their count, and their order are stated in the SKILL body's Entry — Audit and bind whether or not this file is open. What follows are glosses **keyed to that list, in its order** — one note per category, each opening with the body's own name for it verbatim, adding no category, reordering none, and never forming a count of its own that could drift from the body's. Sweep every file or surface in the target; the catalog cites file + line/location per finding.
 
 - **naming-template conformance** — rendered names match the class template; segment order, casing, and separators exact.
 - **palette drift** — colors in code, styles, and artifacts resolve to role tokens; off-token values are findings even when "close."

@@ -169,8 +169,13 @@ def pack_seams(text: str, pack: str) -> list[tuple[str, str, str, str, str, str]
 
 
 def pack_seam_note(text: str, pack: str) -> str:
-    """The one-line note under the seam table (verb overloads, recorded-open seams)."""
-    m = re.search(rf"(\*\*{pack} seam notes:\*\*.+)", text)
+    """The note under the seam table (verb overloads, recorded-open seams).
+
+    May run one line or many (a dated list of closures) — captured up to
+    the next top-level `**<pack> <word>:**` annotation (capstone, canonical
+    repo) or end of text, whichever comes first.
+    """
+    m = re.search(rf"(\*\*{pack} seam notes:\*\*.+?)(?=\n\n\*\*{pack} \w|\Z)", text, re.DOTALL)
     return m.group(1).strip() if m else ""
 
 

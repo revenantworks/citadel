@@ -3,7 +3,7 @@ name: revenant-foundation-agentwright
 description: Designs and audits the system around an autonomous or scheduled agent — everything but the prompt text — and emits it in the target's native form. Trigger to design, spec, harden, review, or audit an agent, bot, scheduled task, or automation that acts on its own; to write a Cowork task, a Claude Code routine, or a desktop scheduled task, or the same on ChatGPT, Gemini, or a workflow runner; for guardrails, kill switches, cadence, retries, failure handling, protected resources, output contracts, or handoffs; to security-scan an agent's tool grants, credential handling, or blast radius; when untrusted content — email, web pages, documents — needs isolation inside an agent; or say agentwright (subcommands emit, audit, security-scan, refresh). Prompt text is promptwright's; standing configuration a human reads in session — Claude Project instructions, CLAUDE.md — is rigwright's; how a skill package is built is skillwright's; code-level threat coverage belongs to a security harness.
 license: MIT
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
   profile: standalone
   pack: foundation
   brand: revenant
@@ -23,10 +23,10 @@ The system around the prompt. An agent that acts on its own needs decisions no p
 
 ## Turn shape
 
-1. **One spec, one gate.** Design mode ends in a complete ops spec presented once, with per-section recommendations where choices exist; audit mode ends in one scored finding catalog. "Apply all" / "just spec it" skips the gate. No drip-feed hardening afterward — and the ban is on *agentwright* withholding controls to release them turn by turn, never on the user narrowing the run. A scope the user sets is honored in full and gated once (see 4); a scope agentwright sets for itself is drip-feed.
+1. **One spec, one gate.** Design mode ends in a complete ops spec presented once, with per-section recommendations where choices exist; audit mode ends in one scored finding catalog. "Apply all" / "just spec it" skips the gate. No drip-feed hardening afterward. The ban is on *agentwright* withholding controls to release them turn by turn, never on the user narrowing the run. A scope the user sets is honored in full and gated once (see 4); a scope agentwright sets for itself is drip-feed.
 2. **Gates render by the tool-list test** — if the surface has an option-presenting tool, choices go through it; the plain-text fallback is for surfaces without one.
 3. **Blast radius before brains.** The first question agentwright answers is what the agent can damage — money moved, messages sent, data exposed, records changed — because every other control is sized to that answer. A spec that skips blast radius is not a spec.
-4. **Invocation surface.** Bare `agentwright` — the name alone, no agent named and no verb — returns the capability line and a question asking what agent to spec or audit, in **3 sentences maximum**, and nothing else: no blast radius, no checklist pass, no spec. Naming a checklist area ("just the failure/retry area") is a **spot-check**: emit that one area in full and none of the other nine, gated once. Both bind whether or not README or any reference is open — README mirrors them, it never owns them.
+4. **Invocation surface.** Bare `agentwright` — the name alone, no agent named and no verb — returns the capability line and a question asking what agent to spec or audit, in **3 sentences maximum**, and nothing else: no blast radius, no checklist pass, no spec. Naming a checklist area ("just the failure/retry area") is a **spot-check**: emit that one area in full and none of the other nine, gated once. Both bind whether or not README or any reference is open. README mirrors them; it never owns them.
 
 ## Load budget
 
@@ -42,7 +42,7 @@ The `metadata.volatile` block declares this machine-readably so `skillwright upk
 
 ## Restraint — when not to spec
 
-**No kill switch possible — autonomy plus irreversibility means the human gate IS the spec.** When the agent decides on its own *and* the action lands instantly with nothing to undo it (moving money without review, deleting with no trash), agentwright won't polish that design: it says one human approval per action is the design, and stops. Add that approval and the same agent becomes specifiable — a confirmation the human gives per action turns it into an ordinary design run, numeric caps and all. Irreversible alone is not undesignable; **unreviewed** plus irreversible is. **Deceptive or harassing purpose:** decline in one sentence, offer the legitimate version. **An already-sound spec** under audit: say so; motivated findings only.
+No kill switch possible — autonomy plus irreversibility means the human gate **is** the spec. When the agent decides on its own *and* the action lands instantly with nothing to undo it (moving money without review, deleting with no trash), agentwright won't polish that design: it says one human approval per action is the design, and stops. Add that approval and the same agent becomes specifiable — a confirmation the human gives per action turns it into an ordinary design run, numeric caps and all. Irreversible alone is not undesignable; **unreviewed** plus irreversible is. **Deceptive or harassing purpose:** decline in one sentence, offer the legitimate version. **An already-sound spec** under audit: say so; motivated findings only.
 
 ## Entry — Design
 
@@ -58,7 +58,7 @@ A new agent from intent ("a morning scan that emails me watchlist signals"). Min
 4. **Carry the three invariants a scheduler's own form never asks for.** Every emitted schedule states its zero-signal line, its first actionable fire, and what a missed run does on that surface. These are exactly the fields whose absence a quiet failure hides.
 5. **Hand back paste-ready**, naming the field each block belongs in. Emit never creates the task, never enables it, and never commits.
 
-Where the gap is wide enough that the spec's blast-radius decision cannot hold — an irreversible action on a surface with no gate and no kill switch — **Restraint applies at the target rather than the design**: say the surface is wrong for this agent, name one that can hold it, and do not emit a spec the platform cannot honour.
+Where the gap is wide enough that the spec's blast-radius decision cannot hold — an irreversible action on a surface with no gate and no kill switch — **Restraint applies at the target rather than the design**: say the surface is wrong for this agent, name one that can hold it, and do not emit a spec the platform cannot honor.
 
 ## Entry — Audit
 
@@ -86,7 +86,7 @@ An agent whose reader can also act is one crafted email away from being someone 
 
 ## Anti-patterns
 
-- **A reader that can also act.** Any tier touching untrusted content runs read-only; free-form text from a lower tier never becomes an instruction in a higher one.
+- **A reader that can also act** — see *Trust tiers*.
 - **A scheduled agent with no zero-signal line.** Silence is a failure mode, not a result — every scheduled spec states what a no-findings run outputs, and the default is one dated line, "no signal", to the same destination as findings, so a dead run is distinguishable from a quiet one.
 
 ## Behavior notes

@@ -1,5 +1,17 @@
 # Changelog — revenant-foundation-skillwright
 
+## [1.0.4] — 2026-08-01
+
+Prose/register pass over this skill's own files (SKILL.md, README.md,
+SOURCES.md, `references/build-templates.md`, `references/rubrics.md`):
+dash-chained run-on sentences split into plain sentences, the README's
+crammed differentiator sentence converted to a short bulleted list, and one
+wording fix in SOURCES.md ("gold-standard" → "reference implementation," to
+match the term the same sentence already uses two words later). No rule,
+gate, count, or entry point moved — every statement, threshold, and path
+reads exactly as before, only the sentences carrying them changed shape. No
+eval re-anchor is owed.
+
 ## [1.0.3] — 2026-08-01
 
 Frozen-record marker added to the `evals/` files that cite predecessor-era

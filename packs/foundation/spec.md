@@ -8,31 +8,44 @@
 
 **Pack:** foundation · **Profile:** standalone · **Brand:** revenant ·
 **Stamped:** 2026-08-01 ·
-**Current status:** **SHIPPED** — pack **1.1.1**, tag `foundation-v1.1.1`
-(2026-08-01), a delivery release carrying the install-parity fix and
-**skillwright 1.0.1** to the copies that load; cut because the pack version
-is the plugin cache key, so the member patch was undeliverable without it
-(`ledger.md`). Preceded the same day by pack **1.1.0**, tag
-`foundation-v1.1.0`: one member touched, **promptwright 1.1.0** (Entry —
-Model gains plan grain — per-subtask target tables, the living-table and
-standing-rule contracts), pack version bumped in one stroke (`build.py
---bump-pack`) per release-doctrine's Two clocks. Roster and seams unchanged
-across both (9 members, 12 seams). Preceded by the 2026-07-31 wright baseline: all nine members
-baselined under the wright motif and reset to **1.0.0** (pack, plugin
-manifest, marketplace entry, members), content carried forward unchanged. The
-version references in the history sections below are predecessor-era
-designations, frozen as written. Full
-parity reached
-2026-08-01 (at the 1.0.0 baseline): release assets live (nine zips), Claude
-Code plugin installed at 1.0.0, cold trigger baselines re-measured on the
-wright listing (97/97, `ledger.md`), and all nine claude.ai copies re-uploaded
-by the owner. **Parity at 1.1.0 is partial** — release assets and the local
-Claude Code plugin install are current as of this pass; the claude.ai copy of
-promptwright still carries the 1.0.0 body and is a manual owner re-upload
-(deferral register, below). The prior shipped state before 1.0.0 was pack
-**1.4.0** (roster 8 → 9).
+**Current status:** **SHIPPED** — pack **1.1.3**, tag `foundation-v1.1.3`
+(2026-08-01): a pack-wide prose pass — every member's own files plus the
+root/pack-level docs rewritten for register (connector cleanup, cross-
+referenced rule duplication), tokenwright's Preservation-contract list
+gained a missing item, promptwright's model-snapshot footnotes renumbered.
+No rule, gate, count, or entry point moved; see the root `CHANGELOG.md` for
+the full member-by-member account. All nine members carry a version bump
+(see Approved roster, below).
 
-**The 1.3.2 pass is CLOSED — the register is empty but for the gated ⑦.** Every
+Preceded the same day by pack **1.1.2** (`foundation-v1.1.2`): every
+frozen-record `evals/` file across the pack gained a header naming its
+version numbers as predecessor-era, and `dist/` prunes superseded zips.
+Delivery release, no capability change; rows, verdicts, dates, and counts in
+those files are untouched.
+
+Prior releases the same day: pack **1.1.1** (`foundation-v1.1.1`), the
+install-parity fix delivering **skillwright 1.0.1** to the copies that load —
+cut because the pack version is the plugin cache key, so a member patch alone
+is undeliverable (`ledger.md`); and pack **1.1.0** (`foundation-v1.1.0`),
+**promptwright 1.1.0** (Entry — Model gains plan grain: per-subtask target
+tables, the living-table and standing-rule contracts), pack version bumped in
+the same stroke per release-doctrine's Two clocks. Roster and seams unchanged
+across all three (9 members, 12 seams).
+
+Preceded by the 2026-07-31 wright baseline: all nine members baselined under
+the wright motif and reset to **1.0.0** (pack, plugin manifest, marketplace
+entry, members), content carried forward unchanged. Version references in the
+history sections below are predecessor-era designations, frozen as written.
+Full parity reached 2026-08-01 at the 1.0.0 baseline: release assets live
+(nine zips), Claude Code plugin installed at 1.0.0, cold trigger baselines
+re-measured on the wright listing (97/97, `ledger.md`), and all nine claude.ai
+copies re-uploaded by the owner. **Parity since 1.1.0 is partial**: release
+assets and the local Claude Code plugin install track each release, but the
+claude.ai copy of promptwright still carries the 1.0.0 body pending a manual
+owner re-upload (deferral register, below). The prior shipped state before
+1.0.0 was pack **1.4.0** (roster 8 → 9).
+
+**The 1.3.2 pass is CLOSED** (pre-rebaseline pass; the register's current state is below, past the history section) **— at the time, the register was empty but for the gated ⑦.** Every
 routing/doctrine item the 1.3.1 executions and cold re-runs surfaced is closed at
 the doctrine level in its owning member, one member per worker under the standalone
 law: agentwright's **S1/S5 severity contradiction** (irreversible accumulation is the
@@ -169,15 +182,15 @@ motif, content carried forward; earlier designations frozen as written.*
 
 | Member | Job (one line) | Status | Version |
 |---|---|---|---|
-| `revenant-foundation-skillwright` | Builds, audits, and ports Agent Skills and packs (neutral by default) | SHIPPED | 1.0.0 |
-| `revenant-foundation-promptwright` | Builds, scores, and hardens prompts with model-tier routing | SHIPPED | 1.0.0 |
-| `revenant-foundation-commwright` | Shapes messages per channel and audience; neutral-voice default; audits drift | SHIPPED | 1.0.0 |
-| `revenant-foundation-agentwright` | Designs and audits autonomous agent systems | SHIPPED | 1.0.0 |
-| `revenant-foundation-lorewright` | Research-verified verdicts and playbook reference docs | SHIPPED | 1.0.0 |
-| `revenant-foundation-brandwright` | Single home of brand + voice; defines, applies on invoke, audits for drift, exports payloads + HTML guide card | SHIPPED | 1.0.0 |
-| `revenant-foundation-evalwright` | Authors and audits eval suites — build-time, zero runtime deps | SHIPPED | 1.0.0 |
-| `revenant-foundation-tokenwright` | Measures, budgets, and slims the token footprint of LLM-facing artifacts | SHIPPED | 1.0.0 |
-| `revenant-foundation-rigwright` | Builds the standing configuration Claude reads before work | SHIPPED | 1.0.0 |
+| `revenant-foundation-skillwright` | Builds, audits, and ports Agent Skills and packs (neutral by default) | SHIPPED | 1.0.4 |
+| `revenant-foundation-promptwright` | Builds, scores, and hardens prompts with model-tier routing | SHIPPED | 1.1.1 |
+| `revenant-foundation-commwright` | Shapes messages per channel and audience; neutral-voice default; audits drift | SHIPPED | 1.0.2 |
+| `revenant-foundation-agentwright` | Designs and audits autonomous agent systems | SHIPPED | 1.0.2 |
+| `revenant-foundation-lorewright` | Research-verified verdicts and playbook reference docs | SHIPPED | 1.0.2 |
+| `revenant-foundation-brandwright` | Single home of brand + voice; defines, applies on invoke, audits for drift, exports payloads + HTML guide card | SHIPPED | 1.0.2 |
+| `revenant-foundation-evalwright` | Authors and audits eval suites — build-time, zero runtime deps | SHIPPED | 1.0.2 |
+| `revenant-foundation-tokenwright` | Measures, budgets, and slims the token footprint of LLM-facing artifacts | SHIPPED | 1.0.2 |
+| `revenant-foundation-rigwright` | Builds the standing configuration Claude reads before work | SHIPPED | 1.0.1 |
 
 ---
 

@@ -15,6 +15,61 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [foundation-v1.1.3] - 2026-08-01
+
+Pack-wide prose pass: every member's own files (SKILL.md, README, SOURCES,
+reference docs) and the root/pack-level docs (README, this file, RUNBOOK,
+NEXT, the always-on router, decisions.md) were rewritten for register —
+connector cleanup (em dash and " - " used to join clauses that read better as
+two sentences, matched-pair parenthetical asides left alone), cross-referenced
+rule duplication (a rule stated in full in two places now has one home and one
+pointer), and a few wording/consistency fixes. No rule, gate, count, or entry
+point moved anywhere, so no eval re-anchor is owed pack-wide.
+
+- **commwright → 1.0.2** — its own SKILL.md and README used em dashes in the
+  sentences announcing its no-dash H1 rule; the framing prose now matches the
+  policy it states. Rule bodies and `humanize.md` were already dash-free.
+- **skillwright → 1.0.4** — the shared "foundation seam notes" history in
+  `pack-registry.md` (the seam-table's canonical source, read by every
+  member's generated `pack.md`) reformatted from one ~700-word paragraph into
+  a dated list, same facts; plus SOURCES.md wording and reference-file
+  connector fixes.
+- **promptwright → 1.1.1** — `model-snapshot.md`'s footnote markers had a gap
+  (¹, ³, ⁴ with no ²); renumbered sequentially. `hostile-interpreter.md`
+  trimmed to stop re-stating SKILL.md's own failure-shape definitions.
+- **tokenwright → 1.0.2** — SKILL.md's Preservation-contract list was missing
+  an item (dependency declarations and absence behaviors) that
+  `waste-taxonomy.md` and this file both already carried; added, closing a
+  real 6-vs-7 gap, not a style choice.
+- **agentwright, brandwright, lorewright → 1.0.2 each** — a duplicated
+  quarantined-reader rule (agentwright), a triple-duplicated per-element
+  exclusion example (brandwright), and one telegraphic line (lorewright) each
+  now single-homed or reworded.
+- **evalwright → 1.0.2, rigwright → 1.0.1** — SKILL.md rules that restated a
+  reference file's rule in full (count-drift/provenance for evalwright,
+  the secrets rule for rigwright) now cross-reference their one home.
+- **`spec.md`** (the live baton, not itself a member): the Current-status
+  block now reflects 1.1.2/1.1.3 instead of stopping at 1.1.1; the frozen
+  1.3.2-pass history paragraph gained an inline tag marking it as the
+  pre-rebaseline snapshot, since the live deferral register 100+ lines later
+  states a different, current register count and the two were easy to
+  mistake for a contradiction.
+- **`ledger.md` and `IMPROVEMENTS.md`** headers now point at this file's own
+  predecessor-era disclaimer instead of independently restating it — three
+  copies of the same disclaimer collapsed to one canonical text plus two
+  pointers. Neither file's dated historical entries were touched, per their
+  own append-only doctrine.
+- **`tools/build.py` fix, found by this pass:** the seam-note extractor
+  assumed the registry's seam-notes annotation was always one physical line
+  and silently returned nothing otherwise. Reformatting it into a dated list
+  (above) tripped that assumption and would have shipped all nine `pack.md`
+  copies with the section missing; the extractor now captures a multi-line
+  block up to the next top-level pack annotation. Caught before commit, not
+  after.
+- Roster and seams unchanged (9 members, 12 seams); no member's rules,
+  counts, or entry points changed except tokenwright's one named content fix
+  above.
+
 ## [foundation-v1.1.2] - 2026-08-01
 
 Frozen records marked, so no version number anywhere in the pack can be
@@ -23,7 +78,7 @@ mistaken for a current one. Delivery release for the 1.1.1 post-tag work.
 - **13 `evals/` files across 7 members gained a frozen-record header** naming
   their version numbers as predecessor-era and pointing at the root note. The
   remaining eval files already carried the disclaimer. **Rows, verdicts,
-  dates, counts and pass rates are untouched** — the ledgers stay evidence,
+  dates, counts and pass rates are untouched.** The ledgers stay evidence,
   which is why this is a marker and not a rewrite.
 - **agentwright, brandwright, commwright, evalwright, lorewright, tokenwright
   → 1.0.1; skillwright → 1.0.3** (its 1.0.2 doc fix rides here too, having
@@ -32,7 +87,7 @@ mistaken for a current one. Delivery release for the 1.1.1 post-tag work.
   from `3a3b084`, which had no pack bump to travel on.
 - **`build.py` now prunes superseded `dist/` zips.** It wrote
   `<member>-<version>.zip` and never removed the old one, so every bump left
-  its predecessor sitting beside the current build — 16 zips for 9 members at
+  its predecessor sitting beside the current build: 16 zips for 9 members at
   this release. Since release-doctrine treats `dist/` as the upload source of
   truth, a stale neighbour is a mis-upload waiting to happen. `dist/` now
   holds exactly one zip per member.
@@ -48,7 +103,7 @@ that actually load. Cut for delivery, not for new capability.
   compares pack versions, so a member-only bump never reaches an installed
   user: the marketplace clone moves, the loaded cache does not, and the
   update reports "already at the latest version". skillwright 1.0.1 rode main
-  and stayed unreachable until this bump — which is the whole reason it
+  and stayed unreachable until this bump, which is the whole reason it
   exists. Recorded in `release-doctrine.md` — Install parity and RUNBOOK
   step 5.
 - **skillwright 1.0.1** — release-doctrine's Install parity described one

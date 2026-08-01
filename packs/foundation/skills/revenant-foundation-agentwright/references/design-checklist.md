@@ -14,7 +14,7 @@ When it runs: event-triggered, scheduled, or on-demand. Scheduled agents state t
 
 ## 2. Guardrail tiers — soft vs hard
 
-**Soft** = rules in the prompt (shapes behavior, can be argued out of). **Hard** = enforced outside the model (per-run caps, tool allowlists, review-before-execute verbs, protected-list checks). Every consequential limit exists at BOTH tiers or the spec says why hard isn't available on this surface. Caps are named numbers, not adjectives.
+**Soft** = rules in the prompt (shapes behavior, can be argued out of). **Hard** = enforced outside the model (per-run caps, tool allowlists, review-before-execute verbs, protected-list checks). Every consequential limit exists at **both** tiers or the spec says why hard isn't available on this surface. Caps are named numbers, not adjectives.
 
 ## 3. Kill-switch layers
 

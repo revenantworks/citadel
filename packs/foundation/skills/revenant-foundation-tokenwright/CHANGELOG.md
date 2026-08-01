@@ -1,5 +1,19 @@
 # Changelog — revenant-foundation-tokenwright
 
+## [1.0.2] — 2026-08-01
+
+Completeness correction: SKILL.md's Preservation scan list named six of the
+seven items the preservation contract already covers; `waste-taxonomy.md`
+and this changelog both listed seven. "Dependency declarations and absence
+behaviors" — already true and already stated in `waste-taxonomy.md` — is now
+named in SKILL.md too, so all three sources agree. This is a correction, not
+new behavior: nothing the contract protects has changed. Also a prose pass:
+SKILL.md's cache-floor sentence, which restated `measurement.md`'s Cache
+mechanics rule near-verbatim, now cross-references it instead, and a handful
+of dash-joined clauses across SKILL.md, `measurement.md`, and
+`waste-taxonomy.md` were re-punctuated for clarity. No rule, gate, or entry
+point moved, so no eval re-anchor is owed.
+
 ## [1.0.1] — 2026-08-01
 
 Frozen-record marker added to the `evals/` files that cite predecessor-era

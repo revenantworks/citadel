@@ -8,14 +8,14 @@
 
 | Tier | Claude *(default)* | OpenAI | Gemini | Grok (xAI) | DeepSeek |
 |---|---|---|---|---|---|
-| **S — frontier** | Fable 5 | GPT-5.5 Pro | —³ | Grok 4 Heavy¹ | V4 Pro |
-| **A — flagship** | Opus 4.8 | GPT-5.6 Sol | Gemini 3.1 Pro³ | Grok 4.5⁴ | V4 Pro |
+| **S — frontier** | Fable 5 | GPT-5.5 Pro | —² | Grok 4 Heavy¹ | V4 Pro |
+| **A — flagship** | Opus 4.8 | GPT-5.6 Sol | Gemini 3.1 Pro² | Grok 4.5³ | V4 Pro |
 | **B — balanced** | Sonnet 5 | GPT-5.6 Terra | Gemini 3.6 Flash | Grok 4.3 | V4 |
 | **C — fast** | Haiku 4.5 | GPT-5.6 Luna (5.4 nano/mini for the cheapest routing) | Gemini 3.5 Flash-Lite | Grok 4.1 Fast | V4-Flash |
 
 ¹ Consumer product only — not available on the API. Never recommend gated or limited-availability models (e.g. Claude Mythos 5, Gemini 3.5 Flash Cyber) as defaults.
-³ **Gemini 3.5 Pro is not broadly available** (partner testing only, delayed past its announced June window; last GA Pro is 3.1, Feb 2026) — never recommend it until it ships. Gemini's S slot is effectively empty; 3.1 Pro is their top recommendable model.
-⁴ Grok 4.5 (July 8) carries a **500K context — smaller than Grok 4.3's 1M and 4.1 Fast's 2M**; pick 4.3 or 4.1 Fast when the window matters more than the newest weights.
+² **Gemini 3.5 Pro is not broadly available** (partner testing only, delayed past its announced June window; last GA Pro is 3.1, Feb 2026) — never recommend it until it ships. Gemini's S slot is effectively empty; 3.1 Pro is their top recommendable model.
+³ Grok 4.5 (July 8) carries a **500K context — smaller than Grok 4.3's 1M and 4.1 Fast's 2M**; pick 4.3 or 4.1 Fast when the window matters more than the newest weights.
 
 ---
 

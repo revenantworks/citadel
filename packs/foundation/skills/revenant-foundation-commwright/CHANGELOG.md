@@ -1,5 +1,18 @@
 # Changelog — revenant-foundation-commwright
 
+## [1.0.2] — 2026-08-01
+
+The skill's own framing prose used em dashes in the sentences that announce
+its own no-dash rule (H1): SKILL.md's opening description of the humanized
+default, two Turn-shape lines, and a Behavior-notes line, plus README.md's
+opening differentiator sentence and its second-paragraph rule summary, all
+used the dash H1 bans in every drafted message. Recast without em dashes
+(colon, period-and-restart, or parentheses per case) so the pitch now
+matches the policy. `references/humanize.md` was checked and already
+self-applies H1 in its own prose, so no change was needed there.
+
+No rule, gate, count, or entry point moved. No eval re-anchor is owed.
+
 ## [1.0.1] — 2026-08-01
 
 Frozen-record marker added to the `evals/` files that cite predecessor-era

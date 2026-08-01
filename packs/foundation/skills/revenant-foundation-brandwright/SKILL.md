@@ -3,7 +3,7 @@ name: revenant-foundation-brandwright
 description: Defines a brand and its voice — identity, naming, palette, taglines, firewall — and applies them on request across skills, packs, artifacts, docs, and repos. Ships neutral — no brand exists until one is built or handed in; outputs spec-clean. Trigger to create, define, rebuild, or consolidate a brand, voice, or style guide; to apply a brand or voice to a built skill, artifact, repo, or doc; to audit a repo, tree, or skill set for drift — wrong names, off-palette colors, off-voice copy, stale handles or taglines; to export a voice profile or HTML brand-guide card; or say brandwright build / apply / audit / export. Applying a voice to one message is commwright's via the exported profile; a whole skill set's rebrand is a handoff — brandwright defines the identity, skillwright port propagates it.
 license: MIT
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
   profile: standalone
   pack: foundation
   brand: revenant
@@ -53,7 +53,7 @@ The `metadata.volatile` block declares this so `skillwright upkeep` can include 
 
 ## Entry — Apply
 
-"brandwright apply" (or any request to brand a built skill, artifact, repo, or document — "brand this skill", "put the house voice on this README", "style this card"). This is the cascade, run **on invoke** — skills and messages are built neutral by their own wrights; brandwright lands the identity when asked. Per `application-doctrine.md`: resolve the active definition (or one handed in), map each definition element to where it lands in the target (name segments, frontmatter token, palette CSS variables on HTML output, voice register in prose, wordmark lockup, license), apply only what the definition provides — unconfigured elements stay neutral, nothing invented — and honor per-run exclusions ("no palette on this one") without ceremony. What never inherits: a skill's `description` field (routing, not branding — a brand term belongs there only when it is itself an invocation keyword the user will say, as "brandwright" is), its working instruction content (lean beats lockup), and anyone else's handed-in guide (it configures nothing — only Build writes the definition). Gate once, hand back the branded artifact. With no definition stored: say so, offer Build first — never apply an invented identity.
+"brandwright apply" (or any request to brand a built skill, artifact, repo, or document — "brand this skill", "put the house voice on this README", "style this card"). This is the cascade, run **on invoke** — skills and messages are built neutral by their own wrights; brandwright lands the identity when asked. Per `application-doctrine.md`: resolve the active definition (or one handed in), map each definition element to where it lands in the target (name segments, frontmatter token, palette CSS variables on HTML output, voice register in prose, wordmark lockup, license), apply only what the definition provides — unconfigured elements stay neutral, nothing invented — and honor per-run exclusions without ceremony, per that file's Overrides section. What never inherits: a skill's `description` field (routing, not branding — a brand term belongs there only when it is itself an invocation keyword the user will say, as "brandwright" is), its working instruction content (lean beats lockup), and anyone else's handed-in guide (it configures nothing — only Build writes the definition). Gate once, hand back the branded artifact. With no definition stored: say so, offer Build first — never apply an invented identity.
 
 ## Entry — Audit
 

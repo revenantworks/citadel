@@ -1,6 +1,12 @@
 # revenant-foundation-skillwright
 
-Builds, audits, and ports Agent Skills — from a one-line intent to a packaged, install-ready skill or multi-skill pack. What separates it from skill scaffolders and creators: every build starts with fresh best-practices research and a **niche verdict** (should this skill exist, and against which incumbents — checked against the live skill registries and plugin directories, not vibes), constructs to a declared **policy profile** rather than one-size rules (standalone by default: self-contained, lean, self-updating — but packs may allow tools, scripts, and sibling skills, all declared), and ships every skill **born testable** — trigger evals and an assertion suite in the box. It builds **spec-clean neutral** — brand and voice are applied only by invoking brandwright. It runs zero scripts of its own, so it behaves identically on claude.ai, Claude Code, and the API.
+Builds, audits, and ports Agent Skills — from a one-line intent to a packaged, install-ready skill or multi-skill pack. What separates it from skill scaffolders and creators:
+
+- Every build starts with fresh best-practices research and a **niche verdict** (should this skill exist, and against which incumbents — checked against the live skill registries and plugin directories, not vibes).
+- It constructs to a declared **policy profile** rather than one-size rules (standalone by default: self-contained, lean, self-updating — but packs may allow tools, scripts, and sibling skills, all declared).
+- It ships every skill **born testable** — trigger evals and an assertion suite in the box.
+
+It builds **spec-clean neutral** — brand and voice are applied only by invoking brandwright. It runs zero scripts of its own, so it behaves identically on claude.ai, Claude Code, and the API.
 
 **Build workflow:** Intent → Pack & profile → Research → Niche verdict → Design catalog *(one gate)* → Build → Self-audit → Package
 

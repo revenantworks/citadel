@@ -3,7 +3,7 @@ name: revenant-foundation-commwright
 description: Shapes any message to its channel and audience. Drafts human by default in a neutral professional voice; a specific brand voice applies only when named or handed in — voice definitions live in brandwright, and defining or saving one, even as "commwright voice", routes there. Trigger to write, rewrite, reshape, or shorten an email, text, Slack or Teams message, release notes, YouTube title, social post, or Discord announcement; to make it more formal or casual; to humanize a message that reads like AI or ChatGPT, stripping em dashes and emoji — a README, CLAUDE.md, or reference doc is skillwright’s prose, not commwright’s; for release comms or a comms plan; or when they name "commwright" for message or channel work ("commwright formats", "commwright audit", "commwright humanize"). It never sends.
 license: MIT
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
   profile: standalone
   pack: foundation
   brand: revenant
@@ -16,15 +16,15 @@ metadata:
 
 *history in CHANGELOG.md · sources in SOURCES.md · MIT (LICENSE)*
 
-One message in → the right shape out, per channel and audience. commwright owns the form of a message — register, length, structure, title — never its delivery and never its facts. It drafts **neutral professional by default**, and that default is **humanized** — no em or en dashes in any role, no emoji, no preamble or trailing help offer, on every draft without being asked. A specific brand voice is applied only when one is named for the message or handed in, and those voice definitions live in brandwright, not here.
+One message in → the right shape out, per channel and audience. commwright owns the form of a message — register, length, structure, title — never its delivery and never its facts. It drafts **neutral professional by default**, and that default is **humanized**: no em or en dashes in any role, no emoji, no preamble or trailing help offer, on every draft without being asked. A specific brand voice is applied only when one is named for the message or handed in, and those voice definitions live in brandwright, not here.
 
 **Workflow:** Intake → Resolve channel *(+ any named voice)* → Draft *(humanized by default)* → Pre-publish hygiene *(public-bound only)* → Output
 
 ## Turn shape
 
-1. **One clean draft is the default.** Produce 2–3 variants only when stakes genuinely compete (apologize vs. hold firm; urgency vs. warmth) — each labeled by the strategy it takes, never by tone adjectives alone. Variant spam is a defect.
+1. **One clean draft is the default.** Produce 2–3 variants only when stakes genuinely compete (apologize vs. hold firm; urgency vs. warmth). Each is labeled by the strategy it takes, never by tone adjectives alone. Variant spam is a defect.
 2. **Render through the surface's tools.** Before outputting, scan the tool list: if a message-compose or option-presenting tool exists, deliver drafts and variant choices through it; otherwise plain text in a copy-ready block. Describing a tappable form without checking the tool list is the known failure.
-3. **commwright never sends.** It hands back the message; delivery belongs to the surface's own mail, chat, or posting tools. Offering to send is out of bounds — offering the finished draft is the job.
+3. **commwright never sends.** It hands back the message; delivery belongs to the surface's own mail, chat, or posting tools. Offering to send is out of bounds. Offering the finished draft is the job.
 4. **A bare invocation answers, it never drafts.** `commwright` on its own returns a capability line of three sentences or fewer, closing on a question about what to shape. No draft, no sample.
 
 ## Humanized default
@@ -117,6 +117,6 @@ Anything public-bound (release notes, social, Discord, YouTube) gets a redaction
 
 **Voice belongs to brandwright.** commwright applies a voice; it never defines, saves, or stores one. The neutral professional default needs no definition. To apply a house or persona voice, name it and hand in (or point to) its brandwright voice-profile export — commwright reads that profile for the message and no further. The identity firewall still binds: a creator/persona voice never appears in professional channels, and vice versa, unless the request names that voice explicitly for that message. The reader's channel norms outrank the author's brand.
 
-**Humanize is a register, not a voice.** It has nothing to define, nothing to save, and no name — so it never becomes something a request can store. "Make this message sound less like AI" is commwright; "make our brand voice sound more human" edits a stored voice definition and is brandwright. Defining, saving, editing, or restyling a voice is brandwright's under every name a request can arrive in — "my commwright voice", the `commwright humanize` subcommand, or no name at all — and asking to make a way of writing standing, default, or "how we always write" is a store-ask even when the word "voice" never appears. The rules govern the *messages commwright writes* — never a pack's own docs, a SKILL body, or any other file it is pointed at.
+**Humanize is a register, not a voice.** It has nothing to define, nothing to save, and no name — so it never becomes something a request can store. "Make this message sound less like AI" is commwright; "make our brand voice sound more human" edits a stored voice definition and is brandwright. Defining, saving, editing, or restyling a voice is brandwright's under every name a request can arrive in: "my commwright voice", the `commwright humanize` subcommand, or no name at all. Asking to make a way of writing standing, default, or "how we always write" is a store-ask even when the word "voice" never appears. The rules govern the *messages commwright writes* — never a pack's own docs, a SKILL body, or any other file it is pointed at.
 
 **Never pad.** The shortest message that does the job wins the channel. Length contracts are ceilings, not targets.

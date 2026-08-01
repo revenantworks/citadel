@@ -1,5 +1,13 @@
 # Changelog — revenant-foundation-lorewright
 
+## [1.0.2] — 2026-08-01
+
+A prose/register pass: the telegraphic "hand over whole or keep whole" line
+in the Behavior notes' boundary-doubt clause is reworded for clarity ("hand
+it over entirely, or keep it entirely"), and a dash-joined sentence nearby
+was split for readability. No rule, gate, count, or entry point moved, so no
+eval re-anchor is owed.
+
 ## [1.0.1] — 2026-08-01
 
 Frozen-record marker added to the `evals/` files that cite predecessor-era

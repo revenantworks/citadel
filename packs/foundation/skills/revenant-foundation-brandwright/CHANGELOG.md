@@ -1,5 +1,15 @@
 # Changelog — revenant-foundation-brandwright
 
+## [1.0.2] — 2026-08-01
+
+A prose/register pass. The per-element-exclusion example ("no palette on
+this one"), previously restated near-verbatim in SKILL.md, README.md, and
+`application-doctrine.md`, is now single-homed in `application-doctrine.md`'s
+Overrides section, with SKILL.md and README.md pointing there instead of
+repeating it. A hard-to-parse clause in `audit-doctrine.md` was reworded for
+clarity, and a triple-stacked em dash in `brand-definition.md` was recast.
+No rule, gate, count, or entry point moved, so no eval re-anchor is owed.
+
 ## [1.0.1] — 2026-08-01
 
 Frozen-record marker added to the `evals/` files that cite predecessor-era

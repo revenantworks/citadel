@@ -1,5 +1,14 @@
 # Changelog — revenant-foundation-rigwright
 
+## [1.0.1] — 2026-08-01
+
+A prose pass. The secrets rule duplicated in full between SKILL.md's
+Restraint bullet and `artifact-templates.md`'s "No credentials, ever" now
+cross-references its one home in `artifact-templates.md` instead of
+restating it. A handful of dash-joined clauses in SKILL.md, `surface-notes.md`,
+and the README were re-punctuated for clarity. No rule, gate, count, or
+entry point moved, so no eval re-anchor is owed.
+
 ## [1.0.0] — 2026-07-31
 
 Baseline release. The 1.0 feature set:

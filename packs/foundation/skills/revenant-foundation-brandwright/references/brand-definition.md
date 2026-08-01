@@ -4,7 +4,7 @@
 
 ## Active definition
 
-*None. Run "brandwright build" — ingest a guide or take the one-batch interview Entry — Build enumerates — to populate the sections below. These sections are the storage shape, not that interview list, and the mapping is deliberately not one-to-one: Essence and the History notes are written from the answers, never asked as groups. Each build bumps the definition version and re-stamps this header.*
+*None. Run "brandwright build" (ingest a guide, or take the one-batch interview Entry — Build enumerates) to populate the sections below. These sections are the storage shape, not that interview list, and the mapping is deliberately not one-to-one: Essence and the History notes are written from the answers, never asked as groups. Each build bumps the definition version and re-stamps this header.*
 
 ### Essence *(empty)*
 ### Identity map *(empty)*

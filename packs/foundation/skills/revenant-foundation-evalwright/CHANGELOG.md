@@ -1,5 +1,14 @@
 # Changelog — revenant-foundation-evalwright
 
+## [1.0.2] — 2026-08-01
+
+A prose pass. Two SKILL.md rules that duplicated `eval-doctrine.md` in full —
+the count-drift check and the provenance-line requirement — now name the
+failure mode briefly and cross-reference the doctrine file instead of
+restating it. A handful of dash-joined clauses in SKILL.md and
+`eval-doctrine.md` were re-punctuated for clarity. No rule, gate, count, or
+entry point moved, so no eval re-anchor is owed.
+
 ## [1.0.1] — 2026-08-01
 
 Frozen-record marker added to the `evals/` files that cite predecessor-era

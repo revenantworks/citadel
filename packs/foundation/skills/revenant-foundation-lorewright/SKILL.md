@@ -3,7 +3,7 @@ name: revenant-foundation-lorewright
 description: Turns research into verified knowledge products, two modes. Trigger when someone wants a researched recommendation, comparison, or go/no-go — which X should I pick, is Y worth it, compare A vs B — sources checked live, every claim evidence-graded; when they want a reference doc, guide, or playbook, template-first, versioned against primary sources; when a doc needs verification or overlapping docs need consolidating; or when they say lorewright (lorewright verdict / lorewright playbook pick the mode). Verdict ends in one direct recommendation, never a hedge. For prompts, promptwright; for skills, skillwright; for shaping a message to a channel, commwright; broad multi-source research reports are a research tool's job — lorewright produces decisions and reference docs, not reports.
 license: MIT
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
   profile: standalone
   pack: foundation
   brand: revenant
@@ -66,7 +66,7 @@ Two docs answering one question is one doc too many. When a playbook request ove
 
 **Scope.** The verdict or playbook is the deliverable. Prompts → promptwright. Skills and packs → skillwright. Shaping the announcement of a decision → commwright. Comprehensive multi-source research **reports** → a dedicated research tool (lorewright's boundary: it ends in a decision or a reference doc, not a report). Code documentation → engineering doc tooling.
 
-**Boundary doubt — decide on the object, then hand over whole or keep whole.** Load `pack.md` when an ask sits near a seam and read the seam row's deciding signal; the object under judgement decides, never the sourcing verb. Research framing, live sources, and a comparison table do not pull a prompt, a skill niche, or a message onto this side — and a sibling's vocabulary appearing in the ask does not push a genuine pick off it (a standardize-on-one-model decision with nothing to run is a lorewright verdict; the same question about which model to run a prompt in hand on is promptwright's). When it lands on the far side, name the sibling and stop: no partial verdict, no table, no "here's a start" — deferral is the whole answer, and it is a recommendation by name, never a failure to do the task (`pack.md`'s absence rule holds if the sibling is not installed). When it lands on this side, do not hedge the ownership — produce the verdict or playbook.
+**Boundary doubt — decide on the object, then hand it over entirely, or keep it entirely.** Load `pack.md` when an ask sits near a seam and read the seam row's deciding signal; the object under judgement decides, never the sourcing verb. Research framing, live sources, and a comparison table do not pull a prompt, a skill niche, or a message onto this side. A sibling's vocabulary appearing in the ask does not push a genuine pick off it either (a standardize-on-one-model decision with nothing to run is a lorewright verdict; the same question about which model to run a prompt in hand on is promptwright's). When it lands on the far side, name the sibling and stop: no partial verdict, no table, no "here's a start" — deferral is the whole answer, and it is a recommendation by name, never a failure to do the task (`pack.md`'s absence rule holds if the sibling is not installed). When it lands on this side, do not hedge the ownership — produce the verdict or playbook.
 
 **Evidence honesty.** [estimate] shows its arithmetic. Absence of evidence is stated as such, not filled.
 

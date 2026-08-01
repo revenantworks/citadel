@@ -1,5 +1,22 @@
 # Changelog — revenant-foundation-promptwright
 
+## [1.1.1] — 2026-08-01
+
+Prose/register pass over this skill's own files (SKILL.md, README.md,
+`references/hostile-interpreter.md`): dash-chained run-on sentences split
+into plain sentences, the README's crammed differentiator sentence converted
+to a short bulleted list, and the hostile-read catalog's four failure-shape
+entries trimmed to keep only the added instances, pointing back to SKILL.md
+Phase 6 for the definition instead of re-stating it.
+
+Also fixed: `references/model-snapshot.md`'s tier-map footnotes skipped ²
+entirely (¹, then ³, then ⁴, with no ² anywhere in the file) — a table-
+formatting defect, not a claim change. Renumbered sequentially (¹ ² ³) since
+no source in the pack recorded what a footnote 2 would have claimed; the
+facts each footnote carries are unchanged, only their markers moved.
+
+No rule, gate, count, or entry point moved. No eval re-anchor is owed.
+
 ## [1.1.0] — 2026-08-01
 
 Entry — Model gains **plan grain**: handed a task list or project plan with a

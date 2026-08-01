@@ -40,13 +40,13 @@
   scope, guardrails, kill switches, credential handling, untrusted-content flow),
   skillwright's `Entry — Audit` gains its own security pass (the skill artifact as
   built — injection surface in instructions, secrets in the package, undeclared
-  tool assumptions, unsafe generated defaults). **Each ships self-contained** —
+  tool assumptions, unsafe generated defaults). **Each ships self-contained**:
   neither loads the other's files, per the standalone profile; the split is carried
   by reciprocal boundary sentences in the two descriptions, which is routing
   metadata and not a load-time dependency. **The multi-host export half is
   dropped, not deferred.** No cross-vendor Agent Skill standard exists to export
   *to*, so the work would mean inventing a translation format speculatively for an
-  unnamed host — the exact build this pack's "recorded, not built" convention
+  unnamed host: the exact build this pack's "recorded, not built" convention
   declines ("earns a build only if asked for by name"). Revisit only if a named
   target platform is on the table, at which point it is a fresh gate, not a
   resumed item.
@@ -57,7 +57,7 @@
 
 Strong incumbents own these jobs — recorded, linked, left out of the roster.
 
-| Job | Incumbent | Recorded |
+| Job | Incumbent | Recorded (as of 2026-08-01) |
 |---|---|---|
 | MCP server generation | `mcp-builder` — anthropics/skills, first-party | 2026-07-14 |
 | Baseline skill drafting/review | `skill-creator` — built into claude.ai and Claude Code | 2026-07-14 |

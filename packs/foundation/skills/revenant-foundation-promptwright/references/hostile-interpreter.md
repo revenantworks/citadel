@@ -33,7 +33,7 @@ The bad-faith reader in the name is not malice, it's economy: a model takes the 
 
 Each entry is an instance of a shape named in the body, not a new shape.
 
-**Unfalsifiable.** "Be thorough" · "use professional judgment" · "make it engaging" · "high quality" · "as detailed as necessary" · "be helpful" · "keep it natural". Test: name the output that would prove the line was broken. If you can't, neither can the model.
+**Unfalsifiable.** "Be thorough" · "use professional judgment" · "make it engaging" · "high quality" · "as detailed as necessary" · "be helpful" · "keep it natural".
 
 - *Before:* "Write a thorough competitor overview." → *After:* "Cover each of the four named competitors in 80–120 words: pricing model, one differentiator, one weakness taken from the provided reviews."
 
@@ -42,12 +42,12 @@ Each entry is an instance of a shape named in the body, not a new shape.
 - *Before:* "Summarize in 3 bullets." → *After:* "Three bullets, each 12–20 words, each carrying a different one of the report's findings."
 - *Before:* "Return JSON." → *After:* "Return only the JSON object — the first character of your reply is `{` and the last is `}`. No preamble, no code fences."
 
-**Satisfiable but empty.** "Include examples" met with three near-identical ones · "explain your reasoning" met by restating the answer at greater length · "list the risks" met with risks true of any project · "personalize it" met by pasting the name once · "check your work" met by asserting the work was checked. Self-report is the tell: the model says it complied instead of producing the thing that would show compliance.
+**Satisfiable but empty.** "Include examples" met with three near-identical ones · "explain your reasoning" met by restating the answer at greater length · "list the risks" met with risks true of any project · "personalize it" met by pasting the name once · "check your work" met by asserting the work was checked.
 
 - *Before:* "Give a few examples." → *After:* "Three examples, each from a different one of the three input categories, none longer than two lines."
 - *Before:* "Verify the total before answering." → *After:* "Before the answer, show the addition you performed as a single line of arithmetic."
 
-**Free escape hatch.** "Where relevant" · "if appropriate" · "unless the user says otherwise" · "if you cannot do this, explain why" (explaining why is cheaper than doing it, every time) · "use your best judgment when ambiguous". An out with a real condition on it is fine and often necessary; an out with no condition is a permanent exemption.
+**Free escape hatch.** "Where relevant" · "if appropriate" · "unless the user says otherwise" · "if you cannot do this, explain why" (explaining why is cheaper than doing it, every time) · "use your best judgment when ambiguous".
 
 - *Before:* "Include a citation where relevant." → *After:* "Every claim about the policy carries the section number it came from; claims about anything else carry none."
 

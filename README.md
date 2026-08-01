@@ -2,7 +2,7 @@
 
 ![pack-ci](https://github.com/revenantworks/citadel/actions/workflows/pack-ci.yml/badge.svg)
 
-The Revenant packs marketplace — canonical home of every **Revenant** Agent Skills pack. Each pack lives under [`packs/`](packs/) and installs as one Claude Code plugin; every skill inside follows the [Agent Skills open standard](https://agentskills.io/) and stands alone on any surface that supports it (Claude.ai, Claude Code, the Claude API, compatible agents).
+This is the Revenant packs marketplace: the canonical home of every **Revenant** Agent Skills pack. Each pack lives under [`packs/`](packs/) and installs as one Claude Code plugin; every skill inside follows the [Agent Skills open standard](https://agentskills.io/) and stands alone on any surface that supports it (Claude.ai, Claude Code, the Claude API, compatible agents).
 
 **Packs**
 
@@ -10,7 +10,7 @@ The Revenant packs marketplace — canonical home of every **Revenant** Agent Sk
 |---|---|---|
 | [`foundation`](packs/foundation/) | 9 | The build-time wrights — skills, prompts, messages, agent specs, standing Claude config, research, eval suites, brand identity, token budgets |
 
-Future packs slot in as new folders under `packs/` and new rows in the marketplace catalog — one repo, one marketplace, forever.
+Future packs slot in as new folders under `packs/` and new rows in the marketplace catalog — one repo, one marketplace.
 
 ### foundation — the nine wrights
 
@@ -28,24 +28,24 @@ Each routes on its own description and works alone; together they cover the buil
 | **tokenwright** | Measures, budgets, and slims the token footprint of LLM-facing artifacts |
 | **rigwright** | Builds the standing configuration Claude reads before work — Project instructions, CLAUDE.md, repo Claude config |
 
-Installed together, foundation ships an always-on router — [`packs/foundation/CLAUDE.md`](packs/foundation/CLAUDE.md) — copy it into your project (or `~/.claude/`) so Claude reaches for the right wright and holds the pack's conventions without being asked.
+Installed together, foundation ships an always-on router, [`packs/foundation/CLAUDE.md`](packs/foundation/CLAUDE.md). Copy it into your project (or `~/.claude/`) so Claude reaches for the right wright and holds the pack's conventions without being asked.
 
 ## Install
 
-**Claude Code — a whole pack, one command.** This repository is its own plugin marketplace:
+- **Claude Code — a whole pack, one command.** This repository is its own plugin marketplace:
 
-```
-/plugin marketplace add revenantworks/citadel
-/plugin install foundation@revenant
-```
+  ```
+  /plugin marketplace add revenantworks/citadel
+  /plugin install foundation@revenant
+  ```
 
-**Claude.ai** (paid plans with code execution) — download a member zip from [Releases](../../releases), then **Customize → Skills → + → Create skill** and upload it. Per-skill, per-account.
+- **Claude.ai** (paid plans with code execution) — download a member zip from [Releases](../../releases), then **Customize → Skills → + → Create skill** and upload it. Per-skill, per-account.
 
-**Claude API** — upload a member zip via the Skills API (`/v1/skills`) and reference its `skill_id` with the code execution tool.
+- **Claude API** — upload a member zip via the Skills API (`/v1/skills`) and reference its `skill_id` with the code execution tool.
 
 Alternatively, copy any single skill folder from `packs/<pack>/skills/` into `~/.claude/skills/` (personal) or `.claude/skills/` (project).
 
-**Before you install:** every skill here is plain-text and MIT-licensed — read any `SKILL.md` and its `references/` before use. Anthropic recommends running Skills only from sources you trust and auditing third-party skills first; this repo is public and auditable end to end.
+**Before you install:** every skill here is plain-text and MIT-licensed. Read any `SKILL.md` and its `references/` before use. Anthropic recommends running Skills only from sources you trust and auditing third-party skills first; this repo is public and auditable end to end.
 
 ## Layout
 
@@ -55,6 +55,6 @@ packs/<pack>/                     # the plugin: .claude-plugin/plugin.json · sk
 tools/build.py                    # registry-derived sync + validation + dist zips (--check = CI mode)
 ```
 
-Member versions are independent semver; pack releases tag as `<pack>-vX.Y.Z` and CI attaches every member zip to the release. Single source of truth for rosters: the pack tables in skillwright's `pack-registry.md` — `tools/build.py` derives the manifests and refuses drift.
+Member versions are independent semver; pack releases tag as `<pack>-vX.Y.Z` and CI attaches every member zip to the release. Single source of truth for rosters: the pack tables in skillwright's `pack-registry.md`. `tools/build.py` derives the manifests and refuses drift.
 
 *MIT — see LICENSE.*

@@ -55,4 +55,4 @@ No external published doctrine underwrites this one — it is derived from this 
 
 ## Reference implementation
 
-`revenant-foundation-promptwright` (current release) — the gold-standard standalone-profile build this skill patterns its outputs on: declared load budget, tool-list test for tappable selections, stamped single-update-surface volatile files, `references/` + `evals/` split, assertion-only test suite, changelog born at 1.0.0.
+`revenant-foundation-promptwright` (current release) — the reference implementation standalone-profile build this skill patterns its outputs on: declared load budget, tool-list test for tappable selections, stamped single-update-surface volatile files, `references/` + `evals/` split, assertion-only test suite, changelog born at 1.0.0.

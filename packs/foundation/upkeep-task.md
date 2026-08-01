@@ -14,7 +14,7 @@ citadel repo cloned into its environment, so it runs the real gates.
    `build.py --footprint` (warnings verbatim, thin-budget members named).
 2. Stamps: the six 60-day volatile surfaces — rubrics (skillwright),
    model-snapshot (promptwright), measurement (tokenwright), platform-notes
-   (agentwright), surface-notes (rigwright), and `audit/COLLISION.md` — each
+   (agentwright), surface-notes (rigwright), and `audit/COLLISION.md`, each
    aged against today with a 62-day look-ahead, so anything that would go
    overdue before the next fire is refreshed this fire.
 3. Refresh research on actionable surfaces only, against each file's own

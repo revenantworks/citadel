@@ -49,7 +49,7 @@ Follows the [Agent Skills](https://agentskills.io/) open standard. Drop the fold
 |---|---|
 | "apply all" | Skips the single gate |
 | `neutral` | Produces spec-clean unbranded output regardless of what's stored |
-| a per-element exclusion ("no palette on this one") | Honored without ceremony during Apply |
+| a per-element exclusion (see `application-doctrine.md`'s Overrides) | Honored without ceremony during Apply |
 
 ## Staying current
 

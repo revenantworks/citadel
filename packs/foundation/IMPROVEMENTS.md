@@ -5,10 +5,9 @@
 add up to. Stamped 2026-07-27.*
 
 > **Frozen, and dated rather than versioned.** Every version number below is a
-> **predecessor-era** designation from before the 2026-07-31 re-baseline; those
-> releases and their tags no longer exist, and two of the names have since been
-> reused by unrelated releases (root `CHANGELOG.md`). The narrative is left
-> verbatim because it records what was true when written — read it by date.
+> predecessor-era designation that no longer resolves — see the root
+> `CHANGELOG.md` header for what that means and why. The narrative is left
+> verbatim because it records what was true when written: read it by date.
 > Improvements made after 2026-07-31 are not tracked here.
 
 The pack went from a uniform launch baseline to eight wrights that are

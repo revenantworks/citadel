@@ -7,36 +7,36 @@
 1. Make the change (member content, registry row, roster). On any member
    version bump, re-anchor its eval provenance lines in the same commit
    (evalwright's Provenance discipline; the build gate warns on drift).
-2. `python tools/build.py --bump-pack <pack> <X.Y.Z>` - writes the
+2. `python tools/build.py --bump-pack <pack> <X.Y.Z>`: writes the
    marketplace entry + pack plugin.json + root CHANGELOG scaffold in one
-   stroke (never hand-edit the two version fields separately - the
+   stroke (never hand-edit the two version fields separately: the
    1.0.0/1.1.0 split-brain shipped for a month that way).
-3. `python tools/build.py` - regenerates every `references/pack.md` from the
+3. `python tools/build.py`: regenerates every `references/pack.md` from the
    registry, validates all members (name/folder match, description <=1024
    chars, body <=500 lines, CHANGELOG head == frontmatter version,
    plugin.json == marketplace version, eval provenance freshness + table
-   integrity, and the `metadata.volatile` block - legal classes, files
+   integrity, and the `metadata.volatile` block: legal classes, files
    exist, calendar surfaces stamped `Last verified:` with a sane cadence),
    builds `dist/` zips. `--check` = CI mode, writes nothing.
 4. Commit, tag `<pack>-vX.Y.Z`, push branch + tag. Confirm CI attached the
-   member zips to the Release - README points installers at Releases, so a
+   member zips to the Release. README points installers at Releases, so a
    tag whose assets lag main ships stale skills.
-5. Owner machine, **both steps, in this order** - two copies drift
+5. Owner machine, **both steps, in this order**. Two copies drift
    independently and refreshing the first does not move the second:
    1. `claude plugin marketplace update revenant` (or `git -C
-      ~/.claude/plugins/marketplaces/revenant pull`) - refreshes the clone,
+      ~/.claude/plugins/marketplaces/revenant pull`): refreshes the clone,
       which is what an install reads FROM. It served pre-1.1.0 descriptions
       for a month.
-   2. `claude plugin update <pack>@revenant` - rewrites
+   2. `claude plugin update <pack>@revenant`: rewrites
       `~/.claude/plugins/cache/revenant/<pack>/<version>/`, the copy Claude
       Code actually LOADS. Restart to apply. Skipping this is how a session
       kept loading a superseded member while parity reported clean
       (2026-08-01, promptwright 1.1.0). **This compares PACK versions**, so a
-      member-only bump is undeliverable - it reports "already at the latest
+      member-only bump is undeliverable: it reports "already at the latest
       version" and serves the old body. A member fix reaches an install only
       when a pack bump carries it.
 
-   Then `python tools/build.py --parity` must report clean - it now checks
+   Then `python tools/build.py --parity` must report clean. It now checks
    **both** surfaces and names which one drifted. Then re-upload changed
    members on claude.ai per below.
 
@@ -44,9 +44,9 @@
 Per skill: download the member zip from Releases -> Customize -> Skills -> + ->
 Create skill -> upload. Updating is delete-then-re-upload — the unavoidable
 manual step **on personal accounts**. Team/Enterprise accounts have had
-org-wide admin provisioning since Dec 2025 (Organization settings -> Skills,
-zip upload, enabled by default with per-user opt-out) — one central upload
-replaces the per-user x8.
+org-wide admin provisioning since Dec 2025 (as of 2026-08-01; Organization
+settings -> Skills, zip upload, enabled by default with per-user opt-out).
+One central upload replaces the per-user x8.
 
 **Brand-carriage law (owner decision, 2026-07-23): the ONLY brand carrier
 anywhere — repo or installs — is the locally configured brandwright.** Every
@@ -66,7 +66,7 @@ The single config-carrying surface:
 
 ## Install / update in Claude Code
 `/plugin marketplace add revenantworks/citadel` once, then
-`/plugin install <pack>@revenant`. No zips, no swaps - installs from the repo;
+`/plugin install <pack>@revenant`. No zips, no swaps: installs from the repo;
 config lives in your local `~/.claude` copy.
 
 ## Add a member or a pack
@@ -86,4 +86,4 @@ dated backup copy is kept outside any repo and re-exported after every
 definition change. The `foundation-upkeep` cloud routine carries the reminder
 (`packs/foundation/upkeep-task.md`). If both the
 local config and the backup are ever lost, git history holds only the older
-public edition — treat the backup as the recovery path, never the repo.
+public edition. Treat the backup as the recovery path, never the repo.

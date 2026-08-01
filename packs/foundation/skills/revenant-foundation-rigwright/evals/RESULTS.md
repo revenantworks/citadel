@@ -1,7 +1,10 @@
 # Eval results — revenant-foundation-rigwright
 
 Provenance: results recorded against revenant-foundation-rigwright v1.0.0
-(wright re-baseline), 2026-07-31.
+(wright re-baseline), 2026-07-31. Re-confirmed 2026-08-01: the 1.0.1 bump is
+a prose pass (secrets rule cross-referenced to its one home, connector
+cleanup) with no rule, gate, count, or entry point moved, so the baseline
+below still describes the code under test.
 
 
 ---
