@@ -1,5 +1,14 @@
 # Changelog — revenant-foundation-commwright
 
+## [1.0.1] — 2026-08-01
+
+Frozen-record marker added to the `evals/` files that cite predecessor-era
+version numbers. Those designations predate the 2026-07-31 re-baseline, and
+two of the tag names were later reused by unrelated releases, so a reader
+could take a historical entry for a current one. The rows, verdicts, dates
+and counts are untouched — only a header marker was added, so nothing about
+what was executed or when has moved.
+
 ## [1.0.0] — 2026-07-31
 
 Baseline release. The 1.0 feature set:

@@ -1,5 +1,12 @@
 # RESULTS — eval suite runs (trigger suite + assertion suite)
 
+> **Frozen record — the version numbers below are predecessor-era.** They predate
+> the 2026-07-31 re-baseline, so those releases, their tags and the commit SHAs
+> cited beside them no longer exist; `foundation-v1.1.0` and `foundation-v1.1.1`
+> were later reused by unrelated releases (root `CHANGELOG.md`). Entries are left
+> verbatim because they record what was true when written — read them by date,
+> not by version.
+
 ## 2026-07-27 — v1.4.2 — **COLD TRIGGER RE-RUN, 43/43 — the #26 restoration verified, zero regressions**
 
 Owed re-run discharged. An independent judge, **blind to the repo and to every expected value**, was handed only the current 8-member description listing (post-1.3.2) and the 43 queries stripped of their Expected column, and routed each to one member. Scored against the withheld key: **43 / 43, 0 FAIL, 0 ambiguous.** The restored `Every build ships trigger evals.` did its job — the judge routed **#26** ("…ships with a full eval suite") to skillwright citing *"skillwright builds ship evals"*, the exact string 1.4.0's removal had cost and #26 had gone AMBIGUOUS without. Every boundary row held: #35/#36 (README / CLAUDE.md prose → skillwright), #18 (a plain library README → **not** skillwright), #25 (suite authoring → evalwright), #37 (release announcement → commwright), #38–#40 (skill security → skillwright), #41–#43 (runtime/agent + code pen-test → agentwright / none). The description trim (−`and pack policy`, −`for a domain or role`) regressed nothing. Judge performed **zero file reads** (verified). No version bump — a re-execution against shipped text.

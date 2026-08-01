@@ -15,6 +15,30 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [foundation-v1.1.2] - 2026-08-01
+
+Frozen records marked, so no version number anywhere in the pack can be
+mistaken for a current one. Delivery release for the 1.1.1 post-tag work.
+
+- **13 `evals/` files across 7 members gained a frozen-record header** naming
+  their version numbers as predecessor-era and pointing at the root note. The
+  remaining eval files already carried the disclaimer. **Rows, verdicts,
+  dates, counts and pass rates are untouched** — the ledgers stay evidence,
+  which is why this is a marker and not a rewrite.
+- **agentwright, brandwright, commwright, evalwright, lorewright, tokenwright
+  → 1.0.1; skillwright → 1.0.3** (its 1.0.2 doc fix rides here too, having
+  been undeliverable at member grain).
+- Also carries **skillwright 1.0.2** and the `tools/build.py` date-anchoring
+  from `3a3b084`, which had no pack bump to travel on.
+- **`build.py` now prunes superseded `dist/` zips.** It wrote
+  `<member>-<version>.zip` and never removed the old one, so every bump left
+  its predecessor sitting beside the current build — 16 zips for 9 members at
+  this release. Since release-doctrine treats `dist/` as the upload source of
+  truth, a stale neighbour is a mis-upload waiting to happen. `dist/` now
+  holds exactly one zip per member.
+- Roster and seams unchanged (9 members, 12 seams); promptwright and
+  rigwright untouched.
+
 ## [foundation-v1.1.1] - 2026-08-01
 
 Install-parity release: the tooling fix from `4800918` reaching the copies

@@ -1,5 +1,12 @@
 # Test Cases — revenant-foundation-evalwright
 
+> **Frozen record — the version numbers below are predecessor-era.** They predate
+> the 2026-07-31 re-baseline, so those releases, their tags and the commit SHAs
+> cited beside them no longer exist; `foundation-v1.1.0` and `foundation-v1.1.1`
+> were later reused by unrelated releases (root `CHANGELOG.md`). Entries are left
+> verbatim because they record what was true when written — read them by date,
+> not by version.
+
 13 cases covering every entry point and behavior path — generate for all three target kinds, pack cross-boundary pairs, audit clean and defective suites, refresh scoping, every non-production state and its flag, the zero-dep law, gating, and the sibling boundary. Provenance: derived from revenant-foundation-evalwright v1.0.0, 2026-07-14. Re-anchored to v1.1.1, 2026-07-24 (foundation-v1.1.1 hygiene pass; suite content reviewed at the 2026-07-23 6A refresh). Re-anchored to v1.1.3, 2026-07-24 (non-production states enumerated in the body; Cases 2 / 8 / 9 / 10 / 12 reconciled to that enumeration — no case added or retired). Re-anchored to v1.1.4, 2026-07-24 (the body's outcome-set statements now point at that enumeration instead of restating it; Case 9 gains the gate/handback assert — no case added or retired). Re-anchored to v1.1.5, 2026-07-25 (`<no-build>` is no longer claimed to give its two states one shape; the intro's flag gloss and Case 12 say what is shared — the reason — and what differs — the shape; no case added or retired). Re-anchored to v1.1.6, 2026-07-26 (Case 1's map-derivation clause tightened from a floor to an independently-re-derived match with case count equal to map rows, closing the under-derived-map gap; no case added or retired).
 
 Each case: **Input** + **Assert** (mechanical checks on run output). Flags follow SKILL.md's non-production states: `<no-build>` (nothing readable to derive from — one flag, two states with different shapes: Case 9 asks for the target, Case 12 routes and offers) · `<no-triggers>` (no routing surface) · `<no-suite>` (subjective output); a state that withholds nothing carries no flag. One case per state: 10 bare invocation · 9 absent target · 12 sibling's job · 2 no routing surface · 8 subjective output · 4 sound suite.

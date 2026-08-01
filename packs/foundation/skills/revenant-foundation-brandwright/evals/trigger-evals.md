@@ -1,5 +1,12 @@
 # Trigger Evals — 22 queries (13 should / 9 shouldn't)
 
+> **Frozen record — the version numbers below are predecessor-era.** They predate
+> the 2026-07-31 re-baseline, so those releases, their tags and the commit SHAs
+> cited beside them no longer exist; `foundation-v1.1.0` and `foundation-v1.1.1`
+> were later reused by unrelated releases (root `CHANGELOG.md`). Entries are left
+> verbatim because they record what was true when written — read them by date,
+> not by version.
+
 Read each cold against name + description only. Provenance: derived from revenant-foundation-brandwright v1.0.0, 2026-07-14; refreshed 2026-07-23 for 1.1.0 — #12 flipped to SHOULD (Entry — Apply is brandwright's own now). Re-anchored to v1.1.7, 2026-07-25 — provenance only, nothing was executed here: the 2026-07-24 description-regime slim is already ledgered in `evals/RESULTS.md`, and [1.1.3] through [1.1.7] record no description change since — that work was body, reference, and assertion-case repair (the export shapes, the build interview, the seven audit categories, P0's triggers, the Apply cascade row). No query, expectation, or count touched; still 22, 13/9.
 
 | # | Query | Expected |

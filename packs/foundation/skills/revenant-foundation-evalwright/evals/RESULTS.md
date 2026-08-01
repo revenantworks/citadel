@@ -1,5 +1,12 @@
 # RESULTS — trigger suite and assertion suite runs
 
+> **Frozen record — the version numbers below are predecessor-era.** They predate
+> the 2026-07-31 re-baseline, so those releases, their tags and the commit SHAs
+> cited beside them no longer exist; `foundation-v1.1.0` and `foundation-v1.1.1`
+> were later reused by unrelated releases (root `CHANGELOG.md`). Entries are left
+> verbatim because they record what was true when written — read them by date,
+> not by version.
+
 ## 2026-07-26 — v1.1.6 — runner: claude (quality close-out: carried-forward findings 3/4/5/6 closed; finding 1 re-verified already closed)
 
 **Scope check against the live file, done before touching anything.** The 2026-07-25 entry immediately below this one already closed finding 1 (literal-absence asserts have no surface scope) at the doctrine level and at both instances (Cases 8 and 11) — confirmed by reading `references/eval-doctrine.md` line 28 (the surface-scope bullet under **Assertion suites**) and `evals/test-cases.md` Cases 8 and 11 (both carry the strengthened, surface-scoped assert text quoted in that entry). No further change was made for finding 1 here; it is re-verified closed, not re-closed. The genuinely open items were the four carried-forward findings the 2026-07-25 entry named as "the separate scoping-class debt" — findings 3, 4, 5 and 6 from the 2026-07-24 first-execution entry — all four the same shared-cause shape: a mechanical check scoped to the ARTIFACT it names rather than the SURFACE the guarantee has to hold on.

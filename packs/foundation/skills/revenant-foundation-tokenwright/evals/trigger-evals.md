@@ -1,5 +1,12 @@
 # Trigger Evals — revenant-foundation-tokenwright
 
+> **Frozen record — the version numbers below are predecessor-era.** They predate
+> the 2026-07-31 re-baseline, so those releases, their tags and the commit SHAs
+> cited beside them no longer exist; `foundation-v1.1.0` and `foundation-v1.1.1`
+> were later reused by unrelated releases (root `CHANGELOG.md`). Entries are left
+> verbatim because they record what was true when written — read them by date,
+> not by version.
+
 > **Provenance:** target `revenant-foundation-tokenwright` v1.0.0 · suite derived 2026-07-13 (evalwright doctrine; runnable cold, no tooling). Twenty queries — ten should fire the description, ten shouldn't. Read each cold against **name + description only** and compare to the expected column. Re-anchored to v1.1.1, 2026-07-24; **re-anchored to v1.1.6, 2026-07-25** — 1.1.2 through 1.1.6 left this head five patches stale, and `build.py` stayed silent because its check accepts any dated re-anchor line by shape without checking the version it names. Those bumps changed the description-cap doctrine and the Refresh sync rule, not the `description` field, so no row here changed and **no re-run is claimed or owed** (foundation-v1.1.1 hygiene pass; suite content reviewed at the 2026-07-23 6A refresh).
 
 ## Should trigger (10)

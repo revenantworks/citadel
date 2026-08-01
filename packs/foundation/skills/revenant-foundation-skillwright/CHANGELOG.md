@@ -1,5 +1,14 @@
 # Changelog — revenant-foundation-skillwright
 
+## [1.0.3] — 2026-08-01
+
+Frozen-record marker added to the `evals/` files that cite predecessor-era
+version numbers. Those designations predate the 2026-07-31 re-baseline, and
+two of the tag names were later reused by unrelated releases, so a reader
+could take a historical entry for a current one. The rows, verdicts, dates
+and counts are untouched — only a header marker was added, so nothing about
+what was executed or when has moved.
+
 ## [1.0.2] — 2026-08-01
 
 `references/release-doctrine.md` cited predecessor-era releases by tag name.

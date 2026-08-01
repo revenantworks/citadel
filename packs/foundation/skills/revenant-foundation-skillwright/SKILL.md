@@ -3,7 +3,7 @@ name: revenant-foundation-skillwright
 description: Builds, audits, ports, and integrates install-ready Agent Skills passing best practices. Trigger to build, audit, score, or package a skill or SKILL.md; to design a pack; when asked if a skill fills a real niche; for a prose pass on a skill's or pack's own files (README, CLAUDE.md); when a skill set needs porting, renaming, rebranding, or sanitizing for a new owner; when a member change must propagate across a pack; or on skillwright (refresh, port, pack, integrate, upkeep). Every build ships trigger evals. Audit covers security — injection surface, secrets, undeclared tools, unsafe defaults. For prompts not skills, promptwright; to define, apply, or audit a brand or voice, brandwright; audits cover the skill package as built — what an autonomous agent may do at runtime is agentwright's.
 license: MIT
 metadata:
-  version: "1.0.2"
+  version: "1.0.3"
   profile: standalone
   pack: foundation
   brand: revenant

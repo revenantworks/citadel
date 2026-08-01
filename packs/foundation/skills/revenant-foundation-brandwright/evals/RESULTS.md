@@ -1,5 +1,12 @@
 # RESULTS — trigger suite and assertion suite runs
 
+> **Frozen record — the version numbers below are predecessor-era.** They predate
+> the 2026-07-31 re-baseline, so those releases, their tags and the commit SHAs
+> cited beside them no longer exist; `foundation-v1.1.0` and `foundation-v1.1.1`
+> were later reused by unrelated releases (root `CHANGELOG.md`). Entries are left
+> verbatim because they record what was true when written — read them by date,
+> not by version.
+
 ## 2026-07-27 — v1.1.9 — **COLD TRIGGER RE-RUN, 20/22 — the #8 seam verified, two pre-existing borderlines flagged**
 
 Owed re-run discharged. A judge **blind to the repo and to the Expected column** was handed only the 8-member listing + the 22 queries and routed each; scored against the withheld key: **20 / 22.** The #8 target held: **#14 "rebrand this whole skill set" routed to skillwright** — the de-circularized clause (*"a whole skill set's rebrand is a handoff — brandwright defines the identity, skillwright port propagates it"*) sends the whole-set case correctly, while #12 (apply brand to a built skill → brandwright) held on the other side, so the two are no longer circular. The two misses are **pre-existing borderlines untouched by the #8 edit, both debatable**: **#15 "brand story for the About page"** (judge ambiguous, lead brandwright; expected content-production SHOULD NOT — brand identity vs channel copy) and **#17 "pick brand colors that convert better"** (judge brandwright on the palette signal; expected marketing-optimization SHOULD NOT). Candidates for a suite note marking them known-ambiguous, not hotfixes. Judge performed **zero file reads** (verified). No version bump — a re-execution against shipped text.

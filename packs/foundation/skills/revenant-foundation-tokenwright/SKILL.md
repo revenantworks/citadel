@@ -3,7 +3,7 @@ name: revenant-foundation-tokenwright
 description: Measures and shrinks the token footprint of LLM-facing artifacts — prompts, SKILL.md bodies, agent specs, CLAUDE.md, reference docs — at build time, cutting cost without changing behavior. Trigger to slim, compress, or token-optimize an artifact; to fit a token or context budget or a cached prefix; to ask why a prompt or instruction file costs so many tokens; when a set needs budgets or a load plan ("tokenwright budget"); to score token waste without rewriting ("tokenwright audit"); or when they say "tokenwright" ("tokenwright refresh" re-verifies ratios and cache mechanics). Covers a waste taxonomy, a lossless/lossy ladder, and net-cost accounting. For prompt quality or wording, promptwright; for skill best-practice conformance, skillwright; for shortening human-facing messages, commwright.
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   profile: standalone
   pack: foundation
   brand: revenant

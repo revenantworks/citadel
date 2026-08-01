@@ -3,7 +3,7 @@ name: revenant-foundation-lorewright
 description: Turns research into verified knowledge products, two modes. Trigger when someone wants a researched recommendation, comparison, or go/no-go — which X should I pick, is Y worth it, compare A vs B — sources checked live, every claim evidence-graded; when they want a reference doc, guide, or playbook, template-first, versioned against primary sources; when a doc needs verification or overlapping docs need consolidating; or when they say lorewright (lorewright verdict / lorewright playbook pick the mode). Verdict ends in one direct recommendation, never a hedge. For prompts, promptwright; for skills, skillwright; for shaping a message to a channel, commwright; broad multi-source research reports are a research tool's job — lorewright produces decisions and reference docs, not reports.
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   profile: standalone
   pack: foundation
   brand: revenant

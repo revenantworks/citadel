@@ -3,7 +3,7 @@ name: revenant-foundation-agentwright
 description: Designs and audits the system around an autonomous or scheduled agent — everything but the prompt text — and emits it in the target's native form. Trigger to design, spec, harden, review, or audit an agent, bot, scheduled task, or automation that acts on its own; to write a Cowork task, a Claude Code routine, or a desktop scheduled task, or the same on ChatGPT, Gemini, or a workflow runner; for guardrails, kill switches, cadence, retries, failure handling, protected resources, output contracts, or handoffs; to security-scan an agent's tool grants, credential handling, or blast radius; when untrusted content — email, web pages, documents — needs isolation inside an agent; or say agentwright (subcommands emit, audit, security-scan, refresh). Prompt text is promptwright's; standing configuration a human reads in session — Claude Project instructions, CLAUDE.md — is rigwright's; how a skill package is built is skillwright's; code-level threat coverage belongs to a security harness.
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   profile: standalone
   pack: foundation
   brand: revenant

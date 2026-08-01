@@ -3,7 +3,7 @@ name: revenant-foundation-evalwright
 description: Authors and audits eval suites for skills, prompts, and agent specs — a build-time generator whose suites live in the target and run by hand without it. Trigger when someone wants trigger evals, test cases, an assertion suite, or regression coverage written for a skill, SKILL.md, prompt card, or agent spec; when a should/shouldn't set needs balancing or a suite needs scoring — coverage per entry point, boundary pairs, count integrity; when a suite should be refreshed after its target changed; or when they say evalwright (audit — score a suite, refresh — re-derive after changes). For building the skill itself, skillwright; for the prompt under test, promptwright; for code unit tests and QA, engineering test tooling; automated benchmark loops belong to skill-creator's eval tools.
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   profile: standalone
   pack: foundation
   brand: revenant

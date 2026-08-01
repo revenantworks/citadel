@@ -1,5 +1,12 @@
 # RESULTS — trigger suite + assertion suite runs
 
+> **Frozen record — the version numbers below are predecessor-era.** They predate
+> the 2026-07-31 re-baseline, so those releases, their tags and the commit SHAs
+> cited beside them no longer exist; `foundation-v1.1.0` and `foundation-v1.1.1`
+> were later reused by unrelated releases (root `CHANGELOG.md`). Entries are left
+> verbatim because they record what was true when written — read them by date,
+> not by version.
+
 Two suites are ledgered here. The **trigger suite** (`trigger-evals.md`) judges a cold listing — name + description only — and never runs the skill. The **assertion suite** (`test-cases.md`) executes the skill against each case and checks its output against the case's assert clause. The two entries below dated 2026-07-24 for v1.1.1 are trigger-suite runs. **Updated 2026-07-25:** there are now two assertion-suite executions — the 2026-07-24 v1.1.2 entry (the first) and the 2026-07-25 v1.1.6 entry at the bottom (a full re-execution against the text released at tag `foundation-v1.2.0`).
 
 ## 2026-07-24 — v1.1.1 — runner: claude (listing-based routing simulation, single pass)

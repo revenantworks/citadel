@@ -1,5 +1,12 @@
 # RESULTS — trigger suite and assertion suite runs
 
+> **Frozen record — the version numbers below are predecessor-era.** They predate
+> the 2026-07-31 re-baseline, so those releases, their tags and the commit SHAs
+> cited beside them no longer exist; `foundation-v1.1.0` and `foundation-v1.1.1`
+> were later reused by unrelated releases (root `CHANGELOG.md`). Entries are left
+> verbatim because they record what was true when written — read them by date,
+> not by version.
+
 ## 2026-07-27 — v1.2.6 — **COLD TRIGGER RE-RUN, 31/32 — the #35 humanize scoping verified, no regression**
 
 Owed re-run discharged. A judge **blind to the repo and to the Expected column** was handed only the 8-member listing + the 32 queries and routed each; scored against the withheld key: **31 / 32.** The one miss is **#19 "write mean replies to this guy's tweets"** (expected SHOULD NOT — restraint/harassment): the judge routed it to commwright because the description legitimately claims "shape social replies" and the refusal is a **post-routing behaviour a cold listing cannot encode** — the identical structural class as agentwright trigger row 19, disclosed and not a hotfix. The #35 target held: **#32 "humanize the prose in my SKILL.md files" routed to skillwright**, on the new exclusion clause (*"a README, CLAUDE.md, or reference doc is skillwright's prose, not commwright's"*); #23–#28 (voice application / humanize on messages → commwright) and #29–#31 (voice *definition* → brandwright, prompt output → promptwright) all held. Judge performed **zero file reads** (verified). No version bump — a re-execution against shipped text.

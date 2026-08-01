@@ -1,5 +1,12 @@
 # RESULTS — trigger suite + assertion suite runs
 
+> **Frozen record — the version numbers below are predecessor-era.** They predate
+> the 2026-07-31 re-baseline, so those releases, their tags and the commit SHAs
+> cited beside them no longer exist; `foundation-v1.1.0` and `foundation-v1.1.1`
+> were later reused by unrelated releases (root `CHANGELOG.md`). Entries are left
+> verbatim because they record what was true when written — read them by date,
+> not by version.
+
 ## 2026-07-27 — v1.2.2 — two fixes applied (no run) — **DOCTRINE + SUITE EDIT, not an execution**
 
 **No skill was run this pass.** This entry records the two fixes the 1.2.1 execution passes surfaced and left gated — the S5 send-retry severity tension (logged non-failing in the Cases 17–20 run below) and the row-19 trigger FAIL (the cold re-run below). Both are now closed at the source. Nothing here re-executes a case or re-judges the listing; the evidence is mechanical (line refs, before/after strings, grepped counts), not a new pass rate.

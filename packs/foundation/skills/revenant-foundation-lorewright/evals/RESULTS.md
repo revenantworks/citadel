@@ -1,5 +1,12 @@
 # RESULTS — eval runs
 
+> **Frozen record — the version numbers below are predecessor-era.** They predate
+> the 2026-07-31 re-baseline, so those releases, their tags and the commit SHAs
+> cited beside them no longer exist; `foundation-v1.1.0` and `foundation-v1.1.1`
+> were later reused by unrelated releases (root `CHANGELOG.md`). Entries are left
+> verbatim because they record what was true when written — read them by date,
+> not by version.
+
 Two suites are ledgered here. **Trigger suite** (`trigger-evals.md`) runs are routing simulations judged against a cold listing — name + description only, the skill body never loaded. **Assertion suite** (`test-cases.md`) runs execute the skill itself and check its output against per-case assert clauses. A trigger-suite pass says nothing about doctrine; the first assertion run below found six doctrine defects the three prior review rounds and 20/20 trigger passes had all missed. Newest run first.
 
 *Suite size: the 2026-07-24 assertion run below executed the 18 cases that existed at v1.1.1. `test-cases.md` now carries **19** — Case 19 was added at v1.1.3 to test the vendor-page tag tie-break that Finding 1 in that run exposed, and has not been executed. **Corrected 2026-07-25:** that last clause is out of date. The v1.1.5 run at the top of this file executed all **19** cases, Case 19 among them for the first time in any run; the sentence stands as written because it was true on 2026-07-24. No run entry below has been altered. **Further corrected 2026-07-25:** `test-cases.md` now carries **22** — Cases 20, 21 (boundary, both directions — the 2026-07-24 Finding 4 close) and 22 (unreadable primary source) were added by the coverage pass at the top of this file and have been run only by simulation there, never in a live full run.*

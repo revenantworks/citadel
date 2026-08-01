@@ -728,6 +728,13 @@ def main() -> int:
                     if p.is_file() and "__pycache__" not in p.parts and p.suffix != ".pyc":
                         z.write(p, p.relative_to(skills_dir))
             print(f"  ▣ dist/{out.name}")
+            # Prune this member's superseded builds. Without it dist/ accumulates one zip
+            # per version ever built, and release-doctrine treats these as the upload
+            # source of truth — so a stale neighbour is a mis-upload waiting to happen.
+            for old in DIST.glob(f"{member}-*.zip"):
+                if old != out:
+                    old.unlink()
+                    print(f"  ✗ dist/{old.name} (superseded)")
 
     print(f"\ncount integrity: registry {total_members} = folders {total_folders} = manifests {total_manifests}")
     if warnings:

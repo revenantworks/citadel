@@ -1,5 +1,12 @@
 # Trigger Evals — 20 queries (10 should / 10 shouldn't)
 
+> **Frozen record — the version numbers below are predecessor-era.** They predate
+> the 2026-07-31 re-baseline, so those releases, their tags and the commit SHAs
+> cited beside them no longer exist; `foundation-v1.1.0` and `foundation-v1.1.1`
+> were later reused by unrelated releases (root `CHANGELOG.md`). Entries are left
+> verbatim because they record what was true when written — read them by date,
+> not by version.
+
 Read each cold against name + description only. Provenance: derived from revenant-foundation-evalwright v1.0.0, 2026-07-14. Re-anchored to v1.1.1, 2026-07-24 (foundation-v1.1.1 hygiene pass; suite content reviewed at the 2026-07-23 6A refresh). Re-anchored to v1.1.3, 2026-07-24 (non-production-state enumeration; body-only change, the description is untouched in this pass, so no row moved). Re-anchored to v1.1.4, 2026-07-24 (outcome-set statements reconciled to that enumeration; body-only again, description untouched, no row moved). Re-anchored to v1.1.5, 2026-07-25 (Restraint's flag-vs-shape rule corrected; body-only again, description untouched, no row moved). Re-anchored to v1.1.6, 2026-07-26 (eval-doctrine.md surface-scoping repairs — map completeness, boundary-pairs N/A, refresh-touches, count-integrity scope; reference-file-only change, the description is untouched, no row moved).
 
 | # | Query | Expected |
