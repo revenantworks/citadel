@@ -13,6 +13,57 @@
 
 ---
 
+## Release — foundation 1.1.3, tag `foundation-v1.1.3` (2026-08-01)
+
+**The pack-wide prose pass.** A read-only audit ran first over all ~88 files
+(every member's own files, the root and pack-level docs, and the GitHub repo
+metadata), scored against skillwright's own four register defects plus a
+broader AI-tell list. The corpus came back clean on the categories people
+usually mean by "reads like AI" — zero hedging filler, zero rule-of-three
+padding, zero unearned CAPS imperatives outside quoted bad examples. What it
+did find was mechanical: a dash (or `" - "` in RUNBOOK) used as the default
+clause-joiner at up to 1 per 3.3 lines, and rules stated in full in two files
+at once with neither copy marked authoritative.
+
+Nine members bumped, all patch except promptwright (minor). Four workers ran
+the member edits in parallel under a claim-preserving contract — sentence
+construction only, never what a rule says — with the cross-file and
+doctrine-sensitive items (spec.md, ledger.md, IMPROVEMENTS.md,
+`pack-registry.md`) handled centrally instead, since those carry append-only
+or frozen-record doctrine a parallel worker should not touch.
+
+**Two content gaps closed, both pre-existing, both named as corrections
+rather than capability:** tokenwright's Preservation-contract list carried
+six items where `waste-taxonomy.md` and its own CHANGELOG carried seven (the
+missing one: dependency declarations and absence behaviors); promptwright's
+`model-snapshot.md` footnote markers ran ¹, ³, ⁴ with no ² anywhere, a
+leftover from an un-renumbered row edit.
+
+**One self-inflicted bug, caught before commit.** The shared "foundation seam
+notes" annotation in `pack-registry.md` was a single ~700-word paragraph
+narrating dated boundary closures — a readability defect the audit flagged in
+all nine generated `pack.md` copies at once. Reformatting it into a dated
+list tripped an assumption in `build.py`'s `pack_seam_note()`, whose regex
+captured to end-of-line and so returned nothing for a multi-line block: the
+build reported **ok, 9 manifests synced** while silently dropping the section
+from every one of them. Found by grepping the generated output rather than
+trusting the build's own success line — the same class of gap the seam table
+itself exists to catch, and worth recording as one. The extractor now spans
+to the next top-level pack annotation.
+
+**No rule, gate, count, or entry point moved in any member**, so no eval
+re-anchor is owed pack-wide; rigwright's `evals/RESULTS.md` carries a dated
+reconfirmation line rather than a restamp, which is what cleared the
+provenance-freshness warn. Build clean (`--check` clean, count integrity
+9 = 9 = 9, 0 warnings), tag pushed, CI green on both runs, nine zips
+attached. Owner surfaces after the tag: clone refreshed, `claude plugin
+update` run, `--parity` clean on both the clone and the loaded cache.
+claude.ai re-uploads still owed and now pack-wide (spec.md register ⑨).
+
+*Bookkeeping note: pack **1.1.2** (frozen-record markers, `dist/` pruning)
+shipped without a ledger entry of its own; its account is in the root
+`CHANGELOG.md`.*
+
 ## Release — foundation 1.1.1, tag `foundation-v1.1.1` (2026-08-01)
 
 Delivery release, no new capability: cut so the parity fix and skillwright

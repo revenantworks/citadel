@@ -148,13 +148,17 @@ by reciprocal boundary sentences **and now by the `skillwright ↔ agentwright` 
 which the build pass deliberately skipped and the release pass added). Item ⑧'s
 **multi-host export half is dropped** — see the 2026-07-27 line in `decisions.md`.
 
-**⑨ claude.ai re-upload owed — promptwright 1.1.0.** Opened at pack 1.1.0
-(2026-08-01): the local Claude Code plugin install and the release's dist
-zips are current, but the claude.ai custom-skill copy of promptwright is a
-personal-account upload that only moves on delete-and-re-upload
-(release-doctrine — Install parity); it still serves the 1.0.0 body until the
-owner re-uploads it by hand. A cost accepted for this pass, not silently
-carried: recorded here rather than claimed done.
+**⑨ claude.ai re-uploads owed — all nine members.** Opened at pack 1.1.0
+(2026-08-01) for promptwright alone; **widened to the whole roster at pack
+1.1.3**, whose prose pass bumped every member. The local Claude Code plugin
+install and the release's dist zips are current on both surfaces, but the
+claude.ai custom-skill copies are personal-account uploads that only move on
+delete-and-re-upload (release-doctrine — Install parity), so all nine still
+serve their 1.0.0 bodies until the owner re-uploads them by hand. Nothing
+here is behavioral — every bump since 1.0.0 is prose, delivery, or a
+correction — so a stale claude.ai copy is out of date, not wrong. A cost
+accepted for these passes, not silently carried: recorded here rather than
+claimed done.
 
 **The register is empty except ⑦ and ⑨.** ⑦ (pack-registry relocation out of skillwright when
 pack #2 becomes real) is the only structural item left, and it is gated on an event that has not
