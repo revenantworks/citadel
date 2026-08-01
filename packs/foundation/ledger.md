@@ -4,6 +4,13 @@
 > Split out of `spec.md` 2026-07-25 (deferral-register item ⑥). The live baton is
 > `spec.md`; durable decisions live in `decisions.md`. When memory of a conversation
 > and this ledger disagree, trust the ledger.
+>
+> **Entries dated before 2026-07-31 use predecessor-era version numbers.** Those
+> releases, their tags and the commit SHAs beside them no longer exist, and
+> `foundation-v1.1.0` / `foundation-v1.1.1` were later reused by unrelated
+> releases (root `CHANGELOG.md`). Entries are left verbatim because a ledger that
+> is edited to stay tidy is no longer evidence — read them by date, not by
+> version.
 
 
 ---
