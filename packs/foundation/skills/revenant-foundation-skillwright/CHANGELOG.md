@@ -1,5 +1,20 @@
 # Changelog — revenant-foundation-skillwright
 
+## [1.0.5] — 2026-08-01
+
+`references/release-doctrine.md` — Install parity: the section described
+`--parity` as comparing `SKILL.md` frontmatter, which was true and was the
+problem. That scope reported **clean** twice over a loaded copy whose
+`ledger.md` and `spec.md` lagged a post-tag commit — neither is frontmatter,
+so neither was ever compared. The tool now diffs every shipped file and the
+section says so, with the general lesson stated once: a detector whose scope
+is narrower than what it certifies produces false assurance, which is worse
+than no detector because it ends the investigation.
+
+Two limits still stand and are still named — parity skips absent surfaces
+(CI-safe, not a CI gate) and knows nothing about claude.ai. No rule, gate,
+count, or entry point moved.
+
 ## [1.0.4] — 2026-08-01
 
 Prose/register pass over this skill's own files (SKILL.md, README.md,

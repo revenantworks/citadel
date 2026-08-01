@@ -15,6 +15,27 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [foundation-v1.1.4] - 2026-08-01
+
+Parity tells the truth now, and carries the two records files that had no
+release to travel on.
+
+- **`--parity` widened from `SKILL.md` frontmatter to every shipped file.**
+  The narrow scope reported **clean** twice while the loaded copy was stale:
+  the lagging files were `ledger.md` and `spec.md`, which are not frontmatter
+  and so were never compared. It now lists each file as missing, differing or
+  extra, normalises line endings (a CRLF working tree vs an LF clone is not
+  drift), and skips runtime markers. Verified by running it against the real
+  stale install, where it named exactly the two files and nothing else.
+- **skillwright 1.0.5** — Install parity re-scoped to match, with the lesson
+  stated once: a detector narrower than what it certifies produces false
+  assurance, which is worse than no detector because it ends the
+  investigation.
+- **Delivers `ledger.md` and `spec.md`** as of `8fdeeb9`, the post-1.1.3
+  docs commit that had no pack bump to ride. Records only — no skill loads
+  either at runtime.
+- Roster and seams unchanged (9 members, 12 seams); eight members untouched.
+
 ## [foundation-v1.1.3] - 2026-08-01
 
 Pack-wide prose pass: every member's own files (SKILL.md, README, SOURCES,

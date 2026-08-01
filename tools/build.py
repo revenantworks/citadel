@@ -22,7 +22,7 @@ Usage:
   python3 tools/build.py --only revenant-foundation-tokenwright   limit zip build to one member (sync still runs)
   python3 tools/build.py --bump-pack <pack> <X.Y.Z>   one-stroke version write: marketplace entry +
                                     pack plugin.json + root CHANGELOG scaffold (prevents split-brain bumps)
-  python3 tools/build.py --parity   diff BOTH installed copies' SKILL.md frontmatter against repo HEAD —
+  python3 tools/build.py --parity   diff EVERY shipped file in both installed copies against repo HEAD —
                                     the marketplace clone AND the plugin cache Claude Code actually loads;
                                     exit 1 on drift; skips cleanly when no local install exists (CI-safe)
   python3 tools/build.py --footprint  measured SKILL.md body tokens per member against its registry budget,
@@ -579,8 +579,56 @@ def _frontmatter(p: Path) -> str:
     return p.read_text(encoding="utf-8").split("---")[1]
 
 
+def _norm(p: Path) -> str:
+    """File text with line endings normalised — a CRLF working tree vs an LF clone is
+    not drift, and reporting it as such trains the reader to ignore the detector."""
+    return p.read_text(encoding="utf-8", errors="replace").replace("\r\n", "\n")
+
+
+# Runtime/VCS artefacts that exist on one side by design — never drift.
+# `.in_use` is the plugin manager's live-session marker directory, not shipped content.
+PARITY_SKIP = {".in_use", ".DS_Store", ".git", "__pycache__"}
+
+
+def _shipped(root: Path):
+    """Every file that ships from a pack root, relative to it."""
+    for p in sorted(root.rglob("*")):
+        if not p.is_file():
+            continue
+        if p.suffix == ".pyc" or PARITY_SKIP.intersection(p.parts) or p.name in PARITY_SKIP:
+            continue
+        yield p.relative_to(root)
+
+
+def _compare_tree(repo_root: Path, inst_root: Path, label: str) -> int:
+    """Diff every shipped file, not just SKILL.md frontmatter. Returns the drift count.
+
+    Frontmatter-only was the original scope and it under-reported twice: it reported clean
+    while `ledger.md` and `spec.md` in the loaded copy lagged a post-tag commit, because a
+    reference doc, README, ledger or spec is not frontmatter and was never compared.
+    """
+    drift = []
+    for rel in _shipped(repo_root):
+        inst = inst_root / rel
+        if not inst.is_file():
+            drift.append(f"missing: {rel.as_posix()}")
+        elif _norm(repo_root / rel) != _norm(inst):
+            drift.append(f"differs: {rel.as_posix()}")
+    for rel in _shipped(inst_root):
+        if not (repo_root / rel).is_file():
+            drift.append(f"extra:   {rel.as_posix()}")
+    if drift:
+        for d in drift[:20]:
+            print(f"  ✗ {d}")
+        if len(drift) > 20:
+            print(f"  … and {len(drift) - 20} more")
+    else:
+        print(f"  ✓ {label}: every shipped file matches repo HEAD")
+    return len(drift)
+
+
 def parity(packs: dict[str, str]) -> int:
-    """Diff both installed copies' SKILL.md frontmatter vs repo HEAD (owner-machine detector).
+    """Diff every shipped file in both installed copies vs repo HEAD (owner-machine detector).
 
     TWO surfaces drift independently, and checking only the first is how a session kept
     loading a superseded member while this command reported clean (2026-08-01, promptwright
@@ -595,6 +643,11 @@ def parity(packs: dict[str, str]) -> int:
 
     Note the cache flattens the pack root — `skills/<member>/`, not `packs/<pack>/skills/`.
     Each surface skips cleanly when absent (CI-safe).
+
+    Scope is EVERY shipped file, not just SKILL.md frontmatter. The narrow version reported
+    clean twice while the loaded copy was stale, because the files that lagged — `ledger.md`,
+    `spec.md` — are not frontmatter and were never compared. Line endings are normalised: a
+    CRLF working tree against an LF clone is not drift.
     """
     home = Path.home() / ".claude" / "plugins"
     mkt = home / "marketplaces" / "revenant"
@@ -607,15 +660,7 @@ def parity(packs: dict[str, str]) -> int:
         checked += 1
         print("clone — ~/.claude/plugins/marketplaces/revenant")
         for pack in packs:
-            for repo_sk in sorted((PACKS / pack / "skills").glob("*/SKILL.md")):
-                member = repo_sk.parent.name
-                inst_sk = mkt / "packs" / pack / "skills" / member / "SKILL.md"
-                if not inst_sk.is_file():
-                    print(f"  ✗ {member}: not present in the clone"); drifted += 1
-                elif _frontmatter(repo_sk) != _frontmatter(inst_sk):
-                    print(f"  ✗ {member}: clone frontmatter drifts from repo HEAD"); drifted += 1
-                else:
-                    print(f"  ✓ {member}")
+            drifted += _compare_tree(PACKS / pack, mkt / "packs" / pack, "clone")
 
     installed = home / "installed_plugins.json"
     if not installed.is_file():
@@ -634,15 +679,7 @@ def parity(packs: dict[str, str]) -> int:
                 if not root.is_dir():
                     print(f"  ✗ {pack}: installPath does not exist"); drifted += 1
                     continue
-                for repo_sk in sorted((PACKS / pack / "skills").glob("*/SKILL.md")):
-                    member = repo_sk.parent.name
-                    inst_sk = root / "skills" / member / "SKILL.md"
-                    if not inst_sk.is_file():
-                        print(f"  ✗ {member}: not present in the loaded cache"); drifted += 1
-                    elif _frontmatter(repo_sk) != _frontmatter(inst_sk):
-                        print(f"  ✗ {member}: LOADED copy drifts from repo HEAD"); drifted += 1
-                    else:
-                        print(f"  ✓ {member}")
+                drifted += _compare_tree(PACKS / pack, root, "loaded copy")
 
     if not checked:
         print("parity: nothing installed here — skipped")

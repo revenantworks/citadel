@@ -36,9 +36,10 @@
       version" and serves the old body. A member fix reaches an install only
       when a pack bump carries it.
 
-   Then `python tools/build.py --parity` must report clean. It now checks
-   **both** surfaces and names which one drifted. Then re-upload changed
-   members on claude.ai per below.
+   Then `python tools/build.py --parity` must report clean. It checks **both**
+   surfaces across **every shipped file** (not just SKILL.md frontmatter, which
+   twice read clean over a stale `ledger.md`/`spec.md`) and names which surface
+   drifted and which files. Then re-upload changed members on claude.ai below.
 
 ## Install / update on claude.ai
 Per skill: download the member zip from Releases -> Customize -> Skills -> + ->
