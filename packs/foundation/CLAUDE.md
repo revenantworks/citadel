@@ -10,7 +10,7 @@ The always-on companion to the **foundation** pack's nine wrights. Each skill ro
 |---|---|---|
 | Build, audit, port, or pack a skill, or a register pass on a skill's or pack's own files | **skillwright** | "build / audit a skill", "humanize / tighten this README", `skillwright` |
 | Write, fix, or score a prompt | **promptwright** | "write / improve a prompt", `promptwright` |
-| Which model or tier to run a task on | **promptwright** | `promptwright model` |
+| Which model or tier to run a task on — or a per-subtask target table for a whole plan | **promptwright** | `promptwright model`, "tier my plan" |
 | Shape a message to a channel | **commwright** | "rewrite this for &lt;channel&gt;", `commwright` |
 | Design or audit an autonomous agent | **agentwright** | "guardrails / kill switch for my agent", `agentwright` |
 | Turn an agent spec into the thing that actually runs it | **agentwright** | "make this a weekly Cowork task", "set this up as a routine", `agentwright emit` |
@@ -30,7 +30,7 @@ Each works alone. Initial routing is at the description level — this table is 
 - **skillwright builds neutral → brandwright brands it.** A built skill carries only its structural identity; palette, voice, and wordmark are applied by `brandwright apply`. brandwright is the single door for *all* brand output — no other wright styles its own.
 - **Rebranding a whole skill set is a two-step handoff, not one owner.** brandwright defines or updates the identity — names, palette, wordmark, voice; skillwright `port` then propagates that identity across the pack's files. A request naming both a brand and a whole skill set reaches brandwright first for the definition, then skillwright to apply it — neither claims the other's half, which is what keeps the two boundary sentences from pointing in a circle.
 - **skillwright → evalwright for suites.** When evalwright is installed it authors a built skill's `evals/`; skillwright's own generator is the stated fallback.
-- **promptwright owns model data.** For the tier + model to run a task on, `promptwright model`; every other wright reasons in tier names (frontier / flagship / balanced / fast) and defers here for the current specifics.
+- **promptwright owns model data.** For the tier + model to run a task on, `promptwright model`; every other wright reasons in tier names (frontier / flagship / balanced / fast) and defers here for the current specifics. A plan's target table is **living**: a subtask created mid-session gets a row through the same tier logic *before* dispatch — tiered first, dispatched second — so emergent subtasks adhere to the same per-task targets as the plan they join.
 - **skillwright upkeep sweeps freshness.** `skillwright upkeep` reads every member's `metadata.volatile` and flags calendar surfaces past their 60-day window, refreshing the approved ones through each owner's refresh verb.
 - **Prose on repo files is skillwright's; prose in a message is commwright's.** A README, CLAUDE.md, SOURCES, or reference doc is an artifact skillwright generates, audits and ports, so a register pass over one is its job. Anything bound for a channel — an email, a Slack post, a release announcement — is commwright's, and the same content pasted into a release body is a message again.
 - **lorewright decides; the others build.** A sourced "which should I pick" is lorewright's verdict — distinct from promptwright's model pick and skillwright's niche verdict.

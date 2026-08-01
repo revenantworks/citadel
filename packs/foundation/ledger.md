@@ -8,6 +8,24 @@
 
 ---
 
+## Build pass — promptwright 1.1.0, plan grain (2026-08-01)
+
+Entry — Model gains plan grain: a per-subtask **target table** over a handed-in
+plan (`subtask · tier + model · effort/depth · inline or subagent · why`), the
+**living-table** contract (an emergent mid-session subtask is rowed before
+dispatch), and the **standing-rule** emission (placement named for rigwright).
+Registry touches: promptwright's budget row raised 8500 → 8800 with the
+content reason in the member's CHANGELOG; roster and seams unchanged, so no
+manifest moved (`build.py`: 0 synced, count integrity 9 = 9 = 9). Suites
+extended and re-anchored: trigger rows 30 → 34 (17/17), assertion cases
+36 → 37. The 34-row trigger judge was performed by the build session
+(34/34, promptwright `evals/RESULTS.md`); the blind-judge listing run for the
+1.1.0 description — the 2026-07-31 class — is **owed, not claimed**, and the
+97/97 figure above still describes the 1.0.0 listing. Case 37 authored, not
+executed.
+
+---
+
 ## Cold trigger re-run — 2026-07-31, the wright re-baseline listing (97/97)
 
 The rename invalidated every executed routing baseline, so the owed re-run was

@@ -1,5 +1,33 @@
 # Changelog — revenant-foundation-promptwright
 
+## [1.1.0] — 2026-08-01
+
+Entry — Model gains **plan grain**: handed a task list or project plan with a
+targets ask, steps 1–3 run per subtask and delivery becomes one target table —
+`subtask · tier + model · effort/depth · run inline or as a subagent · one-line
+why` — in place of the single-recommendation line. Two contracts ride with
+every table: the **living table** (a subtask created mid-session gets a row
+through the same steps *before* dispatch, so emergent work adheres to the same
+tier logic as the plan it joins) and the **standing rule** (one paste-ready
+rule line emitted beneath the table so the contract survives the session;
+layer placement stays rigwright's, named not made). Decomposition stays the
+caller's — promptwright targets the subtasks it is handed and never re-plans
+the project.
+
+- `description` gains the plan clause ("a prompt, a live task, or each subtask
+  of a plan"), the mid-session binding, and the target-table mention in the
+  `promptwright model` parenthetical.
+- **Body budget raised 8500 → 8800** in skillwright's registry: the plan-grain
+  delivery shape and both contracts are decision rules, body-resident like the
+  rest of Entry — Model — the content reason this raise owes per the
+  registry's own budget notes.
+- Trigger rows #31–#34 (two should, two shouldn't — the rigwright standing-
+  config boundary and the no-targets decomposition boundary) and assertion
+  Case 37 (target table + living table + standing rule, two turns) added;
+  both suites re-anchored. All 34 trigger rows judged cold against the new
+  description this pass; Case 37 is authored, not executed — see
+  `evals/RESULTS.md`.
+
 ## [1.0.0] — 2026-07-31
 
 Baseline release. The 1.0 feature set:

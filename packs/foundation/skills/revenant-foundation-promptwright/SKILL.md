@@ -1,9 +1,9 @@
 ---
 name: revenant-foundation-promptwright
-description: Builds, scores, hardens, and red-teams LLM prompts — from a rough idea to a copy-paste-ready artifact — and picks which model tier to run a prompt or task on. Trigger to write, fix, improve, debug, red-team, or rewrite a prompt, meta-prompt, template, or system prompt; to assemble task parameters into a working prompt; for agent or bot instructions; when asked which model or tier a prompt or a live task should run on; or say `promptwright` (`promptwright model` for a standalone tier and model pick, `promptwright refresh` to update model data). For building or auditing skill packages rather than prompts, skillwright; for pure token or cost trims that keep behavior unchanged, tokenwright; a sourced multi-model product comparison is lorewright's verdict, not a run-target pick.
+description: Builds, scores, hardens, and red-teams LLM prompts — from a rough idea to a copy-paste-ready artifact — and picks which model tier to run a prompt or task on. Trigger to write, fix, improve, debug, red-team, or rewrite a prompt, meta-prompt, template, or system prompt; to assemble task parameters into a working prompt; for agent or bot instructions; when asked which model or tier a prompt, a live task, or each subtask of a plan should run on — a plan gets a per-subtask target table that also binds subtasks added mid-session; or say `promptwright` (`promptwright model` for a standalone tier and model pick or a plan's target table, `promptwright refresh` to update model data). For building or auditing skill packages rather than prompts, skillwright; for pure token or cost trims that keep behavior unchanged, tokenwright; a sourced multi-model product comparison is lorewright's verdict, not a run-target pick.
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   profile: standalone
   pack: foundation
   brand: revenant
@@ -260,6 +260,13 @@ The four choices are fixed by spec — labels that differ are wrong however rele
 2. **Pick the tier** (S/A/B/C per Phase 5 — frontier / flagship / balanced / fast). Default vendor Claude unless one is named or a Phase 5 override applies (Grok / DeepSeek / Gemini triggers).
 3. **Name the model** from `model-snapshot.md`; past its 60-day stamp, verify against the snapshot's canonical sources or recommend by **tier name** — never a possibly-retired string, never a gated model as a default.
 4. **Deliver one recommendation:** `Tier X — vendor + model · effort/depth · one-line why`, plus the **flip condition** (what moves it up or down a tier) and the cheaper-first note when it applies (raise reasoning-depth before jumping a tier). No prompt block, no phase ladder, no Keep going selection.
+
+**Plan grain** — the same entry at project scale ("tier my plan", "assign models to these subtasks", a task list handed in with a targets ask). Run steps 1–3 per subtask; delivery becomes one **target table** — `subtask · tier + model · effort/depth · run inline or as a subagent · one-line why` — with the cheaper-first note stated once beside it, never per row, and a flip condition only on rows sitting near a tier boundary. Two contracts ride with every table:
+
+- **Living table.** The table binds the plan as it grows: a subtask created mid-session gets a row through the same steps *before* dispatch — tiered first, dispatched second, never rationalized after.
+- **Standing rule.** Beneath the table, emit one paste-ready rule line that keeps the living-table contract in force outside this run; which layer it lives in (CLAUDE.md, Project instructions) is rigwright's placement call — named, not made here.
+
+Decomposition is the caller's: promptwright targets the subtasks it is handed and never re-plans the project — a "break this down" with no targets ask is not this entry.
 
 The Model line *attached to a built prompt* is Phase 5's job — Entry — Model is the standalone answer when no prompt is in play. A sourced comparison across several models for a decision is lorewright's verdict, not this.
 

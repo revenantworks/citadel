@@ -1,5 +1,17 @@
 # RESULTS — trigger suite and assertion suite runs
 
+## 2026-08-01 — v1.1.0 — **Plan grain added — trigger suite re-judged 34/34, Case 37 authored, not run**
+
+Method: build-pass instrumentation plus the description re-judge a description move owes. Entry — Model gained plan grain (the target table with its living-table and standing-rule contracts); the `description` gained the plan clause (918 chars, within the 1024 limit). No phase, dimension, anchor, or output contract changed for any existing input, so Cases 1–36 are not owed a re-run — the 2026-07-25 **35/35** and the 2026-07-27 **C36 1/1** stand as the last executed assertion results (predecessor-era designations, frozen as written).
+
+**Trigger suite: 34/34, judged this pass.** All 34 rows — the 30 carried rows and the new #31–#34 — were judged against the 1.1.0 description by the build session. The plan clause fires #31 (a targets ask over a plan) and #32 (an emergent subtask — a live-task tier pick); it pulls in none of the seventeen shouldn't rows, each of which lacks a tier or targets question; and the two new shouldn'ts hold on their objects — #33's bare decomposition carries no targets ask, #34's subagent roster is standing config and lands on rigwright's named-surface claim. Honesty line, per this ledger's precedent: this is the build session's own cold read, not the 2026-07-31 blind-judge instrumentation — that class of run stays owed for the 1.1.0 description, and #33 is the row to watch there, since "plan" now appears in the description and only the missing targets ask keeps a bare decomposition out.
+
+**Case 37 is authored, not executed.** Its discriminating asserts are the shape contracts convention alone doesn't produce: the cheaper-first note exactly once beside the table, the living-table line, the single paste-ready standing-rule line with rigwright named for placement, and T2 rowing the emergent subtask without re-tiering the plan. A future run should rest its verdict on those, not on the table existing — a competent model tables a plan unprompted, the same convention-vs-doctrine trap the C36 entries recorded.
+
+**Body budget:** ≈8420 → **8691** against the ceiling raised 8500 → 8800 this pass (`build.py --footprint`, 2026-08-01, +109 headroom); the raise's content reason is stated in the member's CHANGELOG per the registry's budget notes.
+
+---
+
 ## 2026-07-27 — v1.2.6 — **Case 36 EXECUTED — the authored-but-unrun input-boundary case, run at last**
 
 Method: the skill was **executed** on Case 36 alone — the single case the 2026-07-25 v1.2.3 run could not carry, authored at 1.2.5 and left unrun through 1.2.5 and the 1.2.6 budget relocation. The text under test is member **1.2.6**; 1.2.6 moved `body_budget` out of frontmatter into skillwright's registry and touched no rule, so the Phase 1 Intake paragraph Case 36 exercises is byte-for-byte the 1.2.5 addition (`SKILL.md`:91, verified this run). Cases 1–35 were **not re-run** this pass — they are not owed one (1.2.6 moved no phase, dimension, anchor, or output contract), so the 2026-07-25 v1.2.3 **35/35** stands as their last executed result. The 30-row trigger suite is likewise untouched — `description` did not move at 1.2.5 or 1.2.6 — so the 2026-07-25 **30/30** cold judge stands.
