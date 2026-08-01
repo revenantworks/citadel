@@ -8,6 +8,21 @@
 
 ---
 
+## Release — foundation 1.1.0, tag `foundation-v1.1.0` (2026-08-01)
+
+Closes the promptwright plan-grain pass below per release-doctrine's Release
+order: pack version written in one stroke (`build.py --bump-pack foundation
+1.1.0` — marketplace.json + plugin.json + root CHANGELOG scaffold, filled),
+full build clean (`--check`: clean; count integrity 9 = 9 = 9; 0 manifests
+synced — roster/seams untouched), tag cut and pushed, release assets
+confirmed attached by CI (`pack-ci.yml` `release` job, tag-triggered). Owner
+surface: local marketplace clone refreshed and the Claude Code plugin updated
+to 1.1.0 this pass. **Not done this pass:** the claude.ai copy of promptwright
+— manual re-upload, recorded as deferral register item ⑨ in `spec.md` rather
+than claimed. `build.py --parity` has no local marketplace clone signal for
+the claude.ai surface — it checks the marketplace-clone install path only —
+so parity there is owner-observed, not tool-confirmed.
+
 ## Build pass — promptwright 1.1.0, plan grain (2026-08-01)
 
 Entry — Model gains plan grain: a per-subtask **target table** over a handed-in

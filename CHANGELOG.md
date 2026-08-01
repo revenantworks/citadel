@@ -3,6 +3,20 @@
 Pack releases tag as `<pack>-vX.Y.Z`; member versions are independent semver.
 This log starts at the foundation 1.0.0 baseline.
 
+## [foundation-v1.1.0] - 2026-08-01
+
+- **promptwright 1.1.0** — Entry — Model gains plan grain: a handed-in plan
+  with a targets ask gets a per-subtask target table (tier + model,
+  effort/depth, inline-or-subagent, one-line why) instead of a single
+  recommendation. A living-table contract rows an emergent mid-session
+  subtask through the same tier logic before it dispatches; a standing-rule
+  line rides beneath every table, its layer placement left to rigwright.
+  Trigger suite 30 → 34 rows (17/17), assertion suite 36 → 37 cases; see the
+  member's own CHANGELOG and `evals/RESULTS.md` for the full account.
+- Router `packs/foundation/CLAUDE.md` gains the plan-table route cue and the
+  living-table compose bullet.
+- Roster and seams unchanged (9 members, 12 seams); no other member touched.
+
 ## foundation 1.0.0 — 2026-07-31 — the wright baseline
 
 Nine build-time wrights, one plugin (`foundation@revenant`), each routing on

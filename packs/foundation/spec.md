@@ -8,17 +8,25 @@
 
 **Pack:** foundation · **Profile:** standalone · **Brand:** revenant ·
 **Stamped:** 2026-08-01 ·
-**Current status:** **SHIPPED** — pack **1.0.0**, tag `foundation-v1.0.0`, the
-2026-07-31 wright baseline: all nine members baselined under the wright motif
-and reset to **1.0.0** (pack, plugin manifest, marketplace entry, members),
-content carried forward unchanged. The
+**Current status:** **SHIPPED** — pack **1.1.0**, tag `foundation-v1.1.0`
+(2026-08-01): one member touched, **promptwright 1.1.0** (Entry — Model gains
+plan grain — per-subtask target tables, the living-table and standing-rule
+contracts), pack version bumped in one stroke (`build.py --bump-pack`) per
+release-doctrine's Two clocks. Roster and seams unchanged (9 members, 12
+seams). Preceded by the 2026-07-31 wright baseline: all nine members
+baselined under the wright motif and reset to **1.0.0** (pack, plugin
+manifest, marketplace entry, members), content carried forward unchanged. The
 version references in the history sections below are predecessor-era
 designations, frozen as written. Full
 parity reached
-2026-08-01: release assets live (nine zips), Claude Code plugin installed at
-1.0.0, cold trigger baselines re-measured on the wright listing (97/97,
-`ledger.md`), and all nine claude.ai copies re-uploaded by the owner. The
-prior shipped state was pack **1.4.0** (roster 8 → 9).
+2026-08-01 (at the 1.0.0 baseline): release assets live (nine zips), Claude
+Code plugin installed at 1.0.0, cold trigger baselines re-measured on the
+wright listing (97/97, `ledger.md`), and all nine claude.ai copies re-uploaded
+by the owner. **Parity at 1.1.0 is partial** — release assets and the local
+Claude Code plugin install are current as of this pass; the claude.ai copy of
+promptwright still carries the 1.0.0 body and is a manual owner re-upload
+(deferral register, below). The prior shipped state before 1.0.0 was pack
+**1.4.0** (roster 8 → 9).
 
 **The 1.3.2 pass is CLOSED — the register is empty but for the gated ⑦.** Every
 routing/doctrine item the 1.3.1 executions and cold re-runs surfaced is closed at
@@ -123,8 +131,16 @@ by reciprocal boundary sentences **and now by the `skillwright ↔ agentwright` 
 which the build pass deliberately skipped and the release pass added). Item ⑧'s
 **multi-host export half is dropped** — see the 2026-07-27 line in `decisions.md`.
 
-**The register is empty except ⑦.** ⑦ (pack-registry relocation out of skillwright when
-pack #2 becomes real) is the only item left, and it is gated on an event that has not
+**⑨ claude.ai re-upload owed — promptwright 1.1.0.** Opened at pack 1.1.0
+(2026-08-01): the local Claude Code plugin install and the release's dist
+zips are current, but the claude.ai custom-skill copy of promptwright is a
+personal-account upload that only moves on delete-and-re-upload
+(release-doctrine — Install parity); it still serves the 1.0.0 body until the
+owner re-uploads it by hand. A cost accepted for this pass, not silently
+carried: recorded here rather than claimed done.
+
+**The register is empty except ⑦ and ⑨.** ⑦ (pack-registry relocation out of skillwright when
+pack #2 becomes real) is the only structural item left, and it is gated on an event that has not
 happened — it cannot be closed by editing code, only by that second pack becoming real, so
 it is held open by design and never built speculatively. The assertion side that once
 opened the next pass (agentwright 17-20, skillwright 38-40, lorewright 23, promptwright 36) is
