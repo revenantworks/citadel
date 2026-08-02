@@ -13,3 +13,12 @@ plugin install + parity, and the nine claude.ai re-uploads (owner,
    `python tools/apply-install-swaps.py <dir-with-your-brand-definition.md>`
    and re-upload the `+install` zip it produces. The copy uploaded today is
    the neutral one.
+3. **Blocked — orchestration-skill candidate scan (opened 2026-08-01, still blocked
+   2026-08-02).** A candidate new foundation member — an orchestration skill for
+   Claude Code that plans a research/build project into subtasks and assigns each a
+   model/agent suited to its actual need — plus a broader scan for other meta-skill
+   gaps in the pack. Planned approach: a promptwright-built research prompt handed to
+   skillwright for a report-only niche verdict + gap scan, before any build. **Blocked
+   on prior art in a private Telegram thread** that hasn't been pasted into a session
+   yet — do not substitute general knowledge of orchestration patterns for it. Paste
+   the thread content into a session pointed at this repo to unblock.

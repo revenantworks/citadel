@@ -9,7 +9,107 @@
 
 Two suites are ledgered here. **Trigger suite** (`trigger-evals.md`) runs are routing simulations judged against a cold listing — name + description only, the skill body never loaded. **Assertion suite** (`test-cases.md`) runs execute the skill itself and check its output against per-case assert clauses. A trigger-suite pass says nothing about doctrine; the first assertion run below found six doctrine defects the three prior review rounds and 20/20 trigger passes had all missed. Newest run first.
 
-*Suite size: the 2026-07-24 assertion run below executed the 18 cases that existed at v1.1.1. `test-cases.md` now carries **19** — Case 19 was added at v1.1.3 to test the vendor-page tag tie-break that Finding 1 in that run exposed, and has not been executed. **Corrected 2026-07-25:** that last clause is out of date. The v1.1.5 run at the top of this file executed all **19** cases, Case 19 among them for the first time in any run; the sentence stands as written because it was true on 2026-07-24. No run entry below has been altered. **Further corrected 2026-07-25:** `test-cases.md` now carries **22** — Cases 20, 21 (boundary, both directions — the 2026-07-24 Finding 4 close) and 22 (unreadable primary source) were added by the coverage pass at the top of this file and have been run only by simulation there, never in a live full run.*
+*Suite size: the 2026-07-24 assertion run below executed the 18 cases that existed at v1.1.1. `test-cases.md` now carries **19** — Case 19 was added at v1.1.3 to test the vendor-page tag tie-break that Finding 1 in that run exposed, and has not been executed. **Corrected 2026-07-25:** that last clause is out of date. The v1.1.5 run at the top of this file executed all **19** cases, Case 19 among them for the first time in any run; the sentence stands as written because it was true on 2026-07-24. No run entry below has been altered. **Further corrected 2026-07-25:** `test-cases.md` now carries **22** — Cases 20, 21 (boundary, both directions — the 2026-07-24 Finding 4 close) and 22 (unreadable primary source) were added by the coverage pass at the top of this file and have been run only by simulation there, never in a live full run. **Further corrected 2026-08-01/02:** `test-cases.md` now carries **39** — Cases 24–39 were added at v1.1.0 for the Selection/Decision class split and its supporting rules (see the 2026-08-01 entry below). Cases 30, 32, 34, 36 have since been cold-executed for real (2026-08-02 entry below); Cases 24–29, 31, 33, 35, 37–39 remain authored and coherence-checked but not yet cold-executed.*
+
+---
+
+## 2026-08-02 — v1.1.1 — runner: claude — **Cases 30, 32, 34, 36 COLD-EXECUTED (first live runs) — 4 PASS / 0 FAIL**
+
+First live, tool-backed executions of any of the v1.1.0 Selection-class cases. Each was run by a fresh subagent with no prior knowledge of this skill's intent beyond what `SKILL.md` and `verdict-mode.md` state, given real `WebSearch`/`WebFetch` access, instructed to execute the case's Input as a genuine verdict and then self-score its own output against the Assert honestly — including an explicit instruction to report a FAIL rather than rationalize one, and for Case 36 specifically to prove URL provenance by pointing at the actual tool call that returned it. This satisfies the "Owed" cold execution these four cases specifically needed (their Asserts turn on real retrieval/search behavior synthetic candidates can't exercise); it does not discharge the remaining 12 of Cases 24–39, which are untouched by this entry.
+
+**4 executed. 4 PASS. 0 FAIL.**
+
+| # | Case | Result | Note |
+|---|---|---|---|
+| 30 | coverage disclosure, three parts | **PASS** | Real Selection verdict on air purifiers under $200 (9 brands live-searched, 5 vendor sites 429/403-blocked, HouseFresh used as the independent-measurement source throughout). Coverage disclosure section sits immediately after the table with all three parts present verbatim (`**Brands scanned live this run:**` / `**Excluded, with reason:**` / `**Not reached**`), each exclusion carries a one-clause reason ("over budget"), and the output explicitly states "This was not a market-wide sweep" rather than implying completeness. Doctrine gap noted (not a suite defect): verdict-mode's must-have gate has no stated behavior for a non-interactive execution context; the runner substituted stated Assumed defaults and flagged the deviation rather than silently skipping it. |
+| 32 | constraint change re-screens the excluded list first | **PASS** | Two-turn real run, portable Bluetooth speakers, T1 ceiling $150 (Marshall Emberton III $179.99 real live-vendor price, correctly excluded over-budget) → T2 "raise it to $250." Runner's own honest account of operational order: the re-screen needed zero new tool calls (all four T1-excluded candidates' prices were already in hand), and the four new-candidate searches (JBL Xtreme 4 etc.) were issued only after the re-screen table and restated criteria were already written — verifiable from the tool-call transcript. All four T1 exclusions, including Marshall Emberton III, are named as re-qualifying; criteria set restated. Runner also flagged, correctly, that a fresh-search-only T2 would have looked completely sound on its own (JBL Xtreme 4 / Sonos Move 2 / Marshall Middleton II / Bose SoundLink Max is a clean table) while silently dropping every candidate the user had already been told no about — the real failure mode this case exists to catch. |
+| 34 | independent evidence sought before the vendor's, absence disclosed | **PASS** | Real Selection verdict, 1TB portable SSDs. Four candidates carry [documented] throughput with a named independent outlet each (digitalcitizen.life, Tom's Hardware, StorageReview.com, KitGuru); the fifth (UGREEN NeoDrive Go) is [vendor-reported] with the attempt stated concretely — "Searched ssd-tester.com's independent lab database (139+ drives tested...) — not listed. Searched review-outlet coverage directly — only spec-sheet/press-launch posts exist" — not a generic "no reviews found" placeholder. Top overall slot restates the absence a second time in plain language. The named independent-lab check (with its 139-drive coverage count) is what makes this an inspectable attempt rather than a lucky tag. |
+| 36 | purchase link is retrieved, single, and caveated | **PASS, with the provenance clause independently traceable** | Real Selection verdict, self-empty robot vacuums. Exactly one purchase link, attached only to the Top pick (eufy Omni C28) slot — none on Runner-up, Budget pick (collapsed), or Top overall. URL provenance checked explicitly per this run's instruction: the runner named the exact `WebSearch` query that returned the Amazon URL as a result ("eufy C28 robot vacuum price specs suction Pa self-empty dock") and reported a follow-up `WebFetch` on that same URL (metadata returned, price not — Amazon's price is JS-rendered and unreadable to the fetch tool). Volatility caveat states an explicit observed range ("$499.99–$799.99"), names which source produced each end, and instructs the user to confirm before buying. Doctrine observation: Amazon's JS-rendered pricing means an "Amazon preferred" link in this environment will almost never come with a same-page-confirmed live price — the caveat mechanism is load-bearing here, not decorative, and future runs of this case should expect that evidentiary shape as normal rather than a near-miss. |
+
+**Not claimed:** these four cold executions are honest, tool-backed, single-pass runs, not independently cross-checked by a second run — the pack's own convention (e.g. the 2026-07-25 boundary-case entry) treats a first live pass as real evidence, not as a substitute for eventual re-execution if the doctrine changes again. Cases 24–29, 31, 33, 35, and 37–39 remain **authored and coherence-checked, unexecuted** exactly as the 2026-08-01 entry below states — this entry does not touch them and makes no claim about them.
+
+**Ledger hygiene.** No prior entry altered, re-scored, or removed. `test-cases.md`'s provenance header is unaffected (case content unchanged by this entry — only RESULTS.md gained a new dated section). SKILL.md version at time of this run: 1.1.1 (Finding G1 already applied — see the CHANGELOG and the entry above this one).
+
+---
+
+## 2026-08-02 — v1.1.1 — **Finding G1 applied — Case 27 re-read against patched wording, still PASS**
+
+§4a's **Top overall** row read "Best in the field ignoring budget, ceiling stated" — silent
+on must-haves, while Top pick ("must-haves included"), Budget pick ("still meeting every
+must-have") and Runner-up ("next-best *qualifier*") all state or imply the gate. Filed as
+Finding G1 for the owner's call; applied this run. Row now reads: "Best in the field
+ignoring budget, **must-haves still met**, ceiling stated."
+
+**Wording fix, not a behavior change.** Disqualification for a missing must-have happens
+upstream, at §3 ("that candidate is disqualified in §3 with that cell bolded") — before §4a
+ever fills a slot. A must-have-failing candidate was never actually reachable by any of the
+four slots under the old text; the old Top overall row just didn't *say so* if read in
+isolation. Case 27's own Assert ("does not appear in **any** of the four slots") already
+required the global reading — this patch makes the row's own wording match the behavior the
+suite already assumed, closing the ambiguity for a reader auditing §4a on its own.
+
+**Case 27 re-read against the patched wording: PASS, unchanged.** T1 states "must have
+personal blending cups" as a must-have; T2's strong candidate lacking personal cups is
+disqualified at §3 (cell bolded), which excludes it from §4a's slot-filling entirely,
+including Top overall — now explicit in that row's own text rather than only implicit from
+§3's upstream filter. No input, no case behavior, and no other case's Assert moved.
+
+`evals/trigger-evals.md`'s provenance note re-read: no entry point, boundary sentence, or
+description clause moved by this patch (only one clause inside §4a's table changed), so the
+trigger-eval count and routing do **not** need re-anchoring — confirmed by re-reading, not
+assumed.
+
+---
+
+## 2026-08-01 · target v1.1.0 · doctrine-coherence pass · runner: authoring session
+
+**What this run is, and is not.** This is **not a cold execution** of the assertion
+suite. A cold execution means feeding each case's Input to a fresh session with v1.1.0
+loaded and no knowledge of the doctrine's intent, then checking each Assert against that
+session's output. This run was performed in the same session that authored the doctrine,
+which cannot produce a trustworthy pass/fail on behavior — the author knows the answers.
+
+What was run instead is the one thing this session *can* do honestly:
+
+1. **Map re-derivation and diff** — the coverage map was independently re-derived from
+   the shipped `verdict-mode.md` and SKILL body, then diffed row-for-row against the
+   suite, per the eval-doctrine rule that a case-count floor cannot catch an
+   under-derived map.
+2. **Assert satisfiability** — each new Assert was read against the shipped doctrine to
+   check that a compliant run *can* satisfy it and that an inspector can check it by
+   reading run output alone.
+
+No pass rate is claimed. Cases 1–23 were not re-executed; they were re-read against the
+v1.1.0 doctrine and none of their asserts changed (no tag grade, criterion rule, mode,
+gate count or restraint path they cover was touched by this release).
+
+### Findings — 4 filed, 4 applied
+
+| ID | Sev | Finding | Change applied |
+|---|---|---|---|
+| F1 | P0 | **Coverage hole.** `Score only what was asked` (verdict-mode §1) and its anti-pattern shipped with no case. Map re-derivation returned 14 new rows against 14 new cases, but the row-for-row diff showed the rule uncovered while `Disclose the absence` was double-covered inside Case 34. | **Case 38** added — an unasked criterion must not move the ranking. |
+| F2 | P0 | **Coverage hole.** The `No scores` behavior note is a new doctrine claim with no case; a rule that forbids an output shape is exactly the kind a suite must pin. | **Case 39** added — no numeric score or weighted composite, with the mention-vs-emission line drawn for an independent lab's own published rating. |
+| F3 | P1 | **Unsatisfiable on capped surfaces.** Case 26 required 4–6 seeded examples, but option-presenting tools on some surfaces cap at 4 options per question. A compliant run on such a surface would fail the case through no fault of its own. | Doctrine now states the cap governs the tappable list with overflow in the framing line; Case 26 counts options **and** framing line together. |
+| F4 | P1 | **Not observable in output.** Case 34 asserted a *search behavior* ("reaches only for vendor spec pages … FAILS") that an inspector cannot verify from output alone — violating the assertion-only mechanic. | Doctrine gained **State the attempt, not just the result**; Case 34 now keys on the stated attempt, which is inspectable. |
+
+Count after fixes: 37 → **39**. Count integrity re-verified mechanically (39 case
+headers, max ID 39, intro states 39).
+
+### Retrospective signal — not a substitute for execution
+
+The session that authored v1.1.0 contained a real multi-turn verdict run under **v1.0.2**
+(kitchen appliances, then dehumidifiers). Read back against the new cases, that run would
+have **failed Cases 26, 30 and 32**: no seeded must-have gate was offered, no coverage
+disclosure was published until the user asked for one, and a mid-thread budget change was
+answered with a fresh search that omitted a previously-excluded candidate which the new
+ceiling re-qualified. That is corroborating evidence that the three rules target observed
+failure modes rather than hypothetical ones. It is **not** evidence that v1.1.0 passes —
+the run predates the doctrine.
+
+### Owed
+
+A cold execution of Cases 24–39 in a fresh session with v1.1.0 loaded. Until that is
+recorded here, the v1.1.0 suite's status is **authored and coherence-checked, unexecuted**.
 
 ---
 
