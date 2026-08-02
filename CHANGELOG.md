@@ -15,6 +15,35 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [foundation-v1.1.5] - 2026-08-02
+
+lorewright brought current, promptwright gains two tier-routing rules.
+
+- **lorewright 1.0.2 → 1.1.2.** The v1.1.0 doctrine (Selection/Decision class
+  split, four-slot Selection recommendation, seeded must-have gate,
+  independent-evidence-first, coverage disclosure, purchase link) had been
+  authored in a separate session and never installed — repo, marketplace, and
+  cache had all silently stayed on 1.0.2 with 23 cases. Installed as built.
+  **1.1.1:** Finding G1 applied — §4a's Top overall slot now states the
+  must-haves gate explicitly, matching the other three slots; Case 27
+  re-confirmed. Cases 30, 32, 34, 36 cold-executed for real with live
+  search/fetch (the four whose Asserts need real retrieval) — 4/4 PASS,
+  logged in `evals/RESULTS.md`; the remaining 12 of Cases 24–39 are authored,
+  not yet cold-run. **1.1.2:** tokenwright slim, no behavior change —
+  `SKILL.md` body cut ≈3040 → ≈2717 tokens; registry row raised 2700 → 2750.
+- **promptwright 1.1.1 → 1.2.0.** Tier routing (Phase 5) gains two
+  role-based overrides, shared by the standalone Model entry and plan grain:
+  a planning/orchestrator subtask defaults one effort notch lower (high
+  effort over-thinks and scope-creeps a plan); a review subtask checking
+  another model's output defaults to a different model family, stakes
+  permitting. Closes the gap found by a skillwright niche-verdict + gap scan
+  run against a candidate 10th foundation member (an orchestration skill,
+  informed by real-world r/ClaudeCode prior art) — plan grain already covers
+  the candidate's stated job end-to-end except these two rules, so a new
+  pack member wasn't justified. Case 38 added. Registry row raised
+  8800 → 8850.
+- Roster and seams unchanged (9 members, 12 seams); seven members untouched.
+
 ## [foundation-v1.1.4] - 2026-08-01
 
 Parity tells the truth now, and carries the two records files that had no
