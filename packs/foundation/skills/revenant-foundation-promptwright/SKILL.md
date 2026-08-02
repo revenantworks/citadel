@@ -3,7 +3,7 @@ name: revenant-foundation-promptwright
 description: Builds, scores, hardens, and red-teams LLM prompts — from a rough idea to a copy-paste-ready artifact — and picks which model tier to run a prompt or task on. Trigger to write, fix, improve, debug, red-team, or rewrite a prompt, meta-prompt, template, or system prompt; to assemble task parameters into a working prompt; for agent or bot instructions; when asked which model or tier a prompt, a live task, or each subtask of a plan should run on — a plan gets a per-subtask target table that also binds subtasks added mid-session; or say `promptwright` (`promptwright model` for a standalone tier and model pick or a plan's target table, `promptwright refresh` to update model data). For building or auditing skill packages rather than prompts, skillwright; for pure token or cost trims that keep behavior unchanged, tokenwright; a sourced multi-model product comparison is lorewright's verdict, not a run-target pick.
 license: MIT
 metadata:
-  version: "1.1.1"
+  version: "1.2.0"
   profile: standalone
   pack: foundation
   brand: revenant
@@ -149,6 +149,8 @@ Route by the capability tier the task requires, then pick the cheapest model in 
 **S — frontier**: failure very costly; hardest reasoning; longest-horizon agents · **A — flagship**: hard multi-step reasoning, complex agents, expensive-mistake analysis · **B — balanced** *(default)*: most writing, coding, analysis, summarization, agent work · **C — fast**: classification, extraction, routing, high-volume or latency-bound.
 
 Start at B; before moving up, try raising the reasoning-depth parameter — often cheaper than a tier jump. Drop to C when simple, high-volume, or latency-bound. **Tier changes the prompt:** C-tier models behave as chat models — explicit steps and few-shot earn their keep; A/S reason natively — strip CoT scaffolding, set depth via the API parameter (Claude: `effort`), not prompt text. Current names come only from `model-snapshot.md`; if its stamp is >60 days old, verify against its canonical sources or recommend by tier name — never a possibly-retired string, never gated models as defaults. Per-vendor syntax: `model-notes.md`.
+
+**Role-based overrides.** A pure planning/orchestrator subtask defaults one effort notch lower than its tier suggests — high effort reliably over-thinks and scope-creeps a plan; raise it only once the plan fails to converge, never pre-emptively. A review subtask checking another model's output defaults to a **different model family**, stakes permitting — not a resampled instance of the same model, which tends to miss what it already rationalized away.
 
 ## Phase 6 — Re-score & self-check
 

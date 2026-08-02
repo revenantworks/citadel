@@ -1,5 +1,33 @@
 # Changelog — revenant-foundation-promptwright
 
+## [1.2.0] — 2026-08-02
+
+Tier routing (Phase 5) gains two **role-based overrides**, applying to both
+the standalone Model entry and plan grain since both run the same routing
+logic:
+
+- **Planning/orchestrator subtasks default one effort notch lower** than
+  their tier would otherwise suggest. High-effort planning reliably
+  over-thinks and scope-creeps a plan past what was asked; effort is raised
+  only once the plan itself is failing to converge, never pre-emptively.
+- **Review/verification subtasks default to a different model family** than
+  the work they're checking, where the stakes justify the cost — not a
+  resampled instance of the same model, which tends to miss what that model
+  already rationalized away.
+
+Closes a gap identified in a skillwright niche-verdict + gap scan run against
+a candidate 10th foundation member (an orchestration skill). The scan found
+plan grain (1.1.0) already covers the candidate's stated job end-to-end
+except for these two rules, so a new pack member wasn't justified — this is
+the "smaller fix" half of that verdict, landing directly in Tier routing
+rather than a new file.
+
+Evals: **Case 38** added (`evals/test-cases.md`) — a four-role project
+exercising both overrides in one table. Cases 1–37 untouched: the override is
+additive to existing Tier routing logic, and no prior case's plan depended on
+a planning or review role's specific effort/model. Trigger evals not
+re-anchored — the `description` field did not move.
+
 ## [1.1.1] — 2026-08-01
 
 Prose/register pass over this skill's own files (SKILL.md, README.md,
