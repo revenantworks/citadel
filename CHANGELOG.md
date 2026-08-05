@@ -15,6 +15,32 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [foundation-v1.2.0] - 2026-08-05
+
+The AUDIT-2026-08-05 apply pass — every verdict from the adversarial
+refinement audit (report at repo root), applied member by member on approval.
+
+- **Registry**: new rigwright ↔ tokenwright seam row (motive-keyed, signal:
+  one description) closing the undeclared "trim my CLAUDE.md" / "slim my
+  CLAUDE.md" boundary opened by rigwright's 2026-07-30 addition; the stale
+  naming note now counts three CLAUDE.md descriptions. Seam note records the
+  close. 12 → 13 seams; all nine manifests regenerated.
+- **promptwright 1.3.0**: Tier routing gains the user-named-target override
+  (a model or effort the user names wins — built to, noted as user-directed,
+  better fit offered in one line; Entry — Model bound identically). Four
+  lossless trims offset it; body lands exactly at its 8,850 budget. Case 39.
+- **tokenwright 1.1.0**: description gains the rigwright boundary clause
+  (802 → 894 chars). Trigger evals extended (Y11/N11), 22 rows.
+- **agentwright 1.1.0**: description slimmed 992 → 950 chars, every cue
+  kept; the ceiling-riding fix `build.py`'s warn text had scheduled.
+- **skillwright 1.0.6**: lossless trim at the two audit-named sites (Build
+  step 6 registry guard; bare-invocation cap); Case 14/17 anchors intact.
+- **rigwright 1.0.2**: description names hooks in the artifact list
+  (952 → 959 chars).
+- Cold re-judges of the four moved routing surfaces (tokenwright,
+  agentwright, rigwright trigger suites; promptwright's did not move) are
+  owed and recorded as owed in each suite's provenance line, not claimed.
+
 ## [foundation-v1.1.5] - 2026-08-02
 
 lorewright brought current, promptwright gains two tier-routing rules.

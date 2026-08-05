@@ -1,5 +1,18 @@
 # Changelog — revenant-foundation-rigwright
 
+## [1.0.2] — 2026-08-05
+
+Description names hooks in the artifact list (".claude layout, hooks, and
+.mcp.json", 952 → 959 chars) — AUDIT-2026-08-05's Optional finding: the
+machinery already existed (`surface-notes.md` and `artifact-templates.md`
+both cover hooks and settings), only the description undersold it, so a
+"write the hook for this rule" ask had no advertised landing. Patch bump —
+one word widens an existing claim; no entry point or doctrine moved. The
+registry's new rigwright ↔ tokenwright seam row (same audit) lands on
+tokenwright's side; this description is deliberately unchanged for it.
+Trigger evals re-anchored; the cold re-judge against the amended listing is
+owed, not claimed.
+
 ## [1.0.1] — 2026-08-01
 
 A prose pass. The secrets rule duplicated in full between SKILL.md's

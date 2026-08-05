@@ -3,7 +3,7 @@ name: revenant-foundation-promptwright
 description: Builds, scores, hardens, and red-teams LLM prompts — from a rough idea to a copy-paste-ready artifact — and picks which model tier to run a prompt or task on. Trigger to write, fix, improve, debug, red-team, or rewrite a prompt, meta-prompt, template, or system prompt; to assemble task parameters into a working prompt; for agent or bot instructions; when asked which model or tier a prompt, a live task, or each subtask of a plan should run on — a plan gets a per-subtask target table that also binds subtasks added mid-session; or say `promptwright` (`promptwright model` for a standalone tier and model pick or a plan's target table, `promptwright refresh` to update model data). For building or auditing skill packages rather than prompts, skillwright; for pure token or cost trims that keep behavior unchanged, tokenwright; a sourced multi-model product comparison is lorewright's verdict, not a run-target pick.
 license: MIT
 metadata:
-  version: "1.2.0"
+  version: "1.3.0"
   profile: standalone
   pack: foundation
   brand: revenant
@@ -31,7 +31,7 @@ Five rules govern the shape of every response:
 2. **The Keep going selection is the turn's final element** — it comes after the prompt block, footer, and closing test tip; nothing follows it. Run the tool-list test before choosing its form: if any available tool presents tappable options or questions to the user, render the selection with that tool as a tappable single-select (which ends the turn, so nothing *can* follow). The plain-text fallback line is only for surfaces whose tool list has no such tool.
 3. **A Model line ships with every prompt block** — full builds and improvement runs alike.
 4. Suppress phase headers only for: bare invocations, refresh runs, restraint cases, guidance-only responses, report-only runs (a score-only run, or a red-team asked for by name — both report and stop, so there is no build to number), and improvement runs (the `Changed` diff replaces the ladder).
-5. **Quiet build — opt-in only, never the default.** When the request says "quiet build" or "just the prompt", collapse Phases 1–6 into one trace line directly above the Phase 7 header — `Phases 1–6 — baseline N.N · [structure] · N questions · N/15 checks` — then deliver Phase 7 in full: prompt block, footer, Model line, Keep going selection, all unchanged. The trace line satisfies every Phase 1–6 on-screen requirement (Phase 5's assembly note and Phase 6's verdict included); genuinely ambiguous gaps still ask per Phase 4, and restraint still outranks delivery. The quiet build is this collapse on the user's say-so and works on a build of any size; the **Fast path** is the same collapse on promptwright's own judgment, under a fixed trigger, and only on a small one.
+5. **Quiet build — opt-in only, never the default.** When the request says "quiet build" or "just the prompt", collapse Phases 1–6 into one trace line directly above the Phase 7 header — `Phases 1–6 — baseline N.N · [structure] · N questions · N/15 checks` — then deliver Phase 7 in full: prompt block, footer, Model line, Keep going selection, all unchanged. The trace line satisfies every Phase 1–6 on-screen requirement (Phase 5's assembly note and Phase 6's verdict included); genuinely ambiguous gaps still ask per Phase 4, and restraint still outranks delivery. The quiet build works on a build of any size and only on the user's say-so; the **Fast path** (its own section) is promptwright's own collapse, small builds only.
 
 ## Load budget
 
@@ -42,7 +42,7 @@ Loads cost time and context. A standard build touches **at most two** reference 
 - `model-notes.md` — non-Claude target, or deeper per-vendor guidance
 - `anti-patterns.md` — a Phase 6 check fails, or the input shows a failure mode needing its fix text
 - `prompt-hardening.md` — production / untrusted-input / agentic prompt, or "harden it"
-- `hostile-interpreter.md` — **not** a per-build load: the Hostile read runs from Phase 6 in the body. Reach for it when a flagged line resists the repairs listed there, when the user asks for a red-team or an adversarial read by name, or on a production prompt where the pass has to be shown as work
+- `hostile-interpreter.md` — **not** a per-build load (the Hostile read runs from Phase 6 in the body): reach for it when a flagged line resists the body's repairs, on a by-name red-team or adversarial read, or when a production pass must be shown as work
 - `evaluation.md` — high-stakes prompt or eval rubric requested
 - `worked-examples.md` — unsure what good finished output looks like
 - `prompt-card.md` — **only when the user requests the card**
@@ -152,6 +152,8 @@ Start at B; before moving up, try raising the reasoning-depth parameter — ofte
 
 **Role-based overrides.** A pure planning/orchestrator subtask defaults one effort notch lower than its tier suggests — high effort reliably over-thinks and scope-creeps a plan; raise it only once the plan fails to converge, never pre-emptively. A review subtask checking another model's output defaults to a **different model family**, stakes permitting — not a resampled instance of the same model, which tends to miss what it already rationalized away.
 
+**A model or effort the user names wins — like a named framework (Phase 3).** Build to the stated target, shaping the prompt for that tier (C-tier scaffolding in, A/S scaffolding out); never quietly substitute the routed pick. When routing disagrees, the Model line notes the target was set by user direction and offers the better tier or effort in one line, as a switch they can take. Entry — Model is bound identically: a stated target is confirmed, not re-routed, with the disagreement named.
+
 ## Phase 6 — Re-score & self-check
 
 Re-score on the same five dimensions. Revise before showing if anything fails; the verdict always appears on screen — the checklist with marks, or one line ("All 15 checks pass, no revisions needed") when clean. On a failed item or spotted failure mode, consult `anti-patterns.md`; production/untrusted/agentic prompts also check `prompt-hardening.md`.
@@ -232,7 +234,7 @@ Close every prompt-delivering response with the same four next-step choices, ren
 
 **Rendering — surface-adaptive:**
 
-- **Tool-list test — run it every time:** before writing the selection, scan the available tools for one that presents tappable options or questions to the user, whatever it's named on this surface. If one exists, use it. Describing the tappable form without actually checking the tool list is exactly how the observed field failure happened (plain-text fallback shown on claude.ai, where a tappable tool was available).
+- **Tool-list test — run it every time** (Turn shape rule 2): scan the tools before writing the selection; describing the tappable form without actually checking the list is the observed field failure (plain-text fallback shown on claude.ai, where a tappable tool was available).
 - **Tappable path** (Claude app, claude.ai web, any surface whose tool list has an option/question tool): present the four as a tappable single-select so the user taps instead of retyping — a short conversational lead-in, then the selection, with an open typing path ("or tell me what you need") since the four are a shortlist, not a fence. Use the surface's own interactive-selection tool, **not an inline HTML widget**; that selection ends the turn, so it is inherently the final element — this is what prevents the render-at-top placement failure that motivated banning inline widgets here.
 - **Fallback path** (API, Claude Code, any exported or plain-text context — no option/question tool in the tool list): emit the plain-text fallback verbatim as the final line:
   ```
@@ -284,7 +286,7 @@ The Model line *attached to a built prompt* is Phase 5's job — Entry — Model
 
 **Improving an existing prompt.** Skip intake questions it already answers: score → confirm structure → rebuild → re-score, with the diff.
 
-**Surface-awareness.** Same workflow and footer everywhere; only the Keep going selection's form adapts — a tappable single-select where the surface supports one, the plain-text fallback line where it doesn't. File-first surfaces (Claude Code) have no tappable selection, so use the fallback line and lead with the artifact into a file or system-prompt slot with minimal commentary; when unsure, the plain-text/code-block form works everywhere.
+**Surface-awareness.** Same workflow and footer everywhere; only the Keep going selection's form adapts, per Turn shape rule 2. File-first surfaces (Claude Code) have no tappable selection: use the fallback line and lead with the artifact into a file or system-prompt slot with minimal commentary; when unsure, the plain-text/code-block form works everywhere.
 
 **Maintenance.** Model-data refresh is a first-class mode — see Entry — Refresh.
 

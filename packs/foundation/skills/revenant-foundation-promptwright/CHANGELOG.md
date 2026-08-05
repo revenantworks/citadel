@@ -1,5 +1,34 @@
 # Changelog — revenant-foundation-promptwright
 
+## [1.3.0] — 2026-08-05
+
+Tier routing (Phase 5) gains the **user-named-target override**, directed by
+the pack owner and recorded as the ENHANCE verdict in AUDIT-2026-08-05: a
+model or effort the user names wins, exactly as a named framework wins in
+Phase 3 — build to the stated target, shape the prompt for that tier, never
+quietly substitute the routed pick; when routing disagrees, the Model line
+notes the target was set by user direction and offers the better tier or
+effort in one line. Entry — Model is bound identically (stated target
+confirmed, not re-routed, disagreement named). Single-homed in Tier routing,
+as the role-based overrides are.
+
+Four lossless trims in the same pass offset the addition against the 8,850
+body budget (AUDIT-2026-08-05 TRIM verdict; all four are restatements of
+rules whose binding statement lives elsewhere in the body, no rule moved):
+Turn shape rule 5's quiet-build/Fast-path contrast compressed (the full
+distinction lives in the Fast path section); the Keep going Rendering
+bullet's tool-list-test restatement now points at Turn shape rule 2, keeping
+the observed-field-failure example; the Load budget's `hostile-interpreter.md`
+bullet compressed (its reach-for conditions restate Phase 6's); the
+Surface-awareness note's selection-form sentence now cites rule 2. Body
+lands at 8,850 / 8,850 measured — exactly at budget, zero headroom
+(`build.py --footprint`): the next body edit must bring its own offset or a
+deliberate row raise.
+
+Suite: **Case 39** covers the override (built to a user-named target, Model
+line note, one-line better-fit offer, no silent substitution); Cases 1–38
+untouched. Trigger evals not re-anchored — the `description` did not move.
+
 ## [1.2.0] — 2026-08-02
 
 Tier routing (Phase 5) gains two **role-based overrides**, applying to both

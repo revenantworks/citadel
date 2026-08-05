@@ -1,5 +1,21 @@
 # Changelog — revenant-foundation-agentwright
 
+## [1.1.0] — 2026-08-05
+
+Description slim, 992 → 950 characters (AUDIT-2026-08-05 TRIM verdict; the
+ceiling-riding slim `build.py`'s warn text had already scheduled). Six
+compressions, no cue word dropped: "automation that acts on its own" →
+"acting on its own" · "credential handling" → "credentials" · "isolation
+inside an agent" → "in an agent" · "standing configuration" → "standing
+config" · "Claude Project instructions" → "Project instructions" · "how a
+skill package is built is skillwright's" → "skill packages as built are
+skillwright's" (the seam's own phrase) · "code-level threat coverage belongs
+to" → "code-level threats belong to". Every entry verb, trigger noun, and
+boundary clause survives — "review" kept for trigger row 8. Minor bump: the
+description is the routing surface. Trigger evals re-anchored; the cold
+re-judge of all 34 rows against the slimmed listing is owed, not claimed.
+Body untouched.
+
 ## [1.0.2] — 2026-08-01
 
 A prose/register pass. The duplicated quarantined-reader rule under

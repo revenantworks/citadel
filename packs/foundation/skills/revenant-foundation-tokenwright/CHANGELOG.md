@@ -1,5 +1,19 @@
 # Changelog — revenant-foundation-tokenwright
 
+## [1.1.0] — 2026-08-05
+
+Routing change (AUDIT-2026-08-05, seam resolution): the `description` gains
+the rigwright boundary clause — "a config's layer placement or setup audit is
+rigwright's — tokenwright only cuts its cost" (802 → 894 chars, measured per
+`build.py`'s regex). Closes the previously undeclared rigwright ↔ tokenwright
+seam over CLAUDE.md and other standing-config artifacts; the registry gains
+the seam row (signal: one description — this one) and its naming note now
+counts three CLAUDE.md descriptions. Minor bump: the description is the
+routing surface. Trigger evals extended and re-anchored (Y11/N11, the new
+seam's boundary pair); assertion suite re-anchored, no case moved — no body
+rule changed. The cold re-judge of the trigger rows against the amended
+listing is owed, not claimed.
+
 ## [1.0.2] — 2026-08-01
 
 Completeness correction: SKILL.md's Preservation scan list named six of the

@@ -1,9 +1,9 @@
 ---
 name: revenant-foundation-rigwright
-description: Builds the standing configuration Claude reads before work — a Claude Project's instructions and knowledge-file plan, a CLAUDE.md, a repo's .claude layout and .mcp.json — emitted paste-ready in each surface's native form and checked against that surface's real limits. Trigger to set up, write, fix, or trim a Claude Project, project instructions, a CLAUDE.md, or a repo's Claude config; to decide which layer a rule belongs in when the choice is between profile preferences, project instructions, CLAUDE.md, a skill, a hook, or auto-memory; or to score an existing setup for bloat and drift without rewriting it. Answers to "rigwright", "rigwright audit", and "rigwright refresh". For an Agent Skill or a SKILL.md package, skillwright; for anything that runs unattended — a Cowork task, a routine, a scheduled task, and the cadence and guardrails around it — agentwright; for the wording of an instruction block once its home is settled, promptwright.
+description: Builds the standing configuration Claude reads before work — a Claude Project's instructions and knowledge-file plan, a CLAUDE.md, a repo's .claude layout, hooks, and .mcp.json — emitted paste-ready in each surface's native form and checked against that surface's real limits. Trigger to set up, write, fix, or trim a Claude Project, project instructions, a CLAUDE.md, or a repo's Claude config; to decide which layer a rule belongs in when the choice is between profile preferences, project instructions, CLAUDE.md, a skill, a hook, or auto-memory; or to score an existing setup for bloat and drift without rewriting it. Answers to "rigwright", "rigwright audit", and "rigwright refresh". For an Agent Skill or a SKILL.md package, skillwright; for anything that runs unattended — a Cowork task, a routine, a scheduled task, and the cadence and guardrails around it — agentwright; for the wording of an instruction block once its home is settled, promptwright.
 license: MIT
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
   profile: standalone
   pack: foundation
   brand: revenant

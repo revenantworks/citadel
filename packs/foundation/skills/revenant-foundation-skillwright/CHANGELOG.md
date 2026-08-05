@@ -1,5 +1,23 @@
 # Changelog — revenant-foundation-skillwright
 
+## [1.0.6] — 2026-08-05
+
+Lossless trim (AUDIT-2026-08-05 TRIM verdict) at two sites the audit named,
+buying headroom back on a body sitting 33 tokens under its 7,800 ceiling.
+Build step 6's registry-guard passage is compressed with every asserted
+element intact — the absence rule, Integrate-step-1 ownership, the
+never-visits-an-unregistered-folder rationale, the drifts-all-N opposite
+shortcut with its per-sibling `--check` failure, and the
+handback-names-the-roster close (Case 17's five anchors, all standing). The
+bare-invocation cap sentence is compressed with the four-sentence cap, the
+one-per-job gloss, the complete five-verb map, and the never-a-fifth-sentence
+rule all kept (Case 14's anchors). No rule, count, entry point, or mandated
+verbatim text moved — the Entry — Build reply itself is untouched. Patch
+bump; suite re-anchored, no case moved. This pass also carries the registry's
+rigwright ↔ tokenwright seam row and its corrected naming note
+(AUDIT-2026-08-05 seam resolution) — registry content, not skillwright
+doctrine.
+
 ## [1.0.5] — 2026-08-01
 
 `references/release-doctrine.md` — Install parity: the section described

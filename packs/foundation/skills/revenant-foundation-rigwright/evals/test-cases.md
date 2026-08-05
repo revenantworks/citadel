@@ -1,6 +1,6 @@
 # Test Cases — revenant-foundation-rigwright
 
-**Provenance:** authored against `revenant-foundation-rigwright` v1.0.0. Re-anchor on any version bump, and re-run every case asserting on what the bump changed — not only the cases named after the changed entry. **Re-anchored to v1.0.0 (wright re-baseline), 2026-07-31:** the member was renamed to the wright motif and its version designation reset to 1.0.0; suite content carried forward unchanged, no case, input, assert, or count moved. Earlier version numbers in this line are predecessor-era designations.
+**Provenance:** authored against `revenant-foundation-rigwright` v1.0.0. Re-anchor on any version bump, and re-run every case asserting on what the bump changed — not only the cases named after the changed entry. **Re-anchored to v1.0.0 (wright re-baseline), 2026-07-31:** the member was renamed to the wright motif and its version designation reset to 1.0.0; suite content carried forward unchanged, no case, input, assert, or count moved. Earlier version numbers in this line are predecessor-era designations. **Re-anchored to v1.0.2, 2026-08-05:** the `description` gained "hooks" in the artifact list — a routing-surface change carried by `trigger-evals.md`. No body doctrine, entry point, layer-stack rule, or scoring anchor moved, so no case here was added, dropped, or rewritten.
 
 **Format:** assertion-only. Each case is an **Input** plus **Assert** — mechanical yes/no checks made by inspecting the run output. Failure conditions are negative assertions. Multi-turn cases label assertions T1/T2.
 
