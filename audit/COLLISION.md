@@ -59,6 +59,19 @@ Motif crowdedness (GitHub `claude+<motif> in:name` + compound searches):
   (https://code.claude.com/docs/en/skills — "Frontmatter reference").
   House description gate: hard fail >1,024, warn ≥1,000.
 
+> **Superseded in part, 2026-08-07 (owner decision; brand definition v2.1.0).**
+> The two facts above stand as researched — marketplace names still have no
+> rename mechanism, and skill renames still auto-migrate nowhere — but the
+> "Kept" verdict on the marketplace name is **overturned**: the owner
+> adjudicated executing the `revenant` → `revenantworks` rename anyway
+> (marketplace name, `owner.name`, and all nine member names, pack 2.0.0).
+> Every `<plugin>@revenant` reference breaks as this section predicted; the
+> accepted cost is a single-consumer estate that migrates by local
+> remove-and-re-add of the marketplace (`claude plugin marketplace add` under
+> the new name, then `claude plugin update foundation@revenantworks`), plus
+> claude.ai delete-and-re-upload per member under the new names. The rows
+> above are kept verbatim as the record this decision was made against.
+
 ## Exact-name results — the shipped set
 
 Surfaces searched per name: GitHub repo search · npm registry · PyPI · skill

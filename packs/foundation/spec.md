@@ -7,8 +7,25 @@
 > of a conversation and this spec disagree, trust the spec.
 
 **Pack:** foundation · **Profile:** standalone · **Brand:** revenantworks ·
-**Stamped:** 2026-08-01 ·
-**Current status:** **SHIPPED** — pack **1.1.3**, tag `foundation-v1.1.3`
+**Stamped:** 2026-08-07 ·
+**Current status:** **SHIPPED** — pack **2.0.0**, tag `foundation-v2.0.0`
+(2026-08-07): the `revenant` → `revenantworks` migration (brand definition
+v2.1.0). Breaking rename, content otherwise unchanged: marketplace
+`revenant` → `revenantworks`, all nine members
+`revenant-foundation-*` → `revenantworks-foundation-*` (directories,
+frontmatter, evals, every cross-reference), brand token and `metadata.brand`
+label moved, LICENSE now carries both founding names. No member version
+bumps, no eval re-anchors owed. The platform has no marketplace-rename
+mechanism (COLLISION.md C3/C4, supersession noted there): the owner
+adjudicated execute-anyway, and the single-consumer estate migrates by local
+remove-and-re-add — until that lands, `--parity` cannot see the old-name
+install and skips. Root `CHANGELOG.md` carries the full account. Interim
+releases between the stamp below and this one — **1.1.4** (parity widened),
+**1.1.5** (lorewright 1.1.2, promptwright 1.2.0), **1.2.0**
+(AUDIT-2026-08-05 apply pass; promptwright 1.3.0, 13 seams) — are in the
+root CHANGELOG; this baton was not restamped for them, a recorded drift.
+
+Prior shipped state — pack **1.1.3**, tag `foundation-v1.1.3`
 (2026-08-01): a pack-wide prose pass — every member's own files plus the
 root/pack-level docs rewritten for register (connector cleanup, cross-
 referenced rule duplication), tokenwright's Preservation-contract list
@@ -39,11 +56,14 @@ history sections below are predecessor-era designations, frozen as written.
 Full parity reached 2026-08-01 at the 1.0.0 baseline: release assets live
 (nine zips), Claude Code plugin installed at 1.0.0, cold trigger baselines
 re-measured on the wright listing (97/97, `ledger.md`), and all nine claude.ai
-copies re-uploaded by the owner. **Parity since 1.1.0 is partial**: release
-assets and the local Claude Code plugin install track each release, but the
-claude.ai copy of promptwright still carries the 1.0.0 body pending a manual
-owner re-upload (deferral register, below). The prior shipped state before
-1.0.0 was pack **1.4.0** (roster 8 → 9).
+copies re-uploaded by the owner. **Parity since 1.1.0 is partial and since
+2.0.0 is broken by design pending the local re-add**: release assets track
+each release, the local Claude Code install still points at the retired
+`revenant` marketplace name until the remove-and-re-add lands, and **all nine
+claude.ai copies still serve their 1.0.0 bodies under the retired
+`revenant-foundation-*` names — which now lack shipped doctrine, not just
+prose** (see register ⑨). The prior shipped state before 1.0.0 was pack
+**1.4.0** (roster 8 → 9).
 
 **The 1.3.2 pass is CLOSED** (pre-rebaseline pass; the register's current state is below, past the history section) **— at the time, the register was empty but for the gated ⑦.** Every
 routing/doctrine item the 1.3.1 executions and cold re-runs surfaced is closed at
@@ -140,7 +160,10 @@ per-law + body↔reference single-home; footprint warn→fail flip · ④ prompt
 framework-name menu (CO-STAR/RISEN) + fast path + hostile-interpreter pass; commwright
 Humanize entry · ⑤ skillwright release-doctrine reference (this release is its worked
 example) · ⑥ spec.md split (spec/ledger/decisions) — **✅ DONE 2026-07-25** ·
-⑦ pack-registry relocation out of skillwright when pack #2 becomes real (owner call) ·
+⑦ pack-registry relocation out of skillwright when pack #2 becomes real (owner call) —
+**gate FIRED 2026-08-06**: the vault pack shipped (two members, `-picker` motif, canonical
+repo `longshot`; registry row added 2026-08-07). Relocation is now a live owner call, no
+longer event-gated; deliberately **not** executed inside the 2.0.0 rename release ·
 ⑧ security-scan doctrine — **✅ DONE 2026-07-27, shipped at pack 1.3.0** (agentwright
 `Entry — Security-scan` with its own doctrine reference; skillwright's `Entry — Audit`
 gains its own security pass; each self-contained per the standalone profile, partitioned
@@ -148,22 +171,26 @@ by reciprocal boundary sentences **and now by the `skillwright ↔ agentwright` 
 which the build pass deliberately skipped and the release pass added). Item ⑧'s
 **multi-host export half is dropped** — see the 2026-07-27 line in `decisions.md`.
 
-**⑨ claude.ai re-uploads owed — all nine members.** Opened at pack 1.1.0
-(2026-08-01) for promptwright alone; **widened to the whole roster at pack
-1.1.3**, whose prose pass bumped every member. The local Claude Code plugin
-install and the release's dist zips are current on both surfaces, but the
+**⑨ claude.ai re-uploads owed — all nine members, and the risk statement has
+CHANGED.** Opened at pack 1.1.0 (2026-08-01) for promptwright alone; widened
+to the whole roster at pack 1.1.3; **re-scoped 2026-08-07 at 2.0.0**. The
 claude.ai custom-skill copies are personal-account uploads that only move on
-delete-and-re-upload (release-doctrine — Install parity), so all nine still
-serve their 1.0.0 bodies until the owner re-uploads them by hand. Nothing
-here is behavioral — every bump since 1.0.0 is prose, delivery, or a
-correction — so a stale claude.ai copy is out of date, not wrong. A cost
-accepted for these passes, not silently carried: recorded here rather than
-claimed done.
+delete-and-re-upload (release-doctrine — Install parity), and all nine still
+serve their **1.0.0 bodies under the retired `revenant-foundation-*` names**.
+The old "out of date, not wrong" framing no longer holds: since 1.0.0 the
+pack has shipped **doctrine, not just prose** — promptwright's tier-routing
+role overrides (1.2.0) and the user-named-target override (1.3.0),
+lorewright's Selection/Decision doctrine (1.1.x), tokenwright's rigwright
+boundary clause (1.1.0) — so a claude.ai copy now **lacks shipped doctrine
+and misroutes against the current seam table**, and after 2.0.0 it also
+carries a retired name. The refresh is delete-and-re-upload of every member
+under its `revenantworks-foundation-*` name from the 2.0.0 release zips.
+Still owed to the owner's hand; recorded here rather than claimed done.
 
-**The register is empty except ⑦ and ⑨.** ⑦ (pack-registry relocation out of skillwright when
-pack #2 becomes real) is the only structural item left, and it is gated on an event that has not
-happened — it cannot be closed by editing code, only by that second pack becoming real, so
-it is held open by design and never built speculatively. The assertion side that once
+**The register is empty except ⑦ and ⑨.** ⑦ (pack-registry relocation out of skillwright)
+is the only structural item left, and **its gate has now fired** — the vault pack shipped
+2026-08-06 (registry row 2026-08-07) — so it is no longer event-gated: it is a live owner
+call on when to relocate, still never built speculatively. The assertion side that once
 opened the next pass (agentwright 17-20, skillwright 38-40, lorewright 23, promptwright 36) is
 **discharged at 1.3.1** (9/9), and the routing findings behind it are **closed at 1.3.2**.
 
@@ -186,15 +213,15 @@ motif, content carried forward; earlier designations frozen as written.*
 
 | Member | Job (one line) | Status | Version |
 |---|---|---|---|
-| `revenantworks-foundation-skillwright` | Builds, audits, and ports Agent Skills and packs (neutral by default) | SHIPPED | 1.0.4 |
-| `revenantworks-foundation-promptwright` | Builds, scores, and hardens prompts with model-tier routing | SHIPPED | 1.1.1 |
+| `revenantworks-foundation-skillwright` | Builds, audits, and ports Agent Skills and packs (neutral by default) | SHIPPED | 1.0.6 |
+| `revenantworks-foundation-promptwright` | Builds, scores, and hardens prompts with model-tier routing | SHIPPED | 1.3.0 |
 | `revenantworks-foundation-commwright` | Shapes messages per channel and audience; neutral-voice default; audits drift | SHIPPED | 1.0.2 |
-| `revenantworks-foundation-agentwright` | Designs and audits autonomous agent systems | SHIPPED | 1.0.2 |
-| `revenantworks-foundation-lorewright` | Research-verified verdicts and playbook reference docs | SHIPPED | 1.0.2 |
+| `revenantworks-foundation-agentwright` | Designs and audits autonomous agent systems | SHIPPED | 1.1.0 |
+| `revenantworks-foundation-lorewright` | Research-verified verdicts and playbook reference docs | SHIPPED | 1.1.2 |
 | `revenantworks-foundation-brandwright` | Single home of brand + voice; defines, applies on invoke, audits for drift, exports payloads + HTML guide card | SHIPPED | 1.0.2 |
 | `revenantworks-foundation-evalwright` | Authors and audits eval suites — build-time, zero runtime deps | SHIPPED | 1.0.2 |
-| `revenantworks-foundation-tokenwright` | Measures, budgets, and slims the token footprint of LLM-facing artifacts | SHIPPED | 1.0.2 |
-| `revenantworks-foundation-rigwright` | Builds the standing configuration Claude reads before work | SHIPPED | 1.0.1 |
+| `revenantworks-foundation-tokenwright` | Measures, budgets, and slims the token footprint of LLM-facing artifacts | SHIPPED | 1.1.0 |
+| `revenantworks-foundation-rigwright` | Builds the standing configuration Claude reads before work | SHIPPED | 1.0.2 |
 
 ---
 

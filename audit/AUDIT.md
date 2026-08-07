@@ -145,3 +145,10 @@ adopted across all nine members (owner decision; collision evidence in
 `COLLISION.md`), brand prefix `revenant` kept, all versions baselined at
 1.0.0. **Identity: keep** repo `citadel`, marketplace `revenant`, plugin
 `foundation`.
+
+> **Superseded 2026-08-07:** the identity verdict's "keep marketplace
+> `revenant`, prefix `revenant`" half was overturned by owner decision (brand
+> definition v2.1.0) — marketplace and member prefix renamed to
+> `revenantworks` at pack 2.0.0; repo `citadel` and plugin `foundation` stand.
+> See `COLLISION.md` C3/C4 supersession note and the root CHANGELOG. This
+> record is otherwise kept verbatim.
