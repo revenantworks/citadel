@@ -30,11 +30,11 @@ Usage:
 
 Validation also covers (added 2026-07-24): pack plugin.json == marketplace entry version
 (hard fail — the split-brain class), eval provenance freshness and eval-table orphan
-rows (WARN this release; flip to fail at the next tagged release), description >=1000 chars and
+rows (hard fail — flipped 2026-08-07 after the 2.0.0 tag, as promised), description >=1000 chars and
 and body footprint. The footprint gate was RESCOPED 2026-07-25: >500 body lines stays a hard fail (the
 agentskills.io norm), while the 5k-token figure is this pack's own advisory and now gates on whether the
-overage is DECLARED — a member over it must carry a budget {tokens, why}. Undeclared overage warns now and
-fails at the next tag; exceeding your own declared budget warns as drift. MOVED 2026-07-27: for a pack
+overage is DECLARED — a member over it must carry a budget {tokens, why}. Undeclared overage hard-fails
+(flipped 2026-08-07, the promised next-tag flip); exceeding your own declared budget warns as drift. MOVED 2026-07-27: for a pack
 member the budget lives in the registry's `**<pack> budgets**` table, not in frontmatter — frontmatter is
 loaded on every invocation, so a `why` there cost 51-95 tokens per run to explain a build-time number.
 A registry row costs zero runtime tokens, which is what makes declaring ALL members affordable rather
@@ -75,7 +75,9 @@ def fail(msg: str) -> None:
 
 
 def warn(msg: str) -> None:
-    """Non-fatal this release; flip to fail() at the next tagged release (see docstring)."""
+    """Non-fatal by design: deliberate drift/advisory signals (declared-budget drift,
+    seam hygiene, ceiling-riding descriptions). The promised next-tag flips landed
+    2026-08-07 — undeclared overage and the two eval-table checks now fail()."""
     warnings.append(msg)
     print(f"  ⚠ {msg}")
 
@@ -438,8 +440,8 @@ def validate_skill(folder: Path, budget: tuple[int, str] | None = None) -> str |
     #     body_budget:
     #       tokens: <int>   # the ceiling this member is allowed, its own drift check
     #       why: <text>     # why it earns the room
-    # Undeclared overage is the defect (warn now, fail at the next tag — item ③'s promise lands
-    # here). Declared overage is a recorded decision. Exceeding your OWN declared budget is drift
+    # Undeclared overage is the defect (hard fail since 2026-08-07 — item ③'s promise
+    # landed). Declared overage is a recorded decision. Exceeding your OWN declared budget is drift
     # and warns regardless. This applies the pack's existing declared-dependencies doctrine to cost.
     body_tokens = len("---".join(parts[2:])) // 4  # chars/4 prose estimate, ±15%
     FOOTPRINTS[folder.name] = (body_tokens, budget[0] if budget else None)
@@ -463,9 +465,9 @@ def validate_skill(folder: Path, budget: tuple[int, str] | None = None) -> str |
             warn(f"{folder.name}: SKILL.md body ≈{body_tokens} tokens over its registry budget "
                  f"of {budget[0]} — drift; slim it or raise the row deliberately")
     elif body_tokens > FOOTPRINT_ADVISORY:
-        warn(f"{folder.name}: SKILL.md body ≈{body_tokens} tokens > {FOOTPRINT_ADVISORY//1000}k "
+        fail(f"{folder.name}: SKILL.md body ≈{body_tokens} tokens > {FOOTPRINT_ADVISORY//1000}k "
              f"advisory with no budget row in the registry and none in frontmatter — declare it "
-             f"and why it earns the room, or slim it (undeclared overage fails at the next tag)")
+             f"and why it earns the room, or slim it (undeclared overage: hard fail since 2026-08-07)")
     validate_volatile(folder, fm)
     validate_evals(folder, re.search(r'version:\s*"?([\d.]+)"?', fm).group(1) if re.search(r'version:\s*"?([\d.]+)"?', fm) else "0.0.0")
     fm_ver = ver.group(1) if ver else "0.0.0"
@@ -497,7 +499,7 @@ def validate_evals(folder: Path, fm_ver: str) -> None:
         prov = re.search(r"(?:[Pp]rovenance|derived|target)[^\n]*?v(\d+\.\d+\.\d+)", head)
         if prov and prov.group(1) != fm_ver:
             if not re.search(r"(?i)re-?(?:anchored|confirmed|verified|freshed|stamped)[^\n]*\d{4}-\d{2}-\d{2}", head):
-                warn(f"{folder.name}: evals/{f.name} provenance names v{prov.group(1)} but member is "
+                fail(f"{folder.name}: evals/{f.name} provenance names v{prov.group(1)} but member is "
                      f"{fm_ver} and no dated reconfirmation line found — restamp or reconfirm")
         # Orphan = a numbered row whose nearest preceding non-empty line is not table-shaped
         # (a row under its own "|#|Query|" header in a later section is structured, not orphaned).
@@ -505,7 +507,7 @@ def validate_evals(folder: Path, fm_ver: str) -> None:
         prev = ""
         for ln in lines:
             if re.match(r"\|\s*\d+\s*\|", ln) and prev and not prev.lstrip().startswith("|"):
-                warn(f"{folder.name}: evals/{f.name}: numbered row {ln.strip()[:60]!r} follows prose, "
+                fail(f"{folder.name}: evals/{f.name}: numbered row {ln.strip()[:60]!r} follows prose, "
                      f"not a table — orphaned from count checks; move it into a table")
                 break
             if ln.strip():
@@ -780,7 +782,7 @@ def main() -> int:
 
     print(f"\ncount integrity: registry {total_members} = folders {total_folders} = manifests {total_manifests}")
     if warnings:
-        print(f"warnings: {len(warnings)} (non-fatal this release; flip to fail at the next tag)")
+        print(f"warnings: {len(warnings)} (deliberate drift/advisory signals — non-fatal by design)")
     if CHECK:
         print("check:", "DRIFT/PROBLEMS — see above" if (problems or drift) else "clean")
         return 1 if (problems or drift) else 0
