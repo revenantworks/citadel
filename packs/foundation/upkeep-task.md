@@ -1,7 +1,7 @@
 # Foundation Upkeep — Cloud Routine
 
 **Moved from Cowork to a Claude Code cloud routine 2026-08-01** (routine
-`foundation-upkeep`, manage at https://claude.ai/code/routines). The Cowork
+**Foundation - Skill Upkeep**, manage at https://claude.ai/code/routines). The Cowork
 weekly task this file previously carried is retired: Cowork's native schedules
 have no monthly-or-longer cadence, so it ran weekly as a stamp check and could
 only read files over raw URLs. The routine fires **every ~61 days** (cron

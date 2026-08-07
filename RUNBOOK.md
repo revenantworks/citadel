@@ -98,7 +98,7 @@ P0/P1, repo/release/account parity, current capstone card.
 **Brand escrow (pointer only — no brand content in this repo, per the law):**
 the live definition exists solely in the locally configured brandwright; a
 dated backup copy is kept outside any repo and re-exported after every
-definition change. The `foundation-upkeep` cloud routine carries the reminder
+definition change. The **Foundation - Skill Upkeep** cloud routine carries the reminder
 (`packs/foundation/upkeep-task.md`). If both the
 local config and the backup are ever lost, git history holds only the older
 public edition. Treat the backup as the recovery path, never the repo.
