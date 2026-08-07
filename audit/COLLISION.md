@@ -99,6 +99,50 @@ space versus contested space. The two accepted flagship collisions
 (skillwright.app; promptwright's legacy PyPI project) are recorded above and
 are what the 60-day re-verification watches.
 
+## Supersession — 2026-08-07: the `ossuary` pack and the `-caller` motif
+
+Owner-approved rename of the estate's second pack: `vault` → **`ossuary`**, motif
+`-picker` → **`-caller`**, members `revenantworks-vault-edgepicker` →
+`revenantworks-ossuary-linecaller` and `revenantworks-vault-bookpicker` →
+`revenantworks-ossuary-cardcaller`. **`-picker` is released back to unclaimed.**
+The C2 method was re-run live against the new names *before* any file moved —
+the rename was gated on the result, and this is the record it was gated on.
+Verified 2026-08-07; same 60-day cadence as the rest of this file.
+
+Motif crowdedness (GitHub `claude+<motif> in:name` + compound searches):
+
+| motif | verdict | evidence |
+|---|---|---|
+| -caller | **RARE as a skill/agent motif** | `claude+caller in:name` = 4 repos, **all 0★** (Rahman-12/claude-ai-caller, vishalhalbe/vedic-caller-claude, dani-montesdeoca-f/react-states-claude-caller, androbwebb/claude-web-self-caller) — API-call toys, no skill or agent framework among them · `skillcaller` **0 repos** · `promptcaller` **0 repos** · `agentcaller` 3 repos, all 0★ and all voice-phone agents (Dacekey/AgentCaller, gianpaj/agentcaller-io, anuj2806/agentCallerBackend) — a different domain · `toolcaller` 4 repos, max 1★ · `codecaller` 6 repos, all 0★ · `caller+claude-code in:name` and `agent-skills+caller in:name` both **0**. No `-caller` *family* exists in the agent-skill ecosystem — the same unowned-space condition that made `-wright` hold |
+| -picker *(released)* | MODERATE, **released 2026-08-07** | `claude+picker in:name` = 43 repos, top claimants small and all session-pickers rather than domain skills (espositov/claude-code-session-picker 9★, anshul-garg27/claude-picker 6★, danielrosehill/Claude-Agent-Picker-Pattern 4★). Not why it was dropped — the pack's metaphor moved, and the motif is now unclaimed and re-usable |
+
+Exact-name results — the renamed set (surfaces: GitHub repo search · npm registry ·
+PyPI · crates.io · skill directories travisvn/awesome-claude-skills and
+ComposioHQ/awesome-claude-skills):
+
+| name | result |
+|---|---|
+| `ossuary` *(pack word)* | **MODERATE, no prominent claimant — accepted.** 39 GitHub repos, all hobby-scale and abandoned: top is mrmekon/ossuary 20★ (Rust library for encrypted comms; crates.io `ossuary` 0.5.1, last updated **2019-06-12**, 4,189 downloads all-time and **10 recent**), then anicka-net/ossuary-risk 5★, hosom/ossuary 3★, bugsyhewitt/ossuary 2★ (an offensive-security tool in a "necromancer suite" — same vocabulary well, unrelated space), logalleon/ossuary 2★ · npm `ossuary` **exists**: v1.1.11, owner logalleon, "a language parser", last published **2021-10-20** · PyPI `ossuary` **exists**: 0.1.0a0, Bradd Szonye, dice-probability toolkit, uploaded **2023-03-06**, downloads unreported · **`claude+ossuary in:name` = 0** — nothing in the Claude/agent-skill space at all, and no shipped name is the bare word (members ship as `revenantworks-ossuary-*`). Comparable to `-keeper`'s MODERATE above (34 repos), and far below the bar set by the accepted `skillwright` collision (a live commercial product) |
+| `linecaller` | **RARE.** 7 GitHub repos, **all 0★** and all pickleball/tennis line-calling toys (sophiaknowles/LineCaller, Krunia101/LineCaller, reasonableguy/LineCaller, SumLikeAlex/pickleball-linecaller1, web4carlos/Open-LineCaller) · npm **404** · PyPI **404** · crates.io **404** · no product or company found by name search (results returned Truecaller, Line2, Linear — no LineCaller) |
+| `cardcaller` | **RARE.** 1 GitHub repo (`cardcaller/public`, 0★) · npm **404** · PyPI **404** · crates.io **404** · no product or company found by name search |
+
+Skill directories: **no `caller` or `ossuary` entry in either directory checked.**
+travisvn/awesome-claude-skills has zero matches on `caller`, `ossuary`, or
+`picker`; ComposioHQ/awesome-claude-skills has one unrelated "Picker" mention and
+no `caller` or `ossuary`. A targeted web search for `ossuary` as a Claude
+skill/agent/plugin returned nothing in the ecosystem.
+
+**Recorded risk, not a collision:** `caller` is a loaded word in LLM vocabulary —
+"tool caller" / "function calling". `skill+caller in:name` returns 5 tiny repos
+(max 9★) that are literally tool-calling skills. This is *semantic* ambiguity in
+cold-listing routing, not a name claim; it costs nothing on the registries and
+does not move the verdict, but it is the thing a `-caller` sibling's trigger evals
+should probe — a bare "caller" query is weaker evidence of intent here than a bare
+"picker" query was.
+
+**Verdict: gate passed.** `-caller` is RARE, no prominent exact-name claimant
+exists for `linecaller`, `cardcaller`, or `ossuary`, and the rename executed.
+
 ## Source URLs
 
 GitHub API repo searches (`api.github.com/search/repositories?q=<term>`),
@@ -115,3 +159,13 @@ github.com/travisvn/awesome-claude-skills ·
 github.com/ComposioHQ/awesome-claude-skills · mcpservers.org/agent-skills ·
 code.claude.com/docs/en/plugin-marketplaces · code.claude.com/docs/en/skills ·
 platform.claude.com/docs/en/api/beta/skills/versions/create
+
+**Added for the 2026-08-07 supersession:** GitHub API repo searches for
+`claude+caller`, `skillcaller`, `agentcaller`, `promptcaller`, `toolcaller`,
+`codecaller`, `linecaller`, `cardcaller`, `ossuary`, `claude+ossuary`,
+`claude+picker`, `caller+claude-code`, `agent-skills+caller`, `skill+caller`
+(all `in:name`) · registry.npmjs.org/{linecaller,cardcaller,ossuary,skillcaller,
+agentcaller,promptcaller,claude-caller} · pypi.org/pypi/{same}/json ·
+crates.io/api/v1/crates/{ossuary,linecaller,cardcaller} ·
+github.com/mrmekon/ossuary · github.com/bszonye/ossuary ·
+npmjs.com/package/ossuary · pypi.org/project/ossuary/
