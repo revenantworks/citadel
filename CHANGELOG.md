@@ -15,6 +15,45 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [foundation-v2.0.0] - 2026-08-07
+
+The `revenant` → `revenantworks` migration (brand definition v2.1.0, History
+rows dated 2026-08-06; owner-adjudicated 2026-08-07). Breaking rename — the
+marketplace identity and every member name move; content is otherwise
+unchanged, so no member version bumps and no eval re-anchors are owed.
+
+- **Marketplace renamed `revenant` → `revenantworks`** (`marketplace.json`
+  `name` + `owner.name` → `Revenantworks`). The platform has **no marketplace
+  rename mechanism** (COLLISION.md C3/C4 — kept as record, supersession note
+  appended): every `<plugin>@revenant` reference breaks by design. The owner
+  adjudicated execute-anyway; the single-consumer estate migrates by local
+  remove-and-re-add of the marketplace (`claude plugin marketplace add` under
+  the new name, then `claude plugin update foundation@revenantworks`). The
+  plugin keeps its name — `foundation` — so no `renames` map applies.
+- **All nine members renamed** `revenant-foundation-<member>` →
+  `revenantworks-foundation-<member>`: directory names, `name:` frontmatter,
+  H1s, eval files, references, and every cross-reference, registry and
+  manifests included. Each member CHANGELOG carries a dated rename note;
+  version history is continuous across the rename.
+- **Brand token** in the registry's Build defaults and each member's
+  `metadata.brand` label → `revenantworks`.
+- **Tooling follows**: `build.py` (registry path, `--parity` clone/cache
+  surfaces now `marketplaces/revenantworks` and `foundation@revenantworks`),
+  `test_build.py` fixture, `apply-install-swaps.py`, README/RUNBOOK commands.
+- **promptwright budget row 8850 → 8860** — the member name grew 5 chars and
+  appears in the body; bookkeeping, no content change.
+- **LICENSE** (root + all nine member copies): copyright now carries both
+  founding names, QuaziDed · DeD Pixel, per the definition's identity map.
+- Frozen records keep the old strings by design: `audit/AUDIT.md`,
+  `audit/COLLISION.md` (each with a dated supersession note),
+  `AUDIT-2026-08-05.md`, `ledger.md` dated entries, predecessor-era eval
+  ledgers, and this file's 1.0.0 entry.
+- **Install-parity consequence, recorded not chased**: until the local
+  remove-and-re-add lands, `build.py --parity` cannot see the old-name
+  install (`marketplaces/revenant`, `foundation@revenant`) and reports
+  nothing-installed/skip. The claude.ai copies still carry 1.0.0 bodies under
+  the retired names — register ⑨ widened accordingly.
+
 ## [foundation-v1.2.0] - 2026-08-05
 
 The AUDIT-2026-08-05 apply pass — every verdict from the adversarial
