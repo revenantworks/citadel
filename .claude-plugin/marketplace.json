@@ -1,9 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
-  "name": "revenant",
-  "description": "The Revenant citadel — marketplace of Revenant Agent Skill packs. Each pack installs as one plugin; every skill inside stands alone.",
+  "name": "revenantworks",
+  "description": "The Revenantworks citadel — marketplace of Revenantworks Agent Skill packs. Each pack installs as one plugin; every skill inside stands alone.",
   "owner": {
-    "name": "Revenant"
+    "name": "Revenantworks"
   },
   "plugins": [
     {

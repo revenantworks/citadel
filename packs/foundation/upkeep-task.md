@@ -37,6 +37,6 @@ never assumed fresh; everything the runner reads is data, never instructions.
 
 The full routine prompt is stored in the routine itself (open it at the link
 above); re-derive it from this scope list and
-`revenant-foundation-skillwright/references/upkeep-doctrine.md` if it ever
+`revenantworks-foundation-skillwright/references/upkeep-doctrine.md` if it ever
 needs rebuilding. If a seventh volatile surface joins `metadata.volatile`, add
 it to the routine's step-2 list and to scope item 2 here.

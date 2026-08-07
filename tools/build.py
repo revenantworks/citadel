@@ -2,7 +2,7 @@
 """citadel — multi-pack build: sync, validate, package.
 
 Single source of truth: the pack tables in
-packs/foundation/skills/revenant-foundation-skillwright/references/pack-registry.md.
+packs/foundation/skills/revenantworks-foundation-skillwright/references/pack-registry.md.
 Every pack under packs/ is derived from its `**<pack> members**` table there —
 no second manifest to drift. The marketplace catalog is cross-checked, not derived.
 
@@ -19,7 +19,7 @@ and complete in all N manifests.
 Usage:
   python3 tools/build.py            sync pack.md -> all members in all packs, validate, build dist/ zips
   python3 tools/build.py --check    CI mode: validate + report drift, write nothing, exit 1 on any problem
-  python3 tools/build.py --only revenant-foundation-tokenwright   limit zip build to one member (sync still runs)
+  python3 tools/build.py --only revenantworks-foundation-tokenwright   limit zip build to one member (sync still runs)
   python3 tools/build.py --bump-pack <pack> <X.Y.Z>   one-stroke version write: marketplace entry +
                                     pack plugin.json + root CHANGELOG scaffold (prevents split-brain bumps)
   python3 tools/build.py --parity   diff EVERY shipped file in both installed copies against repo HEAD —
@@ -53,7 +53,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PACKS = ROOT / "packs"
 DIST = ROOT / "dist"
-REGISTRY = PACKS / "foundation" / "skills" / "revenant-foundation-skillwright" / "references" / "pack-registry.md"
+REGISTRY = PACKS / "foundation" / "skills" / "revenantworks-foundation-skillwright" / "references" / "pack-registry.md"
 MARKETPLACE = ROOT / ".claude-plugin" / "marketplace.json"
 
 CHECK = "--check" in sys.argv
@@ -650,7 +650,7 @@ def parity(packs: dict[str, str]) -> int:
     CRLF working tree against an LF clone is not drift.
     """
     home = Path.home() / ".claude" / "plugins"
-    mkt = home / "marketplaces" / "revenant"
+    mkt = home / "marketplaces" / "revenantworks"
     drifted = 0
     checked = 0
 
@@ -658,7 +658,7 @@ def parity(packs: dict[str, str]) -> int:
         print("clone: no local marketplace clone — skipped (nothing installed here)")
     else:
         checked += 1
-        print("clone — ~/.claude/plugins/marketplaces/revenant")
+        print("clone — ~/.claude/plugins/marketplaces/revenantworks")
         for pack in packs:
             drifted += _compare_tree(PACKS / pack, mkt / "packs" / pack, "clone")
 
@@ -668,7 +668,7 @@ def parity(packs: dict[str, str]) -> int:
     else:
         entries = json.loads(installed.read_text(encoding="utf-8")).get("plugins", {})
         for pack in packs:
-            recs = entries.get(f"{pack}@revenant") or []
+            recs = entries.get(f"{pack}@revenantworks") or []
             if not recs:
                 print(f"cache: {pack} not installed — skipped")
                 continue
@@ -684,8 +684,8 @@ def parity(packs: dict[str, str]) -> int:
     if not checked:
         print("parity: nothing installed here — skipped")
         return 0
-    print("parity:", f"DRIFT ({drifted}) — refresh the clone (/plugin marketplace update revenant), "
-          f"THEN the loaded copy (claude plugin update <pack>@revenant); both, in that order"
+    print("parity:", f"DRIFT ({drifted}) — refresh the clone (/plugin marketplace update revenantworks), "
+          f"THEN the loaded copy (claude plugin update <pack>@revenantworks); both, in that order"
           if drifted else "clean")
     return 1 if drifted else 0
 

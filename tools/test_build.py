@@ -17,7 +17,7 @@ SYNTH = """# Pack Registry
 
 | Parameter | Value |
 |---|---|
-| Brand token *(label)* | `revenant` |
+| Brand token *(label)* | `revenantworks` |
 
 ## Pack registry
 
@@ -29,15 +29,15 @@ SYNTH = """# Pack Registry
 
 | Member | Job | Route there when |
 |---|---|---|
-| `revenant-demo-alpha` | Does alpha | The deliverable is alpha |
-| `revenant-demo-beta` | Does beta | The deliverable is beta |
+| `revenantworks-demo-alpha` | Does alpha | The deliverable is alpha |
+| `revenantworks-demo-beta` | Does beta | The deliverable is beta |
 
 **demo budgets**
 
 | Member | Tokens | Why it earns the room |
 |---|---|---|
-| `revenant-demo-alpha` | 3000 | reasons |
-| `revenant-demo-beta` | 2000 | reasons |
+| `revenantworks-demo-alpha` | 3000 | reasons |
+| `revenantworks-demo-beta` | 2000 | reasons |
 
 **demo seams**
 
@@ -65,12 +65,12 @@ class RegistryParsers(unittest.TestCase):
         # parser must stop at the budgets marker or every member counts twice.
         members = build.pack_members(SYNTH, "demo")
         self.assertEqual([m[0] for m in members],
-                         ["revenant-demo-alpha", "revenant-demo-beta"])
+                         ["revenantworks-demo-alpha", "revenantworks-demo-beta"])
 
     def test_pack_budgets(self):
         budgets = build.pack_budgets(SYNTH, "demo")
-        self.assertEqual(budgets["revenant-demo-alpha"][0], 3000)
-        self.assertEqual(budgets["revenant-demo-beta"][0], 2000)
+        self.assertEqual(budgets["revenantworks-demo-alpha"][0], 3000)
+        self.assertEqual(budgets["revenantworks-demo-beta"][0], 2000)
 
     def test_pack_seams(self):
         seams = build.pack_seams(SYNTH, "demo")

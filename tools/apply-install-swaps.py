@@ -39,7 +39,7 @@ SK = ROOT / "packs" / "foundation" / "skills"
 OUT = ROOT / "dist" / "install"
 
 SWAPS = {
-    "brand-definition.md": ("revenant-foundation-brandwright", "references/brand-definition.md"),
+    "brand-definition.md": ("revenantworks-foundation-brandwright", "references/brand-definition.md"),
 }
 RETIRED = {"prompt-card.md": "retired 2026-07-23 — only brandwright carries brand; branded cards come from `brandwright apply` at need"}
 

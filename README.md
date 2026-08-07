@@ -2,7 +2,7 @@
 
 ![pack-ci](https://github.com/revenantworks/citadel/actions/workflows/pack-ci.yml/badge.svg)
 
-This is the Revenant packs marketplace: the canonical home of every **Revenant** Agent Skills pack. Each pack lives under [`packs/`](packs/) and installs as one Claude Code plugin; every skill inside follows the [Agent Skills open standard](https://agentskills.io/) and stands alone on any surface that supports it (Claude.ai, Claude Code, the Claude API, compatible agents).
+This is the Revenantworks packs marketplace: the canonical home of every **Revenantworks** Agent Skills pack. Each pack lives under [`packs/`](packs/) and installs as one Claude Code plugin; every skill inside follows the [Agent Skills open standard](https://agentskills.io/) and stands alone on any surface that supports it (Claude.ai, Claude Code, the Claude API, compatible agents).
 
 **Packs**
 
@@ -36,7 +36,7 @@ Installed together, foundation ships an always-on router, [`packs/foundation/CLA
 
   ```
   /plugin marketplace add revenantworks/citadel
-  /plugin install foundation@revenant
+  /plugin install foundation@revenantworks
   ```
 
 - **Claude.ai** (paid plans with code execution) — download a member zip from [Releases](../../releases), then **Customize → Skills → + → Create skill** and upload it. Per-skill, per-account.

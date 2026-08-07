@@ -6,7 +6,7 @@
 > From here it updates after every member ship or roster decision. When memory
 > of a conversation and this spec disagree, trust the spec.
 
-**Pack:** foundation · **Profile:** standalone · **Brand:** revenant ·
+**Pack:** foundation · **Profile:** standalone · **Brand:** revenantworks ·
 **Stamped:** 2026-08-01 ·
 **Current status:** **SHIPPED** — pack **1.1.3**, tag `foundation-v1.1.3`
 (2026-08-01): a pack-wide prose pass — every member's own files plus the
@@ -186,15 +186,15 @@ motif, content carried forward; earlier designations frozen as written.*
 
 | Member | Job (one line) | Status | Version |
 |---|---|---|---|
-| `revenant-foundation-skillwright` | Builds, audits, and ports Agent Skills and packs (neutral by default) | SHIPPED | 1.0.4 |
-| `revenant-foundation-promptwright` | Builds, scores, and hardens prompts with model-tier routing | SHIPPED | 1.1.1 |
-| `revenant-foundation-commwright` | Shapes messages per channel and audience; neutral-voice default; audits drift | SHIPPED | 1.0.2 |
-| `revenant-foundation-agentwright` | Designs and audits autonomous agent systems | SHIPPED | 1.0.2 |
-| `revenant-foundation-lorewright` | Research-verified verdicts and playbook reference docs | SHIPPED | 1.0.2 |
-| `revenant-foundation-brandwright` | Single home of brand + voice; defines, applies on invoke, audits for drift, exports payloads + HTML guide card | SHIPPED | 1.0.2 |
-| `revenant-foundation-evalwright` | Authors and audits eval suites — build-time, zero runtime deps | SHIPPED | 1.0.2 |
-| `revenant-foundation-tokenwright` | Measures, budgets, and slims the token footprint of LLM-facing artifacts | SHIPPED | 1.0.2 |
-| `revenant-foundation-rigwright` | Builds the standing configuration Claude reads before work | SHIPPED | 1.0.1 |
+| `revenantworks-foundation-skillwright` | Builds, audits, and ports Agent Skills and packs (neutral by default) | SHIPPED | 1.0.4 |
+| `revenantworks-foundation-promptwright` | Builds, scores, and hardens prompts with model-tier routing | SHIPPED | 1.1.1 |
+| `revenantworks-foundation-commwright` | Shapes messages per channel and audience; neutral-voice default; audits drift | SHIPPED | 1.0.2 |
+| `revenantworks-foundation-agentwright` | Designs and audits autonomous agent systems | SHIPPED | 1.0.2 |
+| `revenantworks-foundation-lorewright` | Research-verified verdicts and playbook reference docs | SHIPPED | 1.0.2 |
+| `revenantworks-foundation-brandwright` | Single home of brand + voice; defines, applies on invoke, audits for drift, exports payloads + HTML guide card | SHIPPED | 1.0.2 |
+| `revenantworks-foundation-evalwright` | Authors and audits eval suites — build-time, zero runtime deps | SHIPPED | 1.0.2 |
+| `revenantworks-foundation-tokenwright` | Measures, budgets, and slims the token footprint of LLM-facing artifacts | SHIPPED | 1.0.2 |
+| `revenantworks-foundation-rigwright` | Builds the standing configuration Claude reads before work | SHIPPED | 1.0.1 |
 
 ---
 

@@ -23,12 +23,12 @@
    tag whose assets lag main ships stale skills.
 5. Owner machine, **both steps, in this order**. Two copies drift
    independently and refreshing the first does not move the second:
-   1. `claude plugin marketplace update revenant` (or `git -C
-      ~/.claude/plugins/marketplaces/revenant pull`): refreshes the clone,
+   1. `claude plugin marketplace update revenantworks` (or `git -C
+      ~/.claude/plugins/marketplaces/revenantworks pull`): refreshes the clone,
       which is what an install reads FROM. It served pre-1.1.0 descriptions
       for a month.
-   2. `claude plugin update <pack>@revenant`: rewrites
-      `~/.claude/plugins/cache/revenant/<pack>/<version>/`, the copy Claude
+   2. `claude plugin update <pack>@revenantworks`: rewrites
+      `~/.claude/plugins/cache/revenantworks/<pack>/<version>/`, the copy Claude
       Code actually LOADS. Restart to apply. Skipping this is how a session
       kept loading a superseded member while parity reported clean
       (2026-08-01, promptwright 1.1.0). **This compares PACK versions**, so a
@@ -67,7 +67,7 @@ The single config-carrying surface:
 
 ## Install / update in Claude Code
 `/plugin marketplace add revenantworks/citadel` once, then
-`/plugin install <pack>@revenant`. No zips, no swaps: installs from the repo;
+`/plugin install <pack>@revenantworks`. No zips, no swaps: installs from the repo;
 config lives in your local `~/.claude` copy.
 
 ## Add a member or a pack
