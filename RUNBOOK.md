@@ -23,6 +23,16 @@
    tag whose assets lag main ships stale skills.
 5. Owner machine, **both steps, in this order**. Two copies drift
    independently and refreshing the first does not move the second:
+
+   > **2.0.0 migration note:** the marketplace was renamed `revenant` →
+   > `revenantworks` (2026-08-07) and marketplace names have no rename
+   > mechanism, so an install registered under the old name never sees this
+   > release. One-time fix: remove the old `revenant` marketplace locally,
+   > `claude plugin marketplace add` under the new name, then
+   > `claude plugin update foundation@revenantworks` (the orchestrator ran
+   > this on the owner machine on migration day). The steps below assume the
+   > new name.
+
    1. `claude plugin marketplace update revenantworks` (or `git -C
       ~/.claude/plugins/marketplaces/revenantworks pull`): refreshes the clone,
       which is what an install reads FROM. It served pre-1.1.0 descriptions
@@ -68,7 +78,11 @@ The single config-carrying surface:
 ## Install / update in Claude Code
 `/plugin marketplace add revenantworks/citadel` once, then
 `/plugin install <pack>@revenantworks`. No zips, no swaps: installs from the repo;
-config lives in your local `~/.claude` copy.
+config lives in your local `~/.claude` copy. Updating: `claude plugin
+marketplace update revenantworks`, then `claude plugin update
+foundation@revenantworks` (both, in that order — see the release loop above).
+Migrating from the pre-2.0.0 `revenant` marketplace name: remove the old
+marketplace locally first, then add + install under the new name.
 
 ## Add a member or a pack
 New member: build it, add its registry row (registry members table), run

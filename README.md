@@ -39,6 +39,8 @@ Installed together, foundation ships an always-on router, [`packs/foundation/CLA
   /plugin install foundation@revenantworks
   ```
 
+  Installed before 2.0.0, when the marketplace was named `revenant`? Marketplace names have no rename mechanism — remove the old `revenant` marketplace locally, then add and install under the new name (one time).
+
 - **Claude.ai** (paid plans with code execution) — download a member zip from [Releases](../../releases), then **Customize → Skills → + → Create skill** and upload it. Per-skill, per-account.
 
 - **Claude API** — upload a member zip via the Skills API (`/v1/skills`) and reference its `skill_id` with the code execution tool.
