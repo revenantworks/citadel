@@ -2,6 +2,20 @@
 
 > Renamed from `revenant-foundation-brandwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.2.1] — 2026-08-07
+
+**The neutral definition can now hold what the doctrine expects.** 1.1.0 added
+palette-derivation rules (D-1 to D-7) but left the neutral storage shape at four
+rows — background / text / accent / functional — so a fresh build had nowhere to put
+a surface ladder, a quiet/lit border pair, or per-mode light. The rules were
+unlandable on a new brand and the gap read as compliance.
+
+- `references/brand-definition.md` gains storage for the neutral ladder (with the
+  derivation hue recorded), accent base/ink pairs with their ratios, per-brand
+  per-mode `border-lit`/`glow`, shared accents with their default readings, and the
+  CIEDE2000 separation floor. Each block names the rule it exists for.
+- Storage shape only — still zero identity content, still spec-clean neutral.
+
 ## [1.2.0] — 2026-08-07
 
 **Several definitions, one selected per run.** brandwright could hold exactly one

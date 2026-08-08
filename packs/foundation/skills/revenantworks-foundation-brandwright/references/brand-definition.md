@@ -37,12 +37,55 @@ Templates per artifact class (repos, skills, packs, files, titles) go here — e
 
 ### Palette — role tokens *(empty)*
 
-| Role | Token | Value |
-|---|---|---|
-| background | — | — |
-| text | — | — |
-| accent(s) | — | — |
-| functional job-colors *(status, never identity)* | — | — |
+Storage shape only; a build fills it. The rows below exist because
+`audit-doctrine.md`'s *Build — palette derivation* rules have nowhere to land
+without them — a definition missing the surface ladder or the border pair cannot
+be audited against D-2 or D-3, and the gap reads as compliance.
+
+**Neutrals — computed, not picked.** Generate the ladder in OKLCH at this brand's
+own accent hue with even lightness steps (D-1), and record the hue so an audit can
+re-derive it. Each step clears ~1.13:1 against the one below (D-2).
+
+| Role | Token | Value | on background | step above |
+|---|---|---|---|---|
+| background | — | — | — | — |
+| surface | — | — | — | — |
+| surface raised | — | — | — | — |
+| border *(quiet — structure)* | — | — | — | — |
+| muted text | — | — | — | — |
+| text | — | — | — | — |
+
+*Hue all neutrals were derived at: — . Add further elevations only when a real
+surface needs one.*
+
+**Accents — one row per accent, both values.** `base` for the dark ground, `ink`
+for the light one, each with its measured ratio (D-4).
+
+| Token | Owner *(house or sub-brand)* | `base` | on dark | `ink` | on light |
+|---|---|---|---|---|---|
+| — | — | — | — | — | — |
+
+**Light — per brand, per mode.** `border-lit` is the load-bearing edge and clears
+3:1 on its own surface (D-3); `glow` is bloom, never a fill. Both derive from the
+accent's **own** lightness, never a borrowed one (D-5). A brand with a primary and
+an alternate accent carries a complete set per mode, and modes never mix on one
+surface.
+
+| Brand | Mode | Derived from | `border-lit` | vs surface | `glow` | vs background |
+|---|---|---|---|---|---|---|
+| — | — | — | — | — | — | — |
+
+**Shared accents / functional job-colors — status, never identity.** State each
+one's default reading, and remember colour never carries state alone (D-6). Where
+a set exists so that one always works whatever accent leads a surface, prove it
+with a ΔE00 coverage matrix rather than asserting it (D-7).
+
+| Token | Value | Character | Default reading when it carries state |
+|---|---|---|---|
+| — | — | — | — |
+
+*Separation floor (CIEDE2000, tightest pair among the tokens above): — . Any new
+accent must beat it.*
 
 ### Typography roles *(empty)*
 

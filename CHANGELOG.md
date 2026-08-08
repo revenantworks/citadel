@@ -15,6 +15,13 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [foundation-v2.2.1] - 2026-08-07
+
+brandwright 1.2.1 — the neutral definition's palette storage shape now has slots for
+everything 1.1.0's derivation rules produce: the computed neutral ladder, accent
+base/ink pairs, per-mode light, shared accents, and the separation floor. Without them
+the rules had nowhere to land on a new brand, and the absence read as compliance.
+
 ## [foundation-v2.2.0] - 2026-08-07
 
 **brandwright holds several brands now.** It could carry exactly one active
