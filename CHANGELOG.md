@@ -15,6 +15,43 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [foundation-v2.1.0] - 2026-08-07
+
+Additive doctrine release — no rename, no entry point moved, no description
+changed on any member. Two members carry the pass; the other seven pick the
+fresh manifests up on their own next release (`restamp: lazy`).
+
+- **brandwright 1.0.2 → 1.1.0.** Palette doctrine, which until now was a
+  role-token rule and a drift sweep note. `audit-doctrine.md` gains **Build —
+  palette derivation** (D-1 to D-7): neutrals computed in OKLCH at the brand's
+  own accent hue rather than hand-picked · a ~1.13:1 visibility floor per
+  elevation step · the border token split quiet/lit with the lit one clearing
+  3:1 on its own surface · lit and glow derived from the accent's own lightness
+  with the contrast floor as a `max` second term, carrying the general rule that
+  a rule tuned on one hue is re-tested on every hue before it becomes doctrine ·
+  colour never carrying state alone (WCAG 1.4.1) · a shared accent set proved by
+  a ΔE00 coverage matrix and optimised jointly rather than member-by-member,
+  with semantic overrides recorded · CIEDE2000 as the separation metric with a
+  regional floor where the wheel is crowded. The **palette drift** sweep note
+  now puts the neutrals in scope and requires the ratios recomputed and
+  reported. `application-doctrine.md` gains **Palette inheritance — structure,
+  light, and marks**: structure may be shared system-wide, light belongs to one
+  identity and one mode, a multi-mode brand needs a complete set per mode with a
+  stated switch condition, and a parent accent may cross onto a child's surface
+  as attribution but never as its light.
+- **skillwright 1.0.6 → 1.1.0.** `rubrics.md` gains **Generator classes G-1 to
+  G-3** — derive the source's section list or fail loudly rather than
+  skip-and-continue, ship a `--check` parity mode as part of the generator, and
+  detect stale output in the target directory — plus **Naming-class coverage**,
+  the rule that a naming convention binds every class carrying a name, display
+  names and artifact titles included, and that ids carry no cadence suffix.
+  Wired from the body by two clauses at a cost of 33 tokens; the 7,800 budget row
+  is unchanged and the member now sits 17 tokens under it.
+
+Both passes are neutral by the brand-carriage law: the doctrine states
+derivations, thresholds, and metrics, and adds no palette value, brand name, or
+identity string anywhere.
+
 ## [foundation-v2.0.0] - 2026-08-07
 
 The `revenant` → `revenantworks` migration (brand definition v2.1.0, History
