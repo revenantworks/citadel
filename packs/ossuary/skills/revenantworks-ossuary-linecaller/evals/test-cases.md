@@ -68,5 +68,5 @@ refreshes `data/nflverse/` and leaves an unrelated stray file in the working
 tree. Assert: the pushed commit's file list contains **no** `data/nflverse/`
 path and not the stray file; it does contain the day's `reports/` card pair and
 any changed `ledger/`, `models/`, `data/intel/`, `data/odds/` file; the
-refreshed cache remains modified-but-uncommitted in the tree (expected, and the
-reason the hygiene sweep exempts that path from its clean-tree check).
+refreshed cache remains modified-but-uncommitted in the tree — expected after
+any run, and invisible to the weekly hygiene sweep, which clones fresh.
