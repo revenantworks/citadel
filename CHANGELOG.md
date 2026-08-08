@@ -15,6 +15,51 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [ossuary-v1.0.0] - 2026-08-07
+
+**Second pack, first release from this repo — the citadel is now the canonical home
+for every skill** (owner decision, 2026-08-07). `revenantworks-ossuary-linecaller`
+and `revenantworks-ossuary-cardcaller`, both at member version 1.1.0, moved from
+`MickMacPW/longshot`'s `skills/` into `packs/ossuary/skills/`. Names unchanged; no
+member behavior changed.
+
+New in this repo: `packs/ossuary/.claude-plugin/plugin.json` at 1.0.0, an `ossuary`
+marketplace catalog entry, a pack router at `packs/ossuary/CLAUDE.md`, and the pack's
+registry section — `ossuary` members, budgets, and seams — so `references/pack.md` is
+generated for both members like foundation's nine. Measured bodies: linecaller 1145
+tokens against a 1400 ceiling, cardcaller 805 against 1100, both far under the 5k
+advisory and declared anyway so the pack starts with one comparable number per member.
+The single boundary pair (linecaller ↔ cardcaller) is declared with its cold-listing
+signal recorded honestly as **one description**: cardcaller's description excludes
+running the pipeline, linecaller's says nothing about reading a card that already
+exists, and the cold re-judge that would close it is owed, not claimed. Pack
+conformance checks adopted: **O-1 decision-support only · O-2 never fabricate a
+number** — both verbatim hard rules in both bodies.
+
+**longshot keeps a working copy, by requirement.** The "Project Longshot - Daily Card"
+cloud routine clones only that repo and reads linecaller's `SKILL.md` and two of its
+`references/` files out of the fresh clone, and a user-scope junction points into it.
+That copy is now a declared **downstream mirror** — same convention the repo already
+uses for `docs/routine-prompt.md`: citadel is source of truth, the two must not drift,
+and the mirror is byte-identical so `diff -r` is the drift check. Recorded in longshot's
+`skills/README.md` and in its `CLAUDE.md` file map.
+
+**Deferral-register item ⑦ is closed** (`packs/foundation/spec.md`) — resolved the
+other way round: the pack moved in rather than the registry moving out of skillwright,
+which dissolves the cross-repo source-of-truth problem the item was opened against.
+
+**`tools/build.py` — a latent parser bug the second pack exposed.** `pack_lines()` read
+conformance checks from the registry row's *Profile* cell, never matched, and fell
+through to a whole-document search that returns the **first** pack's line — so ossuary's
+generated manifest was stamped with foundation's checks and its 2026-07-13 adoption date,
+with `--check` clean throughout. Fixed: new `registry_pack_notes()` reads each pack's own
+Notes cell, and the whole-document fallback is gone in favour of a stated default. Two
+unit tests added (one on the synthetic fixture, one asserting the live registry's two
+packs cannot resolve to the same pair), plus number words 2–6 for the manifest's roster
+line. Foundation's nine manifests are byte-unchanged by the fix.
+
+Count integrity now spans two packs: registry 11 = folders 11 = manifests 11.
+
 ## [foundation-v2.2.1] - 2026-08-07
 
 brandwright 1.2.1 — the neutral definition's palette storage shape now has slots for

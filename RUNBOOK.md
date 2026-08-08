@@ -110,6 +110,24 @@ New member: build it, add its registry row (registry members table), run
 `**<pack> members**` table to the registry, create `packs/<pack>/` with its
 `.claude-plugin/plugin.json`, add the marketplace catalog entry, run the build.
 
+A pack needs **four** registry surfaces, not one — `**<pack> members**`,
+`**<pack> budgets**` (one row per member, honest ceiling + stated reason; the
+build hard-fails on undeclared overage), `**<pack> seams**` (one row per
+boundary pair, or `--check` warns that every edge is unrecorded), and a
+`Conformance checks (YYYY-MM-DD): ...` clause **in the pack row's own Notes
+cell**. That last one is not optional decoration: the generated `pack.md`
+prints a conformance line for every pack, so a pack without its own clause
+gets the stated default. Before 2026-08-07 it silently got the *first* pack's
+line instead — see `ossuary-v1.0.0` in `CHANGELOG.md`. Optional but expected:
+`**<pack> capstone:**`, `**<pack> canonical repo:**`, a `**<pack> seam notes:**`
+block, and a pack router at `packs/<pack>/CLAUDE.md`.
+
+If a pack's members must also exist somewhere else — a repo whose runner clones
+only itself — the outside copy is a **declared downstream mirror**, never a
+second source of truth: keep it byte-identical, name citadel as canonical in a
+header note at the mirror, and record it in that repo's file map. `ossuary`'s
+copy in `MickMacPW/longshot` is the worked example.
+
 ## Policies
 Restamp per pack (registry Notes; default lazy): rebuild/upload only changed
 members + the registry carrier. Release bar: discoverability pass, no open

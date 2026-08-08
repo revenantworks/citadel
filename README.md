@@ -9,8 +9,9 @@ This is the Revenantworks packs marketplace: the canonical home of every **Reven
 | Pack | Members | What it covers |
 |---|---|---|
 | [`foundation`](packs/foundation/) | 9 | The build-time wrights — skills, prompts, messages, agent specs, standing Claude config, research, eval suites, brand identity, token budgets |
+| [`ossuary`](packs/ossuary/) | 2 | Decision-support callers for Project Longshot — `linecaller` runs the daily NFL bet-card pipeline, `cardcaller` reads the card and records what was actually bet. Bound to a private repo, so useful only to its holder; listed because the citadel is the canonical home for every skill |
 
-Future packs slot in as new folders under `packs/` and new rows in the marketplace catalog — one repo, one marketplace.
+Further packs slot in as new folders under `packs/` and new rows in the marketplace catalog — one repo, one marketplace, one registry.
 
 ### foundation — the nine wrights
 
@@ -29,6 +30,15 @@ Each routes on its own description and works alone; together they cover the buil
 | **rigwright** | Builds the standing configuration Claude reads before work — Project instructions, CLAUDE.md, repo Claude config |
 
 Installed together, foundation ships an always-on router, [`packs/foundation/CLAUDE.md`](packs/foundation/CLAUDE.md). Copy it into your project (or `~/.claude/`) so Claude reaches for the right wright and holds the pack's conventions without being asked.
+
+### ossuary — the two callers
+
+| Caller | What it does |
+|---|---|
+| **linecaller** | Runs one pass of the Project Longshot daily NFL bet-card pipeline in Claude Code — reconcile, ratings, slate, lines, injuries, playing-time news, card, commit |
+| **cardcaller** | The claude.ai half: shows today's card, explains its picks, reports bankroll and dashboard state, logs what was actually bet, captures coaching notes that train the model |
+
+Both are **decision support only** by hard rule — neither places a bet, touches a sportsbook account, or invents a number; missing data means PASS. Both are bound to a private repo (`profile: custom:ossuary-personal`), so installing the pack without it gets you two skills that will correctly refuse to make anything up. The pack ships its own router, [`packs/ossuary/CLAUDE.md`](packs/ossuary/CLAUDE.md).
 
 ## Install
 
