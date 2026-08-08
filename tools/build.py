@@ -644,8 +644,16 @@ def _compare_tree(repo_root: Path, inst_root: Path, label: str) -> int:
         elif _norm(repo_root / rel) != _norm(inst):
             drift.append(f"differs: {rel.as_posix()}")
     for rel in _shipped(inst_root):
-        if not (repo_root / rel).is_file():
-            drift.append(f"extra:   {rel.as_posix()}")
+        if (repo_root / rel).is_file():
+            continue
+        # A peer brand definition (brandwright 1.2.0+ holds several and selects one
+        # per run) is installed from a PRIVATE repo by design and is deliberately
+        # absent from HEAD. Reporting it as drift made parity a gate that could
+        # never pass once a peer existed — the inverse of a gate that never fails,
+        # and just as useless. The primary brand-definition.md is still compared.
+        if re.fullmatch(r"brand-definition-[a-z0-9-]+\.md", rel.name):
+            continue
+        drift.append(f"extra:   {rel.as_posix()}")
     if drift:
         for d in drift[:20]:
             print(f"  ✗ {d}")

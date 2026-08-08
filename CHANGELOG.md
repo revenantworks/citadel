@@ -15,6 +15,22 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [foundation-v2.2.2] - 2026-08-07
+
+Ships content that had already landed on 2.2.1 without a bump — and the pack version
+is the cache key, so an install could never receive it. That is the gotcha this repo
+documents; this release is it happening for real.
+
+- `LICENSE` x10 now read `Copyright (c) 2026 Revenantworks` (brand definition v2.1.14
+  made the copyright line a naming class: the house, never a person).
+- `pack-registry.md` carries the ossuary pack tables; `spec.md` records register 7 as
+  resolved.
+- `tools/build.py`: per-pack conformance notes (a latent bug the second pack exposed —
+  every pack resolved to the FIRST pack's conformance line), and `--parity` no longer
+  reports an installed **peer** brand definition as drift. A peer is installed from a
+  private repo by design and absent from HEAD, so flagging it made parity a gate that
+  could never pass — the inverse of one that never fails, and no more useful.
+
 ## [ossuary-v1.0.0] - 2026-08-07
 
 **Second pack, first release from this repo — the citadel is now the canonical home
