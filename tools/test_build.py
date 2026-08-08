@@ -123,9 +123,24 @@ class LiveRegistry(unittest.TestCase):
             self.assertIn(seam[0], members, seam[:2])
             self.assertIn(seam[1], members, seam[:2])
 
-    def test_foundation_conformance_is_its_own(self):
-        notes = build.registry_pack_notes(self.text, "foundation")
-        self.assertIn("Conformance checks (", notes)
+    def test_ossuary_registered(self):
+        self.assertIn("ossuary", build.registry_packs(self.text))
+
+    def test_ossuary_roster_budgets_agree(self):
+        members = {m[0] for m in build.pack_members(self.text, "ossuary")}
+        budgets = set(build.pack_budgets(self.text, "ossuary"))
+        self.assertEqual(members, budgets)
+        self.assertEqual(len(members), 2)
+
+    def test_each_pack_has_its_own_conformance_line(self):
+        # Guards the borrowed-conformance bug on the LIVE registry, not just the fixture:
+        # two packs must not resolve to the same (adopted, checks) pair by accident.
+        seen = {}
+        for pack in ("foundation", "ossuary"):
+            notes = build.registry_pack_notes(self.text, pack)
+            self.assertIn("Conformance checks (", notes, pack)
+            seen[pack] = build.pack_lines(self.text, pack, notes)[2]
+        self.assertNotEqual(seen["foundation"], seen["ossuary"])
 
 
 if __name__ == "__main__":
