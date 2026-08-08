@@ -60,6 +60,7 @@ def main() -> int:
         return 1
 
     built = 0
+    written: set[str] = set()
     for fname, why in RETIRED.items():
         if (swaps_dir / fname).is_file():
             print(f"  – ignoring {fname}: {why}")
@@ -86,11 +87,23 @@ def main() -> int:
                     if p.is_file() and "__pycache__" not in p.parts and p.suffix != ".pyc":
                         z.write(p, Path(member) / p.relative_to(work))
         print(f"  ▣ dist/install/{out.name}  (private {fname} overlaid)")
+        written.add(out.name)
         built += 1
 
     if built == 0:
         print("✗ nothing built — the swaps dir held no brand-definition.md.")
         return 1
+
+    # skillwright rubric G-3, stale-output detection: a member bump leaves the
+    # previous version's zip sitting in dist/install, and an operator uploading
+    # "the brandwright zip" can grab the older one. Caught for real on 2026-08-07,
+    # when a 1.0.2 zip carrying a definition nine versions stale outlived the
+    # 1.1.0 build beside it. Silence from the generator is what endorsed it.
+    stale = sorted(p for p in OUT.glob("*+install.zip") if p.name not in written)
+    for p in stale:
+        p.unlink()
+        print(f"  ✗ dist/install/{p.name} (superseded — removed)")
+
     print(f"\ninstall zips: {built} built · upload these, not the neutral dist/ zips · repo tree untouched")
     return 0
 
