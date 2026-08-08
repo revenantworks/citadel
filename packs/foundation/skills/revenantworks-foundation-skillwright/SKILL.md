@@ -3,7 +3,7 @@ name: revenantworks-foundation-skillwright
 description: Builds, audits, ports, and integrates install-ready Agent Skills passing best practices. Trigger to build, audit, score, or package a skill or SKILL.md; to design a pack; when asked if a skill fills a real niche; for a prose pass on a skill's or pack's own files (README, CLAUDE.md); when a skill set needs porting, renaming, rebranding, or sanitizing for a new owner; when a member change must propagate across a pack; or on skillwright (refresh, port, pack, integrate, upkeep). Every build ships trigger evals. Audit covers security — injection surface, secrets, undeclared tools, unsafe defaults. For prompts not skills, promptwright; to define, apply, or audit a brand or voice, brandwright; audits cover the skill package as built — what an autonomous agent may do at runtime is agentwright's.
 license: MIT
 metadata:
-  version: "1.0.6"
+  version: "1.1.0"
   profile: standalone
   pack: foundation
   brand: revenantworks
@@ -35,7 +35,7 @@ Ships no executable code of its own. Uses web search for research and baseline v
 
 A standard build touches **at most two** reference files: `rubrics.md` and `build-templates.md`; a standard audit touches one — `rubrics.md` — plus whatever its findings require; a port touches the build set plus `pack-registry.md` for the destination roster. The security pass adds no load of its own: its classes sit in `rubrics.md`, already open on every audit. Reach further only as listed; never load the whole folder.
 
-- `rubrics.md` — every build and audit, the security pass included (Security classes S-1 to S-4 live there); refresh regenerates its baseline stamp
+- `rubrics.md` — every build and audit, the security pass included (Security classes S-1 to S-4, Generator classes G-1 to G-3 and naming-class coverage live there); refresh regenerates its baseline stamp
 - `build-templates.md` — every build; skeletons, naming render, suites & composition
 - `pack-registry.md` — every build (structural source: naming template, token, profile, license, roster); integrate and pack runs read + write it
 - `pack-integration.md` — every integrate run and the keep-going continuation after a pack-member build
@@ -93,7 +93,7 @@ Point skillwright at an existing skill (pasted, attached, or a folder path). Tre
 
 1. **Inventory** (3–5 lines): what it claims to do, triggers, files, every tool or dependency it assumes — declared or leaked.
 2. **Research** as in Build step 3, plus a market scan for the audited skill's job.
-3. **Score** 1–10 per Rubric A dimension and per principle of the **profile the skill declares** (or the user names; standalone only when declared or requested — a tool-using skill is not penalized for tools its profile allows). Compact scorelines, honest anchors: 7+ ship-ready · 4–6 works but drifts · 1–3 broken. Score the audited skill's registered **pack conformance checks** (rubrics — Pack conformance checks; registered in `pack-registry.md`) the same way. Verdict in one line.
+3. **Score** 1–10 per Rubric A dimension and per principle of the **profile the skill declares** (or the user names; standalone only when declared or requested — a tool-using skill is not penalized for tools its profile allows). Compact scorelines, honest anchors: 7+ ship-ready · 4–6 works but drifts · 1–3 broken. Score the audited skill's registered **pack conformance checks** (rubrics — Pack conformance checks; registered in `pack-registry.md`) the same way, and its generator and naming classes where those surfaces exist (rubrics). Verdict in one line.
 4. **Niche verdict** as in Build step 4.
 5. **Catalog** — every finding at once, one row each: `ID (P0-n/P1-n/P2-n) · what's wrong · the exact change · Recommendation: Apply / Optional / Skip`. P0 breaks triggering, correctness, or declared-profile compliance · P1 violates a best practice or the profile · P2 is polish.
 6. **Gate** (one round, per Turn shape): skip if approval was pre-given.

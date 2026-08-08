@@ -8,6 +8,8 @@ Rubric A is universal: every skill, any profile, is scored against it. Profiles 
 - Scoring anchors
 - The universal rule
 - Security classes — S-1 to S-4, the audit's security pass
+- Generator classes — G-1 to G-3, for a subject that generates from a structured source
+- Naming-class coverage
 - Profiles: standalone · standard · custom
 - Pack conformance checks
 - Audit application notes
@@ -49,6 +51,18 @@ Four classes, scanned on every audit as the security pass (SKILL.md — Entry �
 - **S-4 unsafe defaults in generated output.** For a skill that emits artifacts — templates, skeletons, scaffolds, configs, commands — what its shipped default bakes in: blanket or world-writable permissions, verification or checksum disabled, an unpinned dependency or an untrusted source, a secret written into a generated file, a call to a host the skill never names. The default is the finding even where the prose invites the user to change it: a generated artifact ships as written. **P1**, or **P0** where the baked default is itself irreversible or credential-bearing.
 
 **Absent is not the same as clean.** A class the audited skill has no surface for is reported N/A rather than scored — structurally inapplicable, the way a skill with no identity surface passes C-2 — and a pass with no findings is stated in one line, never left silent.
+
+## Generator classes
+
+Three classes for a build or audit whose subject **generates one artifact from another** — a manifest from a registry, a doc section from a table, a card from a definition. Scored only where that surface exists; N/A otherwise, on the *Absent is not the same as clean* rule above. What unites them is why they are worth their own classes: all three ship output that **looks complete**, so none of them is visible in the artifact the generator produced — only in a diff against the source.
+
+- **G-1 derive the section list, or fail loudly.** A generator carrying a hardcoded list of its source's sections drifts from that source the moment the source moves. Two real forms: a hardcoded pair of section headings that silently dropped a section from generated output once the source renamed it, and a table parser that returned only the *first* table in a block and silently dropped every later one. Either derive the list from the source, or hard-fail naming the expected section that is missing — never skip-and-continue. **P0** where a skip-and-continue path can drop content with no signal; **P1** where it warns.
+- **G-2 a parity mode is part of the generator, not an extra.** Ship a `--check` (or the surface's equivalent): regenerate to a temp location, byte-compare against the committed output, exit non-zero on any drift — and hard-fail rather than warn when an expected input section is absent. Committed build output with no parity gate is indistinguishable from hand-edited output, which leaves the generator's claim to be the source of truth unverifiable. **P1**, or **P0** where the generated artifact is the copy consumers install.
+- **G-3 stale-output detection.** A generator notices files in its target directory that it did not just write, and warns or fails on them. Without it a retired artifact stays in place and reads as current truth — the generator's silence is what endorses it.
+
+## Naming-class coverage
+
+A naming convention binds **every class that carries a name**, the classes that feel like infrastructure rather than product included: a scheduled task's or routine's **display name**, its **id**, and a published artifact's **title**. Two rules ride with the id — it carries **no day or cadence suffix**, because the cadence lives in the schedule expression and an id repeating it goes stale on the first reschedule; and it is never the only name scored. Enumerate the classes before scoring any of them: an audit that measured the machine-readable ids, passed green, and never inspected the human-readable display names beside them reported on the half of the surface that was already templated.
 
 ## Profiles
 

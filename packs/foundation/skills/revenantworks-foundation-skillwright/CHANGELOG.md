@@ -2,6 +2,41 @@
 
 > Renamed from `revenant-foundation-skillwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.1.0] — 2026-08-07
+
+Two doctrine families added to `references/rubrics.md`, both from defects that
+shipped output looking correct.
+
+- **Generator classes G-1 to G-3**, scored where the subject generates one
+  artifact from another. G-1: a generator carrying a hardcoded list of its
+  source's sections drifts from that source — a hardcoded heading pair dropped a
+  renamed section, and a table parser returning only the first table in a block
+  dropped every later one, both silently — so derive the list from the source or
+  hard-fail on a missing expected section, never skip-and-continue. G-2: a
+  `--check` parity mode is part of the generator, not an extra; committed build
+  output with no parity gate is indistinguishable from hand-edited output. G-3:
+  stale-output detection, so a retired artifact in the target directory cannot
+  linger as apparent truth. Each carries its severity floor, and the family is
+  N/A on a subject with no generating surface, per *Absent is not the same as
+  clean*.
+- **Naming-class coverage**, the rule that a naming convention binds every class
+  carrying a name — a scheduled task's or routine's display name, its id, and a
+  published artifact's title included — that an id carries no day or cadence
+  suffix because the cadence lives in the schedule expression, and that the
+  classes are enumerated before any of them is scored. The failure it answers:
+  a naming audit that measured the machine-readable ids, passed green, and never
+  looked at the human-readable display names beside them.
+
+Body wiring cost 33 tokens across two clauses — the `rubrics.md` load-budget
+line now names both families, and Entry — Audit step 3 scores them alongside the
+registered pack conformance checks. Measured body 7,750 → 7,783 against the
+unchanged 7,800 row; the ceiling was not raised, so the next body edit on this
+member needs the footprint run first. The `description` is byte-identical and no
+entry point, count, or gate moved, so no trigger re-run is owed; the eval
+provenance lines are re-anchored with that stated, and no case was added — still
+40, with the generator and naming classes authored-not-covered, recorded here
+rather than claimed.
+
 ## [1.0.6] — 2026-08-05
 
 Lossless trim (AUDIT-2026-08-05 TRIM verdict) at two sites the audit named,

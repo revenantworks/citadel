@@ -22,7 +22,7 @@ revenantworks-foundation-skillwright/
 ├── CHANGELOG.md                  # version history
 ├── SOURCES.md                    # where the guidance comes from
 ├── references/                   # runtime — loaded per the SKILL.md load budget
-│   ├── rubrics.md                # Rubric A baseline (calendar-volatile, refresh target) + security classes S-1..S-4 + policy profiles
+│   ├── rubrics.md                # Rubric A baseline (calendar-volatile, refresh target) + security S-1..S-4 + generator G-1..G-3 + naming-class coverage + policy profiles
 │   ├── build-templates.md        # skeletons, naming render, suites & composition, gold standard
 │   ├── pack-registry.md          # structural registry (event-driven) — roster, naming template, profiles; build.py derives manifests here
 │   ├── description-crafting.md   # trigger writing, boundary sentences, discoverability test
