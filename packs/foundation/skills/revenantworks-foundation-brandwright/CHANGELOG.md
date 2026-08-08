@@ -2,6 +2,27 @@
 
 > Renamed from `revenant-foundation-brandwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.2.0] — 2026-08-07
+
+**Several definitions, one selected per run.** brandwright could hold exactly one
+active definition, which made a personal or social brand impossible to keep beside a
+product brand without overwriting it. It now carries a roster: `brand-definition.md`
+holds the table of every brand the install knows, and peers live in
+`brand-definition-<slug>.md` siblings that open only when selected.
+
+- **Selection is a named workflow step**, resolved before any other work: named in
+  the request, else scoped by the target, else **asked** in one line. Topic and tone
+  never decide it — a personal-voice request aimed at a product surface is the case
+  that must be asked about rather than inferred.
+- **Cross-brand law**: never apply one definition to a surface another owns, never
+  blend two in one output; they share a surface only where the owning definition
+  declares an attribution mark for the peer.
+- **Build writes peers.** A build for a brand the roster does not hold creates its
+  sibling file and adds the roster row in the same pass.
+- Scope and coexistence are asked inside the existing firewall-map group rather than
+  as a fifteenth — the count of 14 is load-bearing and references may not renumber it.
+- `application-doctrine.md` gains a *Peers* section for the application-side rules.
+
 ## [1.1.0] — 2026-08-07
 
 Palette doctrine, additive. Until now the palette guidance was a role-token

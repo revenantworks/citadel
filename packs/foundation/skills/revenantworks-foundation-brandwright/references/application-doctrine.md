@@ -83,3 +83,23 @@ A pack's members apply identically in one cascade — shared brand/pack segments
 shared profile, shared palette — so a suite reads as one product line. Per-skill
 deviations within a suite are allowed only when deliberate and documented in the
 pack README.
+
+## Peers — applying one brand where another lives
+
+An install may carry several definitions. They are peers, not a hierarchy, and the
+cascade runs for exactly one of them per invocation.
+
+- **Selection precedes application.** Resolve which definition applies (SKILL.md,
+  *Which definition*) before mapping a single element. Applying the wrong brand is
+  not a drift finding to fix later — it is a mislabelled artifact.
+- **Never blend.** One output carries one brand's identity. A palette from one and a
+  voice from another is not a hybrid, it is two brands failing at once.
+- **Scope wins over convenience.** A target inside a peer's declared scope takes that
+  peer even when the request arrived while another was in hand. Say which one you
+  used in the handback.
+- **Attribution is the one shared surface.** A peer's mark may appear on this brand's
+  surface only where *this* brand's definition declares it — lineage lines, a
+  co-branded lockup, a link home. It carries no other job there: never that surface's
+  light, never its content emphasis, never a matched set beside its accent.
+- **A per-run exclusion never crosses brands.** "Skip the palette" narrows one
+  application; it does not authorise reaching into a peer for the part you skipped.

@@ -2,6 +2,20 @@
 
 > **Last built: — (never; ships neutral).** This is the **only** file "brandwright build" rewrites — doctrine lives in `audit-doctrine.md` and never changes for a rebrand. With no definition below, every brandwright output defaults to the Neutral baseline, and audits run in hygiene mode only (internal consistency, no brand judgments).
 
+## Roster
+
+Every definition this install carries. One row per brand; the primary is this file,
+peers are `brand-definition-<slug>.md` beside it. Selection reads this table, so a
+brand absent here is a brand brandwright will not find.
+
+| Slug | File | Scope — surfaces it owns | Coexists with | Boundary |
+|---|---|---|---|---|
+| — | — | — | — | — |
+
+*Empty. A build adds the row for the brand it writes.* **Scope** is what makes
+selection possible without asking every time; **Boundary** states whether a peer's
+attribution mark may appear on this brand's surfaces, and nothing more.
+
 ## Active definition
 
 *None. Run "brandwright build" (ingest a guide, or take the one-batch interview Entry — Build enumerates) to populate the sections below. These sections are the storage shape, not that interview list, and the mapping is deliberately not one-to-one: Essence and the History notes are written from the answers, never asked as groups. Each build bumps the definition version and re-stamps this header.*

@@ -15,6 +15,31 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [foundation-v2.2.0] - 2026-08-07
+
+**brandwright holds several brands now.** It could carry exactly one active
+definition, so a personal or social brand could not sit beside a product brand
+without overwriting it. brandwright 1.2.0 adds a roster and a selection step.
+
+- `brand-definition.md` carries the **roster** — each brand'"'"'s slug, the surfaces it
+  owns, its peers — and peers live in `brand-definition-<slug>.md` siblings that
+  open only when selected, so the always-open cost stays one file.
+- **Selection is a named workflow step**, resolved before any other work: named in
+  the request, else scoped by the target, else **asked** in one line. Topic and tone
+  never decide it — a personal-voice request aimed at a product surface is exactly
+  the case to ask about rather than infer.
+- **Cross-brand law**: never apply one definition to a surface another owns, never
+  blend two in one output; they share a surface only where the owning definition
+  declares an attribution mark for the peer.
+- Build writes peers: a build for an unrostered brand creates its sibling and adds
+  the roster row in one pass. Scope and coexistence are asked inside the existing
+  firewall-map group — the count of 14 build groups is load-bearing.
+- `tools/apply-install-swaps.py` takes `<primary-dir> [<peer-dir> ...]`, overlays
+  peers as siblings, and warns when a peer is absent from the primary'"'"'s roster
+  (overlaid but unreachable). Single-dir invocation is unchanged.
+- brandwright'"'"'s body budget raised 3300 → 3450 with its reason recorded: the
+  selection block is always-relevant routing and must be body-resident.
+
 ## [foundation-v2.1.0] - 2026-08-07
 
 Additive doctrine release — no rename, no entry point moved, no description
