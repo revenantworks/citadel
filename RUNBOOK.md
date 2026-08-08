@@ -63,17 +63,37 @@ One central upload replaces the per-user x8.
 anywhere — repo or installs — is the locally configured brandwright.** Every
 other member is brandless everywhere; branded artifacts (prompt cards
 included) are produced at need via `brandwright apply`, never stored.
-`apply-install-swaps.py` overlays your private definition onto the neutral
-repo copy and emits the install-ready zip; upload that one, and plain `dist/`
-zips for the other seven. The script hard-fails if pointed at the neutral copy.
-The single config-carrying surface:
+`apply-install-swaps.py` overlays your private files onto neutral repo copies
+and emits install-ready zips; upload those, and plain `dist/` zips for anything
+you did not override. The script hard-fails if pointed at the neutral definition.
 
-| Member | Neutral file in repo | Swap in your... |
+**The split is not owner-specific — it is how anyone puts their own identity on
+this pack.** The repo ships neutral so it can be downloaded and used as-is. If
+you want your own brand on your own install, you never edit the repo: you keep a
+private directory, put in it only what you want to override, and run the script.
+Your branding lives on your disk and in your install. Overriding a brand already
+applied is the same operation as applying a first one — the neutral repo copy is
+always the input, so a rebuild cannot compound.
+
+| Put in your swaps dir | Overlays | Effect |
 |---|---|---|
-| brandwright | `references/brand-definition.md` | active brand definition (identity + voice) |
+| `brand-definition.md` | brandwright's `references/brand-definition.md` | your identity + voice. A second and later dir installs as a **peer** definition (brandwright 1.2.0+ holds several and selects one per run); the primary's Roster is what makes a peer reachable, and the script warns if it is missing from it |
+| `LICENSE` | every member's `LICENSE` | your copyright holder |
+| `brand-token.txt` | every member's `metadata.brand:` | your brand token (one line) |
+
+All three are optional and independent. Omit one and its neutral value ships.
+Every override is printed per member as it is applied — a build that silently
+rewrote your copyright would be worse than one that refused to.
+
+```bash
+python3 tools/apply-install-swaps.py <your-private-dir> [<peer-dir> ...]
+```
 
 > History: 1.0.x had three swap surfaces; 1.1.0 folded voice into the
 > definition (two); the 2026-07-23 law retired the prompt-card swap (one).
+> 2026-08-07 generalised it: the definition swap still touches only brandwright,
+> but `LICENSE` and `brand-token.txt` reach every member, so a downstream user can
+> rebrand the whole pack without touching the repo.
 
 ## Install / update in Claude Code
 `/plugin marketplace add revenantworks/citadel` once, then
