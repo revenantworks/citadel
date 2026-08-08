@@ -23,7 +23,8 @@ SYNTH = """# Pack Registry
 
 | Pack | Profile | Notes |
 |---|---|---|
-| `demo` | standalone | Test pack. Integrate policy: restamp: lazy |
+| `demo` | standalone | Test pack. Conformance checks (2026-01-02): D-1 first · D-2 second. Integrate policy: restamp: lazy |
+| `other` | standalone | Second pack, no conformance line of its own |
 
 **demo members**
 
@@ -81,6 +82,23 @@ class RegistryParsers(unittest.TestCase):
     def test_unknown_pack_is_empty(self):
         self.assertEqual(build.pack_members(SYNTH, "nope"), [])
 
+    def test_registry_pack_notes_is_per_pack(self):
+        # The Notes cell, not the Profile cell — pack_lines reads conformance from here.
+        self.assertIn("Conformance checks (2026-01-02)", build.registry_pack_notes(SYNTH, "demo"))
+        self.assertNotIn("Conformance", build.registry_pack_notes(SYNTH, "other"))
+        self.assertEqual(build.registry_pack_notes(SYNTH, "nope"), "")
+
+    def test_pack_lines_does_not_borrow_another_packs_conformance(self):
+        # The bug the second pack exposed (2026-08-07): pack_lines was handed the
+        # Profile cell, never matched, and fell through to a whole-document search
+        # that returns the FIRST pack's conformance line — so pack #2's manifest was
+        # stamped with pack #1's checks. A pack with no line of its own must get the
+        # stated default, never a neighbour's.
+        _, _, (adopted, checks) = build.pack_lines(SYNTH, "demo", build.registry_pack_notes(SYNTH, "demo"))
+        self.assertEqual((adopted, checks), ("2026-01-02", "D-1 first · D-2 second"))
+        _, _, other = build.pack_lines(SYNTH, "other", build.registry_pack_notes(SYNTH, "other"))
+        self.assertEqual(other, build.DEFAULT_CHECKS)
+
 
 class LiveRegistry(unittest.TestCase):
     """The real registry, parsed with the real parsers — count integrity at
@@ -104,6 +122,10 @@ class LiveRegistry(unittest.TestCase):
         for seam in build.pack_seams(self.text, "foundation"):
             self.assertIn(seam[0], members, seam[:2])
             self.assertIn(seam[1], members, seam[:2])
+
+    def test_foundation_conformance_is_its_own(self):
+        notes = build.registry_pack_notes(self.text, "foundation")
+        self.assertIn("Conformance checks (", notes)
 
 
 if __name__ == "__main__":

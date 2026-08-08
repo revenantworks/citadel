@@ -97,6 +97,25 @@ def registry_packs(text: str) -> dict[str, str]:
     return packs
 
 
+def registry_pack_notes(text: str, pack: str) -> str:
+    """The Notes cell of one pack's row in the Pack registry table.
+
+    Added 2026-08-07 with the second pack. `registry_packs()` captures the *Profile*
+    cell only, and `pack_lines()` was handed that as its conformance source — so a pack
+    whose conformance line lives (as every pack's does) in its Notes cell never matched
+    locally and fell through to a whole-document search, which returns the FIRST pack's
+    line. With one pack that was invisible; with two it silently stamped ossuary's
+    manifest with foundation's checks and adoption date. Per-pack notes close it, and
+    `pack_lines()` no longer searches the whole document.
+    """
+    block = text.split("## Pack registry", 1)[1]
+    for line in block.splitlines():
+        m = re.match(rf"\|\s*`{re.escape(pack)}`\s*\|[^|]*\|(.*)\|\s*$", line)
+        if m:
+            return m.group(1).strip()
+    return ""
+
+
 def pack_members(text: str, pack: str) -> list[tuple[str, str, str]]:
     """(member, job, route) rows from the pack's canonical members table."""
     marker = f"**{pack} members**"
@@ -181,22 +200,30 @@ def pack_seam_note(text: str, pack: str) -> str:
     return m.group(1).strip() if m else ""
 
 
-def pack_lines(text: str, pack: str, profile_notes: str) -> tuple[str, str, tuple[str, str]]:
-    """Capstone, repo, and conformance lines for one pack (graceful when absent)."""
+DEFAULT_CHECKS = ("2026-07-13", "C-1 drift-audit verb · C-2 neutral default")
+
+
+def pack_lines(text: str, pack: str, pack_notes: str) -> tuple[str, str, tuple[str, str]]:
+    """Capstone, repo, and conformance lines for one pack (graceful when absent).
+
+    `pack_notes` is this pack's OWN Notes cell (see registry_pack_notes). The former
+    whole-document fallback is gone: it made a missing per-pack line resolve to some
+    other pack's, which is worse than a stated default.
+    """
     cap_m = re.search(rf"\*\*{pack} capstone:\*\*(.+)", text)
     cap = cap_m.group(1).strip() if cap_m else "—"
     repo_m = re.search(rf"\*\*{pack} canonical repo:\*\*\s*(`[^`]+`)", text)
     repo = repo_m.group(1) if repo_m else "the registered canonical repo"
-    conf = re.search(r"Conformance checks \(([\d-]+)\): ([^|.]+)", profile_notes) or \
-           re.search(r"Conformance checks \(([\d-]+)\): ([^|.]+)", text)
-    checks = conf.group(2).strip() if conf else "C-1 drift-audit verb · C-2 neutral default"
-    adopted = conf.group(1) if conf else "2026-07-13"
+    conf = re.search(r"Conformance checks \(([\d-]+)\): ([^|.]+)", pack_notes)
+    checks = conf.group(2).strip() if conf else DEFAULT_CHECKS[1]
+    adopted = conf.group(1) if conf else DEFAULT_CHECKS[0]
     return cap, repo, (adopted, checks)
 
 
 def render_pack_md(pack: str, profile: str, members, cap, repo, conf, seams=(), seam_note="") -> str:
     adopted, checks = conf
-    n_word = {7: "seven", 8: "eight", 9: "nine", 10: "ten"}.get(len(members), str(len(members)))
+    n_word = {2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven",
+              8: "eight", 9: "nine", 10: "ten"}.get(len(members), str(len(members)))
     rows = "\n".join(f"| `{m}` | {j} | {r} |" for m, j, r in members)
     seam_block = ""
     if seams:
@@ -711,7 +738,7 @@ def main() -> int:
         members = pack_members(text, pack)
         seams = pack_seams(text, pack)
         budgets = pack_budgets(text, pack)
-        cap, repo, conf = pack_lines(text, pack, profile_notes)
+        cap, repo, conf = pack_lines(text, pack, registry_pack_notes(text, pack))
         print(f"registry[{pack}]: {len(members)} members · {len(seams)} seams")
         validate_seams(pack, [m for m, _, _ in members], seams)
         pack_md = render_pack_md(pack, profile, members, cap, repo, conf, seams, pack_seam_note(text, pack))
