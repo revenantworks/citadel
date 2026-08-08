@@ -39,3 +39,23 @@ and the R11 case no longer match the shipped token** and are owed a re-run
 against the renamed description — not a rewrite of this table. Rows 1, 2, and
 4–10 key on trigger phrases and exclusions the rename did not touch and stand
 as measured.
+
+## 2026-08-08 · row 3 re-run · target v1.1.0 · runner: Claude (build-time cold read)
+
+Row 3 re-read cold against the shipped description (`Trigger on "daily bet
+card", "today's bets", "linecaller", "run linecaller"...`):
+
+| Row | Probe | Verdict |
+|---|---|---|
+| 3 | "linecaller" | PASS — name trigger, present verbatim in the description's trigger-on clause |
+
+Debt discharged for row 3. **R11 stays open, correctly** — it is a live
+idempotency assertion (run the pipeline twice same-day, assert the second
+run's card step is skipped and the ledger has no duplicate row), not a
+cold-trigger read, so it cannot be closed by re-reading a description. It
+needs an actual pipeline execution under the `linecaller` name, which this
+session does not run (no Odds API quota spend, no ledger/report writes
+outside the real daily routine). Closes naturally on the next live
+"Project Longshot - Daily Card" run or a deliberate manual `run linecaller`
+— check `reports/run-log.md` afterward for a same-day double-run entry
+before marking it measured.

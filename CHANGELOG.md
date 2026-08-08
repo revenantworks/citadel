@@ -15,6 +15,14 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [ossuary-v1.0.1] - 2026-08-07
+
+- linecaller evals: discharge the row-3 trigger debt owed since the
+  `vault`→`ossuary` / `-picker`→`-caller` rename — re-read cold against the
+  shipped `linecaller` token, PASS. R11 (a live idempotency assertion, not a
+  cold-trigger read) stays open until a real pipeline run exercises it; noted
+  in `RESULTS.md` rather than closed by assertion.
+
 ## [foundation-v2.2.2] - 2026-08-07
 
 Ships content that had already landed on 2.2.1 without a bump — and the pack version
