@@ -618,6 +618,17 @@ def _norm(p: Path) -> str:
 # `.in_use` is the plugin manager's live-session marker directory, not shipped content.
 PARITY_SKIP = {".in_use", ".DS_Store", ".git", "__pycache__"}
 
+# The brand-carriage law means citadel ships this file NEUTRAL forever — but on the
+# owner's own machine, install-definition.py (in the private brand repo) deliberately
+# overlays the real definition into the CACHE copy only, never the clone. Comparing the
+# cache against citadel's neutral HEAD therefore reports permanent "drift" for a file
+# that is working exactly as designed — the same never-passes-once-it-works defect as
+# the peer-file case below, just uncaught until a pack bump actually landed post-fix.
+# The clone must still be compared against neutral HEAD: a branded clone IS a real
+# brand-carriage violation. Only the loaded cache gets the swapped source of truth.
+_BRAND_DEFINITION_REL = Path("skills") / "revenantworks-foundation-brandwright" / "references" / "brand-definition.md"
+_BRAND_REPO_SOURCE = Path(r"V:\Projects\github\revenantworks\brand\brand-definition.md")
+
 
 def _shipped(root: Path):
     """Every file that ships from a pack root, relative to it."""
@@ -629,7 +640,7 @@ def _shipped(root: Path):
         yield p.relative_to(root)
 
 
-def _compare_tree(repo_root: Path, inst_root: Path, label: str) -> int:
+def _compare_tree(repo_root: Path, inst_root: Path, label: str, is_cache: bool = False) -> int:
     """Diff every shipped file, not just SKILL.md frontmatter. Returns the drift count.
 
     Frontmatter-only was the original scope and it under-reported twice: it reported clean
@@ -639,9 +650,12 @@ def _compare_tree(repo_root: Path, inst_root: Path, label: str) -> int:
     drift = []
     for rel in _shipped(repo_root):
         inst = inst_root / rel
+        src = repo_root / rel
+        if is_cache and rel == _BRAND_DEFINITION_REL and _BRAND_REPO_SOURCE.is_file():
+            src = _BRAND_REPO_SOURCE
         if not inst.is_file():
             drift.append(f"missing: {rel.as_posix()}")
-        elif _norm(repo_root / rel) != _norm(inst):
+        elif _norm(src) != _norm(inst):
             drift.append(f"differs: {rel.as_posix()}")
     for rel in _shipped(inst_root):
         if (repo_root / rel).is_file():
@@ -716,7 +730,7 @@ def parity(packs: dict[str, str]) -> int:
                 if not root.is_dir():
                     print(f"  ✗ {pack}: installPath does not exist"); drifted += 1
                     continue
-                drifted += _compare_tree(PACKS / pack, root, "loaded copy")
+                drifted += _compare_tree(PACKS / pack, root, "loaded copy", is_cache=True)
 
     if not checked:
         print("parity: nothing installed here — skipped")
