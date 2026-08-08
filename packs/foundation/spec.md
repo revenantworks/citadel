@@ -134,7 +134,8 @@ Prior pass — the 1.2.0 pass is **CLOSED**: register items ①②③④⑤ plus
 1.2.1 closures shipped, all eight assertion suites were executed for the first time,
 the pack's last open routing seam is closed, and `build.py --check` emits zero
 warnings. Item ⑥ (spec.md split) is **DONE 2026-07-25** — this baton is now split into
-`spec.md` (live), `ledger.md`, and `decisions.md`; ⑦/⑧ remain owner calls.
+`spec.md` (live), `ledger.md`, and `decisions.md`; ⑦/⑧ remained owner calls at the time
+(⑧ shipped 2026-07-27, ⑦ resolved 2026-08-07 — see the register above).
 **Debt cleared 2026-07-25 (week close-out).** The owed re-run of all eight assertion
 suites is **paid** — executed against released text and written into each
 `evals/RESULTS.md` (178/178 executed-and-passed · 0 FAIL · 2 NOT RUN; see `ledger.md`
@@ -161,9 +162,22 @@ framework-name menu (CO-STAR/RISEN) + fast path + hostile-interpreter pass; comm
 Humanize entry · ⑤ skillwright release-doctrine reference (this release is its worked
 example) · ⑥ spec.md split (spec/ledger/decisions) — **✅ DONE 2026-07-25** ·
 ⑦ pack-registry relocation out of skillwright when pack #2 becomes real (owner call) —
-**gate FIRED 2026-08-06**: the vault pack shipped (two members, `-picker` motif, canonical
-repo `longshot`; registry row added 2026-08-07). Relocation is now a live owner call, no
-longer event-gated; deliberately **not** executed inside the 2.0.0 rename release ·
+**gate FIRED 2026-08-06** (the vault pack shipped: two members, `-picker` motif, canonical
+repo `longshot`; registry row added 2026-08-07, renamed to `ossuary` the same day), and
+**✅ RESOLVED 2026-08-07 — the other way**. The owner call landed as *the skills move to the
+citadel, not the registry out of skillwright*: `revenantworks-ossuary-linecaller` and
+`revenantworks-ossuary-cardcaller` were relocated into `packs/ossuary/skills/` with a pack
+`plugin.json` at 1.0.0, a marketplace catalog entry, a pack router, and full registry
+tables (members, budgets, seams), so both packs now derive from one registry inside one
+repo. The registry therefore stays in skillwright, and the reason it was ever a question
+is gone: the item existed because a second pack living in another repo would have made
+skillwright's `references/` a cross-repo source of truth. Nothing is cross-repo now.
+`MickMacPW/longshot` keeps a declared downstream mirror at `skills/` — its cloud routine
+clones only that repo — recorded as a mirror in its `CLAUDE.md` file map, source of truth
+named, must-not-drift stated. What the resolution does **not** claim: a registry file at
+270+ lines serving nine members plus two is still shipped inside one member's zip, so the
+size argument survives its trigger. If that becomes a real cost it opens as a *token*
+item measured by tokenwright, not as this structural one ·
 ⑧ security-scan doctrine — **✅ DONE 2026-07-27, shipped at pack 1.3.0** (agentwright
 `Entry — Security-scan` with its own doctrine reference; skillwright's `Entry — Audit`
 gains its own security pass; each self-contained per the standalone profile, partitioned
@@ -187,10 +201,20 @@ carries a retired name. The refresh is delete-and-re-upload of every member
 under its `revenantworks-foundation-*` name from the 2.0.0 release zips.
 Still owed to the owner's hand; recorded here rather than claimed done.
 
-**The register is empty except ⑦ and ⑨.** ⑦ (pack-registry relocation out of skillwright)
-is the only structural item left, and **its gate has now fired** — the vault pack shipped
-2026-08-06 (registry row 2026-08-07) — so it is no longer event-gated: it is a live owner
-call on when to relocate, still never built speculatively. The assertion side that once
+**The register is now empty except ⑨.** ⑦ (pack-registry relocation out of skillwright) was
+the last structural item; its gate fired 2026-08-06 when the second pack shipped, and it
+**closed 2026-08-07 by owner decision resolving it the other way** — the pack moved into
+this repo instead of the registry moving out of skillwright, which dissolved the cross-repo
+source-of-truth problem the item was opened against. Full account in the register entry
+above. Structurally this is the first pass where count integrity spans two packs, and the
+second pack immediately found a latent parser bug the first could not expose: `pack_lines`
+read conformance checks from the *Profile* cell, never matched, and fell through to a
+whole-document search that returns the **first** pack's line — so ossuary's generated
+manifest was stamped with foundation's checks and adoption date. Fixed in `tools/build.py`
+(`registry_pack_notes`, per-pack notes, no whole-document fallback) with two unit tests,
+one on the fixture and one on the live registry. Recorded because it is the class this
+repo keeps re-learning: a gate that passes on N=1 is not evidence, and `--check` was clean
+throughout. The assertion side that once
 opened the next pass (agentwright 17-20, skillwright 38-40, lorewright 23, promptwright 36) is
 **discharged at 1.3.1** (9/9), and the routing findings behind it are **closed at 1.3.2**.
 
