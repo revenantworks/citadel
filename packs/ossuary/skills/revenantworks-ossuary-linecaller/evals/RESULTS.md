@@ -90,3 +90,22 @@ rows (8/8; see that member's provenance note). Judge caveat, recorded: the
 pack CLAUDE.md router was auto-loaded by the judge's harness; every routing
 reason cites frontmatter text only. **R11 remains open** — unchanged; it
 still needs a live double-run, not a description read.
+
+## 2026-08-08 (second run) · target v1.3.0 · runner: one blind judge (fresh context, no tools)
+
+The boundary clause moved with the companion's rename
+(`revenantworks-ossuary-cardcaller` → `revenantworks-ossuary-bonecaller`,
+ossuary 2.0.0), so the full 10-row suite was re-judged cold the same day.
+Judge setup: handed ONLY both members' post-rename name + description
+frontmatter and the 10 queries, blind to every Expect column — no router
+file, no bodies, no tools, so the auto-loaded-router caveat on the run above
+does not apply here.
+
+Rows 1–5 fire linecaller on their stated triggers ("daily bet card",
+"today's bets", the name row, the reconcile-and-card phrasing, the
+repo-plus-pipeline phrasing); rows 6, 7, 8, and 10 stay out on the
+sports-chat / model-work / placement / new-build exclusions; row 9 routes to
+**bonecaller**, the judge citing the renamed clause — linecaller "explicitly
+cedes ledger/bankroll questions to the companion". Pass rate: **10/10.**
+**R11 remains open** — unchanged; it still needs a live double-run, not a
+description read.

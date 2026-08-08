@@ -143,6 +143,22 @@ should probe — a bare "caller" query is weaker evidence of intent here than a 
 **Verdict: gate passed.** `-caller` is RARE, no prominent exact-name claimant
 exists for `linecaller`, `cardcaller`, or `ossuary`, and the rename executed.
 
+## Supersession — 2026-08-08: `cardcaller` → `bonecaller`
+
+Owner-directed member rename inside the claimed `-caller` motif (motif itself
+unchanged; the 2026-08-07 claim above stands). The C2 exact-name method was
+re-run live against the candidate *before* any file moved — the rename was
+gated on the result, and this is the record it was gated on. Verified
+2026-08-08; same 60-day cadence as the rest of this file.
+
+| name | result |
+|---|---|
+| `bonecaller` | **UNCLAIMED.** GitHub repo search: **0 repos** · npm **404** · PyPI **404** · crates.io **404** (checked with a proper User-Agent — crates.io 403s bare clients). Cleaner evidence than `cardcaller`'s own row above, which carried one 0★ namesake |
+| `shotcaller` *(runner-up, rejected)* | npm **claimed** (`shotcaller`, a dormant 2021 appointment-scraper) · GitHub: spicylobstergames/shotcaller-godot **296★** + shotcaller-minigene 156★ (game project) · PyPI 404 · crates.io 404. Fails the bar the 2026-08-07 rows set — a starred namesake plus a registry claim |
+
+**Verdict: gate passed.** `bonecaller` executed as ossuary 2.0.0; `cardcaller`
+joins `-picker` in the released-back-to-unclaimed column.
+
 ## Source URLs
 
 GitHub API repo searches (`api.github.com/search/repositories?q=<term>`),

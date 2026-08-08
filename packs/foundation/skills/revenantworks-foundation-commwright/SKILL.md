@@ -3,7 +3,7 @@ name: revenantworks-foundation-commwright
 description: Shapes any message to its channel and audience. Drafts human by default in a neutral professional voice; a specific brand voice applies only when named or handed in — voice definitions live in brandwright, and defining or saving one, even as "commwright voice", routes there. Trigger to write, rewrite, reshape, or shorten an email, text, Slack or Teams message, release notes, YouTube title, social post, or Discord announcement; to make it more formal or casual; to humanize a message that reads like AI or ChatGPT, stripping em dashes and emoji — a README, CLAUDE.md, or reference doc is skillwright’s prose, not commwright’s; for release comms or a comms plan; or when they name "commwright" for message or channel work ("commwright formats", "commwright audit", "commwright humanize"). It never sends.
 license: MIT
 metadata:
-  version: "1.0.2"
+  version: "1.0.3"
   profile: standalone
   pack: foundation
   brand: revenantworks

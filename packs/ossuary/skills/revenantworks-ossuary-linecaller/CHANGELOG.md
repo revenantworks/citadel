@@ -3,6 +3,21 @@
 All notable changes to this skill. Format: [Keep a Changelog](https://keepachangelog.com/),
 versioning: [SemVer](https://semver.org/).
 
+## [1.3.0] — 2026-08-08
+
+- Sibling references follow the companion's rename: the description's
+  boundary clause and `compatibility` now name
+  `revenantworks-ossuary-bonecaller` (renamed from
+  `revenantworks-ossuary-cardcaller` the same day; the 1.2.0 entry below
+  quotes the clause as released, with the old name — frozen record).
+- Step 5 hardening (audit finding): enrichment bullets are plain text —
+  HTML-escape quoted/fetched content before it lands in the `.html` drivers
+  list, so a planted "quote" cannot smuggle markup into the rendered card
+  the companion shows verbatim as an Artifact.
+- `evals/test-cases.md` provenance re-anchored (it had missed the 1.2.0
+  re-anchor — the build gate checks only `trigger-evals.md`; gap noted for
+  the build tool).
+
 ## [1.2.0] — 2026-08-08
 
 - Description gains the negative clause the ossuary seam table recorded as

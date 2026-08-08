@@ -2,6 +2,19 @@
 
 Format: [Keep a Changelog](https://keepachangelog.com/), versioning: [SemVer](https://semver.org/).
 
+## [1.2.0] — 2026-08-08
+
+- Eval coverage completed to the house standard: `evals/test-cases.md`
+  (7-case assertion suite — artifact render, bankroll relay with the ROI
+  caveat, placed-bet write shape, coaching-note shape, pause switches,
+  degraded paste fallback, BACKTEST labeling) and `SOURCES.md` ship for the
+  first time. `evals/RESULTS.md` now exists and carries the execution
+  records that the 1.1.1 entry below and the registry seam note already
+  pointed at — that pointer was broken until today (the 1.1.1 re-judge was
+  recorded only inside `trigger-evals.md`'s provenance note).
+- `references/companion-contract.md`: the coaching-note `From:` line and the
+  commit-message convention follow the member's new name (below).
+
 ## [1.1.1] — 2026-08-08
 
 - Personal-name scrub (owner approved): every reference to the owner by
@@ -74,3 +87,20 @@ description only, with the cold re-judge owed — and the pack ships a marketpla
 entry (`ossuary` 1.0.0). `README.md` updated for the canonical home and the
 generated manifest. Body, `description`, and version unchanged (continuous
 history).
+
+## 2026-08-08 — renamed revenantworks-ossuary-cardcaller → revenantworks-ossuary-bonecaller
+
+Owner-directed rename ("something cooler"), motif conserved: the ossuary claims
+`-caller`, and the pack's own naming rationale says bones are the oldest dice —
+calling the bones is native here in a way calling cards never quite was.
+Collision-checked before the claim per the COLLISION.md method: `bonecaller`
+has **zero** GitHub repos and is unclaimed on npm, PyPI, and crates.io
+(cleaner evidence than `cardcaller`'s own 2026-08-07 claim, which carried one
+0★ namesake); runner-up `shotcaller` was rejected on that same bar —
+npm-claimed (a dormant scraper) plus a 296★ GitHub game namesake. Name
+change — directory, `name:`, the name trigger token in `description`, and
+every cross-reference (registry tables, pack router, root README, sibling
+description and compatibility, longshot mirror and docs, the private brand
+definition's naming row); version history above is continuous across the
+rename. Shipped with the 1.2.0 eval completion; the post-rename cold
+re-judge of the trigger suite is recorded in `evals/RESULTS.md`.

@@ -2,6 +2,19 @@
 
 > Renamed from `revenant-foundation-commwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.0.3] — 2026-08-08
+
+- Case 4 fixture second-pass re-baseline (2026-08-08 estate audit): the
+  greeting's recipient name — like the sender signature, never a frozen
+  fact — now reads neutral. Its provenance against the original 2026-07-24
+  run was unrecorded, so it is treated as potentially real rather than
+  assumed synthetic; the fixture note records the adjudication. Frozen
+  facts and the clause under test remain byte-identical to the baseline.
+- This entry also lands the member-bump-on-shipped-change rule: the 2.2.3
+  release changed this member's fixture and RESULTS provenance without a
+  version bump, which left the claude.ai per-member re-upload with no
+  signal that the name scrub needed shipping there.
+
 ## [1.0.2] — 2026-08-01
 
 The skill's own framing prose used em dashes in the sentences that announce

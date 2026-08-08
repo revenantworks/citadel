@@ -8,8 +8,10 @@ foundation / standalone) · {{constraints}} — optional. Fill at run time;
 the VALIDATION RUN LADDER below defines the intent class for proof runs.
 
 Precondition: the six active-leg wrights are installed (promptwright,
-skillwright, commwright, lorewright, agentwright, tokenwright); brandwright and
-evalwright are consulted inside Leg 4 rather than driven as their own legs —
+skillwright, commwright, lorewright, agentwright, tokenwright); brandwright,
+evalwright, and rigwright are consulted inside Leg 4 rather than driven as
+their own legs — rigwright joins whenever the built skill carries or implies
+standing config (a CLAUDE.md, Project instructions, a `.claude` layout) —
 except in RUN 3, where brandwright takes Leg 0 and evalwright's audit line
 ships in <release>. Name any that are missing, recommend them by name, and
 apply that leg's (or Leg 4's consult's) skip clause rather than failing
@@ -38,7 +40,7 @@ HANDOFF → <ops_spec>…</ops_spec>.
 SKIP CLAUSE: if nothing acts autonomously, state "Leg 3 skipped — no
 agentic surface" and continue. Never skip silently.
 
-LEG 4 — skillwright · build (consults brandwright + evalwright)
+LEG 4 — skillwright · build (consults brandwright + evalwright + rigwright)
 Run the Build entry with the <verdict> requirements (plus <ops_spec> and
 <inner_prompts> when present) as the intent: fresh research → design
 catalog → one gate → build (**spec-clean neutral per the brand-carriage

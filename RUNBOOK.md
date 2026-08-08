@@ -7,6 +7,13 @@
 1. Make the change (member content, registry row, roster). On any member
    version bump, re-anchor its eval provenance lines in the same commit
    (evalwright's Provenance discipline; the build gate warns on drift).
+   **Any change to a member's shipped files — evals and fixtures included —
+   bumps that member's version in the same commit.** The claude.ai re-upload
+   step is keyed on the member zip's version, so an unbumped change is
+   invisible to the lazy-upload rule and never ships there: three members
+   went out that way in foundation-v2.2.3 (brandwright/commwright/agentwright
+   eval changes at unchanged versions), and for commwright the stranded
+   change was the personal-name scrub itself.
 2. `python tools/build.py --bump-pack <pack> <X.Y.Z>`: writes the
    marketplace entry + pack plugin.json + root CHANGELOG scaffold in one
    stroke (never hand-edit the two version fields separately: the

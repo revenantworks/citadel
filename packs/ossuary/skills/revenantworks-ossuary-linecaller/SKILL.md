@@ -1,16 +1,16 @@
 ---
 name: revenantworks-ossuary-linecaller
-description: Runs one pass of the Project Longshot daily NFL bet-card pipeline in the longshot repo — reconcile yesterday's results, update ratings and the ledger, fetch today's slate, FanDuel lines, injuries, and playing-time news, produce the Daily Bet Card, and commit. Trigger on "daily bet card", "today's bets", "linecaller", "run linecaller", or the scheduled daily run. Decision support only — it never places bets, never touches a sportsbook account, and never invents a number; missing data means PASS. Not for building betting models (the repo's code owns that), general sports chat, work outside the longshot repo, or reading an existing card and ledger/bankroll questions — the claude.ai companion revenantworks-ossuary-cardcaller owns those.
+description: Runs one pass of the Project Longshot daily NFL bet-card pipeline in the longshot repo — reconcile yesterday's results, update ratings and the ledger, fetch today's slate, FanDuel lines, injuries, and playing-time news, produce the Daily Bet Card, and commit. Trigger on "daily bet card", "today's bets", "linecaller", "run linecaller", or the scheduled daily run. Decision support only — it never places bets, never touches a sportsbook account, and never invents a number; missing data means PASS. Not for building betting models (the repo's code owns that), general sports chat, work outside the longshot repo, or reading an existing card and ledger/bankroll questions — the claude.ai companion revenantworks-ossuary-bonecaller owns those.
 license: MIT
 metadata:
-  version: "1.2.0"
+  version: "1.3.0"
   profile: custom:ossuary-personal
   pack: ossuary
   brand: revenantworks
   volatile:
     - file: references/model-spec.md
       class: event-driven
-compatibility: Requires the Project Longshot repo (default V:\Projects\github\MickMacPW\longshot on this machine), its .venv, git, and the gh CLI authenticated as MickMacPW. Machine-bound by design (personal skill; custom profile). Sibling revenantworks-ossuary-cardcaller reads the card this run writes, on claude.ai; it never runs the pipeline, and it is recommended by name, never required.
+compatibility: Requires the Project Longshot repo (default V:\Projects\github\MickMacPW\longshot on this machine), its .venv, git, and the gh CLI authenticated as MickMacPW. Machine-bound by design (personal skill; custom profile). Sibling revenantworks-ossuary-bonecaller reads the card this run writes, on claude.ai; it never runs the pipeline, and it is recommended by name, never required.
 ---
 
 # revenantworks-ossuary-linecaller
@@ -68,7 +68,10 @@ allowlist targets it). `PY` below means `.venv/Scripts/python.exe`.
    `reports/<today>.md` and `reports/<today>.html` (same wording, same
    place — the `.html`'s Drivers list is `<li>` items inside that game's
    `.drivers` block), with sourced context from step 3 (quotes, line-move
-   notes). Never alter picks, probabilities, stakes, or records — those come
+   notes). Enrichment bullets are plain text: HTML-escape any quoted or
+   fetched content before it lands in the `.html` drivers list — a planted
+   "quote" must never smuggle markup into the rendered card. Never alter
+   picks, probabilities, stakes, or records — those come
    from the model only. Persist every added bullet in
    `data/intel/<today>.enrichment.json`
    (`{"games": {"AWAY@HOME": {"drivers": ["..."]}}}`) — `card.build`

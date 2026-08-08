@@ -15,6 +15,62 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [foundation-v2.2.4] - 2026-08-08
+
+- skillwright 1.1.1: pack-registry records the ossuary member rename
+  (`cardcaller` → `bonecaller`, see ossuary-v2.0.0 below) across the members,
+  budgets, and seams tables; the Entry — Pack eval scenario's role moved to
+  "a customer-support engineer" (2026-08-08 estate audit, owner judgment —
+  the old role was a near-description of a firewalled identity's own
+  product).
+- commwright 1.0.3: case-04 fixture second-pass re-baseline — the greeting's
+  recipient name (never a frozen fact, provenance unrecorded) is neutralized
+  like the sender signature was in 2.2.3.
+- Forge Run capstone card: rigwright joins the Leg-4 consult roster
+  (brandwright + evalwright + rigwright) — the registry's 2026-07-30
+  nine-member claim finally reaches the card it claimed to have updated.
+- RUNBOOK: member-bump-on-shipped-change rule codified — any change to a
+  member's shipped files (evals and fixtures included) bumps that member in
+  the same commit, because the claude.ai lazy re-upload is keyed on the
+  member zip's version. 2.2.3 shipped three members' eval changes with no
+  version signal; for commwright the stranded change was the name scrub.
+- build.py: eval-provenance freshness now requires the head to name the
+  CURRENT member version (a dated re-anchor to an old version used to pass —
+  how linecaller's assertion suite sat at v1.1.0 through two releases);
+  parity compares an installed peer brand definition against its declared
+  home-repo source instead of skipping it (northstar mapped); clone parity
+  lines are labeled per pack.
+- NEXT.md refreshed (item 2 → confirm the 2026-08-07 branded `+install` zip
+  actually reached claude.ai).
+
+## [ossuary-v2.0.0] - 2026-08-08
+
+- **Member renamed: `revenantworks-ossuary-cardcaller` →
+  `revenantworks-ossuary-bonecaller`** (owner-directed, motif conserved —
+  the ossuary claims `-caller`, and bones are the oldest dice). Major pack
+  bump: a member's invocation name is a breaking surface. Collision-checked
+  before the claim (`audit/COLLISION.md`, 2026-08-08 supersession): zero
+  GitHub namesakes, unclaimed on npm/PyPI/crates.io; runner-up `shotcaller`
+  rejected on the same bar. Directory, frontmatter `name:`, description
+  trigger token, router, registry rows, root README, and both manifests
+  moved; member history continuous.
+- bonecaller 1.2.0: eval coverage completed to the house standard —
+  first assertion suite (`evals/test-cases.md`, 7 cases), first
+  `SOURCES.md`, and `evals/RESULTS.md` now exists, making the four surfaces
+  that already pointed at it true (the 1.1.1 re-judge record previously
+  lived only in trigger-evals' provenance note). Post-rename cold re-judge
+  of the trigger suite recorded there.
+- linecaller 1.3.0: description and compatibility follow the companion's
+  new name; step 5 hardened — enrichment bullets are plain text,
+  HTML-escaped before landing in the rendered card's drivers list (audit
+  finding: a planted "quote" could smuggle markup into the artifact the
+  companion renders verbatim); assertion-suite provenance re-anchored (the
+  missed 1.2.0 re-anchor the old gate accepted).
+- Pack CLAUDE.md: the stale "open asymmetry" seam paragraph replaced with
+  the closure the registry and both descriptions have recorded since
+  ossuary-v1.1.0 (the router asserted the opposite of the surface it
+  governs).
+
 ## [foundation-v2.2.3] - 2026-08-08
 
 - brandwright evals: the 1.2.0 roster/peer-selection mechanism finally has

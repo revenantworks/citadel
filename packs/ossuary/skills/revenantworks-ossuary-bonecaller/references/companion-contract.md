@@ -27,7 +27,7 @@ Path: `docs/coaching/YYYY-MM-DD-<slug>.md`. Shape:
 
 ```
 # <one-line title>
-Date: YYYY-MM-DD · From: the owner via cardcaller
+Date: YYYY-MM-DD · From: the owner via bonecaller
 
 <the note, verbatim-faithful to what the owner said>
 
@@ -41,7 +41,7 @@ approval in the repo, not just a note.
 
 ## Commit etiquette (when a write path exists)
 
-One commit per correction/note, message `cardcaller: <what>` — to
+One commit per correction/note, message `bonecaller: <what>` — to
 MickMacPW/longshot main only, never any other repo or remote. Never commit
 any credential or key. If a GitHub write tool errors, fall back to the
 copy-paste block — never retry-loop.

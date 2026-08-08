@@ -290,7 +290,7 @@ Provenance: derived from revenantworks-foundation-skillwright v1.0.0, 2026-07-14
 ## Case 33 — Roster gate is complete and singular
 
 **Input:**
-> Build me a pack of skills for a presales engineer at a software company.
+> Build me a pack of skills for a customer-support engineer at a software company.
 
 **Assert:**
 - Domain research precedes the catalog; a capability map appears with must-have / high-value / nice-to-have / adopt tiers, each row citing its incumbent scan

@@ -484,3 +484,15 @@ trigger evals.` sentence; **#35** lands on skillwright's file-prose claim with
 commwright's exclusion naming the README. The 1.4.0 security partition held
 again (#38–#42 all on the correct object; #43 fired neither). First 43/43 in
 the suite's history — recorded as the wright-listing baseline.
+
+## 2026-08-08 · row 31 re-judge · target v1.1.1 · runner: one blind judge (fresh context, no tools)
+
+Row 31's query role swapped for firewall distance ("a presales engineer" →
+"a customer-support engineer"; owner judgment, 2026-08-08 estate audit) — the
+only row touched, the `description` untouched. The swapped row was re-judged
+cold against the nine wright routing summaries: fires **skillwright**, the
+judge citing "a direct pack-design/build request... no other sibling covers
+authoring skill packages". The Entry — Pack core case holds under the new
+role; same Expected, PASS. The 43/43 wright-listing baseline above is
+unaffected — one query's wording moved and was re-judged alone; the standing
+full-suite re-run debts recorded earlier are neither discharged nor enlarged.

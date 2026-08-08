@@ -2,6 +2,21 @@
 
 > Renamed from `revenant-foundation-skillwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.1.1] — 2026-08-08
+
+- Eval scenario distance restored (2026-08-08 estate audit, owner judgment):
+  the Entry — Pack core case (trigger row 31, assertion case input) now reads
+  "a customer-support engineer at a software company" — the previous role was
+  a near-description of a firewalled identity's own product; same routing
+  shape, no Expect changed.
+- `references/pack-registry.md`: ossuary member rename recorded across the
+  members, budgets, and seams tables (`cardcaller` → `bonecaller`, ossuary
+  2.0.0) with the seam note's frozen narrative preserved.
+- Shipped-file changes now bump the member (this entry): the 2.2.3 release
+  changed three members' evals without moving their versions, which starves
+  the claude.ai lazy-upload rule of its signal — RUNBOOK amended to codify
+  the member-bump rule.
+
 ## [1.1.0] — 2026-08-07
 
 Two doctrine families added to `references/rubrics.md`, both from defects that

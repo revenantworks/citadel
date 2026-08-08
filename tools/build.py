@@ -522,12 +522,29 @@ def validate_evals(folder: Path, fm_ver: str) -> None:
     if not evdir.is_dir():
         return
     for f in sorted(evdir.glob("*.md")):
-        head = "\n".join(f.read_text(encoding="utf-8").splitlines()[:6])
-        prov = re.search(r"(?:[Pp]rovenance|derived|target)[^\n]*?v(\d+\.\d+\.\d+)", head)
-        if prov and prov.group(1) != fm_ver:
-            if not re.search(r"(?i)re-?(?:anchored|confirmed|verified|freshed|stamped)[^\n]*\d{4}-\d{2}-\d{2}", head):
-                fail(f"{folder.name}: evals/{f.name} provenance names v{prov.group(1)} but member is "
-                     f"{fm_ver} and no dated reconfirmation line found — restamp or reconfirm")
+        # RESULTS.md is an execution ledger — frozen records re-confirmed on their own
+        # cadence, so old version stamps there are history, not provenance drift.
+        if f.name == "RESULTS.md":
+            continue
+        # Head window: 6 lines was tuned for the original short headers; re-anchor
+        # notes accrete downward, so read enough of the head to see the newest one.
+        head_lines = f.read_text(encoding="utf-8").splitlines()[:16]
+        prov_text = "\n".join(ln for ln in head_lines
+                              if re.search(r"(?i)provenance|derived|target|re-?anchored", ln))
+        prov_versions = re.findall(r"\bv(\d+\.\d+\.\d+)\b", prov_text)
+        # 2026-08-08 tightening: a dated re-anchor line used to satisfy freshness even
+        # when it re-anchored to an OLD version — linecaller's test-cases.md sat at
+        # "re-anchored to v1.1.0" through the 1.2.0 release and the gate read clean.
+        # Rule: the CURRENT member version must be named somewhere on the provenance
+        # lines. Membership, not last-token: provenance lines legitimately end with
+        # other artifacts' versions (brandwright's names its fixture's v1.0.0 last),
+        # and predecessor-era designations can read HIGHER than current after the
+        # 2026-07-31 re-baseline, so ordering comparisons are meaningless. Known
+        # accepted gap: a reused designation could satisfy membership from a
+        # predecessor-era mention — a heuristic gate, strictly tighter than before.
+        if prov_versions and fm_ver not in prov_versions:
+            fail(f"{folder.name}: evals/{f.name} provenance names {sorted(set(prov_versions))} "
+                 f"but never the current member version {fm_ver} — re-anchor in the same commit")
         # Orphan = a numbered row whose nearest preceding non-empty line is not table-shaped
         # (a row under its own "|#|Query|" header in a later section is structured, not orphaned).
         lines = f.read_text(encoding="utf-8").splitlines()
@@ -628,6 +645,11 @@ PARITY_SKIP = {".in_use", ".DS_Store", ".git", "__pycache__"}
 # brand-carriage violation. Only the loaded cache gets the swapped source of truth.
 _BRAND_DEFINITION_REL = Path("skills") / "revenantworks-foundation-brandwright" / "references" / "brand-definition.md"
 _BRAND_REPO_SOURCE = Path(r"V:\Projects\github\revenantworks\brand\brand-definition.md")
+# Peer definitions live in their own home repos (never in HEAD); parity compares each
+# installed peer against its declared source when that repo is present on this machine.
+_PEER_SOURCES = {
+    "northstar": Path(r"V:\Projects\github\MickMacPW\brand\brand-definition.md"),
+}
 
 
 def _shipped(root: Path):
@@ -665,7 +687,15 @@ def _compare_tree(repo_root: Path, inst_root: Path, label: str, is_cache: bool =
         # absent from HEAD. Reporting it as drift made parity a gate that could
         # never pass once a peer existed — the inverse of a gate that never fails,
         # and just as useless. The primary brand-definition.md is still compared.
-        if re.fullmatch(r"brand-definition-[a-z0-9-]+\.md", rel.name):
+        # 2026-08-08: a peer with a declared home repo is now compared against that
+        # source (the line-654 mechanism, extended) — an unchecked peer meant a moved
+        # peer definition loaded stale forever while parity reported clean. A peer
+        # with no map entry keeps the old skip.
+        m = re.fullmatch(r"brand-definition-([a-z0-9-]+)\.md", rel.name)
+        if m:
+            peer_src = _PEER_SOURCES.get(m.group(1))
+            if peer_src and peer_src.is_file() and _norm(peer_src) != _norm(inst_root / rel):
+                drift.append(f"differs: {rel.as_posix()} (vs its peer source, {m.group(1)}'s home repo)")
             continue
         drift.append(f"extra:   {rel.as_posix()}")
     if drift:
@@ -711,7 +741,7 @@ def parity(packs: dict[str, str]) -> int:
         checked += 1
         print("clone — ~/.claude/plugins/marketplaces/revenantworks")
         for pack in packs:
-            drifted += _compare_tree(PACKS / pack, mkt / "packs" / pack, "clone")
+            drifted += _compare_tree(PACKS / pack, mkt / "packs" / pack, f"clone:{pack}")
 
     installed = home / "installed_plugins.json"
     if not installed.is_file():

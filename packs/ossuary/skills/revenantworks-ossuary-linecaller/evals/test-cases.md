@@ -1,7 +1,12 @@
 # Assertion suite — revenantworks-ossuary-linecaller
 
-Target: revenantworks-ossuary-linecaller · v1.1.0 · derived 2026-08-06;
-re-anchored to v1.1.0, 2026-08-06 (HTML card output — R1, R9 touched).
+Target: revenantworks-ossuary-linecaller · v1.3.0 · derived 2026-08-06;
+re-anchored to v1.1.0, 2026-08-06 (HTML card output — R1, R9 touched);
+re-anchored to v1.3.0, 2026-08-08 (description-only changes at 1.2.0/1.3.0 —
+seam clause landed, then the companion's rename; no case moved. The 1.2.0
+re-anchor was missed at the time — the build gate checks only
+trigger-evals.md provenance; caught by the 2026-08-08 estate audit. R6's
+injection assert now also covers the step-5 HTML-escape rule).
 11 cases, one per coverage-map row (R1 merges the four invocation phrasings
 — same behavior). Runnable cold: each case is an input plus yes/no asserts
 against run output and repo files. `PY` = `.venv/Scripts/python.exe`.
