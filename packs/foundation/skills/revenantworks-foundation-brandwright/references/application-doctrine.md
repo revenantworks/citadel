@@ -8,6 +8,7 @@ change for a rebrand — the definition changes the values, this maps where they
 ## Contents
 
 - The cascade
+- Palette inheritance — structure, light, and marks
 - Overrides
 - Suites
 
@@ -19,7 +20,7 @@ change for a rebrand — the definition changes the values, this maps where they
 |---|---|
 | Brand token + pack | Name segments (`<brand>-<pack>-<skill>`) and frontmatter `metadata.brand` / `metadata.pack` — for a built skill, usually already stamped structurally at build; Apply confirms, never renames silently |
 | Profile | Frontmatter `metadata.profile` (structural; set at build) |
-| Palette role tokens | Any HTML/visual output the target produces (cards, pages, reports): background/text/accent CSS variables |
+| Palette role tokens | Any HTML/visual output the target produces (cards, pages, reports): background/text/accent CSS variables, plus the surface/border stack and the lit/glow pair where the definition carries them — which of those a given target inherits is Palette inheritance below |
 | Voice profile | Prose register on the target's own surfaces, as the definition's register map governs them — never a skill's `description` field, and never a channel-bound message |
 | License default | LICENSE file + frontmatter `license` |
 | Wordmark rule | Header/footer lockup on the target's HTML artifacts |
@@ -39,6 +40,36 @@ in play — is skillwright's under Entry — Audit's prose pass, per the
 so a run that turns out to be asking for it says so and routes there.
 
 **Sibling artifacts are apply targets.** Every other wright builds neutral; their outputs come here to be branded, and brandwright is the *only* place brand is applied. Canonical targets: a promptwright **prompt card** (its neutral "Prompt Card" header takes the wordmark lockup and the palette), a tokenwright **report / budget sheet** (its neutral HTML takes the palette), and any skill's HTML artifact. None of them apply brand themselves — Apply is the single door.
+
+## Palette inheritance — structure, light, and marks
+
+Three rules deciding which palette values reach a target once the definition holds
+more than one identity or more than one mode. Where the values come from is
+`audit-doctrine.md`'s Build — palette derivation; this is where they land.
+
+**Structure is shared; light is not.** The neutral surface and border stack may be
+one system-wide set — at those chromas its hue is barely perceptible, so sharing it
+costs no identity — and Apply lands it on every target in the system. Visible colour
+is the opposite: an accent, and the lit and glow values derived from it, belong to
+**one identity and one mode**. A sub-brand's surface derives its own light from its
+own accent and never inherits the parent's, inside one pack, one repo, or one page.
+
+**A multi-mode brand needs a complete light set per mode, and modes never mix on one
+surface.** Where the definition holds a primary and an alternate accent, Apply
+resolves the mode first and lands that mode's whole set together; taking one value
+from each mode is the defect this rule exists to prevent. The definition states the
+**switch condition** — which surfaces or contexts select the alternate — and Apply
+follows it. A mode carrying values but no stated switch condition is an incomplete
+definition, raised at the gate rather than guessed at.
+
+**The mark tier — a parent accent may cross as attribution, never as light.** A
+parent brand's accent is allowed on a child's surface where it is doing *attribution*
+work: a lineage line, a co-branded lockup, a link home. It is never that surface's
+identity, never its lit or glow, and never its content emphasis. Scope the
+no-crossing rule that way — **light versus mark** — rather than forbidding the colour
+outright, or every honest lockup becomes a finding. The firewall map still governs
+which identities may co-occur at all; the mark tier only bounds what a permitted
+co-occurrence may use the colour *for*.
 
 ## Overrides
 

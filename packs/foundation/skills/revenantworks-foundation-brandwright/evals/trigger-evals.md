@@ -7,7 +7,7 @@
 > verbatim because they record what was true when written — read them by date,
 > not by version.
 
-Read each cold against name + description only. Provenance: derived from revenantworks-foundation-brandwright v1.0.0, 2026-07-14; refreshed 2026-07-23 for 1.1.0 — #12 flipped to SHOULD (Entry — Apply is brandwright's own now). Re-anchored to v1.1.7, 2026-07-25 — provenance only, nothing was executed here: the 2026-07-24 description-regime slim is already ledgered in `evals/RESULTS.md`, and [1.1.3] through [1.1.7] record no description change since — that work was body, reference, and assertion-case repair (the export shapes, the build interview, the seven audit categories, P0's triggers, the Apply cascade row). No query, expectation, or count touched; still 22, 13/9.
+Read each cold against name + description only. Provenance: derived from revenantworks-foundation-brandwright v1.0.0, 2026-07-14; refreshed 2026-07-23 for 1.1.0 — #12 flipped to SHOULD (Entry — Apply is brandwright's own now). Re-anchored to v1.1.7, 2026-07-25 — provenance only, nothing was executed here: the 2026-07-24 description-regime slim is already ledgered in `evals/RESULTS.md`, and [1.1.3] through [1.1.7] record no description change since — that work was body, reference, and assertion-case repair (the export shapes, the build interview, the seven audit categories, P0's triggers, the Apply cascade row). No query, expectation, or count touched; still 22, 13/9. **Re-anchored to v1.1.0, 2026-08-07:** reference-doctrine additions plus two load-budget bullets; the `description` is byte-identical to 1.0.2's, so no query, expectation, or count moved — still 22, 13/9 — and no re-run is owed.
 
 | # | Query | Expected |
 |---|---|---|

@@ -3,7 +3,7 @@ name: revenantworks-foundation-brandwright
 description: Defines a brand and its voice — identity, naming, palette, taglines, firewall — and applies them on request across skills, packs, artifacts, docs, and repos. Ships neutral — no brand exists until one is built or handed in; outputs spec-clean. Trigger to create, define, rebuild, or consolidate a brand, voice, or style guide; to apply a brand or voice to a built skill, artifact, repo, or doc; to audit a repo, tree, or skill set for drift — wrong names, off-palette colors, off-voice copy, stale handles or taglines; to export a voice profile or HTML brand-guide card; or say brandwright build / apply / audit / export. Applying a voice to one message is commwright's via the exported profile; a whole skill set's rebrand is a handoff — brandwright defines the identity, skillwright port propagates it.
 license: MIT
 metadata:
-  version: "1.0.2"
+  version: "1.1.0"
   profile: standalone
   pack: foundation
   brand: revenantworks
@@ -31,8 +31,8 @@ The single home of brand and voice. One definition — built by interview or ing
 Every run touches `brand-definition.md` (volatile, stamped — the single update surface; holds identity **and** the voice profile). Apply-to-a-skill/artifact detail lives in `application-doctrine.md`; build, audit, and guide-card detail in `audit-doctrine.md`. `pack.md` on boundary doubt only. **Export runs open no reference for the voice profile, structural payload, or style one-pager** — those three shapes are stated in full in Entry — Export and bind whether or not any file is open; only the HTML guide card reaches further, for its fill rules.
 
 - `brand-definition.md` — every run; the active identity + voice (or neutral)
-- `application-doctrine.md` — Entry — Apply: how the brand/voice lands on a built skill or artifact
-- `audit-doctrine.md` — the two build extraction rules, the per-category sweep notes and scoring arithmetic, the P1/P2 bands, guide-card fill rules; on Entry — Export, the guide card is the one payload that loads it
+- `application-doctrine.md` — Entry — Apply: how the brand/voice lands on a built skill or artifact, and palette inheritance across sub-brands and modes plus the cross-brand mark tier
+- `audit-doctrine.md` — the two build extraction rules, the palette-derivation rules D-1 to D-7, the per-category sweep notes and scoring arithmetic, the P1/P2 bands, guide-card fill rules; on Entry — Export, the guide card is the one payload that loads it
 - `pack.md` — boundary doubt only
 
 ## Volatile surfaces

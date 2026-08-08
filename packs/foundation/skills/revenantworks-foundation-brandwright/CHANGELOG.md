@@ -2,6 +2,44 @@
 
 > Renamed from `revenant-foundation-brandwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.1.0] — 2026-08-07
+
+Palette doctrine, additive. Until now the palette guidance was a role-token
+rule and a drift sweep note: a definition could name a background, a text
+colour and an accent and be judged complete, while the surface stack, the
+borders, the derived light and the separation between accents were governed by
+nothing. Nine live definition revisions in one day each fixed a defect that
+doctrine should have caught before it shipped, so the fixes are recorded as
+rules rather than as values.
+
+- `audit-doctrine.md` gains **Build — palette derivation**, seven rules stated
+  as numbers to measure: neutrals computed in OKLCH at the brand's own accent
+  hue rather than hand-picked (D-1) · a ~1.13:1 visibility floor per elevation
+  step (D-2) · the border token split into quiet and lit, the lit one clearing
+  3:1 on its own surface (D-3) · lit and glow derived from the accent's *own*
+  lightness with a floor as the `max`'s second term, and the general rule that a
+  rule tuned on one hue is re-tested on every hue before it becomes doctrine
+  (D-4) · colour never carrying state alone, per WCAG 1.4.1 (D-5) · a shared
+  accent set proved by a ΔE00 coverage matrix, optimised jointly rather than
+  member-by-member, with semantic overrides recorded (D-6) · CIEDE2000 as the
+  separation metric with a regional floor where the wheel is crowded (D-7).
+- The **palette drift** sweep note now puts the neutrals in scope and requires
+  the ratios be recomputed and reported, and the palette scored against the
+  definition's own accessibility floor as well as its role tokens. The audit
+  that missed the 76°-off stack scored the accents and measured nothing else.
+- `application-doctrine.md` gains **Palette inheritance — structure, light, and
+  marks**: structure may be shared system-wide while light belongs to one
+  identity and one mode; a multi-mode brand needs a complete set per mode with a
+  stated switch condition and modes never mix on one surface; and a parent
+  accent may cross onto a child's surface as *attribution* but never as that
+  surface's light — the no-crossing rule is scoped light-versus-mark rather than
+  as a ban on the colour. The cascade's palette row points here.
+
+No entry point, count, gate, or ordered list moved, and the `description` is
+byte-identical, so no trigger re-run is owed; the eval provenance lines are
+re-anchored with that stated. Zero identity content added — the neutral-core law
+holds, and every rule is stated as a derivation or a threshold, never a value.
+
 ## [1.0.2] — 2026-08-01
 
 A prose/register pass. The per-element-exclusion example ("no palette on

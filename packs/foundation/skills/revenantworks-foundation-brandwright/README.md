@@ -12,8 +12,8 @@ revenantworks-foundation-brandwright/
 ├── README.md · LICENSE · CHANGELOG.md · SOURCES.md
 ├── references/
 │   ├── brand-definition.md       # event-driven, stamped — the active identity + voice (ships neutral/empty)
-│   ├── application-doctrine.md    # Entry — Apply: how the brand/voice lands on a built skill or artifact
-│   ├── audit-doctrine.md         # build extraction rules, per-category sweep notes, guide-card fill rules
+│   ├── application-doctrine.md    # Entry — Apply: how the brand/voice lands on a target, plus palette inheritance
+│   ├── audit-doctrine.md         # build extraction + palette-derivation rules, sweep notes, guide-card fill rules
 │   └── pack.md                   # foundation-pack advisory manifest (stamped)
 └── evals/                        # in full folder-zips, excluded from .skill
     ├── test-cases.md             # assertion-only suite
