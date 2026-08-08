@@ -15,6 +15,22 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [ossuary-v2.1.0] - 2026-08-08
+
+- linecaller 1.4.0: the daily run stages **by path**
+  (`reports ledger models docs data/intel data/odds`) instead of `git add -A`,
+  with `data/nflverse/` excluded by name. Closes the two remaining open
+  findings against this member from the 2026-08-08 assessment: the
+  unbounded-history risk (a 37 MB depth-chart CSV plus games.csv were
+  recommitted on every refresh — in-season churn would have ballooned the
+  repo, which is what the LFS question was really about) and the observation
+  that `-A` ships any stray working-tree file unreviewed. Chosen over Git LFS
+  deliberately: LFS would add a binary dependency the daily cloud runner does
+  not have, while the CSVs are re-fetchable cache governed by their own
+  `.stamp` files. They stay tracked at their current revision so a fresh clone
+  still boots warm, so run reliability is unchanged. New assertion case R12
+  covers it (11 → 12).
+
 ## [foundation-v2.2.4] - 2026-08-08
 
 - skillwright 1.1.1: pack-registry records the ossuary member rename

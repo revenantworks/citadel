@@ -3,7 +3,7 @@ name: revenantworks-ossuary-linecaller
 description: Runs one pass of the Project Longshot daily NFL bet-card pipeline in the longshot repo — reconcile yesterday's results, update ratings and the ledger, fetch today's slate, FanDuel lines, injuries, and playing-time news, produce the Daily Bet Card, and commit. Trigger on "daily bet card", "today's bets", "linecaller", "run linecaller", or the scheduled daily run. Decision support only — it never places bets, never touches a sportsbook account, and never invents a number; missing data means PASS. Not for building betting models (the repo's code owns that), general sports chat, work outside the longshot repo, or reading an existing card and ledger/bankroll questions — the claude.ai companion revenantworks-ossuary-bonecaller owns those.
 license: MIT
 metadata:
-  version: "1.3.0"
+  version: "1.4.0"
   profile: custom:ossuary-personal
   pack: ossuary
   brand: revenantworks
@@ -82,7 +82,12 @@ allowlist targets it). `PY` below means `.venv/Scripts/python.exe`.
    changes as a "Proposals" list with rationale. Bankroll guardrails change
    only with the owner's explicit approval.
 7. **Verify + ship:** `PY -m longshot verify-ledger` must pass; then the
-   identity gate (rule 2); then `git add -A && git commit && git push`.
+   identity gate (rule 2); then stage **by path, never `-A`**:
+   `git add reports ledger models docs data/intel data/odds` → commit → push.
+   `data/nflverse/` is deliberately excluded: those bulk CSVs are a re-fetchable
+   cache, and committing each refresh grows history without adding a fact the
+   ledger does not already hold. Path staging also keeps a stray file in the
+   working tree from shipping unreviewed.
 8. **Report:** print the card's terminal summary line and top pick.
 
 ## Degraded runs

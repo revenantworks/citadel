@@ -28,7 +28,7 @@
       "name": "ossuary",
       "source": "./packs/ossuary",
       "description": "Two decision-support callers for Project Longshot: linecaller (Claude Code) runs one pass of the daily NFL bet-card pipeline and commits the card; bonecaller (claude.ai) reads that card, explains its picks, reports bankroll and dashboard state, logs what was actually bet, and captures coaching notes. Decision support only — neither places a bet, touches a sportsbook account, or invents a number. Both are bound to the private longshot repo, so they are only useful to someone who holds it.",
-      "version": "2.0.0",
+      "version": "2.1.0",
       "license": "MIT",
       "category": "productivity",
       "keywords": [

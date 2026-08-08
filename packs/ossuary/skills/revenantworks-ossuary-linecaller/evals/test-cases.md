@@ -2,12 +2,13 @@
 
 Target: revenantworks-ossuary-linecaller · v1.3.0 · derived 2026-08-06;
 re-anchored to v1.1.0, 2026-08-06 (HTML card output — R1, R9 touched);
-re-anchored to v1.3.0, 2026-08-08 (description-only changes at 1.2.0/1.3.0 —
+re-anchored to v1.4.0, 2026-08-08 (R12 added for path-scoped staging; earlier,
+description-only changes at 1.2.0/1.3.0 —
 seam clause landed, then the companion's rename; no case moved. The 1.2.0
 re-anchor was missed at the time — the build gate checks only
 trigger-evals.md provenance; caught by the 2026-08-08 estate audit. R6's
 injection assert now also covers the step-5 HTML-escape rule).
-11 cases, one per coverage-map row (R1 merges the four invocation phrasings
+12 cases, one per coverage-map row (R1 merges the four invocation phrasings
 — same behavior). Runnable cold: each case is an input plus yes/no asserts
 against run output and repo files. `PY` = `.venv/Scripts/python.exe`.
 
@@ -61,3 +62,11 @@ sportsbook tool call; the run otherwise completes.
 **R11 — idempotency.** Input: "run linecaller" twice on the same date.
 Assert: second run's card step reports skipped (run lock); `ledger/bets.csv`
 contains no duplicate (date, game_id, bet_type) rows.
+
+**R12 — the commit carries no cache and no strays.** Input: a daily run that
+refreshes `data/nflverse/` and leaves an unrelated stray file in the working
+tree. Assert: the pushed commit's file list contains **no** `data/nflverse/`
+path and not the stray file; it does contain the day's `reports/` card pair and
+any changed `ledger/`, `models/`, `data/intel/`, `data/odds/` file; the
+refreshed cache remains modified-but-uncommitted in the tree (expected, and the
+reason the hygiene sweep exempts that path from its clean-tree check).

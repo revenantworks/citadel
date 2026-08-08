@@ -3,6 +3,18 @@
 All notable changes to this skill. Format: [Keep a Changelog](https://keepachangelog.com/),
 versioning: [SemVer](https://semver.org/).
 
+## [1.4.0] — 2026-08-08
+
+- Step 7 stages **by path** (`reports ledger models docs data/intel data/odds`)
+  instead of `git add -A`, and `data/nflverse/` is excluded by name. Closes two
+  audit findings at once: the unbounded-history risk (the 37 MB depth-chart CSV
+  and the 2 MB games.csv were being recommitted on refresh, and in-season
+  churn would have ballooned the repo) and the observation that `-A` ships any
+  stray working-tree file unreviewed. The bulk CSVs stay tracked at their
+  current revision so a fresh clone still boots with a cache; `fetch` refreshes
+  them locally and the `.stamp` files govern staleness, so nothing about run
+  reliability changes.
+
 ## [1.3.0] — 2026-08-08
 
 - Sibling references follow the companion's rename: the description's
