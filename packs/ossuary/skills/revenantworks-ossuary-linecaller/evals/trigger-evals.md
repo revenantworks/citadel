@@ -1,8 +1,14 @@
 # Trigger evals — revenantworks-ossuary-linecaller
 
-Target: revenantworks-ossuary-linecaller · v1.1.0 · derived 2026-08-06;
+Target: revenantworks-ossuary-linecaller · v1.2.0 · derived 2026-08-06;
 re-anchored to v1.1.0, 2026-08-06 (HTML card output — no trigger-surface
-change, description and rows unaffected). Read cold against name +
+change, description and rows unaffected). **Re-anchored to v1.2.0,
+2026-08-08:** the description gained the owed seam-closing boundary clause —
+existing-card reads and ledger/bankroll questions belong to the claude.ai
+companion — so the routing surface changed and the full suite was re-judged
+cold the same day: **10/10**, recorded in `evals/RESULTS.md`. Row 9's old
+JUDGE tag is retired by that run — the exclusion is now stated in the
+description rather than inferred. Read cold against name +
 description only. 10 rows: 5 should-fire / 5 shouldn't-fire.
 
 | # | Query | Expect |

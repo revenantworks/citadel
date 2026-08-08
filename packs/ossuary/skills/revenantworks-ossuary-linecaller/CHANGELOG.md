@@ -3,6 +3,19 @@
 All notable changes to this skill. Format: [Keep a Changelog](https://keepachangelog.com/),
 versioning: [SemVer](https://semver.org/).
 
+## [1.2.0] — 2026-08-08
+
+- Description gains the negative clause the ossuary seam table recorded as
+  owed: "not for reading an existing card and ledger/bankroll questions —
+  the claude.ai companion revenantworks-ossuary-cardcaller owns those."
+  The seam is now stated on both members' descriptions; cold re-judge of
+  the trigger suite run with the change (see `evals/RESULTS.md`).
+- Personal-name scrub (owner approved): the owner is no longer named by
+  first name in the body or `references/card-contract.md`.
+- `references/card-contract.md` no longer names live brand palette tokens
+  on this public surface — it points at `longshot/style.py` as the single
+  token source instead (brand-carriage hygiene).
+
 ## [1.1.0] — 2026-08-06
 
 - The daily card is now written as both `reports/<date>.md` (unchanged,

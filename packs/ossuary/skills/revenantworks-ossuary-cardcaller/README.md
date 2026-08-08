@@ -3,10 +3,10 @@
 Ossuary pack member #2 (`-caller` motif), whose canonical home is
 `revenantworks/citadel` at `packs/ossuary/skills/`. The claude.ai companion to Project
 Longshot: reads the Daily Bet Card the cloud routine produces, explains it,
-shows bankroll/dashboard status, records what Alex actually bet, and
+shows bankroll/dashboard status, records what the owner actually bet, and
 captures coaching notes that train the model. Decision-support only — the
-sibling `revenantworks-ossuary-linecaller` (Claude Code) and the "Longshot Daily
-Card" cloud routine own the pipeline itself; this skill never runs it and
+sibling `revenantworks-ossuary-linecaller` (Claude Code) and the "Project
+Longshot - Daily Card" cloud routine own the pipeline itself; this skill never runs it and
 never touches a sportsbook.
 
 ## Install on claude.ai

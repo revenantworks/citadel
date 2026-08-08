@@ -3,9 +3,9 @@
 ## Ledger correction (placed / placed_stake)
 
 `ledger/bets.csv` — fixed columns; only ever touch `placed`, `placed_stake`,
-and (when Alex gives a verdict on a graded bet) `postmortem`. Identify the
-row by `bet_id` when Alex names it, else by (date, game, bet_type) and
-confirm the match back to him before writing.
+and (when the owner gives a verdict on a graded bet) `postmortem`. Identify the
+row by `bet_id` when the owner names it, else by (date, game, bet_type) and
+confirm the match back to the owner before writing.
 
 - `placed`: `yes` (as recommended) · `no` (skipped) · `modified` (different
   stake — then `placed_stake` = actual dollars) · `assumed` is the default
@@ -27,17 +27,17 @@ Path: `docs/coaching/YYYY-MM-DD-<slug>.md`. Shape:
 
 ```
 # <one-line title>
-Date: YYYY-MM-DD · From: Alex via cardcaller
+Date: YYYY-MM-DD · From: the owner via cardcaller
 
-<the note, verbatim-faithful to what Alex said>
+<the note, verbatim-faithful to what the owner said>
 
 Suggested target: <params key / model layer / "general">, if obvious.
 ```
 
-Notes are instructions to the model — keep Alex's meaning exact; never
+Notes are instructions to the model — keep the owner's meaning exact; never
 soften or editorialize. If a note asks to change a bankroll guardrail,
-record it but say plainly that guardrail changes need his explicit approval
-in the repo, not just a note.
+record it but say plainly that guardrail changes need the owner's explicit
+approval in the repo, not just a note.
 
 ## Commit etiquette (when a write path exists)
 

@@ -2,6 +2,16 @@
 
 Format: [Keep a Changelog](https://keepachangelog.com/), versioning: [SemVer](https://semver.org/).
 
+## [1.1.1] — 2026-08-08
+
+- Personal-name scrub (owner approved): every reference to the owner by
+  first name — in `description`, `compatibility`, the body, the companion
+  contract, the README, and one eval row — now reads "the owner". No
+  trigger token changed; a cold re-judge of all 8 trigger rows was run
+  anyway because the description text changed (see `evals/RESULTS.md`).
+- README: the cloud routine is named by its full canonical name
+  ("Project Longshot - Daily Card"), closing a stale short form.
+
 ## [1.1.0] — 2026-08-06
 
 - Card reading now fetches `reports/<date>.html` and shows it as a live

@@ -15,6 +15,46 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [foundation-v2.2.3] - 2026-08-08
+
+- brandwright evals: the 1.2.0 roster/peer-selection mechanism finally has
+  coverage — trigger suite 22 → 30 (17/13), assertion suite 16 → 23 (Cases
+  17–23: named/scoped/ask selection, never-blend, peer-scoped audit with the
+  cross-brand P0, absent-roster refusal, build-writes-peers), and a new peer
+  fixture `brand-definition-saltmere.md` beside the primary (bumped 2.0.0 →
+  2.1.0 with a roster table). Extended AND executed the same day: two
+  independent blind judges 27/30 each (identical misses — the known #15/#17
+  borderline pair, plus new #27, an authoring defect reworded in-pass with
+  its single re-judge owed); Cases 17–23 first execution 7/7 PASS. Full
+  record in brandwright `evals/RESULTS.md`.
+- Owner-approved personal-identifier scrub on public eval surfaces:
+  commwright's `case-04` fixture re-signed with a neutral name (re-baselined,
+  not silently edited — frozen facts byte-identical; provenance updated in
+  `RESULTS.md`), and local run paths in commwright's and agentwright's
+  `RESULTS.md` ledgers redacted to `%TEMP%` (entries otherwise verbatim).
+- skillwright pack-registry: the ossuary seam row moves from *one
+  description* to *both descriptions* — the owed linecaller boundary clause
+  landed (ossuary 1.1.0) and the cold re-judge is executed, so the seam note
+  records the closure instead of the debt.
+
+## [ossuary-v1.1.0] - 2026-08-08
+
+- linecaller 1.2.0: the description gains the owed seam-closing clause —
+  "not for reading an existing card and ledger/bankroll questions — the
+  claude.ai companion revenantworks-ossuary-cardcaller owns those." Full
+  10-row cold re-judge executed: 10/10, and row 9's old JUDGE tag retires
+  (the exclusion is now stated text). `references/card-contract.md` also
+  stops naming live brand palette tokens on this public surface — it points
+  at the private repo's `style.py` as the single token source
+  (brand-carriage hygiene).
+- cardcaller 1.1.1 + linecaller 1.2.0: owner-approved personal-name scrub —
+  the owner is no longer named by first name anywhere in either member
+  (descriptions, bodies, contracts, README, eval prose). No trigger token
+  moved; cardcaller's 8-row suite was re-judged cold anyway: 8/8. Both
+  members' provenance re-anchored in the same commit.
+- cardcaller README: the cloud routine is named by its full canonical name
+  ("Project Longshot - Daily Card"), closing a stale short form.
+
 ## [ossuary-v1.0.1] - 2026-08-07
 
 - linecaller evals: discharge the row-3 trigger debt owed since the

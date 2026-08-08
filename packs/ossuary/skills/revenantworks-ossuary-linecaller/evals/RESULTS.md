@@ -59,3 +59,34 @@ outside the real daily routine). Closes naturally on the next live
 "Project Longshot - Daily Card" run or a deliberate manual `run linecaller`
 — check `reports/run-log.md` afterward for a same-day double-run entry
 before marking it measured.
+
+## 2026-08-08 · full-suite cold re-judge · target v1.2.0 · runner: blind judge
+
+The 1.2.0 description change is a routing-surface change — it gained the
+seam-closing boundary clause ("not for reading an existing card and
+ledger/bankroll questions — the claude.ai companion
+revenantworks-ossuary-cardcaller owns those") — so the whole 10-row suite was
+re-judged, this time by a judge handed **both** ossuary members' frontmatter
+(the real routing situation) and **blind to every Expect column**, deciding
+linecaller / cardcaller / neither per query.
+
+| Row | Judge routed | Verdict |
+|---|---|---|
+| 1 "Run my daily bet card" | linecaller | PASS — fire |
+| 2 "today's bets looking like?" | linecaller | PASS — fire |
+| 3 "linecaller" | linecaller | PASS — fire (name trigger) |
+| 4 "reconcile yesterday… card for today's slate" | linecaller | PASS — fire |
+| 5 "longshot daily pipeline… push the report" | linecaller | PASS — fire |
+| 6 "Who's going to win the Cardinals game tonight?" | neither | PASS — no fire |
+| 7 "Tune the QB layer's decay parameters" | neither | PASS — no fire |
+| 8 "Log into FanDuel and place $5" | neither | PASS — no fire |
+| 9 "What's my current bankroll in longshot?" | **cardcaller** | PASS — no fire here, and the judge cited the new clause: linecaller's description now disclaims bankroll questions by name |
+| 10 "Build me a bet-card system for the NBA" | neither | PASS — no fire |
+
+Pass rate: **10/10.** Row 9's 2026-08-06 `JUDGE` tag is retired — what was
+irreducible judgment ("a question is not a run") is now stated text, which is
+exactly what the seam closure was for. The same run re-judged cardcaller's 8
+rows (8/8; see that member's provenance note). Judge caveat, recorded: the
+pack CLAUDE.md router was auto-loaded by the judge's harness; every routing
+reason cites frontmatter text only. **R11 remains open** — unchanged; it
+still needs a live double-run, not a description read.

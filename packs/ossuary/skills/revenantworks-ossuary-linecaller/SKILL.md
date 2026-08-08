@@ -1,9 +1,9 @@
 ---
 name: revenantworks-ossuary-linecaller
-description: Runs one pass of the Project Longshot daily NFL bet-card pipeline in the longshot repo — reconcile yesterday's results, update ratings and the ledger, fetch today's slate, FanDuel lines, injuries, and playing-time news, produce the Daily Bet Card, and commit. Trigger on "daily bet card", "today's bets", "linecaller", "run linecaller", or the scheduled daily run. Decision support only — it never places bets, never touches a sportsbook account, and never invents a number; missing data means PASS. Not for building betting models (the repo's code owns that), general sports chat, or work outside the longshot repo.
+description: Runs one pass of the Project Longshot daily NFL bet-card pipeline in the longshot repo — reconcile yesterday's results, update ratings and the ledger, fetch today's slate, FanDuel lines, injuries, and playing-time news, produce the Daily Bet Card, and commit. Trigger on "daily bet card", "today's bets", "linecaller", "run linecaller", or the scheduled daily run. Decision support only — it never places bets, never touches a sportsbook account, and never invents a number; missing data means PASS. Not for building betting models (the repo's code owns that), general sports chat, work outside the longshot repo, or reading an existing card and ledger/bankroll questions — the claude.ai companion revenantworks-ossuary-cardcaller owns those.
 license: MIT
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
   profile: custom:ossuary-personal
   pack: ossuary
   brand: revenantworks
@@ -19,7 +19,7 @@ One run of the Project Longshot daily pipeline. The deliverable is the Daily
 Bet Card, written as both `reports/<today>.md` (plain text) and
 `reports/<today>.html` (a self-contained, artifact-ready rendered page —
 same content, `longshot/style.py` design tokens), plus a terminal summary —
-a human (Alex) reads the card and places any bets manually on FanDuel.
+a human (the owner) reads the card and places any bets manually on FanDuel.
 
 ## Hard rules — these override everything
 
@@ -47,7 +47,7 @@ allowlist targets it). `PY` below means `.venv/Scripts/python.exe`.
    routine is the production runner, so a local clone is stale by default
    and a card built from stale bankroll/ledger state is wrong (cloud runs
    clone fresh; the pull is a no-op there). Then read `models/params.json`,
-   `docs/LEARNINGS.md`, everything in `docs/coaching/` (Alex's notes —
+   `docs/LEARNINGS.md`, everything in `docs/coaching/` (the owner's notes —
    instructions to the model, apply them), and `PAUSED` check: if `PAUSED`
    exists at repo root, run only `PY -m longshot reconcile`, log, and stop —
    that is the kill switch.
@@ -77,7 +77,7 @@ allowlist targets it). `PY` below means `.venv/Scripts/python.exe`.
 6. **Monday extras:** `PY -m longshot dashboard`; distill the week's
    postmortem tags into `docs/LEARNINGS.md`; propose (never apply) parameter
    changes as a "Proposals" list with rationale. Bankroll guardrails change
-   only with Alex's explicit approval.
+   only with the owner's explicit approval.
 7. **Verify + ship:** `PY -m longshot verify-ledger` must pass; then the
    identity gate (rule 2); then `git add -A && git commit && git push`.
 8. **Report:** print the card's terminal summary line and top pick.

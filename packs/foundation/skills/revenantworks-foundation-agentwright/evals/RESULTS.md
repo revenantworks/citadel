@@ -122,7 +122,7 @@ No other case's input or assert changed, so no other case was re-run. Case 16 re
 
 Method: **the skill was actually run**, again — the same 16 cases in `evals/test-cases.md`, each given live, output produced, assert checked mechanically against that output (regex and `awk` counts, header-set enumeration, adjective sweeps with positive controls, codepoint scans). Like the v1.1.2 run above and unlike the two trigger runs, nothing here is a listing judgement. This run exists to pay a specific debt: at v1.1.2, Cases 13 and 14 passed on assistant convention, the doctrine was amended in 1.1.3 to close them, and **the amended cases were never re-executed** — the closures recorded above were claims about the text. This run executes them.
 
-Provenance, verified mechanically before the run: HEAD = `c2cbc52`, `git tag --points-at HEAD` = **`foundation-v1.2.0`**, `git status --porcelain` on the agentwright directory empty. The text executed is the released text. The member ran at frontmatter version **1.1.5** (1.2.0 is the pack version, not the member's). No file was edited during execution. Case outputs and check transcripts: `C:/Users/lostb/AppData/Local/Temp/agentwright-eval/outputs.txt` and `c1..c16.txt`.
+Provenance, verified mechanically before the run: HEAD = `c2cbc52`, `git tag --points-at HEAD` = **`foundation-v1.2.0`**, `git status --porcelain` on the agentwright directory empty. The text executed is the released text. The member ran at frontmatter version **1.1.5** (1.2.0 is the pack version, not the member's). No file was edited during execution. Case outputs and check transcripts: `%TEMP%/agentwright-eval/outputs.txt` and `c1..c16.txt`.
 
 **Counts: 16 authored, 15 executed, 15 passed, 0 failed, 1 NOT RUN.**
 

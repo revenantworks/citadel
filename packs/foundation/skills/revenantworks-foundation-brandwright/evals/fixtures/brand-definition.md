@@ -2,9 +2,22 @@
 
 > **⚠ TEST FIXTURE. Every name, handle, hex value, tagline, and voice attribute below is INVENTED for this eval suite.** "Quillhaven Instruments" and "Marrowlight" are fictional companies that do not exist. This file is **not** the repo's brand and is **not** anyone's brand: per the brand-carriage law this repo is brand-neutral, `references/brand-definition.md` ships as the neutral placeholder, and the only carrier of a real identity is a privately configured local copy. Nothing here may be copied into `references/`, into a skill's frontmatter, or into any shipped artifact.
 >
-> **Why it exists.** Nine assertion cases (3, 4, 5, 8, 9, 11, 13, 14, 15) require "a definition stored". Without a shipped fixture every executor invented one, which is the exact act the neutral-core law forbids and which made those nine rows non-reproducible run to run. This file is that stored definition, **handed in for the run** — Entry — Audit and Entry — Export both take a handed-in definition; Build is still the only writer of `references/brand-definition.md`, and no eval run writes it.
+> **Why it exists.** Sixteen assertion cases (3, 4, 5, 8, 9, 11, 13, 14, 15, and 17–23) require a definition in play; the roster cases (17–23) additionally hand in the peer fixture `brand-definition-saltmere.md` beside this file. Without a shipped fixture every executor invented one, which is the exact act the neutral-core law forbids and which made those nine rows non-reproducible run to run. This file is that stored definition, **handed in for the run** — Entry — Audit and Entry — Export both take a handed-in definition; Build is still the only writer of `references/brand-definition.md`, and no eval run writes it.
 
-**Last built: 2026-07-25 · definition version 2.0.0 · brand token `quillhaven`**
+**Last built: 2026-08-08 · definition version 2.1.0 · brand token `quillhaven`**
+
+## Roster
+
+Every definition this fixture install carries. The primary is this file; peers are `brand-definition-<slug>.md` beside it. Selection reads this table, so a brand absent here is a brand brandwright will not find.
+
+| Slug | File | Scope — surfaces it owns | Coexists with | Boundary |
+|---|---|---|---|---|
+| `quillhaven` *(primary)* | this file | product & client surfaces: `quillhaven-*` repos and packs, client deliverables, guide cards, the company site | `saltmere` | a saltmere attribution line may appear in doc footers only — never its palette, voice, or accent |
+| `saltmere` | `brand-definition-saltmere.md` | personal surfaces: `saltmere-*` repos, personal essays, the newsletter | `quillhaven` | no quillhaven mark on saltmere surfaces |
+
+Marrowlight is deliberately **not** a roster row: it is a sub-brand persona *inside* this definition. Peers have their own file and row; sub-brands live inside a definition — the distinction Case 23 pins.
+
+*(v2.1.0, 2026-08-08: roster + saltmere peer added for the roster/selection cases; the v2.0.0 identity content below is unchanged.)*
 
 ## Active definition
 

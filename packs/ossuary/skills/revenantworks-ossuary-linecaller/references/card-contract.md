@@ -8,11 +8,12 @@ Drivers bullets (section 5) and fix prose typos.
 
 Every run writes **both** `reports/<date>.md` (plain text, the ledger and
 skill-parsing source of truth, unchanged format) and `reports/<date>.html`
-(same content, rendered — voidblack/threshold-blue scoreboard-ticket
-layout, `longshot/style.py` tokens, self-contained/no external requests).
+(same content, rendered — the scoreboard-ticket layout whose design tokens
+live in `longshot/style.py`, the single source for card + dashboard;
+self-contained/no external requests).
 The `.md` is the run lock (idempotency keys off it existing); the `.html`
 is generated alongside it whenever the `.md` is written and is what gets
-shown to Alex. **Enrichment (Drivers-only edits) must be applied to both
+shown to the owner. **Enrichment (Drivers-only edits) must be applied to both
 files identically** — same text, same places.
 
 ## Header (always)
@@ -46,6 +47,6 @@ only. **Never invent a slate.**
 ## Ledger contract
 
 Every recommended bet lands in `ledger/bets.csv` as `pending` with
-`placed=assumed`. Alex corrects `placed`/`placed_stake` when a bet was
+`placed=assumed`. The owner corrects `placed`/`placed_stake` when a bet was
 skipped or resized (or says so in a coaching note — then the skill edits the
 row). PASSes are card-only, never ledger rows.
