@@ -29,7 +29,9 @@ citadel repo cloned into its environment, so it runs the real gates.
 
 **Kill switch:** disable or delete the routine at
 https://claude.ai/code/routines. Nothing runs between fires; nothing is ever
-committed by the routine.
+committed by the routine. The routine holds Write/Edit for scratch files in its
+own sandbox and an outcome branch it never pushes to; the report-only rule is
+enforced by the prompt, not by the tool grant.
 
 **Hard rules carried in the prompt:** report-only; live re-verification or
 provisional, never restamp from memory; unreadable stamps reported as unknown,
