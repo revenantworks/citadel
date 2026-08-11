@@ -25,7 +25,10 @@ citadel repo cloned into its environment, so it runs the real gates.
 5. Zero-signal rule: all green costs one line. Otherwise: compact report +
    regenerated files + a paste-ready commit line + the two standing reminders
    (re-upload changed members on claude.ai; re-export the brand-escrow backup
-   if the definition changed).
+   if the definition changed) — delivered as a **published HTML artifact**
+   titled "Foundation Health Report" that updates in place at one fixed URL
+   across fires, never as a markdown file (owner decision 2026-08-11; the
+   routine holds the Artifact tool for exactly this).
 
 **Kill switch:** disable or delete the routine at
 https://claude.ai/code/routines. Nothing runs between fires; nothing is ever
