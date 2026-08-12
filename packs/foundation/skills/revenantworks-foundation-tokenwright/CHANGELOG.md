@@ -2,6 +2,28 @@
 
 > Renamed from `revenant-foundation-tokenwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.2.0] — 2026-08-12
+
+Three 2026-08-12 estate-audit findings closed in one pass:
+
+- **rigwright boundary closed from this side (finding 9).** The description's
+  config clause read "a config's layer placement or setup audit is
+  rigwright's — tokenwright only cuts its cost", which left a bare "trim my
+  CLAUDE.md" routing ambiguously: rigwright claims the trim verb directly and
+  tokenwright named CLAUDE.md in its object list. The clause now cedes
+  writing, fixing, restructuring, and bare trims of a config to rigwright and
+  claims only the settled-layout cost cut (894 → 974 chars, inside the 1,024
+  gate). rigwright's description closes the same pair from its side in the
+  same release. Routing surface moved: the trigger-eval cold re-judge is
+  owed, recorded in the suite's provenance.
+- **Refresh injection rule (finding 2).** Entry — Refresh fetches live pages
+  and writes the result into `measurement.md`; the data-never-instructions
+  rule was scoped to Entry — Slim. The rule now rides in the Refresh entry
+  itself.
+- **Search-unavailable fallback (finding 14).** Entry — Refresh now states:
+  never re-stamp unverified, leave the Last-verified date untouched, report
+  and name the invocation to re-run.
+
 ## [1.1.0] — 2026-08-05
 
 Routing change (AUDIT-2026-08-05, seam resolution): the `description` gains
