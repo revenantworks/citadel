@@ -1,6 +1,6 @@
 # Trigger evals — revenantworks-ossuary-bonecaller
 
-Target: revenantworks-ossuary-bonecaller · v1.2.0 · derived 2026-08-06;
+Target: revenantworks-ossuary-bonecaller · v1.3.0 · derived 2026-08-06;
 re-anchored to v1.1.0, 2026-08-06 (card now shown as a live Artifact — no
 trigger-surface change, description and rows unaffected); re-anchored to
 v1.1.1, 2026-08-08 (personal-name scrub — the description's referent became
@@ -8,7 +8,11 @@ v1.1.1, 2026-08-08 (personal-name scrub — the description's referent became
 member renamed `revenantworks-ossuary-cardcaller` → `revenantworks-ossuary-bonecaller`,
 so the name trigger token in the description moved with it; no other row or
 exclusion changed. Execution records (the 1.1.1 cold re-judge and the
-post-rename re-judge) live in `evals/RESULTS.md`. Read cold
+post-rename re-judge) live in `evals/RESULTS.md`. **Re-anchored to v1.3.0,
+2026-08-12:** body-and-frontmatter changes only (ROI threshold re-homed to a
+pointer, connector tools fully qualified in `compatibility`, hard rule 3
+extended to the render path); the description is byte-identical to 1.2.0's,
+so the routing surface these rows judge did not move — no row changed. Read cold
 against name + description. 8 rows: 4 should-fire / 4 shouldn't.
 
 | # | Query | Expect |

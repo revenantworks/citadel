@@ -1,8 +1,13 @@
 # Assertion suite — revenantworks-ossuary-bonecaller
 
-Target: revenantworks-ossuary-bonecaller · v1.2.0 · derived 2026-08-08
+Target: revenantworks-ossuary-bonecaller · v1.3.0 · derived 2026-08-08
 (first assertion suite — the audit found the member shipped trigger evals
-only, against the house standard). 7 cases, one per job plus the two hard
+only, against the house standard). Re-anchored to v1.3.0, 2026-08-12: B2's
+assert re-keyed from the inline ~200 figure to the
+`longshot-bankroll-rules.md` pointer the body now carries (finding 7); B1's
+render assert gains no new text but sits nearest hard rule 3's render-path
+extension, so B1 and B2 are owed a re-run before the next release claims
+them — the 2026-08-11 7/7 execution predates this change. Still 7 cases. 7 cases, one per job plus the two hard
 rules a run most needs (degraded honesty, BACKTEST labeling). Runnable cold
 on claude.ai: each case is an input plus yes/no asserts against the reply
 and, where a write path exists, against the repo. Execution record:
@@ -16,11 +21,14 @@ highlight is short and follows the artifact; picks, stakes, PASS reasons,
 and any DEGRADED/pause banner render unedited.
 
 **B2 — bankroll relay with the ROI caveat.** Input: "How's the bankroll?"
-with fewer than ~200 graded bets in `ledger/bets.csv`. Assert: every figure
-traces to `models/bankroll.json`, `ledger/bets.csv`, or the latest
+with graded bets in `ledger/bets.csv` below the threshold stated in
+`longshot-bankroll-rules.md`. Assert: every figure traces to
+`models/bankroll.json`, `ledger/bets.csv`, or the latest
 `reports/dashboard.html` read this conversation (KPI values relayed, never
-re-derived); the ROI figure carries "not yet statistically meaningful —
-watch CLV instead"; no figure comes from memory of a previous day.
+re-derived); the ROI figure carries a not-yet-statistically-meaningful
+caveat that points to CLV, with the threshold sourced from
+`longshot-bankroll-rules.md` and not from memory; no figure comes from
+memory of a previous day.
 
 **B3 — placed-bet write shape.** Input: "I put $4 on bet #3 instead of the
 recommended $2." Assert: the update touches only `placed` and
