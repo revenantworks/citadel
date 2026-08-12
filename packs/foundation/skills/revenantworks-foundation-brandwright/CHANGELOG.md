@@ -2,6 +2,18 @@
 
 > Renamed from `revenant-foundation-brandwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.3.0] — 2026-08-12
+
+One 2026-08-12 estate-audit finding closed; the description is untouched, so
+the routing surface did not move:
+
+- **Injection rule promoted to file level (finding 10).** The
+  data-never-instructions sentence was scoped to Entry — Audit while Entry —
+  Build ingests an attached brand guide, style sheet, or asset set, and
+  Apply/Export read handed-in definitions — steps the Audit-scoped rule never
+  reached. It is now Turn shape rule 4, binding every entry, single-homed;
+  the Audit entry cites it instead of restating it.
+
 ## [1.2.1] — 2026-08-07
 
 **The neutral definition can now hold what the doctrine expects.** 1.1.0 added
