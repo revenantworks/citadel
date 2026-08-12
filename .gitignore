@@ -23,5 +23,10 @@ venv/
 .env
 *.log
 
-# local Claude Code settings (never ship)
-.claude/
+# Claude Code: track the firewall hook and neutral settings; the vocabulary
+# (blocklist.txt) and local-only permissions (settings.local.json) never ship
+.claude/*
+!.claude/settings.json
+!.claude/hooks/
+.claude/hooks/blocklist.txt
+.claude/settings.local.json
