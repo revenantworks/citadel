@@ -39,9 +39,12 @@ citadel repo cloned into its environment, so it runs the real gates.
 
 **Kill switch:** disable or delete the routine at
 https://claude.ai/code/routines. Nothing runs between fires; nothing is ever
-committed by the routine. The routine holds Write/Edit for scratch files in its
-own sandbox and an outcome branch it never pushes to; the report-only rule is
-enforced by the prompt, not by the tool grant.
+committed by the routine. The single platform-level switch is a deliberate
+choice (2026-08-12): the routine is report-only **by grant**, not only by
+prompt — its `allowed_tools` carry no Write or Edit and it has no outcome
+branch (both removed 2026-08-12), so there is nothing an in-repo PAUSED file
+would protect. The report-only rule is enforced mechanically by the tool
+grant; the prompt's hard rules restate it as defence in depth.
 
 **Hard rules carried in the prompt:** report-only; live re-verification or
 provisional, never restamp from memory; unreadable stamps reported as unknown,
