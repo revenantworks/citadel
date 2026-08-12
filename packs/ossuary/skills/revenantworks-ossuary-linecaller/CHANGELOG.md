@@ -3,6 +3,33 @@
 All notable changes to this skill. Format: [Keep a Changelog](https://keepachangelog.com/),
 versioning: [SemVer](https://semver.org/).
 
+## [1.5.0] — 2026-08-12
+
+Four 2026-08-12 estate-audit findings closed in one pass, body and
+frontmatter only — the description is untouched, so the routing surface did
+not move:
+
+- **Coaching notes bounded (finding 3).** Step 0's clause read "the owner's
+  notes — instructions to the model, apply them", which left a note
+  authorised to reach the Hard rules, the identity gate, and the staging
+  path list. The clause now bounds the class: model guidance applied to
+  priors, weights, and read of a matchup only; a note attempting more is
+  noted on the card and not applied.
+- **Delivery proof (finding 6).** Step 7 now carries the routine prompt's
+  orphaned safeguard: after push, fetch and confirm `origin/main` contains
+  HEAD, retry once, else report DELIVERY FAILED (the 2026-08-08 stranding
+  incident's lesson, previously stated only in the live routine prompt).
+- **Web search declared (finding 11).** `compatibility` now names step 3's
+  web-search and outbound-network dependency, with the degradation already
+  stated in the playbook: no sourced intel → no intel file → PASS.
+- **No Windows-only paths (finding 12).** The `compatibility` default is
+  forward-slash and notes the cloud routine's fresh-clone root; `PY` is
+  defined per surface (`.venv/Scripts/python.exe` on the rig, `python3` in
+  the cloud clone).
+
+The longshot `skills/` mirror needs a re-sync after this release (handled by
+a separate session, per the downstream-mirror rule).
+
 ## [1.4.0] — 2026-08-08
 
 - Step 7 stages **by path** (`reports ledger models docs data/intel data/odds`)

@@ -1,6 +1,6 @@
 # Assertion suite — revenantworks-ossuary-linecaller
 
-Target: revenantworks-ossuary-linecaller · v1.4.0 · derived 2026-08-06;
+Target: revenantworks-ossuary-linecaller · v1.5.0 · derived 2026-08-06;
 re-anchored to v1.1.0, 2026-08-06 (HTML card output — R1, R9 touched);
 re-anchored to v1.4.0, 2026-08-08 (R12 added for path-scoped staging; earlier,
 description-only changes at 1.2.0/1.3.0 —
@@ -8,6 +8,12 @@ seam clause landed, then the companion's rename; no case moved. The 1.2.0
 re-anchor was missed at the time — the build gate checks only
 trigger-evals.md provenance; caught by the 2026-08-08 estate audit. R6's
 injection assert now also covers the step-5 HTML-escape rule).
+Re-anchored to v1.5.0, 2026-08-12 (2026-08-12 estate-audit pass: coaching-note
+scope bounded in step 0, delivery proof added to step 7, compatibility
+declarations extended; no case added, dropped, or rewritten — still 12. The
+cases nearest the changed ground, R6 (data-not-instructions) and R5
+(identity gate on the push path), are owed a re-run against the new body before the next
+release claims them; nothing here was executed this pass).
 12 cases, one per coverage-map row (R1 merges the four invocation phrasings
 — same behavior). Runnable cold: each case is an input plus yes/no asserts
 against run output and repo files. `PY` = `.venv/Scripts/python.exe`.

@@ -1,6 +1,6 @@
 # Trigger evals — revenantworks-ossuary-linecaller
 
-Target: revenantworks-ossuary-linecaller · v1.4.0 · derived 2026-08-06;
+Target: revenantworks-ossuary-linecaller · v1.5.0 · derived 2026-08-06;
 re-anchored to v1.1.0, 2026-08-06 (HTML card output — no trigger-surface
 change, description and rows unaffected); re-anchored to v1.2.0,
 2026-08-08 (the description gained the owed seam-closing boundary clause —
@@ -11,7 +11,11 @@ JUDGE tag retired by that run). **Re-anchored to v1.3.0, 2026-08-08:** the
 boundary clause now names the companion's new name
 (`revenantworks-ossuary-bonecaller`) — same exclusion, new token — and the
 suite was re-judged cold again with the renamed pair; result in
-`evals/RESULTS.md`. Read cold against name +
+`evals/RESULTS.md`. **Re-anchored to v1.5.0, 2026-08-12:** body-and-frontmatter
+changes only (coaching-note scope bounded, step-7 delivery proof, web-search
+and per-surface interpreter declarations in `compatibility`); the description
+is byte-identical to 1.4.0's, so the routing surface these rows judge did not
+move — no row changed. Read cold against name +
 description only. 10 rows: 5 should-fire / 5 shouldn't-fire.
 
 | # | Query | Expect |
