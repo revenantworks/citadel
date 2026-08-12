@@ -15,6 +15,55 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [ossuary-v2.2.0] - 2026-08-12
+
+The 2026-08-12 estate-audit remediation pass, ossuary half (findings 3, 6, 7,
+11, 12, 19, 20 of `estate-audit/findings/audit-2026-08-12.json`):
+
+- linecaller 1.5.0: coaching notes bounded to model guidance (never the Hard
+  rules, the identity gate, the staging list, or any command); step 7 gains
+  the delivery proof (fetch, confirm origin/main holds HEAD, retry once, else
+  DELIVERY FAILED — ported from the live routine prompt so the skill is the
+  procedure's single home); `compatibility` declares step 3's web-search and
+  network dependency and drops the Windows-only path and interpreter forms
+  for per-surface ones.
+- bonecaller 1.3.0: the graded-bet ROI threshold is re-homed to a pointer at
+  `longshot-bankroll-rules.md` (one number, one home); the connector
+  dependency names the fully-qualified tools (`github:get_file_contents`,
+  `github:create_or_update_file`); hard rule 3 extends to the verbatim-HTML
+  render path.
+- **The longshot `skills/` mirror is owed a re-sync** for both members
+  (separate session, per the downstream-mirror rule), and the live Longshot
+  routine prompt is owed its thinning to point at the skill (finding 6's
+  other half).
+
+## [foundation-v2.3.0] - 2026-08-12
+
+The 2026-08-12 estate-audit remediation pass, foundation half (findings 2, 5,
+8, 9, 10, 13, 14, 15, 16, 17 of the same audit):
+
+- All five refresh-carrying members (agentwright 1.2.0, promptwright 1.4.0,
+  tokenwright 1.2.0, rigwright 1.1.0, skillwright 1.2.0) carry the
+  fetched-page injection rule on their fetch-and-stamp steps, and the four
+  without one gain the search-unavailable no-restamp fallback.
+- The handed-in-material injection rule is promoted to a file-level Turn
+  shape rule in commwright 1.1.0, brandwright 1.3.0, evalwright 1.1.0, and
+  rigwright 1.1.0 — single-homed, binding every entry.
+- Boundary closes: rigwright ↔ tokenwright shut from both sides (both
+  descriptions moved; seam row updated); skillwright's description gains the
+  tokenwright and evalwright negative triggers.
+- skillwright: packaging caps re-homed to Rubric A; shell/python3 packaging
+  dependency declared; rubrics.md records the ~150-line TOC threshold as a
+  deliberate house variance from Anthropic's ~100.
+- TOCs: lorewright 1.1.3 (verdict-mode.md) and commwright (humanize.md) gain
+  Contents blocks.
+- agentwright gains its missing dependency declaration.
+- upkeep-task.md scope item 2 now derives member surfaces from
+  `metadata.volatile` and fails loud; the live routine's STEP 2 is owed the
+  matching edit by hand.
+- Registry budget rows raised for the audit additions (promptwright 9030,
+  skillwright 8080, linecaller 1560), reasons per row.
+
 ## [ossuary-v2.1.0] - 2026-08-08
 
 - linecaller 1.4.0: the daily run stages **by path**
