@@ -57,7 +57,7 @@ Both are **decision support only** by hard rule — neither places a bet, touche
 
 Alternatively, copy any single skill folder from `packs/<pack>/skills/` into `~/.claude/skills/` (personal) or `.claude/skills/` (project).
 
-**Before you install:** every skill here is plain-text and MIT-licensed. Read any `SKILL.md` and its `references/` before use. Anthropic recommends running Skills only from sources you trust and auditing third-party skills first; this repo is public and auditable end to end.
+**Before you install:** every skill here is plain-text and MIT-licensed — the root `LICENSE` is the verbatim MIT text, and it covers every skill and document in the repo. Read any `SKILL.md` and its `references/` before use. Anthropic recommends running Skills only from sources you trust and auditing third-party skills first; this repo is public and auditable end to end.
 
 ## Layout
 
@@ -65,6 +65,9 @@ Alternatively, copy any single skill folder from `packs/<pack>/skills/` into `~/
 .claude-plugin/marketplace.json   # the catalog — one plugin entry per pack
 packs/<pack>/                     # the plugin: .claude-plugin/plugin.json · skills/ · spec.md (+ ledger.md · decisions.md) · capstone/
 tools/build.py                    # registry-derived sync + validation + dist zips (--check = CI mode)
+audit/                            # the standing audit record and the naming-collision registry (COLLISION.md)
+RUNBOOK.md                        # release and sync procedure — read before shipping anything
+NEXT.md                           # the open queue — remaining follow-ups
 ```
 
 Member versions are independent semver; pack releases tag as `<pack>-vX.Y.Z` and CI attaches every member zip to the release. Single source of truth for rosters: the pack tables in skillwright's `pack-registry.md`. `tools/build.py` derives the manifests and refuses drift.
