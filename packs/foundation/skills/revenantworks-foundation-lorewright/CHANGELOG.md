@@ -2,6 +2,16 @@
 
 > Renamed from `revenant-foundation-lorewright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.1.3] — 2026-08-12
+
+One 2026-08-12 estate-audit finding closed (finding 13): at 197 lines,
+`references/verdict-mode.md` — declared loaded in full on every verdict run —
+passed both the external ~100-line table-of-contents threshold and the house
+~150 with no contents block. It now carries a `## Contents` section directly
+after the header, listing its own `##` headings in document order, the shape
+the pack's other long references already use. No rule, section, count, or
+entry point moved; the description is untouched.
+
 ## [1.1.2] — 2026-08-02
 
 Token slim (tokenwright), no behavior change. The v1.1.0 Selection/Decision

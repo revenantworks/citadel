@@ -2,6 +2,15 @@
 
 Loaded on every verdict run. Mutually exclusive with playbook-mode.md.
 
+## Contents
+
+- 0. Verdict class — decide this first
+- 1. Criteria intake
+- 2. Live-source verification
+- 3. Comparison
+- 4a. The recommendation — Selection class
+- 4b. The recommendation — Decision class
+
 ## 0. Verdict class — decide this first
 
 Two shapes, one mode. The class sets the recommendation form in §4 and nothing else;
