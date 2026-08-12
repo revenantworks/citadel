@@ -2,6 +2,17 @@
 
 > Renamed from `revenant-foundation-evalwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.1.0] — 2026-08-12
+
+One 2026-08-12 estate-audit finding closed; the description is untouched, so
+the routing surface did not move:
+
+- **Injection rule promoted to file level (finding 10).** The
+  data-never-instructions sentence was scoped to Entry — Generate's target
+  while Entry — Audit reads an existing suite with no equivalent statement.
+  It is now Turn shape rule 4, binding every entry, single-homed; the
+  Generate entry cites it instead of restating it.
+
 ## [1.0.2] — 2026-08-01
 
 A prose pass. Two SKILL.md rules that duplicated `eval-doctrine.md` in full —
