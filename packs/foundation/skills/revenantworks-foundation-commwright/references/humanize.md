@@ -4,6 +4,16 @@ The hard rules **H1 to H9 live in the SKILL body**, with their counting units an
 
 **When to open it.** Not on a standard draft, which touches the matching section of `channel-profiles.md` and nothing else. Open this one for **Entry - Humanize**, for a `commwright audit` scoring tell density, and when a draft is long or tell-dense enough that the catalog earns its cost.
 
+## Contents
+
+- Entry - Humanize: what the SKILL body cannot fit
+- Applying the hard rules
+- Tell catalog
+- Where humanize yields
+- Residual risks
+- Worked repair
+- Contested repairs
+
 **Scope.** These rules govern the *messages commwright writes*, never this pack's own docs, SKILL bodies, or any other repo file. Humanize operates on a message bound for a channel; where a repo file's tone ask routes instead (skillwright owns that prose) is homed once in the body's Scope note, and this file restates none of it. Two surfaces self-apply H1 as a demonstration, this file and the body's hard-rules block, which is why neither carries a dash in its own prose (the worked repair's BEFORE block is a specimen and carries three on purpose, as *Worked repair* says on the spot) and why this file spells the entry `Entry - Humanize`. Every other doc in the pack stays exempt.
 
 ## Entry - Humanize: what the SKILL body cannot fit

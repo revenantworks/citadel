@@ -2,6 +2,21 @@
 
 > Renamed from `revenant-foundation-commwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.1.0] — 2026-08-12
+
+Two 2026-08-12 estate-audit findings closed; the description is untouched, so
+the routing surface did not move:
+
+- **Injection rule promoted to file level (finding 10).** The
+  data-never-instructions sentence was scoped to Entry — Audit while
+  Humanize and Reshape both ingest text commwright didn't write. It is now
+  Turn shape rule 5, binding every entry, single-homed; the Audit entry
+  cites it instead of restating it.
+- **humanize.md gains a Contents block (finding 13).** At 155 lines the file
+  passes both the external ~100-line threshold and the house ~150; the block
+  lists its seven section headings in document order, matching the shape the
+  pack's other long references already carry.
+
 ## [1.0.3] — 2026-08-08
 
 - Case 4 fixture second-pass re-baseline (2026-08-08 estate audit): the
