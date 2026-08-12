@@ -16,7 +16,7 @@ plugin install + parity, and the nine claude.ai re-uploads (owner,
    machine. If it was not: delete-and-re-upload the `+install` zip per the
    RUNBOOK.
 3. **Blocked — orchestration-skill candidate scan (opened 2026-08-01, still blocked
-   2026-08-02).** A candidate new foundation member — an orchestration skill for
+   2026-08-12).** A candidate new foundation member — an orchestration skill for
    Claude Code that plans a research/build project into subtasks and assigns each a
    model/agent suited to its actual need — plus a broader scan for other meta-skill
    gaps in the pack. Planned approach: a promptwright-built research prompt handed to
