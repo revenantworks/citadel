@@ -3,7 +3,7 @@ name: revenantworks-ossuary-bonecaller
 description: The owner's claude.ai window into Project Longshot (the private MickMacPW/longshot repo) — read today's Daily Bet Card and explain its picks, show bankroll/ledger status and the Monday dashboard numbers, record what the owner actually bet (the placed column), capture coaching notes that train the model, and explain both pause switches (the soft PAUSED file and disabling the routine). Trigger on "today's card", "what's the card say", "bonecaller", "log my bet", "I placed/skipped a bet", "how's the bankroll", "coach the model", "pause the betting", or dashboard/results questions about Longshot. It never runs the daily pipeline (the cloud routine "Project Longshot - Daily Card" owns that), never places or automates bets on any sportsbook, and never invents a number — if the repo can't be read, it says so and asks for a paste. Not for building betting models or general sports chat.
 license: MIT
 metadata:
-  version: "1.3.4"
+  version: "1.3.5"
   profile: custom:ossuary-personal
   pack: ossuary
   brand: revenantworks
@@ -53,7 +53,9 @@ in the repo.
 record/ROI/CLV context from `ledger/bets.csv`; Monday numbers from the
 latest `reports/dashboard.html` (relay its KPI values, don't re-derive).
 Caveat ROI below the graded-bet threshold in `longshot-bankroll-rules.md`
-(the single home of every threshold number), and point to CLV instead.
+(the knowledge-file copy this surface can read; the engine's own home for
+every threshold is `longshot/bankroll.py` `GUARDRAILS`), and point to CLV
+instead.
 
 **Log what the owner bet** — when the owner reports a bet placed, skipped,
 or resized: identify the ledger row (date + game + bet type) and update

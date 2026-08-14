@@ -2,6 +2,19 @@
 
 Format: [Keep a Changelog](https://keepachangelog.com/), versioning: [SemVer](https://semver.org/).
 
+## [1.3.5] — 2026-08-14
+
+- **The bankroll-rules pointer no longer claims a home that moved.** The body
+  called `longshot-bankroll-rules.md` "the single home of every threshold
+  number", but that file's own header — amended the same day by longshot's
+  single-homing fix — now says every threshold lives in `longshot/bankroll.py`
+  `GUARDRAILS` and that it is itself a convenience copy. Two files each
+  naming the other's neighbourhood as canonical is the defect single-homing
+  exists to prevent, and it survived because the two live in different repos
+  and no single pass owns the boundary. The body now names the knowledge-file
+  copy as what this surface can actually read, and `GUARDRAILS` as the
+  engine's home. No trigger token moved; cold re-judge not owed.
+
 ## [1.3.4] — 2026-08-14
 
 - **`description` now names the Pause/resume job.** The body has carried that

@@ -15,6 +15,16 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [ossuary-v2.2.6] - 2026-08-14
+
+- bonecaller 1.3.5: the body called `longshot-bankroll-rules.md` "the single
+  home of every threshold number" while that file's own header — amended the
+  same day by longshot's single-homing fix — says every threshold lives in
+  `longshot/bankroll.py` `GUARDRAILS` and that it is a convenience copy. Two
+  files each naming the other as canonical is the defect single-homing exists
+  to prevent; it survived because they live in different repos and no single
+  sweep pass owns that boundary. Pointer corrected on both halves.
+
 ## [ossuary-v2.2.5] - 2026-08-14
 
 A 2026-08-14 estate-audit finding: bonecaller implements a fifth job the
