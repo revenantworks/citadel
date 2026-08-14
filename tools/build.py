@@ -425,6 +425,17 @@ def validate_skill(folder: Path, budget: tuple[int, str] | None = None) -> str |
         fail(f"{folder.name}: frontmatter name != folder name")
     if name and len(name.group(1)) > 64:
         fail(f"{folder.name}: name > 64 chars")
+    # The only two frontmatter limits confirmed against a real upload error, so the only
+    # two the gate asserts. `compatibility` past 500 chars was rejected by the live
+    # claude.ai upload form on 2026-08-14 (ossuary-v2.2.2 — bonecaller 533, linecaller
+    # 667). `description` is deliberately NOT bounded here beyond the house ceiling
+    # below: the pack twice trimmed it on an assumed 500 that two real uploads never
+    # reproduced (ossuary-v2.2.3), and a guessed number in the gate institutionalizes
+    # that mistake. Fail rather than upload-fail; the tightest live margin is 463/500.
+    compat = re.search(r"^compatibility:\s*(.+)$", fm, re.M)
+    if compat and len(compat.group(1)) > 500:
+        fail(f"{folder.name}: compatibility {len(compat.group(1))} chars > 500 — the live upload "
+             f"form rejects this field past 500 (confirmed 2026-08-14)")
     if not desc:
         fail(f"{folder.name}: no description")
     elif len(desc.group(1)) > 1024:  # characters, not bytes — multibyte punctuation overreads byte counters

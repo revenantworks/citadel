@@ -1,6 +1,6 @@
 # NEXT — remaining follow-ups from the 2026-07-31 audit
 
-Updated 2026-08-08. Discharged: the wright 1.0.0 baseline release
+Updated 2026-08-12. Discharged: the wright 1.0.0 baseline release
 (`foundation-v1.0.0`), the cold trigger re-run (97/97,
 `packs/foundation/ledger.md`), registry-parser unit tests in CI, Claude Code
 plugin install + parity, and the nine claude.ai re-uploads (owner,

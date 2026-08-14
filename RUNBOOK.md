@@ -20,14 +20,25 @@
    1.0.0/1.1.0 split-brain shipped for a month that way).
 3. `python tools/build.py`: regenerates every `references/pack.md` from the
    registry, validates all members (name/folder match, description <=1024
-   chars, body <=500 lines, CHANGELOG head == frontmatter version,
+   chars, `compatibility` <=500 chars — the only field limit confirmed
+   against a real upload error, and the reason `description` carries no
+   second one, body <=500 lines, CHANGELOG head == frontmatter version,
    plugin.json == marketplace version, eval provenance freshness + table
    integrity, and the `metadata.volatile` block: legal classes, files
    exist, calendar surfaces stamped `Last verified:` with a sane cadence),
    builds `dist/` zips. `--check` = CI mode, writes nothing.
 4. Commit, tag `<pack>-vX.Y.Z`, push branch + tag. Confirm CI attached the
    member zips to the Release. README points installers at Releases, so a
-   tag whose assets lag main ships stale skills.
+   tag whose assets lag main ships stale skills. Two closes on this step:
+   - **Fetch the tag back**: `git fetch --tags origin`. A release cut with
+     `gh release create` tags server-side and the clone never learns it, so
+     any local "newest tagged version" check answers one release stale
+     (ossuary-v2.2.4 sat on the remote and not in the clone for two days).
+   - **Before the next bump lands, assert the current one has a tag**:
+     `git tag -l "<pack>-v$(python -c "import json;print(json.load(open('packs/<pack>/.claude-plugin/plugin.json'))['version'])")"`
+     must print. ossuary 2.2.2 reached main and was superseded 4.5 minutes
+     later; the tag namespace still skips it (recorded in `CHANGELOG.md`).
+     Either tag it or record the skip — silence is the failure.
 5. Owner machine, **both steps, in this order**. Two copies drift
    independently and refreshing the first does not move the second:
 
@@ -60,7 +71,13 @@
 
 ## Install / update on claude.ai
 Per skill: download the member zip from Releases -> Customize -> Skills -> + ->
-Create skill -> upload. Updating is delete-then-re-upload — the unavoidable
+Create skill -> upload. **Take the zip from the newest release overall, never
+the newest release of the member's own pack.** Every release carries the full
+11-member set frozen at that moment, so a pack tag advertises whatever the
+other pack's members were that day: `foundation-v2.3.0` still ships a
+bonecaller zip whose `compatibility` the upload form rejects. Only the latest
+release has every member current. Releases stay immutable — this is a reading
+rule, not an asset to go back and fix. Updating is delete-then-re-upload — the unavoidable
 manual step **on personal accounts**. Team/Enterprise accounts have had
 org-wide admin provisioning since Dec 2025 (as of 2026-08-01; Organization
 settings -> Skills, zip upload, enabled by default with per-user opt-out).

@@ -72,7 +72,10 @@ SHELL_TOOLS = {"Bash", "PowerShell"}
 # the hook wiring are committed, but blocklist.txt (and settings.local.json)
 # are explicitly gitignored, so the vocabulary itself never reaches the public
 # repo even though it lives in an exempted path.
-SELF = re.compile(r"[\\/]\.claude[\\/]hooks[\\/]", re.I)
+# The leading separator is optional so a bare relative path written exactly as
+# typed (`.claude/hooks/blocklist.txt`) is exempt too — it used to be blocked by
+# the hook's own guard while the absolute and `./`-prefixed spellings passed.
+SELF = re.compile(r"(?:^|[\\/])\.claude[\\/]hooks[\\/]", re.I)
 
 
 def collect(tool_name: str, ti: dict) -> str:

@@ -101,6 +101,15 @@ members.
 
 ## [ossuary-v2.2.2] - 2026-08-14
 
+> **Never tagged, never released — recorded 2026-08-14, by decision.** This
+> version reached main (`537eb13`) and was superseded by 2.2.3 four and a half
+> minutes later, so no `ossuary-v2.2.2` tag or Release was ever cut and the tag
+> sequence jumps 2.2.1 → 2.2.3. Backfilling the tag now would fire the release
+> workflow and publish zips built today that were never actually shipped, which
+> is worse than a gap; the gap is recorded here instead. Clone-based plugin
+> installs read `marketplace.json` from the repo and never needed the assets,
+> and this version's content is fully superseded by 2.2.4.
+
 The 500-char claude.ai upload ceiling turned out to apply to more than
 `description` — the owner's actual upload attempt on ossuary-v2.2.1 was
 rejected on `compatibility` (bonecaller 533 chars, linecaller 667 chars).

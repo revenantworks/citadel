@@ -7,12 +7,17 @@ on:
   pull_request:
 
 # Two jobs from one script:
-#   check  — every push/PR: registry↔manifest drift + per-skill validation, no writes
+#   check  — every push/PR/tag: registry↔manifest drift + per-skill validation, no writes
 #   release — on tag v*: sync + build dist zips, attach every member zip to the release
+#
+# check runs on tags too and release needs it. It used to skip itself on tags —
+# the one event that publishes — so every release since attached 11 member zips
+# to a public Release with neither the unit tests nor --check ever run on the
+# tagged ref (verified against the ossuary-v2.2.4 run: check skipped, release
+# success). It is a sub-minute job; there is no ref it is not worth running on.
 
 jobs:
   check:
-    if: ${{ !startsWith(github.ref, 'refs/tags/') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,6 +29,7 @@ jobs:
 
   release:
     if: contains(github.ref, '-v') || startsWith(github.ref, 'refs/tags/v')
+    needs: check
     runs-on: ubuntu-latest
     permissions: { contents: write }
     steps:
