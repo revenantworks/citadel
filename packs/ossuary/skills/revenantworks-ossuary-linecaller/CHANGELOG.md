@@ -3,6 +3,18 @@
 All notable changes to this skill. Format: [Keep a Changelog](https://keepachangelog.com/),
 versioning: [SemVer](https://semver.org/).
 
+## [1.5.1] — 2026-08-13
+
+- **Description shortened to fit the claude.ai upload ceiling.** The live
+  claude.ai skill-upload form rejects a `description` over 500 characters
+  (stricter than the 1024-char spec ceiling in `rubrics.md` — flagged there
+  for the next `skillwright refresh`). Trimmed 742 → 495 chars, keeping every
+  trigger token ("daily bet card", "today's bets", "linecaller", "run
+  linecaller", the scheduled daily run), the decision-support-only and
+  never-invents-a-number rules, and the not-for-betting-models/general-chat/
+  reading-an-existing-card boundary naming bonecaller. Cold re-judge of the
+  trigger suite owed (description changed) — see `evals/RESULTS.md`.
+
 ## [1.5.0] — 2026-08-12
 
 Four 2026-08-12 estate-audit findings closed in one pass, body and

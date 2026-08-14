@@ -2,6 +2,18 @@
 
 Format: [Keep a Changelog](https://keepachangelog.com/), versioning: [SemVer](https://semver.org/).
 
+## [1.3.1] — 2026-08-13
+
+- **Description shortened to fit the claude.ai upload ceiling.** The live
+  claude.ai skill-upload form rejects a `description` over 500 characters
+  (stricter than the 1024-char spec ceiling in `rubrics.md` — flagged there
+  for the next `skillwright refresh`). Trimmed 791 → 496 chars, keeping every
+  trigger token ("today's card", "bonecaller", "log my bet", "how's the
+  bankroll", "coach the model", Longshot dashboard questions), the pipeline
+  boundary clause, the never-places-bets/never-invents-a-number rule, and the
+  not-for-betting-models/general-chat boundary. Cold re-judge of the trigger
+  suite owed (description changed) — see `evals/RESULTS.md`.
+
 ## [1.3.0] — 2026-08-12
 
 Three 2026-08-12 estate-audit findings closed in one pass; the description is

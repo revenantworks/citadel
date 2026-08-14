@@ -1,13 +1,16 @@
 # Assertion suite — revenantworks-ossuary-bonecaller
 
-Target: revenantworks-ossuary-bonecaller · v1.3.0 · derived 2026-08-08
+Target: revenantworks-ossuary-bonecaller · v1.3.1 · derived 2026-08-08
 (first assertion suite — the audit found the member shipped trigger evals
 only, against the house standard). Re-anchored to v1.3.0, 2026-08-12: B2's
 assert re-keyed from the inline ~200 figure to the
 `longshot-bankroll-rules.md` pointer the body now carries (finding 7); B1's
 render assert gains no new text but sits nearest hard rule 3's render-path
 extension, so B1 and B2 are owed a re-run before the next release claims
-them — the 2026-08-11 7/7 execution predates this change. Still 7 cases. 7 cases, one per job plus the two hard
+them — the 2026-08-11 7/7 execution predates this change. Re-anchored to
+v1.3.1, 2026-08-13: description-only change (shortened to clear the claude.ai
+upload ceiling); no assertion case touches the description, so no case moved.
+Still 7 cases. 7 cases, one per job plus the two hard
 rules a run most needs (degraded honesty, BACKTEST labeling). Runnable cold
 on claude.ai: each case is an input plus yes/no asserts against the reply
 and, where a write path exists, against the repo. Execution record:

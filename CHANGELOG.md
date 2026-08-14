@@ -15,6 +15,21 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [ossuary-v2.2.1] - 2026-08-13
+
+Both members' claude.ai skill upload was failing: the live upload form
+rejects a `description` over 500 characters, a stricter ceiling than the
+1024-char spec limit this pack's `rubrics.md` baseline carries (flagged there
+for the next `skillwright refresh`).
+
+- bonecaller 1.3.1: description trimmed 791 → 496 chars, every trigger token
+  and both boundary clauses preserved; cold re-judge 8/8, unchanged.
+- linecaller 1.5.1: description trimmed 742 → 495 chars, every trigger token
+  and both boundary clauses preserved; cold re-judge 10/10, unchanged.
+- Pack bump only — no member body, hard rule, or reference file changed.
+  Longshot `skills/revenantworks-ossuary-linecaller` mirror re-synced
+  byte-identical.
+
 ## [ossuary-v2.2.0] - 2026-08-12
 
 The 2026-08-12 estate-audit remediation pass, ossuary half (findings 3, 6, 7,

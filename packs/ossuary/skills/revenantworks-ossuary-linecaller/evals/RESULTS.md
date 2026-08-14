@@ -109,3 +109,22 @@ sports-chat / model-work / placement / new-build exclusions; row 9 routes to
 cedes ledger/bankroll questions to the companion". Pass rate: **10/10.**
 **R11 remains open** — unchanged; it still needs a live double-run, not a
 description read.
+
+## 2026-08-13 · target v1.5.1 · runner: one blind judge (fresh context, no tools)
+
+Description shortened 742 → 495 chars to clear the claude.ai skill-upload
+form's 500-char ceiling (discovered at real upload time — stricter than the
+1024-char spec ceiling `rubrics.md` bakes in; flagged there for the next
+`skillwright refresh`). Every trigger token and both exclusions (bonecaller's
+existing-card/ledger reads, the betting-model-work carve-out) carried over in
+shorter phrasing, so the full 10-row suite was re-judged cold. Judge setup:
+handed ONLY the post-trim name + description frontmatter (both ossuary
+members) and the 10 queries, blind to every Expect column — no router file,
+no bodies, no tools.
+
+Rows 1–5 fire on "daily bet card" / "today's bets" / the name row / the
+reconcile-and-card phrasing / the repo-plus-pipeline phrasing; rows 6, 7, 8,
+and 10 stay out on the sports-chat / model-work / placement / new-build
+exclusions; row 9 still routes to bonecaller on the shortened boundary clause.
+Pass rate: **10/10**, unchanged. **R11 remains open** — unchanged; it still
+needs a live double-run, not a description read.

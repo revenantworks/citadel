@@ -77,6 +77,22 @@ Pass rate: **7/7** on the approximated surface, with the two deviations and
 one observation above. All writes landed in the scratch clone only, which
 was discarded after judging; the real longshot checkout was never touched.
 
+## 2026-08-13 · target v1.3.1 · runner: one blind judge (fresh context, no tools)
+
+Description shortened 791 → 496 chars to clear the claude.ai skill-upload
+form's 500-char ceiling (discovered at real upload time — stricter than the
+1024-char spec ceiling `rubrics.md` bakes in; flagged there for the next
+`skillwright refresh`). Every trigger token and both exclusions carried over
+in shorter phrasing, so the full 8-row suite was re-judged cold. Judge setup:
+handed ONLY the post-trim name + description frontmatter (both ossuary
+members) and the 8 queries, blind to every Expect column — no router file, no
+bodies, no tools.
+
+Rows 1–4 fire on "today's card" / bet-logging phrasing / "how's the bankroll"
+/ "coach the model"; rows 5–8 stay out on the pipeline-deferral, never-places-
+bets, sports-chat, and model-work exclusions — identical routing to the
+v1.2.0/v1.3.0 runs above. Pass rate: **8/8**, unchanged.
+
 ## Assertion suite standing
 
 `evals/test-cases.md` (B1–B7) was authored 2026-08-08 as the member's first
