@@ -1,6 +1,6 @@
 # Trigger evals — revenantworks-ossuary-bonecaller
 
-Target: revenantworks-ossuary-bonecaller · v1.3.3 · derived 2026-08-06;
+Target: revenantworks-ossuary-bonecaller · v1.3.4 · derived 2026-08-06;
 re-anchored to v1.1.0, 2026-08-06 (card now shown as a live Artifact — no
 trigger-surface change, description and rows unaffected); re-anchored to
 v1.1.1, 2026-08-08 (personal-name scrub — the description's referent became
@@ -27,8 +27,17 @@ the shortened length never errored on `description`, only on
 `compatibility` (1.3.2's own entry), so the assumed 500-char description
 ceiling was never real. Byte-identical to the 1.2.0/1.3.0 text already
 judged 8/8; re-verified cold rather than assumed unchanged — **8/8**,
-recorded in `evals/RESULTS.md`. Read cold
-against name + description. 8 rows: 4 should-fire / 4 shouldn't.
+recorded in `evals/RESULTS.md`. **Re-anchored to v1.3.4,
+2026-08-14:** the description now names the Pause/resume job and its trigger
+phrase (2026-08-14 estate audit) — the body has implemented that job since
+1.0.0 and `test-cases.md` has asserted it at B5, but no routing text
+advertised it, and on this member's declared surface the description is the
+only routing text there is (the pack router ships as a Claude Code
+`CLAUDE.md`, which claude.ai does not load). Description 791 → 890 chars;
+row 9 added for the pause query and **authored, not run** — the routing
+surface moved, so a cold re-judge of all 9 is **owed, not claimed**. 8 rows,
+4/4 → **9 rows, 5/4**. Read cold
+against name + description. 9 rows: 5 should-fire / 4 shouldn't.
 
 | # | Query | Expect |
 |---|---|---|
@@ -40,6 +49,7 @@ against name + description. 8 rows: 4 should-fire / 4 shouldn't.
 | 6 | "Place $5 on the Panthers on FanDuel" | no fire — never places bets |
 | 7 | "Who wins tonight's game?" | no fire — general sports chat |
 | 8 | "Tighten the ATS threshold in params.json" | no fire — model change, repo/Claude Code work |
+| 9 | "Pause the betting" | FIRE — explains both switches, takes neither |
 
 **Edge note.** Sharpest pair: #2 vs #6 — both name a bet and money; #2
 records a bet the owner already placed (fires), #6 asks the skill to

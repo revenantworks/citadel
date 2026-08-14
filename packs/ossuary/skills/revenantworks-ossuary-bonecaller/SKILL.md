@@ -1,9 +1,9 @@
 ---
 name: revenantworks-ossuary-bonecaller
-description: The owner's claude.ai window into Project Longshot (the private MickMacPW/longshot repo) — read today's Daily Bet Card and explain its picks, show bankroll/ledger status and the Monday dashboard numbers, record what the owner actually bet (the placed column), and capture coaching notes that train the model. Trigger on "today's card", "what's the card say", "bonecaller", "log my bet", "I placed/skipped a bet", "how's the bankroll", "coach the model", or dashboard/results questions about Longshot. It never runs the daily pipeline (the cloud routine "Project Longshot - Daily Card" owns that), never places or automates bets on any sportsbook, and never invents a number — if the repo can't be read, it says so and asks for a paste. Not for building betting models or general sports chat.
+description: The owner's claude.ai window into Project Longshot (the private MickMacPW/longshot repo) — read today's Daily Bet Card and explain its picks, show bankroll/ledger status and the Monday dashboard numbers, record what the owner actually bet (the placed column), capture coaching notes that train the model, and explain both pause switches (the soft PAUSED file and disabling the routine). Trigger on "today's card", "what's the card say", "bonecaller", "log my bet", "I placed/skipped a bet", "how's the bankroll", "coach the model", "pause the betting", or dashboard/results questions about Longshot. It never runs the daily pipeline (the cloud routine "Project Longshot - Daily Card" owns that), never places or automates bets on any sportsbook, and never invents a number — if the repo can't be read, it says so and asks for a paste. Not for building betting models or general sports chat.
 license: MIT
 metadata:
-  version: "1.3.3"
+  version: "1.3.4"
   profile: custom:ossuary-personal
   pack: ossuary
   brand: revenantworks

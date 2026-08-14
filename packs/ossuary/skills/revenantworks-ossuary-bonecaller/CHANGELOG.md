@@ -2,6 +2,23 @@
 
 Format: [Keep a Changelog](https://keepachangelog.com/), versioning: [SemVer](https://semver.org/).
 
+## [1.3.4] — 2026-08-14
+
+- **`description` now names the Pause/resume job.** The body has carried that
+  job with its own quoted trigger since 1.0.0 and `test-cases.md` asserts it
+  at B5, but the description's capability clause stopped at coaching notes
+  and its trigger list at bankroll and dashboard questions, so nothing routed
+  "pause the betting" here. On this member's declared surface that is a
+  routing hole rather than a cosmetic gap: the pack's router table lists the
+  pause row but ships as a Claude Code `CLAUDE.md`, which claude.ai does not
+  load, so the description is the only routing text bonecaller has. Capability
+  clause gains "and explain both pause switches"; trigger list gains
+  "pause the betting". 791 → 890 chars, well inside the 1024 build gate.
+- Trigger suite gains row 9 for the pause query — **authored, not run**. The
+  routing surface moved, so the cold re-judge of all 9 rows is owed, not
+  claimed. Assertion suite unchanged at 7; the job did not move, only its
+  advertisement.
+
 ## [1.3.3] — 2026-08-14 (correction)
 
 - **`description` reverted to its full 791-char pre-trim text.** The 1.3.1

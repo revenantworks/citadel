@@ -1,6 +1,6 @@
 # Assertion suite — revenantworks-ossuary-bonecaller
 
-Target: revenantworks-ossuary-bonecaller · v1.3.3 · derived 2026-08-08
+Target: revenantworks-ossuary-bonecaller · v1.3.4 · derived 2026-08-08
 (first assertion suite — the audit found the member shipped trigger evals
 only, against the house standard). Re-anchored to v1.3.0, 2026-08-12: B2's
 assert re-keyed from the inline ~200 figure to the
@@ -15,7 +15,12 @@ live upload form actually rejected; no case touches compatibility, so no
 case moved). Re-anchored to v1.3.3, 2026-08-14 (correction: description
 reverted to its full pre-trim text — the v1.3.1 500-char assumption on
 description was never confirmed live; no case touches the description, so
-no case moved either way).
+no case moved either way). Re-anchored to v1.3.4, 2026-08-14: the description
+now names the Pause/resume job and its trigger phrase, closing the gap this
+suite exposed — B5 has asserted the job since the suite was derived while
+nothing routed to it. The job itself did not change, so B5's input and
+asserts are untouched and no case moved; the new routing row lives in
+`trigger-evals.md`.
 Still 7 cases. 7 cases, one per job plus the two hard
 rules a run most needs (degraded honesty, BACKTEST labeling). Runnable cold
 on claude.ai: each case is an input plus yes/no asserts against the reply

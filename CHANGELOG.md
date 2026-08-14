@@ -15,6 +15,24 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [ossuary-v2.2.5] - 2026-08-14
+
+A 2026-08-14 estate-audit finding: bonecaller implements a fifth job the
+description never named, so nothing routed to it.
+
+- bonecaller 1.3.4: `description` gains the Pause/resume job in its
+  capability clause and "pause the betting" in its trigger list, 791 → 890
+  chars. The body has carried the job since 1.0.0 and `test-cases.md`
+  asserts it at B5; the pack router lists it too, but that router ships as a
+  Claude Code `CLAUDE.md` and bonecaller's declared surface is claude.ai,
+  which never loads it — so the description was the only routing text and it
+  was silent on pause. Trigger suite 8 rows → 9 (row 9 authored, not run);
+  the cold re-judge of all 9 is owed, not claimed.
+- **The longshot `skills/revenantworks-ossuary-bonecaller` mirror is owed a
+  re-sync** (separate session, per the downstream-mirror rule). It is still
+  at 1.3.0 — three releases behind before this one — and that copy carries
+  the 533-char `compatibility` the live upload form is confirmed to reject.
+
 ## [foundation-v2.3.1] - 2026-08-14
 
 Six 2026-08-14 estate-audit findings closed across four members. No
