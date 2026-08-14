@@ -15,6 +15,23 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [ossuary-v2.2.4] - 2026-08-14
+
+Caught during the 2026-08-14 hygiene sweep's mirror re-sync: citadel's copy
+of `references/card-contract.md` (linecaller) had drifted stale against two
+real fixes that landed only on the longshot production mirror and were
+never ported back — `2713461` (weather driver, today's-risk KPI, bets-first
+game ordering) and `e7e43e6` (corrected spread-pick sign, unambiguous bet
+instructions). A routine full-directory mirror sync would have silently
+clobbered both; caught before it shipped.
+
+- linecaller 1.5.4: `references/card-contract.md` re-synced from the
+  longshot mirror — citadel is the canonical source again, both copies
+  byte-identical. No trigger token, `name`, `description`, or
+  `compatibility` field touched; cold re-judge held 10/10. R1 and R9 in the
+  assertion suite sit nearest the changed ground and are owed a live
+  re-run before the next release claims full coverage.
+
 ## [ossuary-v2.2.3] - 2026-08-14 (correction)
 
 The 2.2.1 fix assumed `description`'s 500-char rejection shared

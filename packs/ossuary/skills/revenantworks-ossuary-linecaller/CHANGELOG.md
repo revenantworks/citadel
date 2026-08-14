@@ -3,6 +3,21 @@
 All notable changes to this skill. Format: [Keep a Changelog](https://keepachangelog.com/),
 versioning: [SemVer](https://semver.org/).
 
+## [1.5.4] — 2026-08-14
+
+- **`references/card-contract.md` re-synced from the longshot production
+  mirror — citadel had drifted stale.** Two real fixes landed directly on
+  the downstream longshot copy and were never ported back: commit `2713461`
+  ("add a live weather driver, today's-risk KPI, and bets-first ordering to
+  the card") and `e7e43e6` ("correct spread-pick sign and make bet
+  instructions unambiguous"). Caught during the 2026-08-14 hygiene sweep's
+  mirror re-sync — a routine full-directory copy from citadel would have
+  silently clobbered both fixes; the sync was corrected before it shipped
+  and this closes the gap the other direction. citadel is the canonical
+  source again; both copies are now byte-identical.
+- No trigger token, hard rule, or `compatibility`/`description` field
+  changed — cold re-judge not owed.
+
 ## [1.5.3] — 2026-08-14 (correction)
 
 - **`description` reverted to its full 742-char pre-trim text.** The 1.5.1

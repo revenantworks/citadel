@@ -1,6 +1,6 @@
 # Trigger evals — revenantworks-ossuary-linecaller
 
-Target: revenantworks-ossuary-linecaller · v1.5.3 · derived 2026-08-06;
+Target: revenantworks-ossuary-linecaller · v1.5.4 · derived 2026-08-06;
 re-anchored to v1.1.0, 2026-08-06 (HTML card output — no trigger-surface
 change, description and rows unaffected); re-anchored to v1.2.0,
 2026-08-08 (the description gained the owed seam-closing boundary clause —
@@ -30,7 +30,11 @@ the shortened length never errored on `description`, only on
 `compatibility` (1.5.2's own entry), so the assumed 500-char description
 ceiling was never real. Byte-identical to the 1.2.0/1.3.0 text already
 judged 10/10; re-verified cold rather than assumed unchanged — **10/10**,
-recorded in `evals/RESULTS.md`.
+recorded in `evals/RESULTS.md`. **Re-anchored to v1.5.4, 2026-08-14:**
+`references/card-contract.md` re-synced from the longshot production mirror
+(citadel had drifted stale); no `name`, `description`, or `compatibility`
+field touched, so the routing surface these rows judge did not move — no row
+changed.
 Read cold against name +
 description only. 10 rows: 5 should-fire / 5 shouldn't-fire.
 

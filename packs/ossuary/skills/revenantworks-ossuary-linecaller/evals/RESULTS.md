@@ -151,3 +151,17 @@ model-work / placement / new-build exclusions, row 9 routes to bonecaller on
 the full-length boundary clause. Pass rate: **10/10**, unchanged. **R11
 remains open** — unchanged; it still needs a live double-run, not a
 description read.
+
+## 2026-08-14 (third run) · target v1.5.4 · runner: one blind judge (fresh context, no tools)
+
+`references/card-contract.md` re-synced from the longshot production
+mirror — citadel had drifted stale (game ordering, the header's
+today's-risk KPI, and the bet-bullet format all changed downstream and were
+never ported back; see the member's CHANGELOG). `name`, `description`, and
+`compatibility` are untouched from v1.5.3, so the routing surface is
+unchanged; re-judged anyway for the version bump, same protocol as every
+prior run. Rows 1–5 fire, rows 6–10 stay out, identical to every prior run.
+Pass rate: **10/10**, unchanged. **R11 remains open.** R1 and R9 sit
+nearest the card-contract change and are owed a live re-run before the next
+release claims full assertion coverage (per `evals/test-cases.md`'s v1.5.4
+re-anchor) — that debt is separate from this trigger-suite result.
