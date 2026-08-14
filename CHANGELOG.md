@@ -15,6 +15,24 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [ossuary-v2.2.3] - 2026-08-14 (correction)
+
+The 2.2.1 fix assumed `description`'s 500-char rejection shared
+`compatibility`'s cause. It never did: two real upload attempts at the
+trimmed description length never errored on `description`, only on
+`compatibility` (2.2.2). skillwright's own rubric caps `description` at
+1024 chars and Anthropic's help-center page separately states 200 — neither
+number is confirmed live by this product, so guessing further wasn't the
+right move. Reverted `description` to its full pre-trim text on both
+members.
+
+- bonecaller 1.3.3: description reverted 496 → 791 chars (original text,
+  byte-identical to the version already cold-judged 8/8).
+- linecaller 1.5.3: description reverted 495 → 742 chars (original text,
+  byte-identical to the version already cold-judged 10/10).
+- `compatibility` stays at its 2.2.2 trimmed length on both — that field's
+  500-char rejection is the one actually confirmed live.
+
 ## [ossuary-v2.2.2] - 2026-08-14
 
 The 500-char claude.ai upload ceiling turned out to apply to more than

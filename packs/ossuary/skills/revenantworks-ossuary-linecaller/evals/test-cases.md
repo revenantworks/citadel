@@ -1,6 +1,6 @@
 # Assertion suite — revenantworks-ossuary-linecaller
 
-Target: revenantworks-ossuary-linecaller · v1.5.2 · derived 2026-08-06;
+Target: revenantworks-ossuary-linecaller · v1.5.3 · derived 2026-08-06;
 re-anchored to v1.1.0, 2026-08-06 (HTML card output — R1, R9 touched);
 re-anchored to v1.4.0, 2026-08-08 (R12 added for path-scoped staging; earlier,
 description-only changes at 1.2.0/1.3.0 —
@@ -17,6 +17,12 @@ release claims them; nothing here was executed this pass).
 Re-anchored to v1.5.1, 2026-08-13 (description-only change, shortened to
 clear the claude.ai upload ceiling; no assertion case touches the
 description, so no case moved — still 12).
+Re-anchored to v1.5.2, 2026-08-14 (`compatibility`-only change, the field the
+live upload form actually rejected; no case touches compatibility, so no
+case moved). Re-anchored to v1.5.3, 2026-08-14 (correction: description
+reverted to its full pre-trim text — the v1.5.1 500-char assumption on
+description was never confirmed live; no case touches the description, so
+no case moved either way — still 12).
 12 cases, one per coverage-map row (R1 merges the four invocation phrasings
 — same behavior). Runnable cold: each case is an input plus yes/no asserts
 against run output and repo files. `PY` = `.venv/Scripts/python.exe`.

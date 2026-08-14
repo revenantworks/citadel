@@ -128,3 +128,26 @@ and 10 stay out on the sports-chat / model-work / placement / new-build
 exclusions; row 9 still routes to bonecaller on the shortened boundary clause.
 Pass rate: **10/10**, unchanged. **R11 remains open** — unchanged; it still
 needs a live double-run, not a description read.
+
+## 2026-08-14 · target v1.5.2 · runner: one blind judge (fresh context, no tools)
+
+`compatibility` shortened 667 → 463 chars — the field the live claude.ai
+upload form actually rejected this time (verified against the real error
+text, not assumed). `description` untouched from v1.5.1, so the routing
+surface is unchanged; re-judged anyway for the version bump. Rows 1–5 fire,
+rows 6–10 stay out, identical to every prior run. Pass rate: **10/10**,
+unchanged. **R11 remains open.**
+
+## 2026-08-14 (second run) · target v1.5.3 (correction) · runner: one blind judge (fresh context, no tools)
+
+The v1.5.1 assumption that `description` shared `compatibility`'s 500-char
+ceiling was wrong: two real upload attempts at the shortened description
+(495 chars) never errored on it, only on `compatibility`. `description`
+reverted to its full 742-char pre-trim text, byte-identical to the
+v1.2.0/v1.3.0 text already judged 10/10 above. Re-judged cold rather than
+assumed unchanged, same judge protocol as every prior run: rows 1–5 fire on
+their stated triggers, rows 6, 7, 8, and 10 stay out on the sports-chat /
+model-work / placement / new-build exclusions, row 9 routes to bonecaller on
+the full-length boundary clause. Pass rate: **10/10**, unchanged. **R11
+remains open** — unchanged; it still needs a live double-run, not a
+description read.

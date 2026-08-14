@@ -1,6 +1,6 @@
 # Trigger evals — revenantworks-ossuary-linecaller
 
-Target: revenantworks-ossuary-linecaller · v1.5.2 · derived 2026-08-06;
+Target: revenantworks-ossuary-linecaller · v1.5.3 · derived 2026-08-06;
 re-anchored to v1.1.0, 2026-08-06 (HTML card output — no trigger-surface
 change, description and rows unaffected); re-anchored to v1.2.0,
 2026-08-08 (the description gained the owed seam-closing boundary clause —
@@ -16,10 +16,21 @@ changes only (coaching-note scope bounded, step-7 delivery proof, web-search
 and per-surface interpreter declarations in `compatibility`); the description
 is byte-identical to 1.4.0's, so the routing surface these rows judge did not
 move — no row changed. **Re-anchored to v1.5.1, 2026-08-13:** description
-shortened 742 → 495 chars to clear the claude.ai upload ceiling; every trigger
-token and both exclusions (bonecaller's card-reads, betting-model work)
-carried over verbatim in shorter phrasing, so the suite was re-judged cold
-against the new text — **10/10**, unchanged, recorded in `evals/RESULTS.md`. **Re-anchored to v1.5.2, 2026-08-14:** `compatibility`-only change (shortened to clear the same upload ceiling on that field); the description this suite judges is byte-identical to 1.5.1's, so no row changed.
+shortened 742 → 495 chars to clear an assumed claude.ai upload ceiling; every
+trigger token and both exclusions (bonecaller's card-reads, betting-model
+work) carried over verbatim in shorter phrasing, so the suite was re-judged
+cold against the new text — 10/10, unchanged, recorded in `evals/RESULTS.md`.
+**Re-anchored to v1.5.2, 2026-08-14:** `compatibility`-only change (shortened
+to clear the confirmed 500-char upload ceiling on that field, the real cause
+this time — verified against the live upload error, not assumed); the
+description this suite judges is byte-identical to 1.5.1's, so no row
+changed. **Re-anchored to v1.5.3, 2026-08-14 (correction):** description
+reverted to its full 742-char pre-trim text — two real upload attempts at
+the shortened length never errored on `description`, only on
+`compatibility` (1.5.2's own entry), so the assumed 500-char description
+ceiling was never real. Byte-identical to the 1.2.0/1.3.0 text already
+judged 10/10; re-verified cold rather than assumed unchanged — **10/10**,
+recorded in `evals/RESULTS.md`.
 Read cold against name +
 description only. 10 rows: 5 should-fire / 5 shouldn't-fire.
 

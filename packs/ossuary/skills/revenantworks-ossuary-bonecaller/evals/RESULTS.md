@@ -93,6 +93,27 @@ Rows 1–4 fire on "today's card" / bet-logging phrasing / "how's the bankroll"
 bets, sports-chat, and model-work exclusions — identical routing to the
 v1.2.0/v1.3.0 runs above. Pass rate: **8/8**, unchanged.
 
+## 2026-08-14 · target v1.3.2 · runner: one blind judge (fresh context, no tools)
+
+`compatibility` shortened 533 → 312 chars — the field the live claude.ai
+upload form actually rejected this time (verified against the real error
+text, not assumed). `description` untouched from v1.3.1, so the routing
+surface is unchanged; re-judged anyway for the version bump. Rows 1–4 fire,
+rows 5–8 stay out, identical to every prior run. Pass rate: **8/8**,
+unchanged.
+
+## 2026-08-14 (second run) · target v1.3.3 (correction) · runner: one blind judge (fresh context, no tools)
+
+The v1.3.1 assumption that `description` shared `compatibility`'s 500-char
+ceiling was wrong: two real upload attempts at the shortened description
+(496 chars) never errored on it, only on `compatibility`. `description`
+reverted to its full 791-char pre-trim text, byte-identical to the
+v1.2.0/v1.3.0 text already judged 8/8 above. Re-judged cold rather than
+assumed unchanged, same judge protocol as every prior run: rows 1–4 fire on
+their stated triggers, rows 5–8 stay out on the pipeline-deferral,
+never-places-bets, sports-chat, and model-work exclusions. Pass rate:
+**8/8**, unchanged.
+
 ## Assertion suite standing
 
 `evals/test-cases.md` (B1–B7) was authored 2026-08-08 as the member's first

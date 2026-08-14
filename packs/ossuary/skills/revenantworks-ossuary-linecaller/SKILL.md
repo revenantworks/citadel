@@ -1,9 +1,9 @@
 ---
 name: revenantworks-ossuary-linecaller
-description: Runs one pass of the Longshot daily NFL bet-card pipeline — reconciles results, updates ratings and ledger, fetches today's slate, FanDuel lines, injuries, and news, then produces and commits the Daily Bet Card. Triggers on "daily bet card", "today's bets", "linecaller", "run linecaller", the scheduled daily run. Decision support only — never places bets or touches a sportsbook; missing data means PASS. Not for betting models, sports chat, or reading an existing card — bonecaller owns that.
+description: Runs one pass of the Project Longshot daily NFL bet-card pipeline in the longshot repo — reconcile yesterday's results, update ratings and the ledger, fetch today's slate, FanDuel lines, injuries, and playing-time news, produce the Daily Bet Card, and commit. Trigger on "daily bet card", "today's bets", "linecaller", "run linecaller", or the scheduled daily run. Decision support only — it never places bets, never touches a sportsbook account, and never invents a number; missing data means PASS. Not for building betting models (the repo's code owns that), general sports chat, work outside the longshot repo, or reading an existing card and ledger/bankroll questions — the claude.ai companion revenantworks-ossuary-bonecaller owns those.
 license: MIT
 metadata:
-  version: "1.5.2"
+  version: "1.5.3"
   profile: custom:ossuary-personal
   pack: ossuary
   brand: revenantworks

@@ -1,6 +1,6 @@
 # Assertion suite — revenantworks-ossuary-bonecaller
 
-Target: revenantworks-ossuary-bonecaller · v1.3.2 · derived 2026-08-08
+Target: revenantworks-ossuary-bonecaller · v1.3.3 · derived 2026-08-08
 (first assertion suite — the audit found the member shipped trigger evals
 only, against the house standard). Re-anchored to v1.3.0, 2026-08-12: B2's
 assert re-keyed from the inline ~200 figure to the
@@ -10,6 +10,12 @@ extension, so B1 and B2 are owed a re-run before the next release claims
 them — the 2026-08-11 7/7 execution predates this change. Re-anchored to
 v1.3.1, 2026-08-13: description-only change (shortened to clear the claude.ai
 upload ceiling); no assertion case touches the description, so no case moved.
+Re-anchored to v1.3.2, 2026-08-14 (`compatibility`-only change, the field the
+live upload form actually rejected; no case touches compatibility, so no
+case moved). Re-anchored to v1.3.3, 2026-08-14 (correction: description
+reverted to its full pre-trim text — the v1.3.1 500-char assumption on
+description was never confirmed live; no case touches the description, so
+no case moved either way).
 Still 7 cases. 7 cases, one per job plus the two hard
 rules a run most needs (degraded honesty, BACKTEST labeling). Runnable cold
 on claude.ai: each case is an input plus yes/no asserts against the reply

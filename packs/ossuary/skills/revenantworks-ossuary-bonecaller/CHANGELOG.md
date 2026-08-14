@@ -2,6 +2,20 @@
 
 Format: [Keep a Changelog](https://keepachangelog.com/), versioning: [SemVer](https://semver.org/).
 
+## [1.3.3] — 2026-08-14 (correction)
+
+- **`description` reverted to its full 791-char pre-trim text.** The 1.3.1
+  entry below assumed the same 500-char ceiling seen on `compatibility`
+  applied to `description` too — it never did. Two real upload attempts at
+  the trimmed length (496 chars) never errored on `description`; only
+  `compatibility` did (this member's own 1.3.2 entry). skillwright's own
+  baked rubric caps `description` at 1024 chars, and Anthropic's help-center
+  page separately states 200 — neither number is confirmed live, so this
+  reverts to the fuller text rather than guess a number the product hasn't
+  actually enforced. No trigger token or boundary clause differs from the
+  1.2.0/1.3.0 text already cold-judged 8/8 — re-verified this pass, still
+  8/8, recorded in `evals/RESULTS.md`.
+
 ## [1.3.2] — 2026-08-14
 
 - **`compatibility` shortened to fit the claude.ai upload ceiling.** The 500-char
