@@ -2,6 +2,19 @@
 
 > Renamed from `revenant-foundation-lorewright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.1.4] — 2026-08-14
+
+One 2026-08-14 estate-audit finding closed; eval provenance only, no doctrine,
+description, or reference file touched:
+
+- **Re-anchor order in `evals/trigger-evals.md`.** The 1.1.3 clause was
+  inserted third in the provenance paragraph instead of appended, so the
+  chain terminated at the 2026-08-08 v1.1.2 anchor while the member sat at
+  1.1.3. The build gate passed — it tests membership, not position — but the
+  terminal anchor is how these blocks are read, and every other member's
+  reads that way, including this member's own `test-cases.md`, which took the
+  same 2026-08-12 edit terminal. Clause moved to the end, wording unchanged.
+
 ## [1.1.3] — 2026-08-12
 
 One 2026-08-12 estate-audit finding closed (finding 13): at 197 lines,

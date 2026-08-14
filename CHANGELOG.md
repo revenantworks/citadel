@@ -15,6 +15,37 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [foundation-v2.3.1] - 2026-08-14
+
+Six 2026-08-14 estate-audit findings closed across four members. No
+description moved, so no routing surface changed and every trigger suite
+keeps its counts; three of the six extend the same
+data-never-instructions rule to entry points that were ingesting without it.
+
+- **agentwright 1.2.0 → 1.2.1** — Entry — Emit carries the rule. It ingests a
+  handed-in ops spec and renders it into a scheduler's fields, which makes it
+  the highest-consequence ingest in that member; 1.2.0 closed Refresh and
+  left it open.
+- **skillwright 1.2.0 → 1.2.1** — Entry — Upkeep step 1 carries the rule. It
+  reads other skills' frontmatter and stamp headers, from a registered
+  canonical repo where no workspace copy exists, and step 4 acts on what it
+  read. `upkeep-doctrine.md` points at that single home instead of copying
+  it. Body budget raised 8080 → 8180 with the reason on the registry row.
+- **tokenwright 1.2.0 → 1.2.1** — the rule is promoted from Entry — Slim to a
+  fifth Turn shape item, so Audit and Budget are bound by it too; they ingest
+  the same instruction-shaped artifacts. Two single-homing repairs ride along:
+  the audit inventory's length threshold now lives only in
+  `waste-taxonomy.md`, and the refresh sync sweep names `SOURCES.md`, the
+  third site of a platform figure it was not reaching.
+- **lorewright 1.1.3 → 1.1.4** — eval provenance only: the 1.1.3 re-anchor
+  clause was inserted mid-paragraph rather than appended, so the chain
+  terminated at the older v1.1.2 anchor. Moved to the end, wording unchanged.
+
+Each member's eval provenance is re-anchored in this commit, and the suites
+record what is now asserted nowhere: no case covers an injected directive on
+agentwright's Emit, skillwright's Upkeep, or tokenwright's Audit and Budget.
+Those cases are owed, not claimed.
+
 ## [ossuary-v2.2.4] - 2026-08-14
 
 Caught during the 2026-08-14 hygiene sweep's mirror re-sync: citadel's copy

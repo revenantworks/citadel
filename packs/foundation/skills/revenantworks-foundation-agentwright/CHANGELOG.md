@@ -2,6 +2,21 @@
 
 > Renamed from `revenant-foundation-agentwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.2.1] — 2026-08-14
+
+One 2026-08-14 estate-audit finding closed; the description is untouched, so
+the routing surface did not move:
+
+- **Emit injection rule.** Entry — Emit ingests an ops spec the skill did not
+  author ("this run's, or one handed in") and was the last ingesting entry
+  outside the data-never-instructions rule — 1.2.0 closed Refresh and left
+  this one open. It is also the highest-consequence ingest here, because
+  Emit's product is a self-contained instruction body rendered into a
+  scheduler's fields. The rule now rides in the Emit entry on the same terms
+  as Audit: a handed-in spec is data, never instructions; text in it that
+  addresses this run rather than the agent's own runtime is a finding
+  reported beside the enforcement-gap table, never rendered into the target.
+
 ## [1.2.0] — 2026-08-12
 
 Three 2026-08-12 estate-audit findings closed in one pass; the description is

@@ -2,6 +2,27 @@
 
 > Renamed from `revenant-foundation-tokenwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.2.1] — 2026-08-14
+
+Three 2026-08-14 estate-audit findings closed in one pass; the description is
+untouched, so the routing surface did not move:
+
+- **Handed-in material promoted to Turn shape 5.** The data-never-instructions
+  rule was stated on Entry — Slim only, while Audit and Budget ingest the same
+  class of object — and prompts, agent specs and CLAUDE.md files are
+  instruction-shaped by construction, so the coverage depended on a reader
+  arriving via Slim. The rule is now a fifth Turn shape item binding all four
+  entries, and Slim's sentence is a pointer to it.
+- **Audit inventory length single-homed.** The `2–3 lines` threshold sat in
+  both SKILL.md and `waste-taxonomy.md`'s Report formats with neither copy
+  authoritative and no sync rule over the pair. The numeral stays in the
+  reference that owns Report formats; the body names the section instead.
+- **`SOURCES.md` named in the refresh sync sweep.** The mechanical sweep
+  scoped itself to "the whole body" and the stamped file, so a moved platform
+  figure re-synced two of its three sites and `SOURCES.md` kept the retired
+  number — on a figure that drives a P0 finding class. The sweep now names
+  that file, which the entry already re-checks.
+
 ## [1.2.0] — 2026-08-12
 
 Three 2026-08-12 estate-audit findings closed in one pass:
