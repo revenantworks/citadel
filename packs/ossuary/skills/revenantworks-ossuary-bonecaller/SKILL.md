@@ -3,12 +3,12 @@ name: revenantworks-ossuary-bonecaller
 description: The owner's claude.ai window into Project Longshot (repo MickMacPW/longshot) — reads today's Bet Card, explains picks, shows bankroll status, records bets placed, captures coaching notes. Triggers on "today's card", "bonecaller", "log my bet", "how's the bankroll", "coach the model", Longshot dashboard questions. Never runs the pipeline (the cloud routine does), never places bets, never invents a number — no repo access means asking for a paste. Not for betting models or general sports chat.
 license: MIT
 metadata:
-  version: "1.3.1"
+  version: "1.3.2"
   profile: custom:ossuary-personal
   pack: ossuary
   brand: revenantworks
   volatile: []
-compatibility: Needs the Claude GitHub connector with read access to github.com/MickMacPW/longshot — the read path is the connector's github:get_file_contents tool. Write-backs (ledger corrections, coaching notes) use the connector's github:create_or_update_file tool when the write grant is present and otherwise degrade to exact copy-paste blocks for the owner to commit. Sibling revenantworks-ossuary-linecaller (Claude Code) runs the pipeline itself; if a pipeline run is requested here, point to the routine at claude.ai/code/routines instead.
+compatibility: Needs the Claude GitHub connector with read access to github.com/MickMacPW/longshot (github:get_file_contents). Write-backs use github:create_or_update_file when granted, else degrade to copy-paste blocks. Sibling linecaller (Claude Code) runs the pipeline; redirect pipeline requests to claude.ai/code/routines.
 ---
 
 # revenantworks-ossuary-bonecaller

@@ -1,6 +1,6 @@
 # Trigger evals — revenantworks-ossuary-bonecaller
 
-Target: revenantworks-ossuary-bonecaller · v1.3.1 · derived 2026-08-06;
+Target: revenantworks-ossuary-bonecaller · v1.3.2 · derived 2026-08-06;
 re-anchored to v1.1.0, 2026-08-06 (card now shown as a live Artifact — no
 trigger-surface change, description and rows unaffected); re-anchored to
 v1.1.1, 2026-08-08 (personal-name scrub — the description's referent became
@@ -16,7 +16,7 @@ so the routing surface these rows judge did not move — no row changed. **Re-an
 to v1.3.1, 2026-08-13:** description shortened 791 → 496 chars to clear the
 claude.ai upload ceiling; every trigger token and both exclusions carried over
 verbatim in shorter phrasing, so the suite was re-judged cold against the new
-text — **8/8**, unchanged, recorded in `evals/RESULTS.md`. Read cold
+text — **8/8**, unchanged, recorded in `evals/RESULTS.md`. **Re-anchored to v1.3.2, 2026-08-14:** `compatibility`-only change (shortened to clear the same upload ceiling on that field); the description this suite judges is byte-identical to 1.3.1's, so no row changed. Read cold
 against name + description. 8 rows: 4 should-fire / 4 shouldn't.
 
 | # | Query | Expect |

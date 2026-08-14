@@ -15,6 +15,19 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [ossuary-v2.2.2] - 2026-08-14
+
+The 500-char claude.ai upload ceiling turned out to apply to more than
+`description` — the owner's actual upload attempt on ossuary-v2.2.1 was
+rejected on `compatibility` (bonecaller 533 chars, linecaller 667 chars).
+
+- bonecaller 1.3.2: `compatibility` trimmed 533 → 312 chars, every
+  dependency and degradation fact preserved.
+- linecaller 1.5.2: `compatibility` trimmed 667 → 463 chars, every
+  dependency and degradation fact preserved.
+- Pack bump only — no trigger token, hard rule, or reference file changed;
+  cold re-judge not owed (compatibility carries no routing).
+
 ## [ossuary-v2.2.1] - 2026-08-13
 
 Both members' claude.ai skill upload was failing: the live upload form

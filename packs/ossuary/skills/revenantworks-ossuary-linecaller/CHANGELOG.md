@@ -3,6 +3,16 @@
 All notable changes to this skill. Format: [Keep a Changelog](https://keepachangelog.com/),
 versioning: [SemVer](https://semver.org/).
 
+## [1.5.2] — 2026-08-14
+
+- **`compatibility` shortened to fit the claude.ai upload ceiling.** The 500-char
+  limit applies to more than `description` — the live upload form also
+  rejected `compatibility` at 667 chars. Trimmed to 463, keeping every fact:
+  the repo/venv/git/gh dependencies, the preseason-intel web-search
+  requirement and its degradation, the machine-bound note, and the bonecaller
+  cross-reference. No trigger token changed — cold re-judge not owed, this
+  field carries no routing.
+
 ## [1.5.1] — 2026-08-13
 
 - **Description shortened to fit the claude.ai upload ceiling.** The live

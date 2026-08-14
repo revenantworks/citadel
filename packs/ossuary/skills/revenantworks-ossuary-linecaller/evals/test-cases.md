@@ -1,6 +1,6 @@
 # Assertion suite — revenantworks-ossuary-linecaller
 
-Target: revenantworks-ossuary-linecaller · v1.5.1 · derived 2026-08-06;
+Target: revenantworks-ossuary-linecaller · v1.5.2 · derived 2026-08-06;
 re-anchored to v1.1.0, 2026-08-06 (HTML card output — R1, R9 touched);
 re-anchored to v1.4.0, 2026-08-08 (R12 added for path-scoped staging; earlier,
 description-only changes at 1.2.0/1.3.0 —

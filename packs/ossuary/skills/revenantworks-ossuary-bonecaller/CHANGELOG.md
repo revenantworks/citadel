@@ -2,6 +2,15 @@
 
 Format: [Keep a Changelog](https://keepachangelog.com/), versioning: [SemVer](https://semver.org/).
 
+## [1.3.2] — 2026-08-14
+
+- **`compatibility` shortened to fit the claude.ai upload ceiling.** The 500-char
+  limit applies to more than `description` — the live upload form also
+  rejected `compatibility` at 533 chars. Trimmed to 312, keeping every fact:
+  the GitHub connector read/write tools, the write-path degradation to
+  copy-paste, and the pointer to linecaller for pipeline requests. No trigger
+  token changed — cold re-judge not owed, this field carries no routing.
+
 ## [1.3.1] — 2026-08-13
 
 - **Description shortened to fit the claude.ai upload ceiling.** The live

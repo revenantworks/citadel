@@ -1,6 +1,6 @@
 # Assertion suite — revenantworks-ossuary-bonecaller
 
-Target: revenantworks-ossuary-bonecaller · v1.3.1 · derived 2026-08-08
+Target: revenantworks-ossuary-bonecaller · v1.3.2 · derived 2026-08-08
 (first assertion suite — the audit found the member shipped trigger evals
 only, against the house standard). Re-anchored to v1.3.0, 2026-08-12: B2's
 assert re-keyed from the inline ~200 figure to the
