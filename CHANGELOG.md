@@ -15,6 +15,49 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [foundation-v2.4.0] - 2026-08-15
+
+The 2026-08-15 estate audit's foundation slice (skillwright 1.2.1 -> 1.3.0):
+
+- Rubric A gains dimension 11, **invocation control** - a skill whose steps
+  write, commit, push, send, or spend declares `disable-model-invocation:
+  true` or states in one line why model invocation is required; filed under
+  S-3 when neither is present.
+- `pack-registry.md` gains the two reciprocal seam rows that predated their
+  declaration (promptwright <-> skillwright, skillwright <-> tokenwright) and
+  a Contents block; `upkeep-doctrine.md` step 1 stops restating the roster
+  source, closing the one reference-to-reference hop.
+- `packs/foundation/tasks/foundation-skill-upkeep.md`: the Foundation - Skill
+  Upkeep routine gets its first verbatim prompt mirror (live synced via the
+  update API the same day); `upkeep-task.md` states report-only is held by
+  the prompt, not the grant. Both pack routers now say APPEND, a root
+  CLAUDE.md covers the top level, and both skillwright eval suites are
+  re-anchored at 1.3.0.
+
+Note: foundation-v2.3.1 (2026-08-14) was superseded before release by this
+version; no tag or Release was cut for it.
+
+## [ossuary-v2.3.0] - 2026-08-15
+
+The 2026-08-15 estate audit's ossuary slice (linecaller 1.5.4 -> 1.6.0,
+bonecaller 1.3.5 -> 1.4.0):
+
+- linecaller's description redraw front-loads the run verbs and cedes the
+  bare "today's bets" to bonecaller (the pair was the estate's highest
+  description overlap); its compatibility drops the drive-lettered rig path,
+  and the body states why model invocation stays enabled - the production
+  cloud routine fires the skill through the model - which is Rubric A
+  dimension 11's stated-reason path.
+- bonecaller's ledger and coaching-note writes are confirm-first (show the
+  row/file and path, wait for the owner's yes), and the write step names its
+  tool, `github:create_or_update_file`.
+- Both trigger suites extended to the 20-row eval-authoring spec with four
+  linecaller-vs-bonecaller boundary pairs; new rows authored-not-run, cold
+  re-judge owed. Longshot mirror re-synced the same day (diff -r clean).
+
+Note: ossuary-v2.2.5 and ossuary-v2.2.6 (both 2026-08-14) were superseded
+before release by this version; no tag or Release was cut for either.
+
 ## [ossuary-v2.2.6] - 2026-08-14
 
 - bonecaller 1.3.5: the body called `longshot-bankroll-rules.md` "the single
