@@ -2,6 +2,18 @@
 
 Format: [Keep a Changelog](https://keepachangelog.com/), versioning: [SemVer](https://semver.org/).
 
+## [1.4.0] — 2026-08-15
+
+### Changed
+- Ledger and coaching-note writes are confirm-first (`bonecaller-ungated-
+  repo-write`): show the exact row/file and target path, wait for the
+  owner's yes, never write silently; the write step names its tool,
+  `github:create_or_update_file` (`body-names-capability-frontmatter-
+  names-tool`).
+- Description gains "today's bets", ceded by linecaller's 1.6.0 redraw;
+  trigger suite extended to the 20-row spec with four boundary pairs
+  (`ossuary-trigger-suites-half-spec`), authored-not-run.
+
 ## [1.3.5] — 2026-08-14
 
 - **The bankroll-rules pointer no longer claims a home that moved.** The body

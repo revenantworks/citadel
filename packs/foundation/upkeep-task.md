@@ -40,11 +40,15 @@ citadel repo cloned into its environment, so it runs the real gates.
 **Kill switch:** disable or delete the routine at
 https://claude.ai/code/routines. Nothing runs between fires; nothing is ever
 committed by the routine. The single platform-level switch is a deliberate
-choice (2026-08-12): the routine is report-only **by grant**, not only by
-prompt — its `allowed_tools` carry no Write or Edit and it has no outcome
-branch (both removed 2026-08-12), so there is nothing an in-repo PAUSED file
-would protect. The report-only rule is enforced mechanically by the tool
-grant; the prompt's hard rules restate it as defence in depth.
+choice (2026-08-12): the routine's `allowed_tools` carry no Write or Edit and
+it has no outcome branch (both removed 2026-08-12), so there is nothing an
+in-repo PAUSED file would protect. State the enforcement honestly (corrected
+2026-08-15, audit finding `upkeep-report-only-not-actually-grant-enforced`):
+Write and Edit are not granted, but **Bash remains, so a file can still be
+written by heredoc and git commit/push are unaffected — report-only is still
+held by the prompt rather than mechanically.** The grant removal narrows the
+accident surface; it is not a fence. The prompt's hard rules are the actual
+rule, not a restatement.
 
 **Hard rules carried in the prompt:** report-only; live re-verification or
 provisional, never restamp from memory; unreadable stamps reported as unknown,

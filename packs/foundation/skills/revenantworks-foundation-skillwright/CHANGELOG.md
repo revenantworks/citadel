@@ -2,6 +2,22 @@
 
 > Renamed from `revenant-foundation-skillwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.3.0] — 2026-08-15
+
+### Added
+- Rubric A dimension 11, **invocation control**: a side-effectful skill
+  declares `disable-model-invocation: true` or states in one line why model
+  invocation is required; files under S-3 when neither is present
+  (audit finding `rubric-has-no-invocation-control-dimension`).
+- `pack-registry.md`: the two missing reciprocal seam rows,
+  promptwright ↔ skillwright and skillwright ↔ tokenwright
+  (`seam-rows-missing-two-reciprocal-pairs`), and a Contents block
+  (`toc-gap-in-pack-registry`).
+
+### Changed
+- `upkeep-doctrine.md` step 1 no longer restates the roster source, closing
+  the one reference-to-reference hop (`reference-depth-second-hop`).
+
 ## [1.2.1] — 2026-08-14
 
 One 2026-08-14 estate-audit finding closed; the description is untouched, so

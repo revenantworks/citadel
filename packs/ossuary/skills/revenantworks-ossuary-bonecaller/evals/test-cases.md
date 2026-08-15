@@ -1,6 +1,6 @@
 # Assertion suite — revenantworks-ossuary-bonecaller
 
-Target: revenantworks-ossuary-bonecaller · v1.3.5 · derived 2026-08-08
+Target: revenantworks-ossuary-bonecaller · v1.4.0 · derived 2026-08-08
 (first assertion suite — the audit found the member shipped trigger evals
 only, against the house standard). Re-anchored to v1.3.0, 2026-08-12: B2's
 assert re-keyed from the inline ~200 figure to the
@@ -32,7 +32,7 @@ with the repo readable and `reports/<today ET>.html` present. Assert: the
 reply pastes the fetched HTML verbatim into a ```html fenced block (rendered
 as an Artifact); the card is not replaced by a prose summary; any spoken
 highlight is short and follows the artifact; picks, stakes, PASS reasons,
-and any DEGRADED/pause banner render unedited.
+and any DEGRADED/pause banner render unedited. Re-anchored to v1.4.0, 2026-08-15: the write step is now confirm-first (show the row/file and path, wait for the yes) and names its tool, `github:create_or_update_file` — the case that exercises a ledger write-back must now assert the shown-diff-then-confirm exchange before any write; that case is owed a re-run before the next release claims it. No other case moved.
 
 **B2 — bankroll relay with the ROI caveat.** Input: "How's the bankroll?"
 with graded bets in `ledger/bets.csv` below the threshold stated in

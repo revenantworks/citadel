@@ -1,9 +1,9 @@
 ---
 name: revenantworks-ossuary-bonecaller
-description: The owner's claude.ai window into Project Longshot (the private MickMacPW/longshot repo) — read today's Daily Bet Card and explain its picks, show bankroll/ledger status and the Monday dashboard numbers, record what the owner actually bet (the placed column), capture coaching notes that train the model, and explain both pause switches (the soft PAUSED file and disabling the routine). Trigger on "today's card", "what's the card say", "bonecaller", "log my bet", "I placed/skipped a bet", "how's the bankroll", "coach the model", "pause the betting", or dashboard/results questions about Longshot. It never runs the daily pipeline (the cloud routine "Project Longshot - Daily Card" owns that), never places or automates bets on any sportsbook, and never invents a number — if the repo can't be read, it says so and asks for a paste. Not for building betting models or general sports chat.
+description: The owner's claude.ai window into Project Longshot (the private MickMacPW/longshot repo) — read today's Daily Bet Card and explain its picks, show bankroll/ledger status and the Monday dashboard numbers, record what the owner actually bet (the placed column), capture coaching notes that train the model, and explain both pause switches (the soft PAUSED file and disabling the routine). Trigger on "today's card", "today's bets", "what's the card say", "bonecaller", "log my bet", "I placed/skipped a bet", "how's the bankroll", "coach the model", "pause the betting", or dashboard/results questions about Longshot. It never runs the daily pipeline (the cloud routine "Project Longshot - Daily Card" owns that), never places or automates bets on any sportsbook, and never invents a number — if the repo can't be read, it says so and asks for a paste. Not for building betting models or general sports chat.
 license: MIT
 metadata:
-  version: "1.3.5"
+  version: "1.4.0"
   profile: custom:ossuary-personal
   pack: ossuary
   brand: revenantworks
@@ -60,13 +60,13 @@ instead.
 **Log what the owner bet** — when the owner reports a bet placed, skipped,
 or resized: identify the ledger row (date + game + bet type) and update
 `ledger/bets.csv` columns `placed` (yes/no/modified) and `placed_stake`
-via GitHub write capability if available. If no write path exists, emit the
+via `github:create_or_update_file` when granted. Before ANY write: show the exact row or file content and the target path, and wait for the owner's yes — never write silently. If no write path exists, emit the
 exact corrected CSV row plus a one-line instruction ("tell Claude Code:
 mark bet #N placed=no"), per `references/companion-contract.md`.
 
 **Coaching notes** — when the owner gives model feedback ("preseason home
 dogs are gold", "trust Tomlin in August"), write it as a dated note to
-`docs/coaching/<date>-<slug>.md` (write path or copy-paste fallback, same
+`docs/coaching/<date>-<slug>.md` (write path or copy-paste fallback — same confirm-first rule: show the full note and path, wait for the yes — same
 contract). The routine reads every coaching note at the start of every run
 — this is the training loop.
 

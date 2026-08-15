@@ -1,6 +1,6 @@
 # Trigger evals — revenantworks-ossuary-bonecaller
 
-Target: revenantworks-ossuary-bonecaller · v1.3.5 · derived 2026-08-06;
+Target: revenantworks-ossuary-bonecaller · v1.4.0 · derived 2026-08-06;
 re-anchored to v1.1.0, 2026-08-06 (card now shown as a live Artifact — no
 trigger-surface change, description and rows unaffected); re-anchored to
 v1.1.1, 2026-08-08 (personal-name scrub — the description's referent became
@@ -36,8 +36,14 @@ only routing text there is (the pack router ships as a Claude Code
 `CLAUDE.md`, which claude.ai does not load). Description 791 → 890 chars;
 row 9 added for the pause query and **authored, not run** — the routing
 surface moved, so a cold re-judge of all 9 is **owed, not claimed**. 8 rows,
-4/4 → **9 rows, 5/4**. Read cold
-against name + description. 9 rows: 5 should-fire / 4 shouldn't.
+4/4 → **9 rows, 5/4**. **Extended to v1.4.0, 2026-08-15 (audit finding
+`ossuary-trigger-suites-half-spec`):** eleven rows added to reach the
+eval-authoring spec's 20 (10 fire / 10 no-fire), four of them
+linecaller-vs-bonecaller boundary pairs (10↔linecaller-11, 12↔13, 14↔15,
+19↔20); v1.4.0 also gains "today's bets" as this member's token, ceded by
+linecaller's 1.6.0 description redraw. Rows 10–20 are **authored, not
+run** — a cold re-judge of the full 20 is owed. Read cold
+against name + description. 20 rows: 10 should-fire / 10 shouldn't.
 
 | # | Query | Expect |
 |---|---|---|
@@ -50,10 +56,22 @@ against name + description. 9 rows: 5 should-fire / 4 shouldn't.
 | 7 | "Who wins tonight's game?" | no fire — general sports chat |
 | 8 | "Tighten the ATS threshold in params.json" | no fire — model change, repo/Claude Code work |
 | 9 | "Pause the betting" | FIRE — explains both switches, takes neither |
+| 10 | "What are today's bets looking like?" | FIRE — card-read phrasing; this token is bonecaller's as of the 1.6.0/1.4.0 seam redraw |
+| 11 | "Show me the Monday dashboard numbers" | FIRE |
+| 12 | "How did yesterday's bets settle?" | FIRE |
+| 13 | "Reconcile yesterday's results and regenerate the card" | no fire — a pipeline run; linecaller/the routine own regeneration |
+| 14 | "Mark bet #5 as placed in the ledger" | FIRE |
+| 15 | "Grade the slate and commit the card" | no fire — grading + committing is the pipeline, not fill logging |
+| 16 | "I skipped the JAX bet today" | FIRE |
+| 17 | "Explain why the card passed on the Eagles game" | FIRE |
+| 18 | "Build me a bet-card system for the NBA" | no fire — a build job, neither caller's work |
+| 19 | "What's my CLV been this month?" | FIRE |
+| 20 | "Fetch fresh odds and rebuild today's card" | no fire — fetch/rebuild is a run; this member never runs the pipeline |
 
-**Edge note.** Sharpest pair: #2 vs #6 — both name a bet and money; #2
+**Edge note.** Sharpest pairs: #2 vs #6 — both name a bet and money; #2
 records a bet the owner already placed (fires), #6 asks the skill to
-place one (never fires).
+place one (never fires). After the seam redraw: #10 vs #13/#20 — same
+today's-card subject, split purely on read-vs-run intent.
 
 **Tuning rule.** Misses on 1–4 → strengthen trigger phrases; fires on 5–8 →
 tighten the routine/placement/model-work exclusions.

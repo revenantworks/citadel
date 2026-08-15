@@ -1,19 +1,27 @@
 ---
 name: revenantworks-ossuary-linecaller
-description: Runs one pass of the Project Longshot daily NFL bet-card pipeline in the longshot repo — reconcile yesterday's results, update ratings and the ledger, fetch today's slate, FanDuel lines, injuries, and playing-time news, produce the Daily Bet Card, and commit. Trigger on "daily bet card", "today's bets", "linecaller", "run linecaller", or the scheduled daily run. Decision support only — it never places bets, never touches a sportsbook account, and never invents a number; missing data means PASS. Not for building betting models (the repo's code owns that), general sports chat, work outside the longshot repo, or reading an existing card and ledger/bankroll questions — the claude.ai companion revenantworks-ossuary-bonecaller owns those.
+description: Runs one pass of the Project Longshot daily NFL bet-card pipeline in the longshot repo — reconcile yesterday's results, update ratings and the ledger, fetch today's slate, FanDuel lines, injuries, and playing-time news, produce the Daily Bet Card, and commit. Trigger on "run the daily card", "build today's card", "daily bet card", "linecaller", "run linecaller", or the scheduled daily run. Decision support only — it never places bets, never touches a sportsbook account, and never invents a number; missing data means PASS. Not for building betting models (the repo's code owns that), general sports chat, work outside the longshot repo, or reading an existing card and ledger/bankroll questions — "what's the card say", "today's bets", and everything ledger/bankroll belong to the claude.ai companion revenantworks-ossuary-bonecaller.
 license: MIT
 metadata:
-  version: "1.5.4"
+  version: "1.6.0"
   profile: custom:ossuary-personal
   pack: ossuary
   brand: revenantworks
   volatile:
     - file: references/model-spec.md
       class: event-driven
-compatibility: Requires the Project Longshot repo (default V:/Projects/github/MickMacPW/longshot on the rig; the cloud routine clones fresh), its .venv on the rig, git, and gh authenticated as MickMacPW. Step 3 (preseason intel) needs web search and outbound network access; unavailable means no intel file, affected games PASS. Machine-bound (personal skill; custom profile). Sibling bonecaller reads the card this run writes, on claude.ai; recommended by name, never required.
+compatibility: Requires the Project Longshot repo (local clone path is the operator's; the cloud routine clones fresh), its .venv on the rig, git, and gh authenticated as MickMacPW. Step 3 (preseason intel) needs web search and outbound network access; unavailable means no intel file, affected games PASS. Machine-bound (personal skill; custom profile). Sibling bonecaller reads the card this run writes, on claude.ai; recommended by name, never required.
 ---
 
 # revenantworks-ossuary-linecaller
+
+Model invocation stays ENABLED by deliberate decision (2026-08-15, Rubric A
+dimension 11): the production runner — the "Project Longshot - Daily Card"
+cloud routine — fires this skill through the model, so
+`disable-model-invocation` would sever the daily card. The compensating
+controls are the sharpened trigger vocabulary above (the bare "today's bets"
+now routes to bonecaller) and the Hard rules below, which gate every
+side-effectful step regardless of who invoked the run.
 
 One run of the Project Longshot daily pipeline. The deliverable is the Daily
 Bet Card, written as both `reports/<today>.md` (plain text) and

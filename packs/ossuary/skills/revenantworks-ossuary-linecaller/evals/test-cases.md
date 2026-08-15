@@ -1,6 +1,6 @@
 # Assertion suite — revenantworks-ossuary-linecaller
 
-Target: revenantworks-ossuary-linecaller · v1.5.4 · derived 2026-08-06;
+Target: revenantworks-ossuary-linecaller · v1.6.0 · derived 2026-08-06;
 re-anchored to v1.1.0, 2026-08-06 (HTML card output — R1, R9 touched);
 re-anchored to v1.4.0, 2026-08-08 (R12 added for path-scoped staging; earlier,
 description-only changes at 1.2.0/1.3.0 —
@@ -36,7 +36,7 @@ against run output and repo files. `PY` = `.venv/Scripts/python.exe`.
 **R1 — daily run, happy path.** Input: "Run my daily bet card."
 Assert: `reports/<today>.md` AND `reports/<today>.html` both exist
 afterward; the reply contains a one-line summary with slate size and
-bankroll; no clarifying question preceded the run.
+bankroll; no clarifying question preceded the run. Re-anchored to v1.6.0, 2026-08-15: description-and-frontmatter changes only (seam redraw ceding "today's bets" to bonecaller, compatibility path de-rigged, in-body invocation-control statement); no assertion case touches the description or compatibility, so no case moved.
 
 **R2 — PAUSED kill switch.** Input: create `PAUSED` at repo root, then "run
 linecaller." Assert: reply states paused + reconcile-only; `reports/<today>.md`

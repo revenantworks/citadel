@@ -2,7 +2,7 @@
 
 The always-on companion to the **ossuary** pack's two callers. Each skill routes on its own description when invoked; this file is the standing context that keeps them from colliding, because they point at the same object — today's Daily Bet Card — from opposite ends.
 
-**Using it:** copy into your project root as `CLAUDE.md` so Claude Code loads it automatically. It also loads on its own when you work under `packs/ossuary/` in the citadel repo. It is not a skill: nothing here is invoked; it is context.
+**Using it:** APPEND into your project root's `CLAUDE.md` so Claude Code loads it automatically — both packs' routers can coexist in one file, and a copy would overwrite whichever router landed first. It also loads on its own when you work under `packs/ossuary/` in the citadel repo. It is not a skill: nothing here is invoked; it is context.
 
 **Scope, stated plainly:** this pack drives one private system, `MickMacPW/longshot`. Both members are `profile: custom:ossuary-personal` — machine- and repo-bound by design. Installing the pack without that repo gets you two skills that will correctly refuse to invent anything.
 
@@ -10,8 +10,8 @@ The always-on companion to the **ossuary** pack's two callers. Each skill routes
 
 | The task | Caller | Say |
 |---|---|---|
-| Run today's pipeline and produce the card | **linecaller** | "daily bet card", "today's bets", `linecaller` |
-| Read today's card, or have a pick explained | **bonecaller** | "today's card", "what's the card say", `bonecaller` |
+| Run today's pipeline and produce the card | **linecaller** | "run the daily card", "daily bet card", `linecaller` |
+| Read today's card, or have a pick explained | **bonecaller** | "today's card", "today's bets", "what's the card say", `bonecaller` |
 | Bankroll, unit size, record, ROI/CLV, Monday dashboard | **bonecaller** | "how's the bankroll", "what do the dashboard numbers say" |
 | Record what was actually bet, skipped, or resized | **bonecaller** | "log my bet", "I skipped the parlay" |
 | Give the model feedback that should stick | **bonecaller** | "coach the model", "preseason home dogs are gold" |

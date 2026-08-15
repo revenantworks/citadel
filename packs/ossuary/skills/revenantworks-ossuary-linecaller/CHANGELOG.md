@@ -3,6 +3,22 @@
 All notable changes to this skill. Format: [Keep a Changelog](https://keepachangelog.com/),
 versioning: [SemVer](https://semver.org/).
 
+## [1.6.0] — 2026-08-15
+
+### Changed
+- Description redraw (`ossuary-caller-description-overlap`): run verbs
+  front-loaded ("run the daily card", "build today's card"), the bare noun
+  phrase "today's bets" CEDED to bonecaller, and the boundary clause names
+  the ceded tokens. Trigger suite re-anchored: row 2 flips to no-fire, ten
+  rows added to the 20-row spec (`ossuary-trigger-suites-half-spec`),
+  authored-not-run.
+- `compatibility` drops the drive-lettered rig path
+  (`linecaller-machine-path-in-shipped-frontmatter`).
+- Body states why model invocation stays enabled (Rubric A dim 11 /
+  `linecaller-model-invocable-push`): the production cloud routine fires
+  this skill through the model, so `disable-model-invocation` would sever
+  the daily card; compensating controls named in-file.
+
 ## [1.5.4] — 2026-08-14
 
 - **`references/card-contract.md` re-synced from the longshot production

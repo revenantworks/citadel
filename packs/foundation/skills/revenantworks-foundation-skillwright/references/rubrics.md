@@ -32,6 +32,7 @@ Rubric A is universal: every skill, any profile, is scored against it. Profiles 
 - **dependencies declared** — every tool, script, package, or sibling skill named in frontmatter (`compatibility` / `metadata`) and docs; scripts state whether they are run or read
 - **evals exist** — a way to tell the skill worked: trigger evals plus an assertion suite, or a stated reason neither applies
 - **security** — every bundled file audited; what this dimension actually looks for, and the severity each finding files at, is stated once under **Security classes** below (S-1 to S-4)
+- **invocation control** *(added 2026-08-15, audit finding `rubric-has-no-invocation-control-dimension`)* — a skill whose steps write, commit, push, send, or spend declares `disable-model-invocation: true`, or states in one line, in the skill itself, why model invocation is required (a production runner that fires it through the model is the canonical reason). Files under S-3 when the capability is both side-effectful and silently model-invocable with neither the flag nor the stated reason
 
 ## Scoring anchors
 
