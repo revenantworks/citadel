@@ -1,4 +1,6 @@
-# Changelog — citadel
+# Changelog — claude-skills
+
+2026-08-17 — repository renamed revenantworks/citadel → revenantworks/claude-skills (GitHub redirects the old name).
 
 Pack releases tag as `<pack>-vX.Y.Z`; member versions are independent semver.
 This log starts at the foundation 1.0.0 baseline.

@@ -1,7 +1,7 @@
 # revenantworks-ossuary-bonecaller
 
 Ossuary pack member #2 (`-caller` motif), whose canonical home is
-`revenantworks/citadel` at `packs/ossuary/skills/`. The claude.ai companion to Project
+`revenantworks/claude-skills` at `packs/ossuary/skills/`. The claude.ai companion to Project
 Longshot: reads the Daily Bet Card the cloud routine produces, explains it,
 shows bankroll/dashboard status, records what the owner actually bet,
 captures coaching notes that train the model, and explains both pause
@@ -35,7 +35,7 @@ revenantworks-ossuary-bonecaller/
 ```
 
 `references/pack.md` is generated from the pack registry by `tools/build.py`
-in the citadel repo — never hand-edit it.
+in the claude-skills repo — never hand-edit it.
 
 Changelog: CHANGELOG.md. Pack registration is **done** (2026-08-07), the same
 run that relocated both members into citadel: roster, budget, and seam rows are

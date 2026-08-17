@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""citadel — apply-install-swaps: overlay private config onto neutral members.
+"""claude-skills — apply-install-swaps: overlay private config onto neutral members.
 
 Brand-carriage law (owner decision, 2026-07-23): the ONLY brand carrier
 anywhere is the locally configured brandwright. Every other member is

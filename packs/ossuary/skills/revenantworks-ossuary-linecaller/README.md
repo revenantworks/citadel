@@ -1,7 +1,7 @@
 # revenantworks-ossuary-linecaller
 
 First member of the **ossuary** pack (`-caller` motif), whose canonical home is
-`revenantworks/citadel` at `packs/ossuary/skills/`. Runs one pass of the
+`revenantworks/claude-skills` at `packs/ossuary/skills/`. Runs one pass of the
 Project Longshot daily NFL bet-card pipeline: reconcile → ratings/ledger →
 slate + lines + injuries + playing-time news → Daily Bet Card → commit.
 What separates it from a generic "sports betting helper": it drives one
@@ -20,14 +20,14 @@ revenantworks-ossuary-linecaller/
 ```
 
 `references/pack.md` is generated from the pack registry by `tools/build.py`
-in the citadel repo — never hand-edit it.
+in the claude-skills repo — never hand-edit it.
 
 ## Install
 
 Whole pack, from this repo's own marketplace:
 
 ```
-/plugin marketplace add revenantworks/citadel
+/plugin marketplace add revenantworks/claude-skills
 /plugin install ossuary@revenantworks
 ```
 
@@ -49,5 +49,5 @@ its `.venv`, git, and `gh` authenticated as MickMacPW.
 
 `references/model-spec.md` is event-driven — re-read after any
 `model_version` bump. Pack registration is **done** (2026-08-07): the roster,
-budget, and seam rows live in the citadel registry and `references/pack.md` is
+budget, and seam rows live in the claude-skills registry and `references/pack.md` is
 generated from them. Changelog: CHANGELOG.md.

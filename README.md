@@ -1,6 +1,6 @@
-# Citadel
+# claude-skills
 
-![pack-ci](https://github.com/revenantworks/citadel/actions/workflows/pack-ci.yml/badge.svg)
+![pack-ci](https://github.com/revenantworks/claude-skills/actions/workflows/pack-ci.yml/badge.svg)
 
 This is the Revenantworks packs marketplace: the canonical home of every **Revenantworks** Agent Skills pack. Each pack lives under [`packs/`](packs/) and installs as one Claude Code plugin; every skill inside follows the [Agent Skills open standard](https://agentskills.io/) and stands alone on any surface that supports it (Claude.ai, Claude Code, the Claude API, compatible agents).
 
@@ -9,7 +9,7 @@ This is the Revenantworks packs marketplace: the canonical home of every **Reven
 | Pack | Members | What it covers |
 |---|---|---|
 | [`foundation`](packs/foundation/) | 9 | The build-time wrights — skills, prompts, messages, agent specs, standing Claude config, research, eval suites, brand identity, token budgets |
-| [`ossuary`](packs/ossuary/) | 2 | Decision-support callers for Project Longshot — `linecaller` runs the daily NFL bet-card pipeline, `bonecaller` reads the card and records what was actually bet. Bound to a private repo, so useful only to its holder; listed because the citadel is the canonical home for every skill |
+| [`ossuary`](packs/ossuary/) | 2 | Decision-support callers for Project Longshot — `linecaller` runs the daily NFL bet-card pipeline, `bonecaller` reads the card and records what was actually bet. Bound to a private repo, so useful only to its holder; listed because this repo is the canonical home for every skill |
 
 Further packs slot in as new folders under `packs/` and new rows in the marketplace catalog — one repo, one marketplace, one registry.
 
@@ -45,7 +45,7 @@ Both are **decision support only** by hard rule — neither places a bet, touche
 - **Claude Code — a whole pack, one command.** This repository is its own plugin marketplace:
 
   ```
-  /plugin marketplace add revenantworks/citadel
+  /plugin marketplace add revenantworks/claude-skills
   /plugin install foundation@revenantworks
   ```
 

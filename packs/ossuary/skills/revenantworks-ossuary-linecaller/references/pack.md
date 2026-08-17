@@ -19,7 +19,7 @@
 
 **Pack conformance checks** (adopted 2026-08-07, scored on every member audit): **O-1 decision-support only** · **O-2 never fabricate a number**.
 
-**Canonical repo:** `github.com/revenantworks/citadel` — pack source of truth for drift audits (registered in skillwright's `pack-registry.md`; subject to relocation — the registry row is authoritative).
+**Canonical repo:** `github.com/revenantworks/claude-skills` — pack source of truth for drift audits (registered in skillwright's `pack-registry.md`; subject to relocation — the registry row is authoritative).
 
 **Capstone:** none, deliberately — a two-member pack whose members already compose end to end in production every day (the cloud routine runs linecaller at 13:00 UTC; bonecaller reads what it wrote), so an orchestration prompt would only re-describe a live system. Revisit if the pack takes a third member.
 

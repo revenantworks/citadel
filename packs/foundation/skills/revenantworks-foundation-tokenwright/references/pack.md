@@ -50,7 +50,7 @@
 
 **Pack conformance checks** (adopted 2026-07-13, scored on every member audit): **C-1 drift-audit verb** · **C-2 neutral default**.
 
-**Canonical repo:** `github.com/revenantworks/citadel` — pack source of truth for drift audits (registered in skillwright's `pack-registry.md`; subject to relocation — the registry row is authoritative).
+**Canonical repo:** `github.com/revenantworks/claude-skills` — pack source of truth for drift audits (registered in skillwright's `pack-registry.md`; subject to relocation — the registry row is authoritative).
 
 **Capstone:** Forge Run — one orchestration prompt driving all nine members end-to-end (stored 2026-07-12 · roster updated to eight 2026-07-13 · roster reconfirmed 2026-07-14, pack self-audit, no change · re-run after any member's major version bump). Live runs: brandwright build, 2026-07-13 · **Forge Run 3, 2026-07-23** — the 1.1.0 rebuild as build proof, all eight doctrines exercised in anger (skillwright build/integrate conventions, evalwright diff-scoped suite refresh, tokenwright measurement + C-1 audit, lorewright-grade source verification on four baselines, brandwright centralization, commwright-shaped release comms, agentwright platform research, promptwright model snapshot + Entry — Model); roster reconfirmed at 1.1.x, no change. **Roster 8 → 9 on 2026-07-30** with the addition of `revenantworks-foundation-rigwright`; capstone roster line updated, capstone run not re-triggered (a member add updates the line only).
 

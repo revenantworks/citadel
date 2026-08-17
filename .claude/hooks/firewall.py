@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Brand firewall for revenantworks/citadel.
+"""Brand firewall for revenantworks/claude-skills.
 
 Blocks the work identity's tokens from entering this repo. Permission rules match
 paths and command prefixes; they cannot see file *contents*, so a token can
@@ -11,11 +11,11 @@ Scope, and its limits:
   - Write/Edit/MultiEdit/NotebookEdit - inspects file_path, content, new_string,
     and every edit in an `edits` array.
   - Bash/PowerShell - inspects the command string, so copying a file
-    from the work-identity tree into citadel via the shell
+    from the work-identity tree into this repo via the shell
     is caught too. This is a guardrail against accident, not a sandbox against
     intent: a base64'd payload or an obscure path spelling will pass.
   - Reads are NOT blocked. Reading the work-identity set from here is how a drift audit
-    works; only writing its identity INTO citadel is the hazard.
+    works; only writing its identity INTO this repo is the hazard.
 
 The blocked vocabulary lives in blocklist.txt next to this file - untracked,
 gitignored, never committed. This script is tracked and token-free. If the
@@ -162,7 +162,7 @@ def main() -> int:
         if m:
             print(
                 f"FIREWALL: blocked - {label} ({m.group(0)!r}) must not enter "
-                f"revenantworks/citadel. The work identity and the public brand never "
+                f"revenantworks/claude-skills. The work identity and the public brand never "
                 f"co-occur; the work-identity set lives in its own directory and its own "
                 f"repo. If this is a false positive on prose that merely "
                 f"discusses the port, move that text out of this repo.",

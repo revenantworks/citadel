@@ -6,7 +6,7 @@ weekly task this file previously carried is retired: Cowork's native schedules
 have no monthly-or-longer cadence, so it ran weekly as a stamp check and could
 only read files over raw URLs. The routine fires **every ~61 days** (cron
 `0 12 1 2-12/2 *` — the 1st of Feb/Apr/Jun/Aug/Oct/Dec at 12:00 UTC) with the
-citadel repo cloned into its environment, so it runs the real gates.
+claude-skills repo cloned into its environment, so it runs the real gates.
 
 **Scope per fire** — report-only, never commits:
 

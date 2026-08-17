@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "revenantworks",
-  "description": "The Revenantworks citadel \u2014 marketplace of Revenantworks Agent Skill packs. Each pack installs as one plugin; every skill inside stands alone.",
+  "description": "The Revenantworks skills marketplace \u2014 every Revenantworks Agent Skill pack. Each pack installs as one plugin; every skill inside stands alone.",
   "owner": {
     "name": "Revenantworks"
   },
@@ -22,7 +22,7 @@
         "token-optimization",
         "pack"
       ],
-      "repository": "https://github.com/revenantworks/citadel"
+      "repository": "https://github.com/revenantworks/claude-skills"
     },
     {
       "name": "ossuary",
@@ -39,7 +39,7 @@
         "pipeline",
         "pack"
       ],
-      "repository": "https://github.com/revenantworks/citadel"
+      "repository": "https://github.com/revenantworks/claude-skills"
     }
   ]
 }

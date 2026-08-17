@@ -2,7 +2,7 @@
 
 The always-on companion to the **ossuary** pack's two callers. Each skill routes on its own description when invoked; this file is the standing context that keeps them from colliding, because they point at the same object — today's Daily Bet Card — from opposite ends.
 
-**Using it:** APPEND into your project root's `CLAUDE.md` so Claude Code loads it automatically — both packs' routers can coexist in one file, and a copy would overwrite whichever router landed first. It also loads on its own when you work under `packs/ossuary/` in the citadel repo. It is not a skill: nothing here is invoked; it is context.
+**Using it:** APPEND into your project root's `CLAUDE.md` so Claude Code loads it automatically — both packs' routers can coexist in one file, and a copy would overwrite whichever router landed first. It also loads on its own when you work under `packs/ossuary/` in the claude-skills repo. It is not a skill: nothing here is invoked; it is context.
 
 **Scope, stated plainly:** this pack drives one private system, `MickMacPW/longshot`. Both members are `profile: custom:ossuary-personal` — machine- and repo-bound by design. Installing the pack without that repo gets you two skills that will correctly refuse to invent anything.
 
@@ -38,4 +38,4 @@ The boundary is stated on **both descriptions** — closed 2026-08-08 with ossua
 
 ## Where these files live
 
-The canonical copies are here, in `revenantworks/citadel`. The longshot repo keeps a **downstream mirror** at its `skills/` because the cloud routine clones only that repo and reads linecaller's `SKILL.md` and two of its `references/` files out of the clone. Edit here; re-sync there. The two must not drift.
+The canonical copies are here, in `revenantworks/claude-skills`. The longshot repo keeps a **downstream mirror** at its `skills/` because the cloud routine clones only that repo and reads linecaller's `SKILL.md` and two of its `references/` files out of the clone. Edit here; re-sync there. The two must not drift.

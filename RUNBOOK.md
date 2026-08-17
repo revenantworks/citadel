@@ -1,4 +1,4 @@
-# citadel - Runbook
+# claude-skills - Runbook
 
 *Pairs with `tools/build.py` and `.github/workflows/pack-ci.yml`. The loop:*
 **edit -> `python tools/build.py` -> commit -> tag `<pack>-vX.Y.Z` -> push -> CI attaches all member zips.**
@@ -120,7 +120,7 @@ python3 tools/apply-install-swaps.py <your-private-dir> [<peer-dir> ...]
 > rebrand the whole pack without touching the repo.
 
 ## Install / update in Claude Code
-`/plugin marketplace add revenantworks/citadel` once, then
+`/plugin marketplace add revenantworks/claude-skills` once, then
 `/plugin install <pack>@revenantworks`. No zips, no swaps: installs from the repo;
 config lives in your local `~/.claude` copy. Updating: `claude plugin
 marketplace update revenantworks`, then `claude plugin update
@@ -148,7 +148,7 @@ block, and a pack router at `packs/<pack>/CLAUDE.md`.
 
 If a pack's members must also exist somewhere else — a repo whose runner clones
 only itself — the outside copy is a **declared downstream mirror**, never a
-second source of truth: keep it byte-identical, name citadel as canonical in a
+second source of truth: keep it byte-identical, name this repo (`revenantworks/claude-skills`) as canonical in a
 header note at the mirror, and record it in that repo's file map. `ossuary`'s
 copy in `MickMacPW/longshot` is the worked example.
 

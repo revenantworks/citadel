@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""citadel — multi-pack build: sync, validate, package.
+"""claude-skills — multi-pack build: sync, validate, package.
 
 Single source of truth: the pack tables in
 packs/foundation/skills/revenantworks-foundation-skillwright/references/pack-registry.md.
@@ -646,10 +646,10 @@ def _norm(p: Path) -> str:
 # `.in_use` is the plugin manager's live-session marker directory, not shipped content.
 PARITY_SKIP = {".in_use", ".DS_Store", ".git", "__pycache__"}
 
-# The brand-carriage law means citadel ships this file NEUTRAL forever — but on the
+# The brand-carriage law means this repo ships this file NEUTRAL forever — but on the
 # owner's own machine, install-definition.py (in the private brand repo) deliberately
 # overlays the real definition into the CACHE copy only, never the clone. Comparing the
-# cache against citadel's neutral HEAD therefore reports permanent "drift" for a file
+# cache against this repo's neutral HEAD therefore reports permanent "drift" for a file
 # that is working exactly as designed — the same never-passes-once-it-works defect as
 # the peer-file case below, just uncaught until a pack bump actually landed post-fix.
 # The clone must still be compared against neutral HEAD: a branded clone IS a real
