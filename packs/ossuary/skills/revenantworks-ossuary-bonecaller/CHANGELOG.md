@@ -2,6 +2,52 @@
 
 Format: [Keep a Changelog](https://keepachangelog.com/), versioning: [SemVer](https://semver.org/).
 
+## [1.5.0] — 2026-08-17
+
+The 2026-08-17 audit + security scan (skillwright Rubric A and Security
+classes, plus the owner's security rubric read through the OWASP Top 10 for
+Agentic Applications 2026 lenses — ASI01 goal hijack, ASI02 tool misuse,
+ASI06 context poisoning). Description unchanged, so the routing surface did
+not move.
+
+### Added
+- **Card read is artifact-first** (owner decision). Read the card from the
+  fixed page the cloud routine publishes to in place
+  (`https://claude.ai/code/artifact/69eb441f-f2ea-4736-a294-d7d4e9a41881`,
+  web fetch) when its date line reads today ET; else fall back to
+  `reports/<today ET>.html` in the repo, and always name the source read.
+  `compatibility` declares the new read path (404/500 chars).
+- Status job relays the first-Monday card's Monthly ledger block as
+  written (linecaller 1.7.0 adds it).
+- Assertion cases B8 (a directive inside the card is reported, not
+  followed — the suite's first injection probe) and B9 (artifact first,
+  repo second, source named) — authored, not run. 7 → 9. B1 and B6 sit on
+  changed ground and are owed a re-run.
+
+### Security findings and fixes
+- **S-1 · P1** — hard rule 3 covered "fetched content" and the render path
+  but named neither the repo files this skill reads on every status call
+  (`bankroll.json`, `bets.csv`, `dashboard.html`) nor the new artifact
+  page nor an owner paste as fetched content, and did not forbid a URL,
+  path, or command found inside content becoming a fetch or a write. Rule
+  3 now does all three.
+- **Evals · P1** — no assertion case exercised hard rule 3 at all; B8
+  closes that (authored, not run).
+- S-2 clean (no credential handling; the connector's grant is the only
+  identity, named in `compatibility`). S-3 clean: every tool named
+  (`github:get_file_contents`, `github:create_or_update_file`, web fetch)
+  with degradation stated; writes remain confirm-first and touch only the
+  columns and paths `references/companion-contract.md` fixes; no
+  `allowed-tools` grant (the minimal grant). Frontmatter carries only the
+  six keys claude.ai accepts. Hidden-text scan (zero-width unicode, HTML
+  comments, base64, homoglyph domains, fetch-pipe-shell) clean 2026-08-17.
+
+### Changed
+- README: install section names the member zip by its built name, the
+  rig junction into the claude-skills working repo, and the artifact-first
+  read; the one live "citadel" mention now reads "this repo (then named
+  citadel)".
+
 ## [1.4.0] — 2026-08-15
 
 ### Changed

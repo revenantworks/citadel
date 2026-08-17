@@ -2,7 +2,8 @@
 
 `longshot/card.py` generates the card; this file exists so the skill layer
 never restructures it. The skill may only append sourced context inside the
-Drivers bullets (section 5) and fix prose typos.
+Drivers bullets (section 5), append the Monthly ledger block on the first
+Monday of a month (below), and fix prose typos.
 
 ## Two files, one source of truth
 
@@ -64,6 +65,31 @@ silently truncated.
 Parlay of the Week only on the first card of the week (Monday): 2–3 legs
 from the highest-edge picks, combined odds, true combined probability,
 payout on 0.5u, labeled HIGH VARIANCE.
+
+## Monthly ledger block (first Monday of the month only)
+
+Added 2026-08-17 (owner decision). On the first Monday of a calendar month
+the skill appends one block directly under the header, in both files
+identically (`.md`: a five-line list under the heading
+`Monthly ledger — <Month YYYY>`; `.html`: a `<section class="ledger">` with
+the same heading and a five-item list). The month named is the calendar
+month that just closed. Every value is computed with `PY` from
+`ledger/bets.csv` (graded rows: `status` won/lost/push, `date` in that
+month) and `models/bankroll.json` — never by hand, never from memory:
+
+1. **Bankroll** — `current` from `bankroll.json`, with `starting` and
+   `peak` beside it.
+2. **Month P&L (units)** — Σ `pnl` ÷ that row's `unit_dollars`, over the
+   month's graded rows; dollars in parentheses.
+3. **Graded record** — W-L-P for the month, `n=<graded>`.
+4. **ROI** — Σ `pnl` ÷ Σ `stake_dollars` for the month; below the readable
+   threshold it carries the same `n=` caveat the header uses.
+5. **Avg CLV** — mean `clv_pct` over the month's rows that have a closing
+   line; the count with a closing line shown.
+
+A line whose inputs are empty reads `n/a (0 graded)` — the block never
+carries an invented or carried-forward number. Any other Monday, and every
+other day, the block is absent.
 
 No-game days: a short status card — reconcile results and notable line moves
 only. **Never invent a slate.**

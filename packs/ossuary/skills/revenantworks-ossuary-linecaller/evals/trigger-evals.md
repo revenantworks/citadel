@@ -1,6 +1,11 @@
 # Trigger evals — revenantworks-ossuary-linecaller
 
-Target: revenantworks-ossuary-linecaller · v1.6.0 · derived 2026-08-06;
+Target: revenantworks-ossuary-linecaller · v1.7.0 · derived 2026-08-06;
+**re-anchored to v1.7.0, 2026-08-17:** body and references only (security
+scan, first-Monday ledger block, fixed-artifact publish); the description
+is byte-identical to 1.6.0's, so the routing surface these rows judge did
+not move — no row changed, still 20, and the cold re-judge 1.6.0 owed
+remains owed;
 re-anchored to v1.1.0, 2026-08-06 (HTML card output — no trigger-surface
 change, description and rows unaffected); re-anchored to v1.2.0,
 2026-08-08 (the description gained the owed seam-closing boundary clause —

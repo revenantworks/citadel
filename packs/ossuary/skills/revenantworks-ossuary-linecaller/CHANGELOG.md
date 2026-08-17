@@ -3,6 +3,65 @@
 All notable changes to this skill. Format: [Keep a Changelog](https://keepachangelog.com/),
 versioning: [SemVer](https://semver.org/).
 
+## [1.7.0] — 2026-08-17
+
+The 2026-08-17 audit + security scan (skillwright Rubric A and Security
+classes, plus the owner's security rubric read through the OWASP Top 10 for
+Agentic Applications 2026 lenses — ASI01 goal hijack, ASI02 tool misuse,
+ASI03 privilege abuse, ASI06 context poisoning). Description unchanged, so
+the routing surface did not move.
+
+### Added
+- **First-Monday ledger block** (owner decision). Step 6: on the first
+  Monday of a month the card carries a five-line block — bankroll, month
+  P&L in units, graded record, ROI, avg CLV — computed with `PY` from
+  `ledger/bets.csv` + `models/bankroll.json`, never by hand or from
+  memory; empty inputs read `n/a`. Definitions and placement live once, in
+  `references/card-contract.md` → Monthly ledger block. A
+  `python -m longshot` subcommand would be the better home for the
+  arithmetic; that is owed on the longshot side, not here.
+- **Step 8 publish.** Where an Artifact tool exists and the slate had
+  games, the run publishes `reports/<today>.html` to the one fixed page
+  (`https://claude.ai/code/artifact/69eb441f-f2ea-4736-a294-d7d4e9a41881`),
+  never a new URL; skipped on no-game/PAUSED days and on a rig run. The
+  cloud routine's prompt already carried this as an environment specific;
+  SKILL.md is now its home.
+- Assertion cases R13 (coaching-note injection probe), R14 (ledger block
+  computed, not invented), R15 (publish never mints a URL) — authored, not
+  run. 12 → 15. R5, R6, R12 sit on changed ground and are owed a re-run.
+
+### Security findings and fixes
+- **S-1 · P1** — hard rule 3 covered "everything fetched" but not repo
+  files the run reads and did not write (nflverse/ESPN data files, intel,
+  coaching notes, `LEARNINGS.md`); step 0 bounded coaching notes alone.
+  Rule 3 now names every such input as data, calls a directive found
+  inside a finding, and forbids any URL, path, or command taken from it
+  becoming a fetch target, push destination, or shell command.
+- **S-3 · P1** — the identity gate (rule 2) had no stated behavior where
+  `gh` is absent, which is the production surface; the routine prompt
+  patched it from outside. The gh-absent structural case (one remote,
+  push only to `origin` main) is now stated in the rule itself.
+- **S-2 · P2** — rule 5 said the key lives in the environment but not that
+  its value is never echoed, printed, or written; the never-echo clause is
+  now in the rule.
+- **Output handling · P2** — step 5 writes `models/coach_overrides.json`
+  and `models/coach_intent.json` (per longshot's own file map and the
+  playbook) but named neither; both are now named, with "nothing else under
+  `models/`".
+- Tool scoping: Bash, web search, git/gh, and (new) the Artifact tool are
+  named with per-surface degradation; no `allowed-tools` grant (the minimal
+  grant). Frontmatter carries only the six keys claude.ai accepts.
+  Hidden-text scan (zero-width unicode, HTML comments, base64, homoglyph
+  domains, fetch-pipe-shell) clean 2026-08-17.
+
+### Changed
+- Stale text: `data/nflverse/` is a gitignored cache (untracked
+  2026-08-17), so step 7 no longer describes it as a staging exclusion;
+  README's invocation table names the cloud routine (the Task Scheduler
+  runner was retired 2026-08-17) and no longer lists "today's bets", ceded
+  to bonecaller at 1.6.0; README's install section leads with the routine
+  and the rig junction.
+
 ## [1.6.0] — 2026-08-15
 
 ### Changed

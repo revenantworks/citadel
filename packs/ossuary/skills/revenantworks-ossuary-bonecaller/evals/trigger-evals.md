@@ -1,6 +1,11 @@
 # Trigger evals — revenantworks-ossuary-bonecaller
 
-Target: revenantworks-ossuary-bonecaller · v1.4.0 · derived 2026-08-06;
+Target: revenantworks-ossuary-bonecaller · v1.5.0 · derived 2026-08-06;
+**re-anchored to v1.5.0, 2026-08-17:** body and `compatibility` only (the
+card is read from its fixed artifact page first; hard rule 3 widened;
+security scan); the description is byte-identical to 1.4.0's, so the
+routing surface these rows judge did not move — no row changed, still 20,
+and the cold re-judge 1.4.0 owed remains owed;
 re-anchored to v1.1.0, 2026-08-06 (card now shown as a live Artifact — no
 trigger-surface change, description and rows unaffected); re-anchored to
 v1.1.1, 2026-08-08 (personal-name scrub — the description's referent became

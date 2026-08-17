@@ -25,7 +25,7 @@ Each works alone, and neither loads a file in the other's directory. Initial rou
 
 The boundary is stated on **both descriptions** — closed 2026-08-08 with ossuary-v1.1.0: bonecaller's description says it never runs the pipeline and names the cloud routine as the owner, and linecaller's description carries the matching negative clause (existing-card reads and ledger/bankroll questions belong to the claude.ai companion). The cold re-judge of both trigger suites is recorded in each member's `evals/RESULTS.md`. The capability guard remains as defense in depth, no longer the only guard: bonecaller runs on claude.ai with no shell and no clone, so a false fire still degrades to "I cannot run that" instead of to a wrong card.
 
-**The production runner is neither of them in person.** The "Project Longshot - Daily Card" cloud routine fires daily and executes linecaller's spec against a fresh clone. Invoking linecaller by hand is the same pass run deliberately; it is idempotent — the date-stamped report is the run lock, so a second run the same day correctly does nothing.
+**The production runner is neither of them in person.** The "Project Longshot - Daily Card" cloud routine fires daily and executes linecaller's spec against a fresh clone, then publishes the rendered card to one fixed artifact page (the URL is stated once, in linecaller's step 8); bonecaller reads that page first and the repo file second. Invoking linecaller by hand is the same pass run deliberately; it is idempotent — the date-stamped report is the run lock, so a second run the same day correctly does nothing.
 
 ## Conventions
 
@@ -38,4 +38,4 @@ The boundary is stated on **both descriptions** — closed 2026-08-08 with ossua
 
 ## Where these files live
 
-The canonical copies are here, in `revenantworks/claude-skills`. The longshot repo keeps a **downstream mirror** at its `skills/` because the cloud routine clones only that repo and reads linecaller's `SKILL.md` and two of its `references/` files out of the clone. Edit here; re-sync there. The two must not drift.
+The canonical copies are here, in `revenantworks/claude-skills`. The longshot repo keeps a **downstream mirror** at its `skills/` because the cloud routine clones only that repo and reads linecaller's `SKILL.md` and two of its `references/` files out of the clone. Edit here; re-sync there (`tools/release.py` does it). The two must not drift. On the owner's rig, user-scope junctions load these members directly — linecaller from the longshot mirror, bonecaller from this repo's member folder — so an edit here is live next session; the marketplace release train for this pack is frozen (2026-08-17): the mirror and the junctions are how it ships to its only consumer.

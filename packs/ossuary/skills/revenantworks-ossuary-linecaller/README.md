@@ -24,26 +24,30 @@ in the claude-skills repo — never hand-edit it.
 
 ## Install
 
-Whole pack, from this repo's own marketplace:
+The production runner is the "Project Longshot - Daily Card" cloud routine.
+It clones the longshot repo and reads this skill out of that repo's
+`skills/` mirror, so nothing is installed for it.
 
-```
-/plugin marketplace add revenantworks/claude-skills
-/plugin install ossuary@revenantworks
-```
-
-User scope, this machine: `scripts/install-skill.ps1` in the longshot repo
+Owner's rig, user scope: `scripts/install-skill.ps1` in the longshot repo
 junctions **that repo's mirror copy** of this folder to
-`%USERPROFILE%\.claude\skills\revenantworks-ossuary-linecaller`, so the daily
-runner keeps working from a single fresh clone. Requires: the longshot repo +
-its `.venv`, git, and `gh` authenticated as MickMacPW.
+`~/.claude/skills/revenantworks-ossuary-linecaller`, so a local session
+loads the same copy the routine reads. Requires: the longshot repo + its
+`.venv`, git, and `gh` authenticated as MickMacPW.
+
+Public marketplace (anyone else): `/plugin marketplace add
+revenantworks/claude-skills` then `/plugin install ossuary@revenantworks` —
+without the private repo the skill correctly refuses to invent anything.
 
 ## Invocations
 
 | Trigger | Behavior |
 |---|---|
-| "daily bet card" / "today's bets" / "linecaller" | full daily run |
-| scheduled 9:00 AM ET run (Task Scheduler → `claude -p`) | same, headless |
+| "run the daily card" / "build today's card" / "daily bet card" / "linecaller" | full daily run |
+| the cloud routine, daily 13:00 UTC (a fresh clone, `python3`) | same, unattended; publishes the card to its fixed artifact page |
 | `PAUSED` file at repo root | reconcile-only, then stop |
+
+Reading an existing card, "today's bets", and ledger/bankroll questions
+belong to the claude.ai companion `revenantworks-ossuary-bonecaller`.
 
 ## Staying current
 
