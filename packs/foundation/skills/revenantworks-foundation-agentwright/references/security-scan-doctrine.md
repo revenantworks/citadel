@@ -2,6 +2,8 @@
 
 Loaded on `agentwright security-scan` and on nothing else. `design-checklist.md` asks whether an agent's spec is *complete*; the five classes here ask whether what the agent is **allowed to do when it runs** is safe. Durable by construction: no platform product names and no threat-landscape claims live in this file — a finding that needs a concrete enforcement mechanism takes it from `platform-notes.md`, which is the stamped surface, so nothing here ages.
 
+**External map, for an audit that wants to cite a public list.** The OWASP Top 10 for Agentic Applications (2026 edition, ASI01–ASI10) lands on these classes as follows: ASI02 tool misuse and ASI03 identity/privilege abuse → S1 (and S4 for the credential half); ASI04 agentic supply chain and ASI05 unexpected code execution → S1's provenance question; ASI01 goal hijack, ASI06 memory/context poisoning, and ASI07 insecure inter-agent communication → S2 (with `design-checklist.md` area 5 for the handoff shape); ASI10 rogue agents → S3; ASI08 cascading failures → S5; ASI09 human-agent trust exploitation is a design concern — area 6 output contracts, which is what makes an approver's view of the run honest — and no scan class re-scores it. The ids are cited beside a finding's own class, never in place of it.
+
 ## Contents
 
 Severity · S1 Tool-grant scope · S2 Untrusted-content flow · S3 Guardrails & kill switches · S4 Credentials & secrets · S5 Failure & retry as a security surface · Worked example

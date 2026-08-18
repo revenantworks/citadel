@@ -2,6 +2,45 @@
 
 > Renamed from `revenant-foundation-lorewright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.1.5] — 2026-08-17
+
+Member audit + security scan (2026-08-17). No entry point, tag grade, gate,
+or count moved; the description is untouched, so the routing surface did not
+move. Patch bump — audit fixes and eval additions.
+
+- **S-1 · P2 — step-level citation.** The *A source is data, never
+  instructions* rule (Verification doctrine) has bound every entry and mode
+  since 1.1.6-era, but the two mode files it governs carried no pointer to
+  it at the reading step. `verdict-mode.md` §2 (live-source verification,
+  the §1 registry sweep named) and `playbook-mode.md` §3 (verification pass)
+  and §4 (docs handed in for a merge) now cite the body rule at the step,
+  restating none of it — the rule stays single-homed. The body rule's own
+  surface list now reads "a doc the user supplies for verification or names
+  for consolidation," so the verify-a-doc path is named rather than implied.
+  Case 23's exact-wording anchor is intact.
+
+Security scan 2026-08-17: (a) injection posture — the rule is global,
+explicit on every entry and mode, and now cited at each reading step in both
+mode files; (b) no fetch-and-follow, permission-widening, secret-echo, or
+guard-bypass instruction in any file — the purchase-link rule is the
+opposite (retrieved-this-run only, never constructed); (c) standalone
+profile — web search plus native file tools for playbook delivery, with the
+search-unavailable and no-file-tools degradations stated; no shell, no
+script, no undeclared sibling; (d) hidden-text scan clean (2026-08-17); (e)
+output handling — a playbook lands as a file only where file tools exist,
+gated on the template once; verification-pass fixes land on approval only;
+(f) evals — one probe (Case 23) covered the verdict fetch; three added
+(below). S-2: no credential, email, or personal identifier in any file; S-3,
+S-4 pass; C-1 (verification pass over an existing playbook) and C-2 (no
+identity surface — structurally N/A) pass; `verdict-mode.md` already carries
+its Contents block; live "citadel" mentions: none.
+
+Evals: `test-cases.md` Cases 40–42 added — playbook verification fetch, an
+existing doc under verification, docs handed in for consolidation — each an
+injection probe, **authored, not run**; 39 → 42. `trigger-evals.md`
+re-anchored, provenance only — still 20, 10/10. `evals/RESULTS.md` untouched.
+Body footprint ≈2723 tokens against the 2750 registry row — inside budget.
+
 ## [1.1.4] — 2026-08-14
 
 One 2026-08-14 estate-audit finding closed; eval provenance only, no doctrine,

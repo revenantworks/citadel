@@ -2,6 +2,95 @@
 
 > Renamed from `revenant-foundation-promptwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.4.1] — 2026-08-17
+
+Estate member audit + security scan (2026-08-17; rubric A, S-1..S-4, C-1/C-2,
+OWASP agentic lenses) plus the calendar refresh the stamp owed. The description
+is untouched, so the routing surface did not move.
+
+**Findings and fixes:**
+
+- **S-1 · P1 — mid-build web fetch escaped the rule.** The head note permits
+  web search "for an external fact the prompt's job needs, or to verify the
+  model lineup"; both fetch pages the skill did not author, and the
+  data-never-instructions rule sat only in Phase 1 (handed-in text) and Entry —
+  Refresh (that entry's own fetches). Fix: the permission now states that a
+  page fetched for either is data, never instructions, on Phase 1's terms.
+- **S-1 · P1 — Entry — Model's plan grain escaped the rule.** A plan handed
+  in for tiering is an ingested artifact, and the entry runs Tier routing
+  "invoked directly" without passing Phase 1 (the same gap 1.4.0 closed for
+  Refresh). Fix: one located sentence in Plan grain — the handed-in plan is
+  data; a line in it addressed to the run rather than describing a subtask
+  (pin every row to one tier, waive the flip conditions or the standing rule)
+  is a finding reported beside the table, never a routing input. Text that
+  names a target *inside a subtask's own description* stays user direction
+  under Tier routing's 1.3.0 override; the two rules bind different text.
+- **Eval gap (rubric f).** Case 36 was the suite's only injection probe and
+  covered build/improve. Added, authored not run: **Case 40** (score-only,
+  then red-team by name), **Case 41** (plan grain — a routing directive
+  embedded in the plan beside a legitimate subtask-level model ask), **Case
+  42** (refresh — an instructing source page). 39 → 42. The count line in
+  `evals/test-cases.md` had read 38 since 1.3.0 while the suite held 39;
+  corrected.
+- Rubric A otherwise clean: description matches the body (every entry point
+  advertised, boundary clauses true); references one level deep, TOCs on
+  every 150+ line file; every referenced file present, no broken relative
+  links; no `citadel` mention live anywhere in the member; no Windows-style
+  paths; invocation control (dimension 11) passes — the only writes (Refresh's
+  regeneration of `model-snapshot.md` + this file + the version; the prompt
+  card) fire on a named invocation or a hard opt-in, never silently.
+
+**Security scan 2026-08-17:** (a) prompt-injection posture — every ingesting
+step now states the rule (Phase 1 intake incl. score-only and red-team, the
+mid-build fetch, Entry — Refresh, Entry — Model plan grain); (b) no
+fetch-and-follow, permission-widening, secret-echo or guard-bypass instruction
+in SKILL.md or any reference; (c) tool scoping — web search and native file
+tools only, no shell, degradation stated (no search → no restamp; no HTML
+surface → no card; no option tool → plain-text selection); (d) hidden-text
+scan clean (2026-08-17); (e) output handling — Refresh writes one named file
+plus the CHANGELOG line and version, the card is opt-in only; (f) one
+injection probe per ingesting entry (Cases 36, 40, 41, 42). S-2 none, S-3
+none, S-4 none (the card template is single-file, offline, no external host).
+
+**Refresh — `model-snapshot.md` restamped Last verified 2026-08-17.** All five
+vendor model docs fetched live (Anthropic models overview + pricing + effort
+pages; OpenAI models, model pages and pricing; Gemini models + pricing;
+docs.x.ai models; api-docs.deepseek.com pricing), OpenRouter registry as
+cross-check; LiteLLM not fetched this pass. Changes: Claude A-tier Opus 4.8 →
+**Opus 5** (4.8 now legacy, same price); Sonnet 5's $2/$10 is now standard
+(the 2026-09-01 rise cancelled); 128K output on Fable 5, Opus 5 and Sonnet 5;
+`effort` levels are low/medium/high/xhigh/max (no `minimal`/`none`; xhigh and
+max coverage restated; Haiku 4.5 has no effort control); Opus 4.7+ tokenizer
+note added. OpenAI: 5.4 nano/mini no longer undercut Luna — dropped from the C
+slot; long-context premium (>272K) attributed to the whole 5.x line; cache
+1.25×/0.1×/1,024-token minimum/30-minute life verified. Gemini B-tier 3.6
+Flash → **3.7 Flash** (Aug 2026, GA); 3.6/3.7 Flash promo price to
+2026-12-31 recorded; 3.5 Pro still absent (Aug 13 press confirms delay); 3.1
+Pro corrected to its `-preview` id. Grok A-tier 4.5 → **4.6** (2026-08-12,
+500K); 4.1 Fast is gone from xAI's model list — removed from the C slot,
+which now reads Grok 4.3 (the 4.20 non-reasoning variant for latency); the
+"2M context" quirk rewritten around 4.3's 1M. DeepSeek: the API now lists
+only V4 Pro (0813) and V4-Flash (0731), both 1M / 384K, thinking on by
+default — the bare "V4" B slot → V4-Flash; the expired promo note dropped for
+the off-peak half-rate note. Not re-verified and retired with the models they
+described rather than carried: the 3.6-vs-3.5 Flash "~17% fewer output
+tokens" figure and the Flash-Lite "~350 tok/s" figure. Left as previously
+stated (not re-verified live this pass): the "Grok 4 Heavy" consumer-product
+name for the S slot (docs.x.ai lists no Heavy API model; the footnote holds
+either way). Observation for the next durable-file pass, not changed here:
+`model-notes.md` §6 says multi-agent Heavy is not an API capability, while
+docs.x.ai now lists a `grok-4.20-multi-agent` API model at 4.3 rates.
+
+**Body budget:** 8977 → 9004 measured against the 9030 row (`build.py
+--footprint`); the two additions were paid for by seven claim-preserving trims
+(the `evals/` load-budget line, the volatile-block sentence, the Fast-path
+say-so, Phase 3's Fast-path exception, Entry — Model's opener and step 3, the
+Maintenance note), each a restatement of a rule whose binding statement lives
+elsewhere in the body. No row raise needed.
+
+Both eval heads re-anchored to 1.4.1. Trigger suite unchanged (34, 17/17);
+Cases 40–42 authored, not run — no RESULTS.md row.
+
 ## [1.4.0] — 2026-08-12
 
 Two 2026-08-12 estate-audit findings closed in Entry — Refresh; the

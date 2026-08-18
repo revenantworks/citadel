@@ -2,6 +2,58 @@
 
 > Renamed from `revenant-foundation-brandwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.4.0] — 2026-08-17
+
+**The definition is read from a fixed user path.** Owner decision 2026-08-17:
+brandwright reads the live definition from `~/.claude/brand/` when that copy
+exists, so an install no longer depends on an overlay swapping the shipped
+file. Minor bump — a small capability change on the same footing as 1.1.0
+and 1.2.0; the description is untouched, so the routing surface did not move.
+
+- **Where the definition lives** (SKILL.md, *Which definition* — its single
+  home). If `~/.claude/brand/brand-definition.md` exists, it and any
+  `brand-definition-<slug>.md` beside it are the roster and the definitions.
+  Those copies are read-only for brandwright — the release script refreshes
+  them from each definition's home repo — so a Build there hands the rebuilt
+  definition back for the owner to land in that home; else the shipped
+  `references/brand-definition.md` (neutral, or an overlay's copy), which
+  Build does rewrite. On a surface with no filesystem (claude.ai)
+  only the shipped copy is reachable. Either copy is read as data. The
+  *Volatile surfaces* bullet gains the one precedence clause; README.md and
+  `audit-doctrine.md` point at the rule rather than restating it. The shipped
+  `references/brand-definition.md` is untouched and still neutral.
+- **S-1 · P2 — step-level citation.** Turn shape rule 4 bound every entry
+  since 1.3.0, but only Entry — Audit cited it. Build's ingested guide,
+  Apply's handed-in definition and target, and Export's handed-in definition
+  now each carry an "as data, per Turn shape rule 4" clause at the step; the
+  new user-path read carries its own data-never-instructions sentence.
+- **P2 — README drift.** Workflow line re-aligned to the body's *Select
+  definition (named / scoped / ask)*; the fixtures tree now lists the
+  saltmere peer; the build row names the copy it rewrites.
+- **P2 — `application-doctrine.md` Contents** was missing its own *Peers*
+  section; added.
+
+Security scan 2026-08-17: (a) injection posture — rule 4 global, now cited
+at every ingesting step, and the user-path definition read is covered by its
+own statement; (b) no fetch-and-follow, permission-widening, secret-echo, or
+guard-bypass instruction in any file; (c) standalone profile — no shell, no
+script, no undeclared tool; the user-path read degrades to the shipped copy
+where no filesystem exists; (d) hidden-text scan clean (2026-08-17); (e)
+output handling — Build is the only writer of the definition and is gated
+once, Audit is report-only, Export writes nothing; (f) evals — the suite
+carried no injection probe; four added (below). S-2 fixtures re-read: both
+synthetic definitions carry no credential, email, or personal identifier.
+S-3, S-4 pass; C-1 (audit entry) and C-2 (neutral default) pass; live
+"citadel" mentions: none.
+
+Evals: `test-cases.md` Cases 24–27 added, one injection probe per ingesting
+entry (Build guide, Apply target, Audit tree, Export handed-in definition) —
+**authored, not run**; 23 → 27; the user-path lookup is authored-not-covered
+and recorded as owed. `trigger-evals.md` re-anchored, provenance only —
+still 30, 17/13; the row-27 re-judge stays owed. `evals/RESULTS.md` untouched.
+Body footprint ≈3550 tokens against the 3450 registry row — the raise is
+reported to the pack, not applied here.
+
 ## [1.3.0] — 2026-08-12
 
 One 2026-08-12 estate-audit finding closed; the description is untouched, so

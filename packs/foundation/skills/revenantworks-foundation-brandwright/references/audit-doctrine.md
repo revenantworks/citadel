@@ -1,6 +1,6 @@
 # Audit Doctrine — Build Extraction Rules, Sweep Notes, Guide Card
 
-Load on Build and Audit runs, and on the guide-card export for its fill rules at the bottom. The definition itself lives in `brand-definition.md`. Three of the four export shapes — voice profile, structural payload, style one-pager — are stated in full in the SKILL body's Entry — Export and bind whether or not this file is open; this file restates none of them. The fourth, the brand-guide card, carries its mandatory section order and fill rules here at the bottom and nowhere else — that is why a card export loads this file. This file carries the how.
+Load on Build and Audit runs, and on the guide-card export for its fill rules at the bottom. The definition itself lives in `brand-definition.md` — which copy of it a run reads is SKILL.md's *Which definition*, not restated here. Three of the four export shapes — voice profile, structural payload, style one-pager — are stated in full in the SKILL body's Entry — Export and bind whether or not this file is open; this file restates none of them. The fourth, the brand-guide card, carries its mandatory section order and fill rules here at the bottom and nowhere else — that is why a card export loads this file. This file carries the how.
 
 ## Build — the two extraction rules
 

@@ -1,7 +1,40 @@
 # claude-skills - Runbook
 
-*Pairs with `tools/build.py` and `.github/workflows/pack-ci.yml`. The loop:*
+*Pairs with `tools/build.py`, `tools/release.py`, and `.github/workflows/pack-ci.yml`. The loop:*
 **edit -> `python tools/build.py` -> commit -> tag `<pack>-vX.Y.Z` -> push -> CI attaches all member zips.**
+
+**One command runs the whole close-of-pass loop (added 2026-08-17):**
+`python tools/release.py foundation=X.Y.Z [ossuary=X.Y.Z] -m "<message>"` —
+bump-pack, changelog gate, build, `--check`, tests, commit, tag, push with
+tags, longshot mirror re-sync (commit + push there under its own identity),
+`~/.claude/brand` refresh, then the list of member zips that changed and the
+exact claude.ai upload list. Add `--swaps <dir> [<peer-dir>]` to also build
+the branded brandwright install zip, `--export-dir <dir>` to copy every zip
+plus a README.txt there, `--dry-run` to see the plan. Steps 1 to 5 below
+describe what it does by hand.
+
+## The rig install ritual (2026-08-17 — replaces the marketplace plugins)
+
+**Edit in the repo; it is live next session.** Every foundation member and
+bonecaller load on the owner's rig by user-scope junction —
+`~/.claude/skills/<member>` -> `packs/<pack>/skills/<member>/` in this
+working tree (PowerShell `New-Item -ItemType Junction`); linecaller's
+junction points at the longshot repo's mirror copy instead, because the
+cloud routine and the rig must read the same file. The marketplace plugins
+`foundation@revenantworks` and `ossuary@revenantworks` were uninstalled from
+the rig the same day; `claude plugin update` and the two-surface sync ritual
+are **no longer part of the rig loop**. The marketplace registration itself
+stays — it is how the public installs. `python tools/build.py --parity`
+remains for CI and public consumers (it skips cleanly with no plugin
+installed) and is not a rig step. Verify the junctions with
+`ls -la ~/.claude/skills`; a missing one is recreated by the PowerShell line
+above, never by re-installing the plugin.
+
+**Post-commit hook.** `.claude/settings.json` wires a PostToolUse hook on
+`git commit` (`.claude/hooks/bump-check.py`) that runs `build.py --check`
+and surfaces `pack bump needed: <pack>` when shipped files differ from the
+pack's current tag while its version has not moved. Advisory, never
+blocking; no `ask` rules anywhere in this repo.
 
 ## Release a pack version
 1. Make the change (member content, registry row, roster). On any member

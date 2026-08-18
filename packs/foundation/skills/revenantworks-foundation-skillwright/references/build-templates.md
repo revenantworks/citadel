@@ -86,7 +86,7 @@ Small skills legitimately collapse to `SKILL.md` + LICENSE (+ evals). Add layers
 └── .mcp.json                    # optional — bundled MCP servers (standard/custom profiles only, declared)
 ```
 
-- **Two kinds of entries, one directory.** Auto-loaded domain knowledge is a normal skill; an explicit slash-command workflow is a skill with `disable-model-invocation: true`. That flag is the current format's "command" — the legacy flat-file `commands/` layout still loads, but the docs point new plugins at `skills/`. A pack's capstone orchestration prompt maps to a workflow entry (e.g. `/foundation:forge-run`).
+- **Two kinds of entries, one directory.** Auto-loaded domain knowledge is a normal skill; an explicit slash-command workflow is a skill with `disable-model-invocation: true`. That flag is the current format's "command" — the legacy flat-file `commands/` layout still loads, but the docs point new plugins at `skills/`. A pack's capstone orchestration prompt maps to a workflow entry (e.g. `/foundation:forge-run`). The flag is a Claude Code-only key (`rubrics.md` — frontmatter shape), so a workflow entry carrying it ships in the plugin lane only, never as a claude.ai upload.
 - **Version:** set `version` in plugin.json explicitly, matching the pack release — omitted, every git commit counts as a new version.
 - **Distribution:** any git repo installs directly; a self-hosted marketplace adds `.claude-plugin/marketplace.json`; community-directory listing goes through clau.de/plugin-directory-submission — run `claude plugin validate` before submitting.
 - **The target wraps, never rewrites.** Member skills keep their own frontmatter, profiles, and evals; the `.skill` and full-zip artifacts still ship alongside the plugin repo.

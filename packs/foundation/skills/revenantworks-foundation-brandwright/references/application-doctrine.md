@@ -11,6 +11,7 @@ change for a rebrand — the definition changes the values, this maps where they
 - Palette inheritance — structure, light, and marks
 - Overrides
 - Suites
+- Peers — applying one brand where another lives
 
 ---
 

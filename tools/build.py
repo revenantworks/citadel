@@ -569,6 +569,57 @@ def validate_evals(folder: Path, fm_ver: str) -> None:
                 prev = ln
 
 
+def bump_needed(packs: dict[str, str], versions: dict[str, tuple[Path, str]]) -> list[str]:
+    """Shipped content changed since the pack's current version was tagged, but no version moved.
+
+    Added 2026-08-17 for the post-commit hook (.claude/hooks/bump-check.py). For each pack whose
+    tag `<pack>-v<plugin.json version>` exists locally, diff HEAD (plus the working tree) against
+    that tag under packs/<pack>/. Any difference means the pack has moved past what its version
+    names — the pack version is what installs and zips key on, so the change is invisible until
+    it moves. Emits `pack bump needed: <pack>` and, per member whose folder differs while its
+    frontmatter version equals the tagged one, `member bump needed: <member>`. Advisory (warn),
+    never a failure: a pass legitimately carries unbumped commits until it closes. Silent when
+    git or the tag is absent (fresh clone before `git fetch --tags`, CI on a detached ref).
+    """
+    import subprocess
+    lines: list[str] = []
+    for pack in packs:
+        pj = PACKS / pack / ".claude-plugin" / "plugin.json"
+        if not pj.is_file():
+            continue
+        ver = json.loads(pj.read_text(encoding="utf-8")).get("version")
+        tag = f"{pack}-v{ver}"
+        try:
+            has_tag = subprocess.run(["git", "-C", str(ROOT), "rev-parse", "-q", "--verify", f"refs/tags/{tag}"],
+                                     capture_output=True, text=True).returncode == 0
+            if not has_tag:
+                continue
+            changed = subprocess.run(["git", "-C", str(ROOT), "diff", "--name-only", tag, "--", f"packs/{pack}"],
+                                     capture_output=True, text=True).stdout.split()
+        except (OSError, FileNotFoundError):
+            return lines
+        if not changed:
+            continue
+        lines.append(f"pack bump needed: {pack} — {len(changed)} shipped file(s) differ from {tag} "
+                     f"while plugin.json still says {ver}")
+        for member, (skills_dir, mver) in versions.items():
+            rel = f"packs/{pack}/skills/{member}/"
+            if not any(c.startswith(rel) for c in changed):
+                continue
+            try:
+                old = subprocess.run(["git", "-C", str(ROOT), "show", f"{tag}:{rel}SKILL.md"],
+                                     capture_output=True, text=True, encoding="utf-8").stdout
+            except OSError:
+                continue
+            m = re.search(r'version:\s*"?([\d.]+)"?', old.split("---")[1] if old.count("---") >= 2 else "")
+            if m and m.group(1) == mver:
+                lines.append(f"member bump needed: {member} — shipped files differ from {tag} at the same "
+                             f"member version {mver}")
+    for ln in lines:
+        warn(ln)
+    return lines
+
+
 def check_marketplace(packs: dict[str, str]) -> None:
     """Cross-check the catalog: every pack has an entry; every entry's source exists;
     the pack's own plugin.json version matches the catalog (added 2026-07-24 —
@@ -869,6 +920,9 @@ def main() -> int:
                 if old != out:
                     old.unlink()
                     print(f"  ✗ dist/{old.name} (superseded)")
+
+    if CHECK:
+        bump_needed(packs, {m: (d, v) for m, (d, v) in versions.items() if v})
 
     print(f"\ncount integrity: registry {total_members} = folders {total_folders} = manifests {total_manifests}")
     if warnings:
