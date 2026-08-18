@@ -17,6 +17,54 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [foundation-v2.6.0] - 2026-08-18
+
+Tenth foundation member: `revenantworks-foundation-dispatchwright` 1.0.0, a
+session-fan-out dispatcher closing the orchestration-skill candidate that
+`NEXT.md` had carried blocked since 2026-08-01. It decomposes a large request
+into units, tiers each one through promptwright's Entry — Model target table
+(never inventing a tier of its own), dispatches with a durability contract
+(atomic commit+push, pushed after every finished piece of work and before
+any report, a ledger row at dispatch/commit/push), runs waves under fixed
+caps (six concurrent, two nesting levels, a worktree per writer), escalates
+only on a verifiable signal, and reconciles every run against
+`git rev-parse origin/main` rather than an agent's own report. Doctrine is
+drawn from `workshop/handbook/lessons-2026-08-17-rebuild.md`'s own account of
+a large multi-agent session that cost five usage-limit stops and several
+refuted self-reports; `references/anti-patterns.md` names each of its
+thirteen anti-patterns against that record where an instance exists.
+
+- Registry: roster row + a declared budget row (measured ≈3254 tokens,
+  ceiling 4000) in skillwright's `pack-registry.md`, roster 9 → 10; capstone
+  note updated, capstone run not re-triggered (a member add updates the line
+  only). Router: one row in `packs/foundation/CLAUDE.md`'s table plus one
+  How-they-compose line ("dispatchwright dispatches; promptwright tiers").
+- Two forcing hooks ship with the member at `references/hooks/`
+  (version-controlled copies) and are installed at `~/.claude/hooks/`
+  (outside this repo, per the task that built them): `dispatch_gate.py`
+  (`UserPromptSubmit`, fails open, flags a likely fan-out and sets a
+  session mode flag) and `dispatch_ledger_guard.py` (`PreToolUse` on
+  `Task|Agent|Workflow`, fails closed while the flag is live and the run's
+  ledger has no row carrying model, effort, and surface). Both selftests
+  pass; the hooks folder's own README carries the settings.json block the
+  owner pastes by hand (the global settings file denies editing itself).
+- Trigger evals only at 1.0.0: 10 should-fire, 10 should-not (the
+  promptwright/agentwright/rigwright boundary pairs named explicitly), 2
+  injection probes — authored, not yet run (`evals/RESULTS.md`).
+- **Not done, recorded rather than hidden:** no routing-seam row for
+  dispatchwright's three boundary pairs (promptwright, rigwright,
+  agentwright) — the pack's seam table (`**foundation seams**`) was not
+  extended, so `build.py --check` reports the member as "named in no routing
+  seam" (advisory, non-fatal). No assertion suite yet. Both are named in the
+  member's own README as owed to a future `skillwright integrate` pass.
+- Prose pass (`handbook/estate-voice.md`) across root docs and eight
+  foundation members' README/SKILL.md — see the member CHANGELOGs and the
+  repo commit for the per-file account; frontmatter, descriptions, and
+  CHANGELOG history untouched everywhere. tokenwright, commwright, and
+  evalwright were read but not edited (frozen 2026-08-17: no bumps unless
+  broken, and any shipped-file edit would force one).
+- `tools/test_build.py`'s roster-count assertion updated 9 → 10 to match.
+
 ## [foundation-v2.5.0] - 2026-08-17
 
 The 2026-08-17 audit + security scan of all nine wrights against
