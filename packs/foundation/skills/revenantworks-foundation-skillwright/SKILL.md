@@ -19,7 +19,7 @@ metadata:
 
 *history in CHANGELOG.md · sources in SOURCES.md · MIT (LICENSE)*
 
-Turn a one-line intent into a shipped, install-ready Agent Skill — or port an existing set to a new owner or purpose. Built from scratch, a skill is researched against current best practices, checked for a real niche, tested, and packaged. Or point it at an existing skill and get the same standards applied as an audit. **Builds spec-clean neutral** — a member is labeled with its pack's structural identity (name segments + frontmatter token) but carries no applied styling; brand and voice are added only by invoking brandwright.
+Turn a one-line intent into a shipped, install-ready Agent Skill — or port an existing set to a new owner or purpose. Built from scratch, a skill is researched against current best practices, checked for a real niche, tested, and packaged. Or point it at an existing skill and get the same standards applied as an audit. **Builds spec-clean neutral** — a member is labeled with its pack's structural identity (name segments + frontmatter token) but carries no applied styling. Brand and voice are added only by invoking brandwright.
 
 **Build workflow:** Intent → Pack & profile → Research → Niche verdict → Design catalog *(one gate)* → Build → Self-audit → Package
 

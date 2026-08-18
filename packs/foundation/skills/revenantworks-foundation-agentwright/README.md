@@ -1,6 +1,16 @@
 # revenantworks-foundation-agentwright
 
-Designs and audits the system around an autonomous agent — everything but the prompt text. What separates it from guardrail platforms and security harnesses: it's a portable **doctrine skill** — a ten-area checklist (cadence, soft/hard guardrail tiers, kill-switch layers, protected resources, handoff schemas, output contracts, zero-signal rule, failure/retry, injection hygiene, trust tiers) that emits a complete **ops spec** for a new agent or a **scored audit** of an existing one, sized to the agent's blast radius — and then **renders that spec into the surface that actually runs it**, naming every control the target cannot enforce rather than emitting something that only looks safe. Runtime enforcement stays with your platform; code-level threat review stays with a security harness — agentwright is the design layer that decides what those must enforce. It runs zero scripts, so it behaves identically on claude.ai, Claude Code, and the API.
+Designs and audits the system around an autonomous agent — everything but the prompt text. It is
+a portable **doctrine skill**: a ten-area checklist (cadence, soft/hard guardrail tiers,
+kill-switch layers, protected resources, handoff schemas, output contracts, zero-signal rule,
+failure/retry, injection hygiene, trust tiers). That checklist produces a complete **ops spec**
+for a new agent, or a **scored audit** of an existing one, sized to the agent's blast radius. It
+then **renders that spec into the surface that actually runs it**, naming every control the
+target cannot enforce — never emitting something that only looks safe. This is what separates it
+from guardrail platforms and security harnesses. Runtime enforcement stays with your platform.
+Code-level threat review stays with a security harness. agentwright is the design layer that
+decides what those must enforce. It runs zero scripts, so it behaves identically on claude.ai,
+Claude Code, and the API.
 
 **Workflow:** Intake → Blast radius → Checklist pass *(design or audit)* → Ops spec / scoreline → *(optional)* Emit to target → Handback
 

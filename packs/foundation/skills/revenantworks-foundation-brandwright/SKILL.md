@@ -16,7 +16,7 @@ metadata:
 
 *history in CHANGELOG.md · sources in SOURCES.md · MIT (LICENSE)*
 
-The single home of brand and voice. One definition — built by interview or ingested from a guide — holds the identity *and* its voice, becomes the standard every repo, skill, document, and artifact is scored against, and is **applied on request** to any artifact that should carry it. Consistency is enforced by report, never by silent rewrite; branding is always a deliberate invocation, never baked into someone else's build.
+The single home of brand and voice. One definition — built by interview or ingested from a guide — holds the identity *and* its voice, becomes the standard every repo, skill, document, and artifact is scored against, and is **applied on request** to any artifact that should carry it. Consistency is enforced by report, never by silent rewrite. Branding is always a deliberate invocation, never baked into someone else's build.
 
 **Workflow:** Intake → **Select definition** *(named / scoped / ask)* → Build / Apply / Audit / Export → Gate → Handback
 

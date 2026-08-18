@@ -1,6 +1,6 @@
 # revenantworks-foundation-promptwright
 
-A prompt-engineering skill for agentic LLMs. Turns a rough idea, a set of parameters, or an existing prompt into a robust, scored, copy-paste-ready artifact. What separates it from framework-based prompt builders:
+A prompt-engineering skill for agentic LLMs. Turns a rough idea, a set of parameters, or an existing prompt into a scored, copy-paste-ready artifact. What separates it from framework-based prompt builders:
 
 - Every prompt ships with a **model recommendation** routed by capability tier (Claude by default, any major vendor on request).
 - Every draft gets a **hostile read** — the prompt as a maximally-literal model would take it, hunting lines that can be obeyed while defeating the intent.

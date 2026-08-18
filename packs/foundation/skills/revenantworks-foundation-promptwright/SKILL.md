@@ -17,7 +17,7 @@ metadata:
 
 *history in CHANGELOG.md · sources in SOURCES.md · MIT (LICENSE)*
 
-Turn a rough idea, parameters, or an existing prompt into a robust, scored, copy-paste-ready artifact — with a model recommendation to run it on.
+Turn a rough idea, parameters, or an existing prompt into a scored, copy-paste-ready artifact — with a model recommendation to run it on.
 
 **Workflow:** Intake → Analyze + Score → Pick structure → Clarify (only if needed) → Build → Re-score & self-check → Output
 

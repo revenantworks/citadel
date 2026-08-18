@@ -18,9 +18,9 @@ describe what it does by hand.
 **Edit in the repo; it is live next session.** Every foundation member and
 bonecaller load on the owner's rig by user-scope junction —
 `~/.claude/skills/<member>` -> `packs/<pack>/skills/<member>/` in this
-working tree (PowerShell `New-Item -ItemType Junction`); linecaller's
-junction points at the longshot repo's mirror copy instead, because the
-cloud routine and the rig must read the same file. The marketplace plugins
+working tree (PowerShell `New-Item -ItemType Junction`). linecaller's
+junction points at the longshot repo's mirror copy instead: the cloud
+routine and the rig must read the same file. The marketplace plugins
 `foundation@revenantworks` and `ossuary@revenantworks` were uninstalled from
 the rig the same day; `claude plugin update` and the two-surface sync ritual
 are **no longer part of the rig loop**. The marketplace registration itself

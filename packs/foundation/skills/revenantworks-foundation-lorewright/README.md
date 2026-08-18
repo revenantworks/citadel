@@ -1,6 +1,12 @@
 # revenantworks-foundation-lorewright
 
-Research that ends in something usable. What separates it from research-report tools: **verdict mode** ends in one direct recommendation — criteria intake, live primary-source verification, a comparison where every cell wears an evidence tag ([documented] / [vendor-reported] / [estimate] / [unverified]), and the flip condition that would change the pick; **playbook mode** maintains living reference docs — template-first, answer up front, versioned, re-verified on every touch, consolidated instead of duplicated. No reports, no walls of findings, zero scripts — identical on claude.ai, Claude Code, and the API.
+Research that ends in something usable. What separates it from research-report tools:
+**verdict mode** ends in one direct recommendation — criteria intake, live primary-source
+verification, a comparison where every cell wears an evidence tag ([documented] /
+[vendor-reported] / [estimate] / [unverified]), and the flip condition that would change the
+pick. **playbook mode** maintains living reference docs — template-first, answer up front,
+versioned, re-verified on every touch, consolidated instead of duplicated. No reports, no walls
+of findings, zero scripts. It behaves identically on claude.ai, Claude Code, and the API.
 
 **Workflow:** Intake → Criteria / Template → Live verification → Product → Handback
 

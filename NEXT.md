@@ -55,12 +55,13 @@ plugin install + parity, and the nine claude.ai re-uploads (owner,
    whether that zip was actually uploaded cannot be verified from this
    machine. If it was not: delete-and-re-upload the `+install` zip per the
    RUNBOOK.
-3. **Blocked — orchestration-skill candidate scan (opened 2026-08-01, still blocked
-   2026-08-12).** A candidate new foundation member — an orchestration skill for
-   Claude Code that plans a research/build project into subtasks and assigns each a
-   model/agent suited to its actual need — plus a broader scan for other meta-skill
-   gaps in the pack. Planned approach: a promptwright-built research prompt handed to
-   skillwright for a report-only niche verdict + gap scan, before any build. **Blocked
-   on prior art in a private Telegram thread** that hasn't been pasted into a session
-   yet — do not substitute general knowledge of orchestration patterns for it. Paste
-   the thread content into a session pointed at this repo to unblock.
+3. **Discharged 2026-08-18 — orchestration-skill candidate scan (opened 2026-08-01,
+   blocked 2026-08-12).** The candidate shipped as `revenantworks-foundation-
+   dispatchwright` 1.0.0: a session-fan-out skill that decomposes a request into
+   units, tiers each one through promptwright's target table, dispatches with a
+   durability contract, and reconciles against origin. The prior-art block (a
+   private Telegram thread never pasted into a session) was not resolved before
+   the build — this entry records that gap rather than hiding it. Two things this
+   item still owes: the routing-seam row for dispatchwright's three boundary pairs
+   (promptwright, rigwright, agentwright) was not added to the pack registry, and
+   no assertion suite exists yet, both named in the member's own README.

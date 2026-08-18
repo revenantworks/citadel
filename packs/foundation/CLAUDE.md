@@ -1,6 +1,6 @@
 # Foundation Pack — router & conventions
 
-The always-on companion to the **foundation** pack's ten wrights. Each skill routes on its own description when invoked; this file is the standing context that makes them work *together*, so the right wright gets reached for without being named, and the pack's conventions hold across a session.
+The always-on companion to the **foundation** pack's ten wrights. Each skill routes on its own description when invoked. This file is the standing context that makes them work *together*, so the right wright gets reached for without being named, and the pack's conventions hold across a session.
 
 **Using it:** APPEND into your project root's `CLAUDE.md` (or into `~/.claude/CLAUDE.md` to cover every project) so Claude Code loads it automatically — both packs' routers can coexist in one file, and a copy would overwrite whichever router landed first. It also loads on its own when you work under `packs/foundation/` in the claude-skills repo. It is not a skill: nothing here is invoked; it is context.
 
@@ -24,7 +24,7 @@ The always-on companion to the **foundation** pack's ten wrights. Each skill rou
 | Slim, budget, or audit token footprint | **tokenwright** | "slim this / what does it cost" |
 | A request that will fan out into many agents or repos | **dispatchwright** | "rebuild / re-architect all of this", "resume that stalled run", `dispatchwright` |
 
-Each works alone. Initial routing is at the description level: this table is the proactive cue, not a dependency; an uninstalled wright is named, never a blocker.
+Each works alone. Initial routing is at the description level — this table is the proactive cue, not a dependency. An uninstalled wright is named, never a blocker.
 
 ## How they compose
 

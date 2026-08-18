@@ -1,6 +1,6 @@
 # Ossuary Pack — router & conventions
 
-The always-on companion to the **ossuary** pack's two callers. Each skill routes on its own description when invoked; this file is the standing context that keeps them from colliding, because they point at the same object — today's Daily Bet Card — from opposite ends.
+The always-on companion to the **ossuary** pack's two callers. Each skill routes on its own description when invoked. This file is the standing context that keeps them from colliding, because they point at the same object — today's Daily Bet Card — from opposite ends.
 
 **Using it:** APPEND into your project root's `CLAUDE.md` so Claude Code loads it automatically — both packs' routers can coexist in one file, and a copy would overwrite whichever router landed first. It also loads on its own when you work under `packs/ossuary/` in the claude-skills repo. It is not a skill: nothing here is invoked; it is context.
 
@@ -25,7 +25,7 @@ Each works alone, and neither loads a file in the other's directory. Initial rou
 
 The boundary is stated on **both descriptions** — closed 2026-08-08 with ossuary-v1.1.0: bonecaller's description says it never runs the pipeline and names the cloud routine as the owner, and linecaller's description carries the matching negative clause (existing-card reads and ledger/bankroll questions belong to the claude.ai companion). The cold re-judge of both trigger suites is recorded in each member's `evals/RESULTS.md`. The capability guard remains as defense in depth, no longer the only guard: bonecaller runs on claude.ai with no shell and no clone, so a false fire still degrades to "I cannot run that" instead of to a wrong card.
 
-**The production runner is neither of them in person.** The "Project Longshot - Daily Card" cloud routine fires daily and executes linecaller's spec against a fresh clone, then publishes the rendered card to one fixed artifact page (the URL is stated once, in linecaller's step 8); bonecaller reads that page first and the repo file second. Invoking linecaller by hand is the same pass run deliberately; it is idempotent — the date-stamped report is the run lock, so a second run the same day correctly does nothing.
+**The production runner is neither of them in person.** The "Project Longshot - Daily Card" cloud routine fires daily and executes linecaller's spec against a fresh clone, then publishes the rendered card to one fixed artifact page (the URL is stated once, in linecaller's step 8). bonecaller reads that page first and the repo file second. Invoking linecaller by hand is the same pass run deliberately; it is idempotent — the date-stamped report is the run lock, so a second run the same day correctly does nothing.
 
 ## Conventions
 

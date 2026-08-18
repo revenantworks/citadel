@@ -1,9 +1,9 @@
 # CLAUDE.md — claude-skills
 
 The canonical home of every Revenantworks Agent Skill (repository
-`revenantworks/claude-skills`; renamed from `citadel` 2026-08-17). Two packs under
-`packs/` — **foundation** (nine `-wright` members) and **ossuary** (two
-`-caller` members) — each with its own router `CLAUDE.md` that loads when you
+`revenantworks/claude-skills`, renamed from `citadel` 2026-08-17). Two packs live under
+`packs/`: **foundation** (ten `-wright` members) and **ossuary** (two
+`-caller` members). Each pack has its own router `CLAUDE.md` that loads when you
 work under that pack. This root file exists because the repo's top level,
 `tools/`, and `audit/` previously loaded no standing context at all (audit
 finding `citadel-no-root-claude-md`, 2026-08-15).
@@ -50,11 +50,11 @@ name), then verify: `python .claude/hooks/firewall.py --selftest`.
   `python tools/release.py --mirror-only` does it). A member change ships to
   the public via a PACK version bump — the pack version is the plugin cache
   key, so a member-only bump never ships there.
-- **The rig loads by junction, not by plugin** (2026-08-17): every foundation
-  member and bonecaller are junctioned from `~/.claude/skills/<member>` into
-  this working tree; linecaller from the longshot mirror. Edit here — it is
-  live next session. `claude plugin update` is not part of the rig loop; the
-  two packs are uninstalled here. claude.ai copies still move by
+- **The rig loads by junction, not by plugin** (2026-08-17). The rig junctions
+  every foundation member and bonecaller from `~/.claude/skills/<member>` into
+  this working tree, and junctions linecaller from the longshot mirror. Edit
+  here — it is live next session. `claude plugin update` is not part of the
+  rig loop; the two packs are uninstalled here. claude.ai copies still move by
   delete-and-re-upload; `release.py` prints which zips changed.
 - **Frozen (2026-08-17):** tokenwright, commwright, evalwright — no bumps
   unless broken (a security finding counts as broken). The ossuary marketplace

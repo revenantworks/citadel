@@ -1,6 +1,12 @@
 # revenantworks-foundation-brandwright
 
-The single home of brand and voice. Builds a full brand definition — identity through typography, logo usage, motion, and accessibility, plus the voice profile — by interview or ingestion; **applies** it on request to a built skill, artifact, repo, or document; scores repos, skill packs, docs, and artifacts for drift against it; and exports the pieces siblings consume. Ships neutral — no brand exists until you build one, and outputs default spec-clean. Consistency is enforced by report, never by silent rewrite; branding is always a deliberate invocation, never baked into someone else's build.
+The single home of brand and voice. It builds a full brand definition — identity through
+typography, logo usage, motion, and accessibility, plus the voice profile — by interview or
+ingestion. It **applies** that definition on request to a built skill, artifact, repo, or
+document. It scores repos, skill packs, docs, and artifacts for drift against it, and exports the
+pieces siblings consume. Ships neutral — no brand exists until you build one, and outputs default
+spec-clean. Consistency is enforced by report, never by silent rewrite. Branding is always a
+deliberate invocation, never baked into someone else's build.
 
 **Workflow:** Intake → Select definition *(named / scoped / ask)* → Build / Apply / Audit / Export → Gate → Handback
 

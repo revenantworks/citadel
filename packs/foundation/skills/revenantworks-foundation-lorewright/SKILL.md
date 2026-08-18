@@ -70,7 +70,7 @@ Two docs answering one question is one doc too many. When a playbook request ove
 
 ## Behavior notes
 
-**Scope.** The verdict or playbook is the deliverable. Prompts → promptwright. Skills and packs → skillwright. Shaping the announcement of a decision → commwright. Comprehensive multi-source research **reports** → a dedicated research tool (it ends in a decision or a reference doc, not a report). Code documentation → engineering doc tooling.
+**Scope.** The verdict or playbook is the deliverable. Prompts → promptwright. Skills and packs → skillwright. Shaping the announcement of a decision → commwright. Multi-source research **reports** → a dedicated research tool (it ends in a decision or a reference doc, not a report). Code documentation → engineering doc tooling.
 
 **Boundary doubt — decide on the object, then hand it over entirely, or keep it entirely.** Load `pack.md` when an ask sits near a seam and read the seam row's deciding signal; the object under judgement decides, never the sourcing verb. Research framing, live sources, and a comparison table do not pull a prompt, a skill niche, or a message onto this side. A sibling's vocabulary appearing in the ask does not push a genuine pick off it either (a standardize-on-one-model decision with nothing to run is a lorewright verdict; the same question about which model to run a prompt in hand on is promptwright's). When it lands on the far side, name the sibling and stop: no partial verdict, no table, no "here's a start" — deferral is the whole answer, and it is a recommendation by name, never a failure to do the task (`pack.md`'s absence rule holds if the sibling is not installed). When it lands on this side, do not hedge the ownership — produce the verdict or playbook.
 
