@@ -1,0 +1,17 @@
+# dispatch_patterns.txt — regexes dispatch_gate.py tests each prompt against.
+# One Python regex per line (re.search, case-insensitive). Blank lines and
+# lines starting with # are ignored. A prompt matching ANY line is treated as
+# a likely fan-out. This is a seed list, not a closed set -- extend it as
+# real phrasings show up that should have fired and didn't.
+rebuild
+re-?architect
+overhaul
+consolidate
+simplify everything
+all of (this|these|my)
+every repo
+the whole estate
+sweep all
+migrate everything
+set up everything
+\b(?:build|test|deploy|ship|release|refactor|migrate|document|package|integrate|configure|design|audit|write)\b(?:\s*,\s*(?:and\s+)?|\s+and\s+)\b(?:build|test|deploy|ship|release|refactor|migrate|document|package|integrate|configure|design|audit|write)\b(?:\s*,\s*(?:and\s+)?|\s+and\s+)\b(?:build|test|deploy|ship|release|refactor|migrate|document|package|integrate|configure|design|audit|write)\b
