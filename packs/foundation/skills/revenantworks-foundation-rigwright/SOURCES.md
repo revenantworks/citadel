@@ -2,7 +2,7 @@
 
 Where this skill's guidance comes from, and how to re-check it. Anything time-sensitive lives in `references/surface-notes.md` behind its own stamp — this file records provenance, not current values.
 
-**Verified as of 2026-07-30.**
+**Verified as of 2026-08-17** (`rigwright refresh`; the flat-structure row was carried, not re-verified — see `surface-notes.md`).
 
 ## Claude Projects and profile preferences
 
@@ -10,7 +10,9 @@ Where this skill's guidance comes from, and how to re-check it. Anything time-se
 |---|---|---|
 | Instructions apply to every chat; context not shared between chats unless in knowledge | Claude Help Center — "What are projects", "How can I create and manage projects" | published |
 | RAG auto-scales knowledge capacity on paid plans | Claude Help Center — "What are projects" | published |
-| Flat structure, no nesting, no cross-project access | Claude Help Center | published |
+| Flat structure, no nesting, no cross-project access | Carried from 2026-07-30; not stated in the Help Center articles read 2026-08-17 — consistent secondary sources | **reported** (was published) |
+| Organization instructions — Team/Enterprise, 3,000 chars, precede a member's own | Claude Help Center — "Set organization instructions" | published |
+| Profile field labeled "Instructions for Claude", account-wide | Claude Help Center — "Understanding Claude's personalization features" | published |
 | ~8,000-character instruction budget | Consistent secondary sources; no Anthropic figure | **reported** |
 | ~1,500-character profile preference budget | Consistent secondary sources; no Anthropic figure | **reported** |
 
@@ -20,27 +22,31 @@ Where this skill's guidance comes from, and how to re-check it. Anything time-se
 |---|---|---|
 | Four-scope hierarchy; higher scopes load first | Claude Code docs — memory | published |
 | `@path` imports, relative and absolute, nesting several hops | Claude Code docs — memory | published |
-| `CLAUDE.local.md` deprecated in favour of imports; imports work across worktrees | Claude Code docs — memory | published |
+| `CLAUDE.local.md` supported as the gitignored personal file; a home-directory import is the worktree-safe form | Claude Code docs — memory (the 2026-07-30 row read it as deprecated) | published |
+| `.claude/rules/` topic files; `paths:` frontmatter scopes a rule to matching files; `~/.claude/rules/` user-level | Claude Code docs — memory | published |
+| Project instructions may live at `./.claude/CLAUDE.md`; imports max four hops; external imports in a project file prompt once | Claude Code docs — memory | published |
 | Delivered as a user message after the system prompt, no strict-compliance guarantee | Claude Code docs — memory, troubleshooting | published |
 | Imports load at launch and do not reduce context cost | Claude Code docs | published |
 | `/init` generates a baseline; `/memory` inspects loaded files | Claude Code docs | published |
-| ~200-line working budget | Community norm on context-rot grounds; no enforced cap | **reported** |
+| Under-200-line target per CLAUDE.md | Claude Code docs — memory ("target under 200 lines") — moved from reported 2026-08-17 | published |
 
 ## Settings, permissions, and MCP configuration
 
 | Claim | Source | Grade |
 |---|---|---|
 | Settings merge by scope with a managed layer above all | Claude Code docs — settings | published |
-| Permission evaluation order deny → ask → allow, first match wins | Claude Code docs — settings | published |
+| Permission evaluation order deny → ask → allow, first match wins; specificity does not reorder | Claude Code docs — permissions | published |
+| Project `allow` rules gated on workspace trust; hooks and `env` in repo settings run before trust and in `-p`/SDK with no dialog | Claude Code docs — permissions | published |
+| Skill frontmatter: `allowed-tools` is a per-turn grant, `disallowed-tools` exists, six keys accepted by claude.ai uploads | Claude Code docs — skills | published |
 | `.claude/settings.local.json` auto-gitignored | Claude Code docs — settings | published |
 | MCP servers in `.mcp.json` (project) / `~/.claude.json` (user), not in `settings.json` | Claude Code docs — MCP; settings | published |
-| `.mcp.json` location — root vs `.claude/` | Sources disagree; root used, flagged open in `surface-notes.md` | **open** |
+| `.mcp.json` at the project root; `${VAR}` / `${VAR:-default}` expansion; project-server approval prompt | Claude Code docs — MCP (open item of 2026-07-30 closed 2026-08-17) | published |
 
 ## Auto-memory
 
 | Claim | Source | Grade |
 |---|---|---|
-| Claude Code accumulates its own memory separately from CLAUDE.md, with an index loaded at session start; `/memory` audits or disables | Claude Code docs — memory | published |
+| Auto memory at `~/.claude/projects/<project>/memory/`; `MEMORY.md` first 200 lines / 25 KB loaded at start; `/memory` toggles, `autoMemoryEnabled`, `CLAUDE_CODE_DISABLE_AUTO_MEMORY` | Claude Code docs — memory | published |
 
 ## Skill-format conformance
 

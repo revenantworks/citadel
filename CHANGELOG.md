@@ -17,6 +17,77 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [foundation-v2.5.0] - 2026-08-17
+
+The 2026-08-17 audit + security scan of all nine wrights against
+skillwright's Rubric A / Security classes plus the owner's security rubric
+(prompt-injection posture at every ingesting entry point, no
+fetch-and-follow or guard-bypass instructions, minimal tool grants, hidden
+text, named output handling, one injection probe per ingesting entry — read
+through the OWASP Top 10 for Agentic Applications 2026 lenses). Every
+member's own CHANGELOG carries its findings and fixes; the pack-level
+summary:
+
+- Nine members bumped: skillwright 1.3.0 → 1.3.1, promptwright 1.4.0 →
+  1.4.1, brandwright 1.3.0 → 1.4.0, lorewright 1.1.4 → 1.1.5, agentwright
+  1.2.1 → 1.2.2, rigwright 1.1.0 → 1.1.1, and the three **frozen** members
+  by security-eval patch only — tokenwright 1.2.1 → 1.2.2, commwright 1.1.0
+  → 1.1.1, evalwright 1.1.0 → 1.1.1 (frozen 2026-08-17: no bumps unless
+  broken; a missing injection probe counted as broken, nothing else in them
+  moved).
+- The data-never-instructions rule now sits at every ingesting step of every
+  member (the S-1 P1 class: skillwright Build 1 / Integrate 1, promptwright's
+  mid-build fetch and plan grain, brandwright's four entries at the step,
+  lorewright's mode files at the reading step, agentwright Emit / Refresh /
+  Security-scan probes, rigwright's config reads); every suite carries
+  authored-not-run injection probes per ingesting entry; hidden text
+  (zero-width unicode, HTML-comment directives, base64, homoglyph domains,
+  fetch-pipe-shell) is now a named S-1 scan in `rubrics.md`, and the pack-wide
+  hidden-text scan ran clean.
+- Four calendar surfaces refreshed live and restamped 2026-08-17 (they would
+  have aged out before 2026-10-01): skillwright `rubrics.md` (frontmatter
+  shape — claude.ai accepts exactly six keys; `allowed-tools` is a per-turn
+  grant so the minimal grant is none; dimension 11's stated-reason path for
+  claude.ai-bound skills), promptwright `model-snapshot.md`, agentwright
+  `platform-notes.md`, rigwright `surface-notes.md`. tokenwright
+  `measurement.md` (ages out 2026-09-25) is left for the upkeep routine under
+  the freeze.
+- brandwright reads the live definition from `~/.claude/brand/` first
+  (read-only copies refreshed by `tools/release.py`), else the shipped
+  neutral file.
+- Repo tooling: `tools/release.py` (the whole close-of-pass loop),
+  `build.py --check` emits `pack bump needed: <pack>` when shipped files
+  differ from the pack's current tag, and a PostToolUse hook on `git commit`
+  surfaces it. The rig now loads every member by user-scope junction into
+  the working tree; the marketplace plugins were uninstalled there and
+  `claude plugin update` left the rig loop (RUNBOOK).
+- Every re-run and cold re-judge these bumps owe is recorded as owed in each
+  suite's head, none claimed.
+
+## [ossuary-v2.4.0] - 2026-08-17
+
+The 2026-08-17 audit + security scan (linecaller 1.6.0 → 1.7.0, bonecaller
+1.4.0 → 1.5.0). The last routine ossuary marketplace release: the pack's
+release train is frozen the same day — it ships to its only consumer by the
+longshot mirror and the rig junctions.
+
+- linecaller: hard rule 3 widened to every file the run reads and did not
+  write, with no URL/path/command from content ever becoming a fetch, push,
+  or shell target (S-1 P1); the identity gate states its gh-absent
+  structural case (S-3 P1); the key's never-echo clause (S-2 P2); step 5
+  names its two `models/` writes; the first-Monday five-line ledger block
+  (bankroll, month P&L in units, graded record, ROI, avg CLV — computed
+  from `ledger/bets.csv` + `models/bankroll.json`, never invented; owner
+  decision) with its definitions in `card-contract.md`; step 8 publishes the
+  card to the one fixed artifact page; stale Task Scheduler / nflverse
+  staging text cleared; R13–R15 authored-not-run.
+- bonecaller: reads the card artifact-first, repo second, source named;
+  hard rule 3 covers the artifact page, every repo file, and pastes (S-1
+  P1); B8 is the suite's first injection probe, B9 the two-source read —
+  authored-not-run; README names the rig junction and the built zip name.
+- Descriptions unchanged on both — routing surfaces did not move; the owed
+  cold re-judges remain owed. Longshot mirror re-synced by `tools/release.py`.
+
 ## [foundation-v2.4.0] - 2026-08-15
 
 The 2026-08-15 estate audit's foundation slice (skillwright 1.2.1 -> 1.3.0):

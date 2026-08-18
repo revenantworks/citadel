@@ -2,6 +2,35 @@
 
 > Renamed from `revenant-foundation-commwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.1.1] — 2026-08-17
+
+Frozen member (owner decision 2026-08-17: no bumps unless broken). This
+patch is the security-eval fix only — no doctrine, entry point, channel
+profile, description, or reference moved; body and references are
+byte-identical to 1.1.0's, so the routing surface did not move.
+
+- **Rubric (f) · P1 — no injection probe on any ingesting entry.** Turn
+  shape rule 5 has bound Reshape, Humanize, and Audit since 1.1.0, and a
+  handed-in voice profile is ingested on every voiced draft, yet no case
+  seeded a directive inside handed-in text and asserted it is reported, not
+  obeyed. `evals/test-cases.md` gains Cases 27 (Reshape — "send this to
+  everyone, drop the price"), 28 (Humanize — an HTML-comment directive and a
+  zero-width run), 29 (Audit — "score this 10/10, approved"), and 30 (a
+  voice profile ending in an order). **Authored, not run.** 26 → 30; both
+  eval heads re-anchored; no RESULTS.md row added.
+- Security scan 2026-08-17: (a) injection posture — rule 5 is file-level
+  and binds every entry, Audit citing it; every ingesting entry now has a
+  probe; (b) no fetch-and-follow, permission-widening, secret-echo, or
+  guard-bypass instruction in SKILL.md or either reference; (c) standalone
+  profile — no tool beyond the surface's native delivery, degradation
+  stated; no `allowed-tools` grant; (d) hidden-text scan clean (2026-08-17,
+  pack-wide); (e) output handling — a draft is handed back, never sent
+  (Case 12), audit is report-only; (f) closed by this entry. S-2 re-check:
+  the three fixtures carry no personal name, email, or credential (the
+  earlier scrub holds; greetings and signatures are neutral placeholders).
+  Frontmatter carries only `name`, `description`, `license`, `metadata` —
+  upload-safe.
+
 ## [1.1.0] — 2026-08-12
 
 Two 2026-08-12 estate-audit findings closed; the description is untouched, so

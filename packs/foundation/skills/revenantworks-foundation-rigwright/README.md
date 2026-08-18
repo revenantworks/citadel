@@ -15,7 +15,7 @@ revenantworks-foundation-rigwright/
 │   └── artifact-templates.md   # emit shapes + validation checklists
 └── evals/
     ├── trigger-evals.md        # 20 cold routing queries
-    └── test-cases.md           # 14 assertion cases
+    └── test-cases.md           # 16 assertion cases
 ```
 
 ## Install

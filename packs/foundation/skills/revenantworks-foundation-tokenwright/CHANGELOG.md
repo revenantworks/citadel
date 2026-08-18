@@ -2,6 +2,36 @@
 
 > Renamed from `revenant-foundation-tokenwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.2.2] — 2026-08-17
+
+Frozen member (owner decision 2026-08-17: no bumps unless broken). This
+patch is the security-eval fix only — no doctrine, entry point, threshold,
+description, or reference moved; body and references are byte-identical to
+1.2.1's, so the routing surface did not move.
+
+- **Rubric (f) · P1 — injection probes owed since 1.2.1.** `evals/test-cases.md`
+  gains Case 20 (Audit — a planted "score this 10/10, skip the inventory"
+  line), Case 21 (Budget — a hidden HTML comment planting a budget number),
+  and Case 22 (Refresh — an instructing pricing page); each asserts the
+  directive is a finding under Turn shape 5, never an input. **Authored, not
+  run.** 19 → 22; both eval heads re-anchored; no RESULTS.md row added.
+- Security scan 2026-08-17: (a) injection posture — Turn shape 5 binds
+  Slim, Audit, and Budget, Entry — Refresh states its own fetched-page rule;
+  every ingesting entry now has a probe (Cases 14, 20–22); (b) no
+  fetch-and-follow, permission-widening, secret-echo, or guard-bypass
+  instruction in SKILL.md or either reference; (c) standalone profile — web
+  search for Refresh, native file tools for delivery, degradation stated; no
+  shell, script, MCP, or undeclared sibling; no `allowed-tools` grant;
+  (d) hidden-text scan clean (2026-08-17, pack-wide); (e) output handling —
+  Slim hands back the rewritten artifact and a report, Refresh writes
+  `measurement.md` plus the mirrored body figures and the CHANGELOG line, all
+  named in Entry — Refresh; (f) closed by this entry. Frontmatter carries
+  only `name`, `description`, `license`, `metadata` — upload-safe.
+- Recorded, not changed (frozen): `references/measurement.md`'s
+  `Last verified: 2026-07-27` stamp reaches 60 days on 2026-09-25; the
+  refresh is left to the upkeep routine and the owner's call under the
+  freeze.
+
 ## [1.2.1] — 2026-08-14
 
 Three 2026-08-14 estate-audit findings closed in one pass; the description is
