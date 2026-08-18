@@ -13,7 +13,8 @@ finding `citadel-no-root-claude-md`, 2026-08-15).
 - `packs/<pack>/skills/<member>/` — SKILL.md + references + evals; the pack's
   `.claude-plugin/plugin.json` carries the pack version, which must equal its
   entry in `.claude-plugin/marketplace.json` (the build check enforces it)
-- `tools/` — `build.py` and its tests; `audit/` — COLLISION.md and audit records
+- `tools/` — `build.py`, `release.py` (the whole close-of-pass loop), and the
+  tests; `audit/` — COLLISION.md and audit records
 - `RUNBOOK.md` · `NEXT.md` · `CHANGELOG.md` — operations, backlog, history
 
 ## Commands
@@ -23,6 +24,7 @@ python tools/build.py --check      # read-only gate: versions, counts, seams
 python tools/build.py --parity     # read-only: installed-copy parity
 python -m unittest discover -s tools -p "test_*.py"
 python tools/build.py              # REAL build — regenerates references/pack.md manifests
+python tools/release.py <pack>=X.Y.Z -m "..."   # bump, build, check, tests, commit, tag, push, mirror, brand copies
 ```
 
 (`python` on the rig, `python3` on Linux clones. A bare `build.py` and
@@ -44,9 +46,20 @@ name), then verify: `python .claude/hooks/firewall.py --selftest`.
   No personal, employer, or client name, ever; the firewall's blocklist is the
   machine layer for the work-identity tokens, judgment holds the rest.
 - **Edit here, then re-sync the longshot mirror** (`longshot/skills/` holds
-  verbatim copies of both ossuary members; `diff -r` must stay empty). A member
-  change ships to installs only via a PACK version bump — the pack version is
-  the plugin cache key, so a member-only bump never ships.
-- After a release: `claude plugin marketplace update revenantworks` then
-  `claude plugin update <pack>@revenantworks` on the rig, and re-upload any
-  installed claude.ai copies. Both surfaces, every time.
+  verbatim copies of both ossuary members; `diff -r` must stay empty;
+  `python tools/release.py --mirror-only` does it). A member change ships to
+  the public via a PACK version bump — the pack version is the plugin cache
+  key, so a member-only bump never ships there.
+- **The rig loads by junction, not by plugin** (2026-08-17): every foundation
+  member and bonecaller are junctioned from `~/.claude/skills/<member>` into
+  this working tree; linecaller from the longshot mirror. Edit here — it is
+  live next session. `claude plugin update` is not part of the rig loop; the
+  two packs are uninstalled here. claude.ai copies still move by
+  delete-and-re-upload; `release.py` prints which zips changed.
+- **Frozen (2026-08-17):** tokenwright, commwright, evalwright — no bumps
+  unless broken (a security finding counts as broken). The ossuary marketplace
+  release train is frozen — that pack ships to its only consumer by the
+  longshot mirror + rig junctions.
+- **No `ask` rules** in any tracked `.claude/settings.json`; a committed `ask`
+  freezes an unattended run. Hooks here: the brand firewall (PreToolUse) and
+  the post-commit pack-bump nudge (PostToolUse on `git commit`).

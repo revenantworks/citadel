@@ -72,39 +72,29 @@ blocking; no `ask` rules anywhere in this repo.
      must print. ossuary 2.2.2 reached main and was superseded 4.5 minutes
      later; the tag namespace still skips it (recorded in `CHANGELOG.md`).
      Either tag it or record the skip — silence is the failure.
-5. Owner machine, **both steps, in this order**. Two copies drift
-   independently and refreshing the first does not move the second:
+5. **Owner machine: nothing to sync (2026-08-17).** The rig loads every
+   member by junction into this working tree (see *The rig install ritual*
+   above), so the tag changes nothing here beyond the longshot mirror, which
+   `release.py` re-syncs. Then re-upload changed members on claude.ai below.
 
-   > **2.0.0 migration note:** the marketplace was renamed `revenant` →
-   > `revenantworks` (2026-08-07) and marketplace names have no rename
-   > mechanism, so an install registered under the old name never sees this
-   > release. One-time fix: remove the old `revenant` marketplace locally,
-   > `claude plugin marketplace add` under the new name, then
-   > `claude plugin update foundation@revenantworks` (the orchestrator ran
-   > this on the owner machine on migration day). The steps below assume the
-   > new name.
-
-   1. `claude plugin marketplace update revenantworks` (or `git -C
-      ~/.claude/plugins/marketplaces/revenantworks pull`): refreshes the clone,
-      which is what an install reads FROM. It served pre-1.1.0 descriptions
-      for a month.
-   2. `claude plugin update <pack>@revenantworks`: rewrites
-      `~/.claude/plugins/cache/revenantworks/<pack>/<version>/`, the copy Claude
-      Code actually LOADS. Restart to apply. Skipping this is how a session
-      kept loading a superseded member while parity reported clean
-      (2026-08-01, promptwright 1.1.0). **This compares PACK versions**, so a
-      member-only bump is undeliverable: it reports "already at the latest
-      version" and serves the old body. A member fix reaches an install only
-      when a pack bump carries it.
-
-   Then `python tools/build.py --parity` must report clean. It checks **both**
-   surfaces across **every shipped file** (not just SKILL.md frontmatter, which
-   twice read clean over a stale `ledger.md`/`spec.md`) and names which surface
-   drifted and which files. Then re-upload changed members on claude.ai below.
+   > History: until 2026-08-17 this step was a two-surface ritual —
+   > `claude plugin marketplace update revenantworks`, then
+   > `claude plugin update <pack>@revenantworks`, then `--parity` — because the
+   > plugin cache was what Claude Code loaded and the pack version was its
+   > key, so a member-only bump never reached the rig. The junctions removed
+   > that class of drift; `--parity` stays for CI and public consumers.
 
 ## Install / update on claude.ai
 Per skill: download the member zip from Releases -> Customize -> Skills -> + ->
-Create skill -> upload. **Take the zip from the newest release overall, never
+Create skill -> upload. `python tools/release.py` prints, at the end of every
+release, which member zips changed and marks the two that are **required** on
+claude.ai — bonecaller (claude.ai is its only surface) and brandwright's
+branded install variant (the only brand carrier; built by
+`apply-install-swaps.py`, see below) — the rest are optional convenience
+copies. Every SKILL.md frontmatter carries only the six keys the upload form
+accepts (name, description, license, compatibility, metadata, allowed-tools —
+`build.py --check` does not enforce this; the 2026-08-14 upload failure was on
+`compatibility` length, which it does). **Take the zip from the newest release overall, never
 the newest release of the member's own pack.** Every release carries the full
 11-member set frozen at that moment, so a pack tag advertises whatever the
 other pack's members were that day: `foundation-v2.3.0` still ships a
@@ -153,11 +143,12 @@ python3 tools/apply-install-swaps.py <your-private-dir> [<peer-dir> ...]
 > rebrand the whole pack without touching the repo.
 
 ## Install / update in Claude Code
-`/plugin marketplace add revenantworks/claude-skills` once, then
-`/plugin install <pack>@revenantworks`. No zips, no swaps: installs from the repo;
-config lives in your local `~/.claude` copy. Updating: `claude plugin
+Public consumers: `/plugin marketplace add revenantworks/claude-skills` once,
+then `/plugin install <pack>@revenantworks`. No zips, no swaps: installs from
+the repo; config lives in your local `~/.claude` copy. Updating: `claude plugin
 marketplace update revenantworks`, then `claude plugin update
-foundation@revenantworks` (both, in that order — see the release loop above).
+foundation@revenantworks` (both, in that order — the pack version is the
+cache key). The owner's rig does none of this — it loads by junction (above).
 Migrating from the pre-2.0.0 `revenant` marketplace name: remove the old
 marketplace locally first, then add + install under the new name.
 
@@ -191,9 +182,16 @@ members + the registry carrier. Release bar: discoverability pass, no open
 P0/P1, repo/release/account parity, current capstone card.
 
 **Brand escrow (pointer only — no brand content in this repo, per the law):**
-the live definition exists solely in the locally configured brandwright; a
-dated backup copy is kept outside any repo and re-exported after every
-definition change. The **Foundation - Skill Upkeep** cloud routine carries the reminder
+the live definitions live in the two private brand repos; on the rig,
+brandwright reads them from the fixed path `~/.claude/brand/`
+(`brand-definition.md` + `brand-definition-northstar.md`, copies — a file
+symlink needs admin on Windows), refreshed by `python tools/release.py
+--refresh-brand` and by step 9 of every release. Those copies are read-only
+for brandwright: a Build is handed back and landed in the home repo, which
+then refreshes the copies. `install-definition.py` in the private brand repo
+stays for **packaged consumers only** (it overlays the plugin-cache copy) and
+is no longer the rig's path. A dated backup copy is kept outside any repo and
+re-exported after every definition change. The **Foundation - Skill Upkeep** cloud routine carries the reminder
 (`packs/foundation/upkeep-task.md`). If both the
 local config and the backup are ever lost, git history holds only the older
 public edition. Treat the backup as the recovery path, never the repo.

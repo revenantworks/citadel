@@ -128,13 +128,18 @@ def sync_mirror(tag_label: str | None, push: bool = True) -> bool:
             print(f"  ✎ mirror {member.name} re-synced")
         else:
             print(f"  = mirror {member.name} already identical")
-    # the whole test: a recursive diff must be empty
+    # the whole test: a recursive byte compare must be empty (the same test as
+    # `diff -r`, done in-process because `diff` is not on PATH outside Git Bash)
     for member in sorted(p for p in src.iterdir() if p.is_dir()):
-        r = sh("diff", "-r", str(member), str(LONGSHOT_SKILLS / member.name), check=False, quiet=True)
-        if r.returncode != 0:
-            print(r.stdout)
+        a, b = _tree_bytes(member), _tree_bytes(LONGSHOT_SKILLS / member.name)
+        if a != b:
+            for k in sorted(set(a) ^ set(b)):
+                print(f"    only on one side: {k}")
+            for k in sorted(set(a) & set(b)):
+                if a[k] != b[k]:
+                    print(f"    differs: {k}")
             raise SystemExit(f"✗ mirror {member.name} still differs after copy")
-    print("  ✓ diff -r clean for both members")
+    print("  ✓ recursive compare clean for both members (diff -r equivalent)")
     if not changed:
         return False
     ident = sh("git", "config", "user.name", cwd=LONGSHOT, check=False, quiet=True).stdout.strip()

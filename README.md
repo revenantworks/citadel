@@ -55,7 +55,7 @@ Both are **decision support only** by hard rule — neither places a bet, touche
 
 - **Claude API** — upload a member zip via the Skills API (`/v1/skills`) and reference its `skill_id` with the code execution tool.
 
-Alternatively, copy any single skill folder from `packs/<pack>/skills/` into `~/.claude/skills/` (personal) or `.claude/skills/` (project).
+Alternatively, copy any single skill folder from `packs/<pack>/skills/` into `~/.claude/skills/` (personal) or `.claude/skills/` (project) — or, working from a clone, junction/symlink `~/.claude/skills/<member>` at the member folder so an edit is live next session (how the maintainer's own machine loads these since 2026-08-17; see `RUNBOOK.md`).
 
 **Before you install:** every skill here is plain-text and MIT-licensed — the root `LICENSE` is the verbatim MIT text, and it covers every skill and document in the repo. Read any `SKILL.md` and its `references/` before use. Anthropic recommends running Skills only from sources you trust and auditing third-party skills first; this repo is public and auditable end to end.
 
@@ -65,6 +65,7 @@ Alternatively, copy any single skill folder from `packs/<pack>/skills/` into `~/
 .claude-plugin/marketplace.json   # the catalog — one plugin entry per pack
 packs/<pack>/                     # the plugin: .claude-plugin/plugin.json · skills/ · spec.md (+ ledger.md · decisions.md) · capstone/
 tools/build.py                    # registry-derived sync + validation + dist zips (--check = CI mode)
+tools/release.py                  # the close-of-pass loop: bump, build, check, tests, commit, tag, push, mirror, upload list
 audit/                            # the standing audit record and the naming-collision registry (COLLISION.md)
 RUNBOOK.md                        # release and sync procedure — read before shipping anything
 NEXT.md                           # the open queue — remaining follow-ups
