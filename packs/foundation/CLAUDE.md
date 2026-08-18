@@ -1,6 +1,6 @@
 # Foundation Pack — router & conventions
 
-The always-on companion to the **foundation** pack's nine wrights. Each skill routes on its own description when invoked; this file is the standing context that makes them work *together*, so the right wright gets reached for without being named, and the pack's conventions hold across a session.
+The always-on companion to the **foundation** pack's ten wrights. Each skill routes on its own description when invoked; this file is the standing context that makes them work *together*, so the right wright gets reached for without being named, and the pack's conventions hold across a session.
 
 **Using it:** APPEND into your project root's `CLAUDE.md` (or into `~/.claude/CLAUDE.md` to cover every project) so Claude Code loads it automatically — both packs' routers can coexist in one file, and a copy would overwrite whichever router landed first. It also loads on its own when you work under `packs/foundation/` in the claude-skills repo. It is not a skill: nothing here is invoked; it is context.
 
@@ -22,6 +22,7 @@ The always-on companion to the **foundation** pack's nine wrights. Each skill ro
 | Define, apply, or audit a brand or voice | **brandwright** | `brandwright build / apply / audit` |
 | Author or audit an eval suite | **evalwright** | "write trigger evals for &lt;target&gt;" |
 | Slim, budget, or audit token footprint | **tokenwright** | "slim this / what does it cost" |
+| A request that will fan out into many agents or repos | **dispatchwright** | "rebuild / re-architect all of this", "resume that stalled run", `dispatchwright` |
 
 Each works alone. Initial routing is at the description level: this table is the proactive cue, not a dependency; an uninstalled wright is named, never a blocker.
 
@@ -37,6 +38,11 @@ Each works alone. Initial routing is at the description level: this table is the
 - **Security splits on the object, not the vocabulary.** Two members carry a security capability and the word *injection* sits in both descriptions, so the object decides and nothing else. A **running agent** — its tool grants, credentials, blast radius, what an injected instruction could make it do — is agentwright's `security-scan`. A **skill package as built** — injection surface in its own instructions, secrets in the artifact, undeclared or ungated capability, unsafe defaults in what it generates — is skillwright's, run as a named pass inside every `audit` rather than as its own verb. Code-level threat coverage is neither; that is a security harness's, and both descriptions say so. Each ships self-contained: neither loads a file in the other's directory, so either works with the other uninstalled.
 - **The rig is attended; the agent is not.** Standing configuration a human reads in session — Project instructions, a knowledge-file plan, `CLAUDE.md`, a `.claude` layout, `.mcp.json` — is **rigwright**'s. Anything firing on a schedule or an event with nobody reading the result — a Cowork task, a routine, a desktop scheduled task, and the cadence, blast radius and kill switch around it — is **agentwright**'s, and `agentwright emit` renders the spec into the surface that runs it. The test is **who reads the output, never the filename**: a desktop scheduled task stored on disk as a `SKILL.md` is still agentwright's, because a filename names a format and not an object. "Set up" appears on both sides and decides nothing.
 - **Always-on config is rigwright's; on-demand packages are skillwright's.** The split is whether the artifact is charged on every turn or only when it is relevant: the same every-session/some-sessions test rigwright's own layer stack applies internally, so the seam and the doctrine cannot drift apart. A `SKILL.md` under `.claude/skills/` is skillwright's even though rigwright emits the tree around it.
+- **dispatchwright dispatches; promptwright tiers.** A big request that will fan out into many
+  agents or repos is dispatchwright's — it decomposes into units, gets each one tiered by
+  promptwright's target table, dispatches with a durability contract, and reconciles against
+  origin. It never picks a model itself, never places its own trigger hook (rigwright), and never
+  runs anything unattended (agentwright).
 - **rigwright places; promptwright words.** Which layer a rule belongs in, and what budget binds it there, is rigwright's; the wording of the instruction block once its home is settled is promptwright's. A named surface carrying a layer question is rigwright; a block in hand with a quality cue is promptwright. Watched edge: a Project instruction block sits close to a system prompt, and it is rigwright's named-surface claim that beats promptwright's generic one.
 
 ## Conventions

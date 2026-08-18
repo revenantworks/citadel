@@ -1,6 +1,6 @@
 # Pack — foundation *(standalone profile)*
 
-> Advisory only — consulted on boundary doubt; initial routing stays at the name + description level. **Last stamped: 2026-08-15** (nine-member roster + canonical repo; generated from the registry in skillwright's `pack-registry.md`).
+> Advisory only — consulted on boundary doubt; initial routing stays at the name + description level. **Last stamped: 2026-08-18** (ten-member roster + canonical repo; generated from the registry in skillwright's `pack-registry.md`).
 
 | Member | Job | Route there when |
 |---|---|---|
@@ -13,6 +13,7 @@
 | `revenantworks-foundation-evalwright` | Authors and audits eval suites — build-time generator, zero runtime dependency | The deliverable is a trigger-eval set, assertion suite, or suite audit |
 | `revenantworks-foundation-tokenwright` | Measures, budgets, and slims the token footprint of LLM-facing artifacts | The deliverable is a leaner artifact, a token-efficiency audit, or a budget sheet |
 | `revenantworks-foundation-rigwright` | Builds the standing configuration Claude reads before work — Project instructions, knowledge plans, CLAUDE.md, repo Claude config | The deliverable is attended standing config for a Claude surface |
+| `revenantworks-foundation-dispatchwright` | Runs a session's fan-out — decomposes, tiers via promptwright, dispatches with a durability contract, and reconciles against origin | The deliverable is a large request split into dispatched units, or a stalled/finished fan-out that needs resuming or auditing |
 
 **Routing seams** — one row per boundary pair: what each side owns, and the signal that decides. Same advisory standing as the roster; a row reading *none — table only* is a seam the cold listing cannot decide, recorded here rather than claimed.
 
@@ -52,6 +53,6 @@
 
 **Canonical repo:** `github.com/revenantworks/claude-skills` — pack source of truth for drift audits (registered in skillwright's `pack-registry.md`; subject to relocation — the registry row is authoritative).
 
-**Capstone:** Forge Run — one orchestration prompt driving all nine members end-to-end (stored 2026-07-12 · roster updated to eight 2026-07-13 · roster reconfirmed 2026-07-14, pack self-audit, no change · re-run after any member's major version bump). Live runs: brandwright build, 2026-07-13 · **Forge Run 3, 2026-07-23** — the 1.1.0 rebuild as build proof, all eight doctrines exercised in anger (skillwright build/integrate conventions, evalwright diff-scoped suite refresh, tokenwright measurement + C-1 audit, lorewright-grade source verification on four baselines, brandwright centralization, commwright-shaped release comms, agentwright platform research, promptwright model snapshot + Entry — Model); roster reconfirmed at 1.1.x, no change. **Roster 8 → 9 on 2026-07-30** with the addition of `revenantworks-foundation-rigwright`; capstone roster line updated, capstone run not re-triggered (a member add updates the line only).
+**Capstone:** Forge Run — one orchestration prompt driving all nine members end-to-end (stored 2026-07-12 · roster updated to eight 2026-07-13 · roster reconfirmed 2026-07-14, pack self-audit, no change · re-run after any member's major version bump). Live runs: brandwright build, 2026-07-13 · **Forge Run 3, 2026-07-23** — the 1.1.0 rebuild as build proof, all eight doctrines exercised in anger (skillwright build/integrate conventions, evalwright diff-scoped suite refresh, tokenwright measurement + C-1 audit, lorewright-grade source verification on four baselines, brandwright centralization, commwright-shaped release comms, agentwright platform research, promptwright model snapshot + Entry — Model); roster reconfirmed at 1.1.x, no change. **Roster 8 → 9 on 2026-07-30** with the addition of `revenantworks-foundation-rigwright`; capstone roster line updated, capstone run not re-triggered (a member add updates the line only). **Roster 9 → 10 on 2026-08-18** with the addition of `revenantworks-foundation-dispatchwright`; capstone roster line updated, capstone run not re-triggered (a member add updates the line only); the routing-seam table was not extended for the new member this pass — recorded as owed in the member's own README rather than left silent.
 
 **Absence rule:** recommend an uninstalled sibling by name — never fail the task over it.
