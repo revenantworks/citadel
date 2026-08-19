@@ -53,8 +53,11 @@ import build  # noqa: E402  — ROOT, PACKS, DIST, MARKETPLACE, _BRAND_REPO_SOUR
 
 ROOT = build.ROOT
 PY = sys.executable
-LONGSHOT = Path(r"V:\Projects\github\MickMacPW\longshot")
-LONGSHOT_SKILLS = LONGSHOT / "skills"
+# Read from the environment for the same reason build.py does: this file ships on a
+# PUBLIC repo, and a hardcoded path publishes the owner's drive layout and the
+# existence of a private repo to every reader. Unset simply means "not this machine".
+LONGSHOT = build._env_path("CLAUDE_SKILLS_LONGSHOT")
+LONGSHOT_SKILLS = (LONGSHOT / "skills") if LONGSHOT else None
 LONGSHOT_IDENTITY = "MickMacPW"
 BRAND_HOME = Path.home() / ".claude" / "brand"
 BRAND_COPIES = {  # destination name -> source (the two brand repos, per build.py's parity map)
@@ -113,8 +116,9 @@ def previous_tag(pack: str, exclude: str) -> str | None:
 def sync_mirror(tag_label: str | None, push: bool = True) -> bool:
     """Copy packs/ossuary/skills/* over longshot/skills/*; commit + push there when it moved."""
     src = build.PACKS / "ossuary" / "skills"
-    if not LONGSHOT_SKILLS.is_dir():
-        print(f"  mirror: {LONGSHOT_SKILLS} not present on this machine — skipped")
+    if LONGSHOT_SKILLS is None or not LONGSHOT_SKILLS.is_dir():
+        where = LONGSHOT_SKILLS if LONGSHOT_SKILLS else "CLAUDE_SKILLS_LONGSHOT unset"
+        print(f"  mirror: {where} — not on this machine, skipped")
         return False
     changed = False
     for member in sorted(p for p in src.iterdir() if p.is_dir()):
@@ -168,6 +172,13 @@ def refresh_brand() -> None:
     BRAND_HOME.mkdir(parents=True, exist_ok=True)
     for name, src in BRAND_COPIES.items():
         dst = BRAND_HOME / name
+        # src is None when its env var is unset — the default on any machine but the
+        # owner's. That is not an error, it is "the source repo is not here"; the same
+        # outcome as a path that exists but points at nothing. Without this guard the
+        # whole step died with AttributeError on a bare checkout.
+        if src is None:
+            print(f"  ! {name}: source not configured on this machine — left as is")
+            continue
         if not src.is_file():
             print(f"  ! {name}: source {src} not on this machine — left as is")
             continue

@@ -96,7 +96,7 @@ accepts (name, description, license, compatibility, metadata, allowed-tools —
 `build.py --check` does not enforce this; the 2026-08-14 upload failure was on
 `compatibility` length, which it does). **Take the zip from the newest release overall, never
 the newest release of the member's own pack.** Every release carries the full
-11-member set frozen at that moment, so a pack tag advertises whatever the
+member set frozen at that moment (12 today: 10 foundation, 2 ossuary), so a pack tag advertises whatever the
 other pack's members were that day: `foundation-v2.3.0` still ships a
 bonecaller zip whose `compatibility` the upload form rejects. Only the latest
 release has every member current. Releases stay immutable — this is a reading
