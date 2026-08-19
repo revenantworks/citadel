@@ -17,6 +17,10 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [ossuary-v2.4.1] - 2026-08-18
+
+- (fill in)
+
 ## [foundation-v2.6.1] - 2026-08-18
 
 Estate-sweep patch: four findings from an adversarial audit of the 2.6.0 release, fixed rather

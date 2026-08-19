@@ -1,6 +1,6 @@
 {
   "name": "ossuary",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "revenantworks-ossuary — two decision-support callers for Project Longshot: linecaller runs the daily NFL bet-card pipeline, bonecaller reads the card and records what was actually bet. Decision support only; never touches a sportsbook.",
   "author": {
     "name": "Revenantworks"
