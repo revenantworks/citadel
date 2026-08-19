@@ -1,7 +1,7 @@
 {
   "name": "foundation",
-  "version": "2.6.0",
-  "description": "revenantworks-foundation — nine standalone wrights for building, auditing, and maintaining skills, prompts, messages, agent specs, standing Claude configuration, research docs, eval suites, brand identity, and token budgets.",
+  "version": "2.6.1",
+  "description": "revenantworks-foundation — ten standalone wrights for building, auditing, and maintaining skills, prompts, messages, agent specs, standing Claude configuration, research docs, eval suites, brand identity, token budgets, and multi-agent fan-out dispatch.",
   "author": {
     "name": "Revenantworks"
   },

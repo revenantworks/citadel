@@ -2,6 +2,24 @@
 
 > Renamed from `revenant-foundation-skillwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.3.2] — 2026-08-18
+
+`references/pack-registry.md` audit-trail fixes. Description untouched, so the routing surface
+did not move.
+
+- **Stale evalwright ↔ skillwright seam row corrected.** The row still read "the carve-out lives
+  on evalwright's side only — skillwright's description names no eval sibling" and signalled
+  "one description," but skillwright's own description closed that gap at 1.2.0 (2026-08-12,
+  finding 16 — "for authoring or scoring an eval suite as its own job, evalwright"). The row now
+  reads **both descriptions**, verified against the live text of both members' frontmatter rather
+  than against the prior row's claim. A seam note records the correction and the six-day gap
+  between the description closing and the registry catching up.
+- **dispatchwright's three seam rows added.** `build.py --check` warned dispatchwright was "named
+  in no routing seam" since its 1.0.0 release; the three edges dispatchwright's own SKILL.md
+  already states (↔ promptwright, ↔ rigwright, ↔ agentwright) are now rows in this table, each
+  recorded as an uncontested, one-sided edge (verified by reading all four members' descriptions
+  — none of the three siblings names dispatchwright back).
+
 ## [1.3.1] — 2026-08-17
 
 2026-08-17 estate audit + security scan + Rubric A refresh, one pass. The

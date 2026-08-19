@@ -74,14 +74,21 @@ action — never the last.
 
 ## What did not land at 1.0.0
 
-- **No routing-seam row.** `pack-registry.md`'s seam table (the boundary pairs generated into
-  every member's `references/pack.md`) was not extended to cover dispatchwright ↔ promptwright,
-  ↔ rigwright, or ↔ agentwright — the three seams are stated in SKILL.md §1 and in this README,
-  but they do not yet ride the generated table the way an established pack member's do. A future
-  `skillwright integrate` pass on this pack should add them.
+- ~~No routing-seam row.~~ **Closed at 1.0.1 (2026-08-18).** `pack-registry.md`'s seam table now
+  carries dispatchwright ↔ promptwright, ↔ rigwright, and ↔ agentwright, riding the generated
+  table the way an established pack member's do. All three are recorded as one-sided, uncontested
+  edges — none of the three siblings' descriptions name dispatchwright back — which is the
+  accurate state, not a placeholder for a future negotiation.
 - **No assertion suite.** `evals/` ships trigger evals only; a mechanical `test-cases.md` proving
   the durability contract and Reconcile behavior under a live dispatch is owed.
 - **No cold-listing judge.** `evals/RESULTS.md` records the trigger suite as authored, not run.
+
+## What landed at 1.0.1
+
+- **Shipped hooks synced to the fixed live originals.** `references/hooks/dispatch_gate.py` and
+  `dispatch_ledger_guard.py` had drifted to the pre-fix, fail-open versions while the installed
+  hooks at `~/.claude/hooks/` were repaired (D1-D4, see CHANGELOG.md). Both files are now byte-for-
+  byte the fixed versions, and both selftests pass against the copies shipped here.
 
 ## Changelog
 

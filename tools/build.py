@@ -43,6 +43,7 @@ than only the over-advisory ones. Standalone skills outside a pack keep the fron
 Stdlib only. Run from the repo root (or anywhere; paths resolve from this file).
 """
 import json
+import os
 import re
 import sys
 if hasattr(sys.stdout, "reconfigure"): sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -697,6 +698,33 @@ def _norm(p: Path) -> str:
 # `.in_use` is the plugin manager's live-session marker directory, not shipped content.
 PARITY_SKIP = {".in_use", ".DS_Store", ".git", "__pycache__"}
 
+def _env_path(name: str) -> Path | None:
+    """A local filesystem path read from an environment variable, or None if unset.
+
+    Both constants below used to be hardcoded absolute paths into two PRIVATE repos on
+    the owner's own drive. This file ships on a PUBLIC repo (revenantworks/claude-skills)
+    — a hardcoded path would publish the owner's local drive layout, directory tree, and
+    the existence and location of both private repos to every reader of origin/main, with
+    no protected name involved. Reading them from the environment instead means the value
+    never appears in this file or its diff; only the owner's own machine, where the
+    variables are set, ever resolves them.
+
+    Unset anywhere else — every clone but the owner's rig — both checks below skip
+    cleanly, the same as when a brand or peer repo is simply absent today. That is the
+    correct default: this is parity-detection convenience for the owner, not a
+    load-bearing gate for anyone else running `--parity`.
+
+    Set on the owner's rig only (a user-level environment variable, or a PowerShell
+    profile line — never a tracked file, and never this comment): point
+    CLAUDE_SKILLS_BRAND_REPO_SOURCE at the brand repo's own `brand-definition.md`, and
+    CLAUDE_SKILLS_PEER_SOURCE_NORTHSTAR at the peer brand repo's own `brand-definition.md`.
+    Deliberately not spelled out as a literal path here, in this comment, in a public
+    file — that would just recreate the leak this function exists to close.
+    """
+    val = os.environ.get(name)
+    return Path(val) if val else None
+
+
 # The brand-carriage law means this repo ships this file NEUTRAL forever — but on the
 # owner's own machine, install-definition.py (in the private brand repo) deliberately
 # overlays the real definition into the CACHE copy only, never the clone. Comparing the
@@ -706,11 +734,12 @@ PARITY_SKIP = {".in_use", ".DS_Store", ".git", "__pycache__"}
 # The clone must still be compared against neutral HEAD: a branded clone IS a real
 # brand-carriage violation. Only the loaded cache gets the swapped source of truth.
 _BRAND_DEFINITION_REL = Path("skills") / "revenantworks-foundation-brandwright" / "references" / "brand-definition.md"
-_BRAND_REPO_SOURCE = Path(r"V:\Projects\github\revenantworks\brand\brand-definition.md")
+_BRAND_REPO_SOURCE = _env_path("CLAUDE_SKILLS_BRAND_REPO_SOURCE")
 # Peer definitions live in their own home repos (never in HEAD); parity compares each
-# installed peer against its declared source when that repo is present on this machine.
+# installed peer against its declared source when that repo is present on this machine
+# AND its env var is set (see _env_path above).
 _PEER_SOURCES = {
-    "northstar": Path(r"V:\Projects\github\MickMacPW\brand\brand-definition.md"),
+    "northstar": _env_path("CLAUDE_SKILLS_PEER_SOURCE_NORTHSTAR"),
 }
 
 
@@ -735,7 +764,7 @@ def _compare_tree(repo_root: Path, inst_root: Path, label: str, is_cache: bool =
     for rel in _shipped(repo_root):
         inst = inst_root / rel
         src = repo_root / rel
-        if is_cache and rel == _BRAND_DEFINITION_REL and _BRAND_REPO_SOURCE.is_file():
+        if is_cache and rel == _BRAND_DEFINITION_REL and _BRAND_REPO_SOURCE is not None and _BRAND_REPO_SOURCE.is_file():
             src = _BRAND_REPO_SOURCE
         if not inst.is_file():
             drift.append(f"missing: {rel.as_posix()}")

@@ -17,6 +17,47 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## [foundation-v2.6.1] - 2026-08-18
+
+Estate-sweep patch: four findings from an adversarial audit of the 2.6.0 release, fixed rather
+than re-litigated.
+
+- **Shipped hooks synced to their fixed live originals (dispatchwright 1.0.1).** A sibling repair
+  fixed four fail-open defects (D1-D4) in the LIVE hooks at `~/.claude/hooks/`, but the
+  version-controlled copies this pack ships under `references/hooks/` had drifted to the broken
+  originals. Both files are now byte-for-byte the fixed versions; both `--selftest` suites pass
+  against the copies shipped here. See dispatchwright's own CHANGELOG for the per-defect account.
+- **Plugin description undercounted its own roster.** `plugin.json` and `marketplace.json` both
+  said "Nine standalone wrights" and listed nine names, omitting dispatchwright — the member this
+  very release train added at 2.6.0. Both now say "ten" and name dispatchwright. `CLAUDE.md`, the
+  root `README.md`, and `pack-registry.md`'s roster table already said ten; only the two plugin
+  manifests had not caught up.
+- **Two private-repo paths removed from the public build tool.** `tools/build.py` carried two
+  hardcoded absolute paths — one into the private `revenantworks/brand` repo, one into the private
+  `MickMacPW/brand` repo — in a file that ships on this public repo's `origin/main`. No protected
+  name was exposed, but the paths handed a reader the owner's local drive layout and the existence
+  and location of two private repos. Both now resolve from environment variables
+  (`CLAUDE_SKILLS_BRAND_REPO_SOURCE`, `CLAUDE_SKILLS_PEER_SOURCE_NORTHSTAR`) with a clean skip when
+  unset, so the parity check still works on the owner's rig (env vars set there) and simply skips
+  that one check everywhere else — the same behavior as an absent brand/peer repo today. The two
+  paths remain in git history; a history rewrite and force-push to scrub them is the owner's call,
+  not made here.
+- **Stale seam note corrected (skillwright 1.3.2).** `pack-registry.md`'s evalwright ↔ skillwright
+  row still claimed the eval-authoring carve-out lived on evalwright's side only; skillwright's own
+  description closed that gap at 1.2.0 (2026-08-12) and the registry was never updated to match.
+  Corrected to **both descriptions**, verified against the live text of both members' frontmatter.
+- **dispatchwright's three seam rows added (skillwright 1.3.2).** `build.py --check` had warned
+  dispatchwright was "named in no routing seam" since 2.6.0. The three edges dispatchwright's own
+  SKILL.md already states (↔ promptwright, ↔ rigwright, ↔ agentwright) are now rows in the table,
+  each recorded as an uncontested, one-sided edge — verified by reading all four members'
+  descriptions, none of which name dispatchwright back.
+- Adding the seam rows regenerated every member's `references/pack.md` (the seam table is shared
+  across all manifests); only dispatchwright and skillwright had their own authored content change
+  and were version-bumped. The other eight members' manifests differ from the 2.6.0 tag by this
+  mechanical regeneration alone — `build.py --check`'s advisory "member bump needed" warnings for
+  those eight are expected and not a sign of unshipped work, the same category the frozen-member
+  policy already accepts for tokenwright/commwright/evalwright.
+
 ## [foundation-v2.6.0] - 2026-08-18
 
 Tenth foundation member: `revenantworks-foundation-dispatchwright` 1.0.0, a

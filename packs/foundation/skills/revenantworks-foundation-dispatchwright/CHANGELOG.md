@@ -1,5 +1,37 @@
 # Changelog — revenantworks-foundation-dispatchwright
 
+## [1.0.1] — 2026-08-18
+
+Fail-open audit of the two shipped hooks (D1-D4). A sibling session repaired four fail-open
+defects in the LIVE hooks at `~/.claude/hooks/`; this release brings the version-controlled
+copies under `references/hooks/` into line with them — the shipped copies had drifted to the
+broken originals, which is exactly the gap this member's own package exists to prevent.
+
+- **D1 — no session id was a total no-op.** `flag_is_live` returned `False` (allow) whenever the
+  PreToolUse payload carried no session id, so any Task/Agent/Workflow call without one passed
+  the guard outright. `flag_state()` now returns one of absent / stale / other-session /
+  uncorrelated / live, and an uncorrelatable session id on either side enforces the ledger check
+  rather than skipping it.
+- **D2 — exit 1 on any exception, not 2.** Claude Code blocks a PreToolUse call only on exit code
+  2; only `json.load` was wrapped, so a fault anywhere else failed open. The whole hook body is
+  now wrapped; every path returns 0 or 2, never 1.
+- **D3 — a stale ledger disarmed the guard forever.** `find_ledger` took the newest ledger by
+  mtime with no age limit, so one old populated ledger passed every dispatch in that directory
+  for good. A ledger now counts only inside the same staleness window that keeps the flag live,
+  or by naming the current session outright.
+- **D4 — junk cells counted as tiered.** The populated-row check rejected only `""`, `-`, and the
+  em dash, so a row of `TBD` / `?` / `x` read as a real model/effort/surface. Each cell is now
+  validated per field against a placeholder list and an effort vocabulary.
+- Both files carry a `--selftest` exercising all four defects at the real exit-code level
+  (verified: `python dispatch_gate.py --selftest` and `python dispatch_ledger_guard.py
+  --selftest`, both OK against the copies now shipped here).
+- No behavior change to anything else in this member — SKILL.md, the anti-patterns, the ledger
+  schema, and the three seams are unchanged.
+- The pack registry's seam table (`pack-registry.md`, shipped inside skillwright — see that
+  member's own CHANGELOG for its version) now carries the three rows this member's README named
+  as owed at 1.0.0: dispatchwright ↔ promptwright, ↔ rigwright, ↔ agentwright, each declared as
+  an uncontested, one-sided edge. README's "What did not land" section updated to match.
+
 ## [1.0.0] — 2026-08-18
 
 Baseline release. The tenth foundation member, built to close the gap the 2026-08-17 estate
