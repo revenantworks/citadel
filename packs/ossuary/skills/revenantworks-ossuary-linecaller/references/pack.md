@@ -1,6 +1,6 @@
-# Pack — ossuary *(standalone profile)*
+# Pack — ossuary *(custom:ossuary-personal profile)*
 
-> Advisory only — consulted on boundary doubt; initial routing stays at the name + description level. **Last stamped: 2026-08-08** (two-member roster + canonical repo; generated from the registry in skillwright's `pack-registry.md`).
+> Advisory only — consulted on boundary doubt; initial routing stays at the name + description level. **Last stamped: 2026-08-20** (two-member roster + canonical repo; generated from the registry in skillwright's `pack-registry.md`).
 
 | Member | Job | Route there when |
 |---|---|---|

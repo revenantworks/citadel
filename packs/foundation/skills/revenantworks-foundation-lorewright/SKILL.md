@@ -3,7 +3,7 @@ name: revenantworks-foundation-lorewright
 description: Turns research into verified knowledge products, two modes. Trigger when someone wants a researched recommendation, comparison, or go/no-go — which X should I pick, is Y worth it, compare A vs B — sources checked live, every claim evidence-graded; when they want a reference doc, guide, or playbook, template-first, versioned against primary sources; when a doc needs verification or overlapping docs need consolidating; or when they say lorewright (lorewright verdict / lorewright playbook pick the mode). Verdict ends in one direct recommendation, never a hedge. For prompts, promptwright; for skills, skillwright; for shaping a message to a channel, commwright; broad multi-source research reports are a research tool's job — lorewright produces decisions and reference docs, not reports.
 license: MIT
 metadata:
-  version: "1.1.5"
+  version: "1.1.6"
   profile: standalone
   pack: foundation
   brand: revenantworks
@@ -45,6 +45,8 @@ One reference file per run: `verdict-mode.md` or `playbook-mode.md` — never bo
 ## Entry — Playbook
 
 "lorewright playbook" or any reference-doc/guide ask. Per `playbook-mode.md`: template first (gate once) → fill answer-up-front → verification pass against primary sources, tags throughout → version stamp (`v1.0 · verified <date>`) → delivery as a file where file tools exist. Updates re-verify only the sections the change touches and bump the version.
+
+Model invocation is required for the file-write delivery step: the doc's content, evidence tags, and version stamp are produced by the run itself, and this skill also ships to claude.ai and the API where a Claude-Code-only invocation flag wouldn't apply. The template gate above and the verification pass are the controls that stop an unwanted write, not a disable flag.
 
 ## Verification doctrine
 

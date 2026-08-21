@@ -3,7 +3,7 @@ name: revenantworks-foundation-tokenwright
 description: Measures and shrinks the token footprint of LLM-facing artifacts — prompts, SKILL.md bodies, agent specs, CLAUDE.md, reference docs — at build time, cutting cost without changing behavior. Trigger to slim, compress, or token-optimize an artifact; to fit a token or context budget or a cached prefix; to ask why a prompt or instruction file costs so many tokens; when a set needs budgets or a load plan ("tokenwright budget"); to score token waste without rewriting ("tokenwright audit"); or when they say "tokenwright" ("tokenwright refresh" re-verifies ratios and cache mechanics). Covers a waste taxonomy, a lossless/lossy ladder, and net-cost accounting. For prompt quality or wording, promptwright; for skill best-practice conformance, skillwright; for shortening human-facing messages, commwright; writing, fixing, or restructuring a config — including a bare trim of one — is rigwright's; tokenwright is reached only when the layout is settled and the ask is the cost.
 license: MIT
 metadata:
-  version: "1.2.2"
+  version: "1.2.3"
   profile: standalone
   pack: foundation
   brand: revenantworks
@@ -91,6 +91,8 @@ An artifact plus intent to shrink it ("slim this system prompt", "get this SKILL
 **Scope and boundaries.** tokenwright changes cost, not intent. A prompt's quality, wording, or model-tier routing → promptwright (its **Entry — Model** recommends a tier + model for a task). Cost scales with the model's tier (frontier > flagship > balanced > fast); tokenwright reasons in tiers and never names a specific model — the current name and pricing come from promptwright's snapshot via Entry — Model. A skill's best-practice conformance and structure → skillwright (its lean checks cite these numbers; tokenwright is the specialist behind them). Audience-facing message length → commwright. Live-session history, compaction, and runtime context management → the platform's own tools. A slimmed artifact's suite → evalwright. A slim that breaks an eval anchor wasn't lossless.
 
 **Dependencies** (standalone profile): web search for Refresh verification, the surface's native file tools for delivery — where file tools are absent, every deliverable degrades gracefully to in-chat content the user can save. No scripts shipped, none assumed.
+
+**Invocation control.** Entry — Slim delivers a rewritten artifact and Entry — Refresh writes `measurement.md` plus a `CHANGELOG.md` line — both require model invocation because recognizing "slim this" or "refresh the numbers" and doing the measurement is the job itself. Lossless rungs apply without asking; the guard against an unwanted write is that both entries only ever touch the artifact the user named in the same turn, never a silent third file.
 
 **Neutral** (C-2): reports, sheets, and rewrites always ship spec-clean — no brand is applied here. To brand a report (palette, wordmark), run `brandwright apply`; brandwright is the single home of brand application. Brand never touches a slimmed artifact's own instruction content.
 

@@ -3,7 +3,7 @@ name: revenantworks-foundation-skillwright
 description: Builds, audits, ports, and integrates install-ready Agent Skills passing best practices. Trigger to build, audit, score, or package a skill or SKILL.md; to design a pack; when asked if a skill fills a real niche; for a prose pass on a skill's or pack's own files (README, CLAUDE.md); when a skill set needs porting, renaming, rebranding, or sanitizing for a new owner; when a member change must propagate across a pack; or on skillwright (refresh, port, pack, integrate, upkeep). Every build ships trigger evals. Audit covers security — injection surface, secrets, undeclared tools, unsafe defaults. For prompts not skills, promptwright; to define, apply, or audit a brand or voice, brandwright; for a token or cost cut on a SKILL.md that already conforms, tokenwright; for authoring or scoring an eval suite as its own job, evalwright; audits cover the skill package as built — what an autonomous agent may do at runtime is agentwright's.
 license: MIT
 metadata:
-  version: "1.3.2"
+  version: "1.3.3"
   profile: standalone
   pack: foundation
   brand: revenantworks
@@ -33,7 +33,7 @@ Ships no executable code of its own. Uses web search for research and baseline v
 
 ## Load budget
 
-A standard build touches **at most two** reference files: `rubrics.md` and `build-templates.md`; a standard audit touches one — `rubrics.md` — plus whatever its findings require; a port touches the build set plus `pack-registry.md` for the destination roster. The security pass adds no load of its own: its classes sit in `rubrics.md`, already open on every audit. Reach further only as listed; never load the whole folder.
+A standard build touches four reference files in practice — `rubrics.md`, `build-templates.md`, `pack-registry.md` (every build reads it for the structural source), and `eval-authoring.md` (every build ships evals, step 6) — plus `description-crafting.md` when writing or fixing a description; a standard audit touches one — `rubrics.md` — plus whatever its findings require; a port touches the build set plus `pack-registry.md` for the destination roster. The security pass adds no load of its own: its classes sit in `rubrics.md`, already open on every audit. Reach further only as listed; never load the whole folder.
 
 - `rubrics.md` — every build and audit, the security pass included (Security classes S-1 to S-4, Generator classes G-1 to G-3 and naming-class coverage live there); refresh regenerates its baseline stamp
 - `build-templates.md` — every build; skeletons, naming render, suites & composition
@@ -166,6 +166,8 @@ Advise keeping the shipped archive under the user's own version control — inst
 ## Behavior notes
 
 **Scope.** The skill package is the deliverable. skillwright does not perform the built skill's job, host it, or write standalone prompts — prompts route to promptwright; the boundary sentence in every description it writes should partition the same way.
+
+**Invocation control.** Model invocation is required: recognizing a build/audit/port/integrate request and running the right entry is the whole job. Every write (Build, Port, Integrate, an approved Audit rewrite) fires only after its entry's one gate — never silently — which is the control that matters here, not a disable flag this skill also ships to claude.ai/API where such a flag wouldn't apply anyway.
 
 **Branding.** skillwright builds neutral and stamps only structural identity (name segments + frontmatter token from `pack-registry.md`). Applying a brand or voice — palette on a skill's HTML, house voice in its README, wordmark, taglines — is **brandwright's job, on invoke**: build the skill here, then run `brandwright apply` on it (brandwright consumes the built skill and its own `brand-definition.md`). This keeps every built skill portable and identity-light; branding is a deliberate opt-in layer, never baked into a build. Configuring an identity is likewise brandwright (`brandwright build`), not skillwright.
 

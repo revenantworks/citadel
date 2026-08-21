@@ -1,5 +1,29 @@
 # Changelog — revenantworks-foundation-dispatchwright
 
+## [1.1.0] — 2026-08-20
+
+Pack-wide skillwright audit findings, P1-1 and P1-2. Both were self-inflicted
+gaps between what this member claimed and what it enforced.
+
+- **P1-1 — the declared profile was wrong.** Frontmatter said
+  `profile: standalone`, but the package ships two executable Python hook
+  scripts and hard-depends on `git` and the surface's Task/Agent/Workflow
+  tools; the standalone profile bars shipped executable code outright, and
+  this member does not behave identically on chat/API (where it degrades to
+  plan-and-tier) as standalone requires. Now `profile: standard`, with the
+  dependency paragraph naming the hooks and stating that the skill runs
+  identically without them, just without the automatic forcing behavior.
+- **P1-2 (S-3) — the wave caps were prose nobody enforced.** SKILL.md §6
+  states a 6-unit concurrency cap and a one-writer-per-repo rule; the
+  `PreToolUse` guard only ever proved *a* tiered row existed, so a run could
+  fan out past either cap with a plausible ledger and nothing would stop it.
+  `dispatch_ledger_guard.py` gains `open_unit_count()` and `repo_collision()`,
+  both reading the ledger as it stands and blocking (exit 2) when it already
+  shows a cap violated. A row counts as open from `dispatched` until it
+  reaches a terminal status; an unlabeled status counts as open, since an
+  unlabeled row is what a cap exists to catch. Four new exit-code selftest
+  cases, 17 total, all passing.
+
 ## [1.0.1] — 2026-08-18
 
 Fail-open audit of the two shipped hooks (D1-D4). A sibling session repaired four fail-open

@@ -2,6 +2,21 @@
 
 > Renamed from `revenant-foundation-tokenwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.2.3] — 2026-08-20
+
+Frozen member (owner decision 2026-08-17: no bumps unless broken). This bump
+is taken under the security carve-out — the audit filed an S-3 finding, which
+that rule counts as broken. No doctrine, entry point, threshold, description,
+or reference moved; the routing surface is unchanged.
+
+- **S-3 · P1-1 — invocation control unstated.** Entry — Slim delivers a
+  rewritten artifact and Entry — Refresh writes `measurement.md`, bumps the
+  frontmatter version, and appends a CHANGELOG line — all silently
+  model-invocable, with neither `disable-model-invocation` nor the one-line
+  stated reason. Behavior notes gains that line: recognizing the ask and doing
+  the measurement is the job, and the guard is that both entries only ever
+  touch the artifact named in the same turn, never a silent third file.
+
 ## [1.2.2] — 2026-08-17
 
 Frozen member (owner decision 2026-08-17: no bumps unless broken). This

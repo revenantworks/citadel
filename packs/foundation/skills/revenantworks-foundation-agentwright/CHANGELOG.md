@@ -2,6 +2,22 @@
 
 > Renamed from `revenant-foundation-agentwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.2.3] — 2026-08-20
+
+Pack-wide audit finding SEC-1 (S-4 · P1), applied.
+
+- **A blanket-grant default the doctrine named but never pruned.**
+  `platform-notes.md` records that the cloud-routine emit target attaches every
+  connected connector by default — a genuinely unsafe default, since it hands
+  an unattended run a blast radius far past whatever the ops spec chose. Entry
+  — Emit mandated three invariants as required output fields but had no
+  equivalent step forcing the emitted block to enumerate and prune connectors,
+  leaving the correction to a generic "render scope" line. Emit gains step 5:
+  where the target platform's own default is a blanket grant, the emitted block
+  names the connectors the spec's blast radius requires and states the
+  instruction to remove every other one — riding every routine emit the way the
+  three invariants ride every scheduled one.
+
 ## [1.2.2] — 2026-08-17
 
 Member audit + security scan (2026-08-17), plus the `platform-notes.md`

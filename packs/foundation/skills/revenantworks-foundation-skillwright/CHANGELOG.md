@@ -2,6 +2,29 @@
 
 > Renamed from `revenant-foundation-skillwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.3.3] — 2026-08-20
+
+Pack-wide audit findings against this member, applied. Both were already
+self-diagnosed in earlier entries and carried forward unfixed.
+
+- **P1-2 — the load budget was false.** The opening sentence claimed a
+  standard build touches "at most two" reference files while its own bulleted
+  list two lines down marked `pack-registry.md` and `eval-authoring.md` as
+  loaded on every build. `evals/RESULTS.md` caught this on 2026-07-25 and it
+  survived three releases. The sentence now states the real per-entry count
+  rather than an aspiration the list contradicts.
+- **S-3 · P1-1 — invocation control unstated.** Build, Port and Integrate all
+  write files with neither `disable-model-invocation` nor the one-line stated
+  reason the rubric's dimension 11 requires. Behavior notes gains that line:
+  model invocation is the job, and each entry's single gate is the control.
+- **Registry — the ossuary Profile cell was wrong.** `pack-registry.md`'s Pack
+  Registry table listed ossuary as `standalone` while the same row's prose and
+  both members' frontmatter say `custom:ossuary-personal`; a literal standalone
+  scoring would have failed both members over a GitHub connector the custom
+  profile allows. The cell is corrected and the custom profile now carries an
+  enumerated policy list, which it never had — the gap two independent audit
+  units flagged from opposite ends of the pack.
+
 ## [1.3.2] — 2026-08-18
 
 `references/pack-registry.md` audit-trail fixes. Description untouched, so the routing surface

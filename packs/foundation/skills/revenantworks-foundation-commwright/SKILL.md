@@ -3,7 +3,7 @@ name: revenantworks-foundation-commwright
 description: Shapes any message to its channel and audience. Drafts human by default in a neutral professional voice; a specific brand voice applies only when named or handed in — voice definitions live in brandwright, and defining or saving one, even as "commwright voice", routes there. Trigger to write, rewrite, reshape, or shorten an email, text, Slack or Teams message, release notes, YouTube title, social post, or Discord announcement; to make it more formal or casual; to humanize a message that reads like AI or ChatGPT, stripping em dashes and emoji — a README, CLAUDE.md, or reference doc is skillwright’s prose, not commwright’s; for release comms or a comms plan; or when they name "commwright" for message or channel work ("commwright formats", "commwright audit", "commwright humanize"). It never sends.
 license: MIT
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
   profile: standalone
   pack: foundation
   brand: revenantworks
@@ -52,7 +52,7 @@ Every draft is humanized silently: no announcement, no report line, no offer to 
 
 ## Load budget
 
-A standard draft touches **one** reference file: the matching section of `channel-profiles.md`. That is the whole per-draft cost because H1 to H9 ride inline above, in a body that is already loaded — the hard rules add no file to open. Reach further only as listed.
+A standard draft touches **one** reference file: the matching section of `channel-profiles.md`. That is the whole per-draft cost because H1 to H9 ride inline above, in a body that is already loaded — the hard rules add no file to open. Two entries load the whole file instead of one section: Entry — Formats (listing every channel's contract) and Cadence sets (a dated set spans multiple channels at once). Reach further only as listed.
 
 - `channel-profiles.md` — every draft; the target channel's section only
 - `humanize.md` — **not** a per-draft load. It states no rule: H1 to H9 above are complete and binding on their own. What it adds is everything that will not fit inline — per-rule detection and repair *technique* (the constraints a repair has to satisfy bind, so they ride in the body, H9's step-two guard included), and the wider tell catalog the body does not carry (bold mid-sentence, headers on short content, Title Case labels, listification, opener and paragraph uniformity, rule of three, machined parallelism, zero fragments, wordiness pairs, verb inflation, email boilerplate, over-signposting, both-sides framing, terminal qualifier), plus the lexicon smell list and its decision procedure, one worked repair, the residual risks, and the contested cases. Those catalog rules are judgement, not defects, and they sit below H1 to H9 in precedence. Reach for it on three occasions: **Entry — Humanize**, **`commwright audit`**, and a draft long or tell-dense enough that the catalog earns its cost.

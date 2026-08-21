@@ -2,6 +2,24 @@
 
 > Renamed from `revenant-foundation-commwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.1.2] — 2026-08-20
+
+Frozen member (owner decision 2026-08-17: no bumps unless broken). This bump
+is taken because the Load budget stated something factually untrue about the
+skill's own behavior, which is broken in the sense the freeze means. No
+doctrine, entry point, threshold, description, or reference moved.
+
+- **P1-2 — the load budget contradicted two of its own entries.** It claimed a
+  standard draft touches only the matching section of `channel-profiles.md` and
+  closed with "Reach further only as listed", while Entry — Formats and Cadence
+  sets both require the whole file and neither was listed as an exception —
+  self-disclosed in `evals/RESULTS.md` on 2026-07-25 and carried unfixed. Both
+  exceptions are now named in the budget.
+
+Not addressed here: the four injection probes (Cases 27–30) added at 1.1.1 are
+still authored-not-run. Running them is eval execution, not a text fix, and it
+is tracked as owed rather than quietly closed.
+
 ## [1.1.1] — 2026-08-17
 
 Frozen member (owner decision 2026-08-17: no bumps unless broken). This

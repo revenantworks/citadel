@@ -2,6 +2,19 @@
 
 > Renamed from `revenant-foundation-lorewright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.1.6] — 2026-08-20
+
+Pack-wide audit finding P1-1 (S-3 / invocation control), applied.
+
+- **The playbook write had no stated invocation-control reason.** Playbook mode
+  writes a file on model invocation with no `disable-model-invocation` flag —
+  correct, since this member also ships to claude.ai and the API where that
+  Claude-Code-only key is invalid — but the rubric's stated-reason path was
+  then required and absent. Entry — Playbook now states it: the doc's content,
+  evidence tags and version stamp are produced by the run itself, and the
+  template gate plus the verification pass are the controls that stop an
+  unwanted write.
+
 ## [1.1.5] — 2026-08-17
 
 Member audit + security scan (2026-08-17). No entry point, tag grade, gate,

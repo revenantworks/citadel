@@ -3,8 +3,8 @@ name: revenantworks-foundation-dispatchwright
 description: Runs a session's fan-out — turns one large request into tiered, budgeted, recoverable units and dispatches them. Trigger when a request will take more than a few agents or spans many repos, skills, or files at once — rebuild, re-architect, overhaul, consolidate, sweep, migrate, or 'do all of this'; when subagents or a workflow are about to be launched and nothing has assigned each one a model, effort, and surface; when a fan-out is already running and a unit died, stalled, hit a usage limit, or must be resumed without redoing landed work; when concurrent units would write the same repo; or say dispatchwright (plan, dispatch, resume, audit). Model and tier per unit come from promptwright's target table, never invented here; the hook or config that makes this fire is rigwright's placement; anything unattended on a schedule is agentwright's.
 license: MIT
 metadata:
-  version: "1.0.1"
-  profile: standalone
+  version: "1.1.0"
+  profile: standard
   pack: foundation
   brand: revenantworks
   volatile: []
@@ -23,9 +23,11 @@ anything on an unattended schedule (agentwright).
 **Workflow:** Shape check → Decompose → Tier → Durability contract → Wave execution → Escalation
 → Reconcile
 
-Dependencies (standalone profile): the surface's native subagent/Task tools for dispatch, and
-`git` for every reconcile step. No tools are shipped; a run without subagent tools can still plan
-and tier, but cannot dispatch.
+Dependencies (standard profile): the surface's native subagent/Task tools for dispatch, `git` for
+every reconcile step, and two shipped Python hook scripts (`references/hooks/dispatch_gate.py`,
+`dispatch_ledger_guard.py`) that only take effect once installed under `~/.claude/hooks/` — this
+skill runs identically without them, just without the automatic forcing behavior. A run without
+subagent tools can still plan and tier, but cannot dispatch.
 
 ## Load budget
 

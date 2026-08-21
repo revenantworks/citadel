@@ -3,7 +3,7 @@ name: revenantworks-foundation-agentwright
 description: Designs and audits the system around an autonomous or scheduled agent — everything but the prompt text — and emits it in the target's native form. Trigger to design, spec, harden, review, or audit an agent, bot, scheduled task, or automation acting on its own; to write a Cowork task, a Claude Code routine, or a desktop scheduled task, or the same on ChatGPT, Gemini, or a workflow runner; for guardrails, kill switches, cadence, retries, failure handling, protected resources, output contracts, or handoffs; to security-scan an agent's tool grants, credentials, or blast radius; when untrusted content — email, web pages, documents — needs isolation in an agent; or say agentwright (subcommands emit, audit, security-scan, refresh). Prompt text is promptwright's; standing config a human reads in session — Project instructions, CLAUDE.md — is rigwright's; skill packages as built are skillwright's; code-level threats belong to a security harness.
 license: MIT
 metadata:
-  version: "1.2.2"
+  version: "1.2.3"
   profile: standalone
   pack: foundation
   brand: revenantworks
@@ -58,7 +58,8 @@ A new agent from intent ("a morning scan that emails me watchlist signals"). Min
 2. **Render** into that surface's fields from `platform-notes.md` — instruction body, cadence or trigger, scope (folder, repo, connectors), permission mode. The rendered instruction is **self-contained**: an unattended run takes no follow-up question, so anything ambiguous in it becomes a coin flip on every fire.
 3. **State the enforcement gap.** For every control the spec chose that the target cannot enforce, name the control, name what carries it instead — a prompt-level instruction, an external check, or nothing — and say which. An emit reporting no gap has not looked: only the richest targets enforce most of the checklist, and the thinnest enforce none of it. The gap table is part of the artifact, never an appendix to it.
 4. **Carry the three invariants a scheduler's own form never asks for.** Every emitted schedule states its zero-signal line, its first actionable fire, and what a missed run does on that surface. These are exactly the fields whose absence a quiet failure hides.
-5. **Hand back paste-ready**, naming the field each block belongs in. Emit never creates the task, never enables it, and never commits.
+5. **Prune a blanket-grant default.** Where the target platform's own default is a blanket grant (e.g., the cloud-routine's all-connectors-on default per `platform-notes.md`), the emitted block explicitly enumerates the connectors the ops spec's blast radius requires and states the instruction to remove every other one — this rides every routine emit the same way the three invariants ride every scheduled emit.
+6. **Hand back paste-ready**, naming the field each block belongs in. Emit never creates the task, never enables it, and never commits.
 
 Where the gap is wide enough that the spec's blast-radius decision cannot hold — an irreversible action on a surface with no gate and no kill switch — **Restraint applies at the target rather than the design**: say the surface is wrong for this agent, name one that can hold it, and do not emit a spec the platform cannot honor.
 

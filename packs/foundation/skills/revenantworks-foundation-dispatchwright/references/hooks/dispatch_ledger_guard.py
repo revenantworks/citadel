@@ -40,6 +40,19 @@ tool_input against a specific ledger row would need a unit id the tool_input
 has no standard place to carry. The coarse form still catches the failure mode
 that matters most: a wave launched with a missing, stale, or untiered ledger.
 
+Extended 2026-08-20 (skillwright pack audit, finding P1-2 / S-3): SKILL.md
+section 6 states two wave-execution caps in prose -- max 6 concurrent units,
+one writer per repo -- that nothing here enforced before this change; the
+guard only ever proved a row existed, never that dispatching one more unit
+would stay inside either cap. Both new checks (open_unit_count,
+repo_collision) share the same coarse-by-necessity limitation as the check
+above: they read the ledger AS IT STANDS and block when it already shows a
+cap violated, rather than simulating what the specific about-to-run call would
+do. Given the ledger row for a unit is written before its dispatch call fires
+(SKILL.md section 5), the row for the call under the guard's own PreToolUse
+hook is already in the ledger by the time these run, so "already violated"
+correctly includes that unit.
+
 FAILS CLOSED whenever it is armed and cannot prove the dispatch is tiered --
 that is the point of this hook. dispatch_gate.py is the opposite and must stay
 that way: it runs on every prompt, and a gate that can block is how the
@@ -363,6 +376,110 @@ def ledger_has_populated_row(path: Path) -> bool:
     return False
 
 
+# ---------------------------------------------------------------------------
+# Wave-execution caps (SKILL.md section 6; audit finding P1-2, 2026-08-20).
+# ---------------------------------------------------------------------------
+MAX_CONCURRENT_UNITS = 6
+
+# A row counts as "open" -- part of the concurrent-unit count -- from dispatch
+# until it reaches a terminal status. `committed` is still open (the unit is
+# still working toward a push); `pushed`, `verified`, `stalled`, `failed`, and
+# `resumed` are all terminal here, since stalled/failed/resumed all mean the
+# run has already noticed the unit is not quietly holding a wave slot.
+OPEN_STATUSES = {"dispatched", "committed"}
+
+
+def _table_rows(text: str, suffix: str, wanted: tuple) -> list:
+    """Every row of a ledger as a dict keyed by the wanted column names, for
+    whichever of them the header actually has. Parses the same two formats
+    ledger_has_populated_row does (CSV, Markdown pipe table) but returns raw
+    cell values for arbitrary columns -- the wave-cap checks need `repo`,
+    `worktree`, and `status`, none of which that function reads."""
+    rows = []
+    if suffix == ".csv":
+        parsed = list(csv.reader(io.StringIO(text)))
+        if len(parsed) < 2:
+            return rows
+        header = [h.strip().lower() for h in parsed[0]]
+        idx = {}
+        for name in wanted:
+            for i, cell in enumerate(header):
+                if name in cell:
+                    idx[name] = i
+                    break
+        for row in parsed[1:]:
+            if not row or (idx and max(idx.values()) >= len(row)):
+                continue
+            rows.append({name: row[i].strip() for name, i in idx.items()})
+        return rows
+
+    lines = [ln for ln in text.splitlines() if ln.strip().startswith("|")]
+    if len(lines) < 2:
+        return rows
+    header_cells = [c.strip().lower() for c in lines[0].strip().strip("|").split("|")]
+    idx = {}
+    for name in wanted:
+        for i, cell in enumerate(header_cells):
+            if name in cell:
+                idx[name] = i
+                break
+    for ln in lines[1:]:
+        cells = [c.strip() for c in ln.strip().strip("|").split("|")]
+        if all(set(c) <= {"-", ":"} for c in cells):
+            continue
+        if not idx or max(idx.values()) >= len(cells):
+            continue
+        rows.append({name: cells[i] for name, i in idx.items()})
+    return rows
+
+
+def open_unit_count(path: Path) -> int:
+    """How many rows in this ledger are still open per OPEN_STATUSES. A row
+    with no status column, or a placeholder status, counts as open -- an
+    unlabeled row is exactly the case a cap exists to catch, not a reason to
+    exempt it."""
+    try:
+        text = path.read_text(encoding="utf-8", errors="replace")
+    except Exception:
+        return 0
+    rows = _table_rows(text, path.suffix.lower(), ("status",))
+    count = 0
+    for row in rows:
+        status = _norm(row.get("status", ""))
+        if not status or status in PLACEHOLDER_CELLS or status in OPEN_STATUSES:
+            count += 1
+    return count
+
+
+def repo_collision(path: Path) -> str | None:
+    """The first repo with 2+ open rows that both write the main tree (no
+    worktree/branch value) -- the one-writer-per-repo violation SKILL.md
+    section 6 names. None if every repo with more than one open row has each
+    writer isolated in its own worktree."""
+    try:
+        text = path.read_text(encoding="utf-8", errors="replace")
+    except Exception:
+        return None
+    rows = _table_rows(text, path.suffix.lower(), ("status", "repo", "worktree"))
+    bare_writers: dict = {}
+    for row in rows:
+        status = _norm(row.get("status", ""))
+        is_open = (not status) or (status in PLACEHOLDER_CELLS) or (status in OPEN_STATUSES)
+        if not is_open:
+            continue
+        repo = _norm(row.get("repo", ""))
+        worktree = _norm(row.get("worktree", ""))
+        if not repo or repo in PLACEHOLDER_CELLS:
+            continue
+        if worktree and worktree not in PLACEHOLDER_CELLS:
+            continue  # isolated in its own worktree -- not a collision
+        bare_writers[repo] = bare_writers.get(repo, 0) + 1
+    for repo, n in bare_writers.items():
+        if n >= 2:
+            return repo
+    return None
+
+
 TIERED_LEDGER = (
     "| unit_id | task | class | model | effort | surface |\n"
     "|---------|------|-------|-------|--------|---------|\n"
@@ -520,6 +637,68 @@ def selftest() -> int:
         if missing is not None:
             problems.append("find_ledger found a ledger in a directory with no .dispatch/runs/ tree")
 
+        # --- wave-cap enforcement, 2026-08-20 audit P1-2 ---------------------
+        def _row(unit_id, repo="—", worktree="—", status="dispatched"):
+            return (
+                f"| {unit_id} | thing | mechanical | Claude Opus 5 | high | "
+                f"subagent (background) | {repo} | {worktree} | x | 1 | t | | | | | {status} |"
+            )
+
+        header = (
+            "| unit_id | task | class | model | effort | surface | repo | worktree | "
+            "expected_artifacts | estimated_tokens | dispatch_ts | commit_sha | commit_ts | "
+            "push_ts | remote_sha | status |\n"
+            "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n"
+        )
+
+        under_cap = tmp / "under_cap.md"
+        under_cap.write_text(header + "\n".join(_row(f"U{i}") for i in range(1, 4)), encoding="utf-8")
+        if open_unit_count(under_cap) != 3:
+            problems.append("open_unit_count miscounted 3 dispatched rows")
+
+        over_cap = tmp / "over_cap.md"
+        over_cap.write_text(header + "\n".join(_row(f"U{i}") for i in range(1, 8)), encoding="utf-8")
+        if open_unit_count(over_cap) != 7:
+            problems.append("open_unit_count miscounted 7 dispatched rows")
+
+        mixed_terminal = tmp / "mixed_terminal.md"
+        rows = [_row(f"U{i}") for i in range(1, 6)] + [
+            _row("U6", status="pushed"), _row("U7", status="verified"),
+        ]
+        mixed_terminal.write_text(header + "\n".join(rows), encoding="utf-8")
+        if open_unit_count(mixed_terminal) != 5:
+            problems.append("open_unit_count counted a pushed/verified row as still open")
+
+        no_collision = tmp / "no_collision.md"
+        no_collision.write_text(
+            header + "\n".join(
+                [_row("U1", repo="workshop", worktree="wt-u1"), _row("U2", repo="workshop", worktree="wt-u2")]
+            ),
+            encoding="utf-8",
+        )
+        if repo_collision(no_collision) is not None:
+            problems.append("repo_collision flagged two writers that each have their own worktree")
+
+        yes_collision = tmp / "yes_collision.md"
+        yes_collision.write_text(
+            header + "\n".join(
+                [_row("U1", repo="workshop", worktree="—"), _row("U2", repo="workshop", worktree="—")]
+            ),
+            encoding="utf-8",
+        )
+        if repo_collision(yes_collision) != "workshop":
+            problems.append("repo_collision missed two bare-tree writers on the same repo")
+
+        different_repos = tmp / "different_repos.md"
+        different_repos.write_text(
+            header + "\n".join(
+                [_row("U1", repo="workshop", worktree="—"), _row("U2", repo="citadel", worktree="—")]
+            ),
+            encoding="utf-8",
+        )
+        if repo_collision(different_repos) is not None:
+            problems.append("repo_collision flagged two bare-tree writers on DIFFERENT repos")
+
         # --- real exit codes ---------------------------------------------
         fresh_flag = {"session_id": "abc", "ts": now}
         no_ledger_dir = tmp / "bare"
@@ -558,6 +737,15 @@ def selftest() -> int:
             # D4
             ("D4: a ledger of junk cells no longer passes",
              {"tool_name": "Task", "session_id": "abc", "cwd": str(tmp / "junkrun")}, fresh_flag, 2),
+            # Wave-cap enforcement, audit P1-2
+            ("P1-2: a ledger with 7 open units blocks over the 6-unit cap",
+             {"tool_name": "Task", "session_id": "abc", "cwd": str(tmp / "overcaprun")}, fresh_flag, 2),
+            ("P1-2: a ledger with 6 open units stays inside the cap and allows",
+             {"tool_name": "Task", "session_id": "abc", "cwd": str(tmp / "atcaprun")}, fresh_flag, 0),
+            ("P1-2: two bare-tree writers on the same repo block",
+             {"tool_name": "Task", "session_id": "abc", "cwd": str(tmp / "collisionrun")}, fresh_flag, 2),
+            ("P1-2: two writers on the same repo each in their own worktree allow",
+             {"tool_name": "Task", "session_id": "abc", "cwd": str(tmp / "isolatedrun")}, fresh_flag, 0),
         ]
 
         # D2 fixture: ledger.md is a directory, so read_text throws.
@@ -566,6 +754,24 @@ def selftest() -> int:
         junk_run = tmp / "junkrun" / ".dispatch" / "runs" / "r1"
         junk_run.mkdir(parents=True)
         (junk_run / "ledger.md").write_text(junk_md.read_text(encoding="utf-8"), encoding="utf-8")
+
+        # Wave-cap fixtures, audit P1-2.
+        overcap_run = tmp / "overcaprun" / ".dispatch" / "runs" / "r1"
+        overcap_run.mkdir(parents=True)
+        (overcap_run / "ledger.md").write_text(over_cap.read_text(encoding="utf-8"), encoding="utf-8")
+
+        atcap_run = tmp / "atcaprun" / ".dispatch" / "runs" / "r1"
+        atcap_run.mkdir(parents=True)
+        atcap_rows = header + "\n".join(_row(f"U{i}") for i in range(1, 7))
+        (atcap_run / "ledger.md").write_text(atcap_rows, encoding="utf-8")
+
+        collision_run = tmp / "collisionrun" / ".dispatch" / "runs" / "r1"
+        collision_run.mkdir(parents=True)
+        (collision_run / "ledger.md").write_text(yes_collision.read_text(encoding="utf-8"), encoding="utf-8")
+
+        isolated_run = tmp / "isolatedrun" / ".dispatch" / "runs" / "r1"
+        isolated_run.mkdir(parents=True)
+        (isolated_run / "ledger.md").write_text(no_collision.read_text(encoding="utf-8"), encoding="utf-8")
 
         for label, payload, flag, expected in cases:
             code = _run_guard(payload, flag, tmp)
@@ -580,8 +786,8 @@ def selftest() -> int:
         return 2
     print(
         "dispatch_ledger_guard selftest: OK (flag states incl. uncorrelated, "
-        "ledger currency, cell validators, and 13 real exit-code cases covering "
-        "all four 2026-08-18 defects)"
+        "ledger currency, cell validators, and 17 real exit-code cases covering "
+        "all four 2026-08-18 defects plus the 2026-08-20 wave-cap enforcement)"
     )
     return 0
 
@@ -620,6 +826,28 @@ def _guard(data: dict) -> int:
             f"dispatch_ledger_guard: {ledger} carries no row that names a model, an effort, and a "
             "surface. Placeholders such as TBD, ?, x or a dash do not count. Tier the unit through "
             "promptwright first and write the real row before dispatching it.",
+            file=sys.stderr,
+        )
+        return 2
+
+    open_count = open_unit_count(ledger)
+    if open_count > MAX_CONCURRENT_UNITS:
+        print(
+            f"dispatch_ledger_guard: {ledger} already shows {open_count} open units (dispatched or "
+            f"committed, not yet pushed) -- over the {MAX_CONCURRENT_UNITS}-unit wave cap in "
+            "SKILL.md section 6. Let some units reach pushed/verified before dispatching another, "
+            "or split the remainder into a second wave.",
+            file=sys.stderr,
+        )
+        return 2
+
+    collision = repo_collision(ledger)
+    if collision:
+        print(
+            f"dispatch_ledger_guard: {ledger} shows two or more open units writing '{collision}' "
+            "with no worktree assigned to either -- the one-writer-per-repo rule in SKILL.md "
+            "section 6. Give each writer its own worktree, or sequence them instead of running "
+            "both at once.",
             file=sys.stderr,
         )
         return 2
