@@ -30,3 +30,6 @@ venv/
 !.claude/hooks/
 .claude/hooks/blocklist.txt
 .claude/settings.local.json
+
+# dispatchwright run ledgers — session working state, never a durable artifact
+.dispatch/

@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 """claude-skills — release: the whole close-of-pass loop in one command.
 
-    python tools/release.py foundation=2.5.0 [ossuary=2.4.0] [-m "message"] [--no-push]
+    python tools/release.py foundation=2.5.0 [-m "message"] [--no-push]
                             [--swaps DIR ...] [--export-dir DIR]
-    python tools/release.py --refresh-brand      # only step 9 (the ~/.claude/brand copies)
-    python tools/release.py --mirror-only        # only step 8 (the longshot ossuary mirror)
+    python tools/release.py --refresh-brand      # only step 8 (the ~/.claude/brand copies)
     python tools/release.py --dry-run foundation=2.5.0   # print the plan, write nothing
 
 Steps, in order (each stops the run on failure, nothing after it runs):
@@ -18,23 +17,19 @@ Steps, in order (each stops the run on failure, nothing after it runs):
   6. commit          git add -A; git commit -m <message>
   7. tag + push      git tag <pack>-v<ver> per pack; git push origin HEAD --follow-tags
                      (--no-push leaves the tags local; CI attaches the member zips on tag)
-  8. mirror          copy packs/ossuary/skills/* over the longshot repo's skills/ mirror,
-                     diff -r must be empty, then commit + push THERE under that repo's own
-                     identity: "skills: re-sync ossuary mirrors from claude-skills ossuary-vX.Y.Z"
-                     (runs when the mirror differs; skipped when it is already clean)
-  9. brand copies    refresh ~/.claude/brand/brand-definition.md and brand-definition-northstar.md
+  8. brand copies    refresh ~/.claude/brand/brand-definition.md and brand-definition-northstar.md
                      from the two brand repos (build.py names them; copies, not symlinks —
                      a file symlink needs admin on Windows) — the path brandwright reads first
- 10. upload list     members whose zip changed since the previous tag, and the exact claude.ai
-                     upload list — REQUIRED: bonecaller (claude.ai is its only surface) and
-                     brandwright's branded install variant (dist/install/*+install.zip, built by
-                     apply-install-swaps.py when --swaps dirs are given); everything else optional
- 11. export          with --export-dir, copy every member zip (+ install zips) there with a
+  9. upload list     members whose zip changed since the previous tag, and the exact claude.ai
+                     upload list — REQUIRED: brandwright's branded install variant
+                     (dist/install/*+install.zip, built by apply-install-swaps.py when --swaps
+                     dirs are given); everything else optional
+ 10. export          with --export-dir, copy every member zip (+ install zips) there with a
                      README.txt carrying the upload list
 
-The rig loads every foundation member and bonecaller by user-scope junction into this
-working tree, and linecaller from the longshot mirror — so a release changes nothing on the
-rig beyond the mirror; `claude plugin update` is not part of this loop (2026-08-17).
+The rig loads every foundation member by user-scope junction into this working tree — so a
+release changes nothing on the rig; `claude plugin update` is not part of this loop
+(2026-08-17).
 Stdlib only. Run from anywhere; paths resolve from this file.
 """
 import json
@@ -53,19 +48,12 @@ import build  # noqa: E402  — ROOT, PACKS, DIST, MARKETPLACE, _BRAND_REPO_SOUR
 
 ROOT = build.ROOT
 PY = sys.executable
-# Read from the environment for the same reason build.py does: this file ships on a
-# PUBLIC repo, and a hardcoded path publishes the owner's drive layout and the
-# existence of a private repo to every reader. Unset simply means "not this machine".
-LONGSHOT = build._env_path("CLAUDE_SKILLS_LONGSHOT")
-LONGSHOT_SKILLS = (LONGSHOT / "skills") if LONGSHOT else None
-LONGSHOT_IDENTITY = "MickMacPW"
 BRAND_HOME = Path.home() / ".claude" / "brand"
 BRAND_COPIES = {  # destination name -> source (the two brand repos, per build.py's parity map)
     "brand-definition.md": build._BRAND_REPO_SOURCE,
     "brand-definition-northstar.md": build._PEER_SOURCES["northstar"],
 }
 REQUIRED_ON_CLAUDE_AI = {
-    "revenantworks-ossuary-bonecaller": "claude.ai is its only runtime surface",
     "revenantworks-foundation-brandwright": "the branded install variant is the only brand carrier "
                                             "(dist/install/*+install.zip via apply-install-swaps.py)",
 }
@@ -111,61 +99,7 @@ def previous_tag(pack: str, exclude: str) -> str | None:
     return tags[0] if tags else None
 
 
-# ---------------------------------------------------------------- steps 8, 9 (also standalone)
-
-def sync_mirror(tag_label: str | None, push: bool = True) -> bool:
-    """Copy packs/ossuary/skills/* over longshot/skills/*; commit + push there when it moved."""
-    src = build.PACKS / "ossuary" / "skills"
-    if LONGSHOT_SKILLS is None or not LONGSHOT_SKILLS.is_dir():
-        where = LONGSHOT_SKILLS if LONGSHOT_SKILLS else "CLAUDE_SKILLS_LONGSHOT unset"
-        print(f"  mirror: {where} — not on this machine, skipped")
-        return False
-    changed = False
-    for member in sorted(p for p in src.iterdir() if p.is_dir()):
-        dst = LONGSHOT_SKILLS / member.name
-        before = _tree_bytes(dst) if dst.exists() else None
-        if dst.exists():
-            shutil.rmtree(dst)
-        shutil.copytree(member, dst, ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
-        if before != _tree_bytes(dst):
-            changed = True
-            print(f"  ✎ mirror {member.name} re-synced")
-        else:
-            print(f"  = mirror {member.name} already identical")
-    # the whole test: a recursive byte compare must be empty (the same test as
-    # `diff -r`, done in-process because `diff` is not on PATH outside Git Bash)
-    for member in sorted(p for p in src.iterdir() if p.is_dir()):
-        a, b = _tree_bytes(member), _tree_bytes(LONGSHOT_SKILLS / member.name)
-        if a != b:
-            for k in sorted(set(a) ^ set(b)):
-                print(f"    only on one side: {k}")
-            for k in sorted(set(a) & set(b)):
-                if a[k] != b[k]:
-                    print(f"    differs: {k}")
-            raise SystemExit(f"✗ mirror {member.name} still differs after copy")
-    print("  ✓ recursive compare clean for both members (diff -r equivalent)")
-    if not changed:
-        return False
-    ident = sh("git", "config", "user.name", cwd=LONGSHOT, check=False, quiet=True).stdout.strip()
-    if ident != LONGSHOT_IDENTITY:
-        raise SystemExit(f"✗ longshot repo identity is {ident!r}, expected {LONGSHOT_IDENTITY!r} — not committing there")
-    label = tag_label or f"ossuary-v{pack_version('ossuary')}"
-    sh("git", "add", "skills", cwd=LONGSHOT, quiet=True)
-    if sh("git", "diff", "--cached", "--quiet", cwd=LONGSHOT, check=False, quiet=True).returncode == 0:
-        print("  mirror: nothing staged in longshot (already committed) — no commit")
-        return False
-    sh("git", "commit", "-q", "-m", f"skills: re-sync ossuary mirrors from claude-skills {label}", cwd=LONGSHOT, quiet=True)
-    print(f"  ✓ longshot commit: skills: re-sync ossuary mirrors from claude-skills {label}")
-    if push:
-        sh("git", "push", "-q", "origin", "HEAD", cwd=LONGSHOT, quiet=True)
-        print("  ✓ longshot pushed")
-    return True
-
-
-def _tree_bytes(root: Path) -> dict[str, bytes]:
-    return {p.relative_to(root).as_posix(): p.read_bytes() for p in sorted(root.rglob("*"))
-            if p.is_file() and "__pycache__" not in p.parts}
-
+# ---------------------------------------------------------------- step 8 (also standalone)
 
 def refresh_brand() -> None:
     """Copy the two live definitions to ~/.claude/brand — the fixed path brandwright reads first."""
@@ -196,8 +130,6 @@ def main() -> int:
     argv = sys.argv[1:]
     if "--refresh-brand" in argv:
         refresh_brand(); return 0
-    if "--mirror-only" in argv:
-        sync_mirror(None, push="--no-push" not in argv); return 0
     dry = "--dry-run" in argv
     push = "--no-push" not in argv
     msg = None
@@ -222,7 +154,7 @@ def main() -> int:
         else:
             raise SystemExit(f"✗ unrecognized argument {a!r}")
     if not bumps:
-        raise SystemExit("✗ name at least one pack=X.Y.Z (or --refresh-brand / --mirror-only)")
+        raise SystemExit("✗ name at least one pack=X.Y.Z (or --refresh-brand)")
 
     prev_tags = {p: previous_tag(p, f"{p}-v{v}") for p, v in bumps.items()}
     if dry:
@@ -286,13 +218,10 @@ def main() -> int:
     else:
         print("  --no-push: tags stay local")
 
-    step(8, "longshot mirror")
-    sync_mirror(f"ossuary-v{pack_version('ossuary')}", push=push)
-
-    step(9, "~/.claude/brand copies")
+    step(8, "~/.claude/brand copies")
     refresh_brand()
 
-    step(10, "zips changed + claude.ai upload list")
+    step(9, "zips changed + claude.ai upload list")
     now = member_versions_at(None)
     changed: dict[str, tuple[str, str]] = {}
     for p in bumps:
@@ -312,7 +241,7 @@ def main() -> int:
     print("  claude.ai: Settings → Capabilities → Skills → delete the old copy → Create skill → upload the zip")
 
     if export_dir:
-        step(11, f"export → {export_dir}")
+        step(10, f"export → {export_dir}")
         export_dir.mkdir(parents=True, exist_ok=True)
         copied = []
         for z in sorted(build.DIST.glob("*.zip")) + (sorted((build.DIST / "install").glob("*.zip")) if (build.DIST / "install").is_dir() else []):

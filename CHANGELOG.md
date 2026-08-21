@@ -17,6 +17,42 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## Ossuary pack removed - 2026-08-20
+
+The `ossuary` pack leaves this repo. Both members — `revenantworks-ossuary-linecaller` and
+`revenantworks-ossuary-bonecaller` — were ported to the private repo `MickMacPW/longshot` on
+2026-08-20 and renamed to `northstar-ledger-cardkeeper` and `northstar-ledger-stakekeeper`
+(personal North Star skills, `-keeper` motif). longshot is now their canonical home. This repo,
+`revenantworks/claude-skills`, ships exactly one pack from this date: **foundation**, ten
+members, unchanged by this pass.
+
+- **The downstream-mirror relationship is retired, not merely paused.** From 2026-08-07 this
+  repo was source of truth and `MickMacPW/longshot` kept a declared mirror at its `skills/`,
+  re-synced by `tools/release.py`'s mirror step. That direction is now inverted: longshot holds
+  the canonical copies and this repo holds none. `sync_mirror()`, the `--mirror-only` flag, the
+  `CLAUDE_SKILLS_LONGSHOT` env var, and the `LONGSHOT*` constants are removed from
+  `tools/release.py`; the remaining steps renumber 9→8, 10→9, 11→10.
+- **Removed from disk and from the catalog.** `packs/ossuary/` and its two members are deleted;
+  the `ossuary` plugin entry is gone from `.claude-plugin/marketplace.json`, and the pack's
+  registry row, roster, budgets, seams, capstone and canonical-repo blocks are gone from
+  skillwright's `references/pack-registry.md`. `build.py --check` now reports
+  `registry 10 = folders 10 = manifests 10`; before this pass it reported 12.
+- **Tests retargeted, not dropped.** `test_ossuary_registered` and
+  `test_ossuary_roster_budgets_agree` were per-pack duplicates of the foundation tests beside
+  them and are removed. `test_each_pack_has_its_own_conformance_line` keeps its live per-pack
+  assertion and now checks conformance-line distinctness across whatever packs are registered;
+  the cross-pack regression it used to cover live is still covered by the two-pack `SYNTH`
+  fixture in `test_pack_lines_does_not_borrow_another_packs_conformance`.
+  `test_import_survives_unset_vars` now probes the two brand-repo paths instead of the deleted
+  `LONGSHOT` constants, keeping the same "unset env var stays None" coverage.
+- **Dated history is untouched.** Every `ossuary-v*` entry below stays exactly as written, as do
+  the `-caller` motif claims in `audit/COLLISION.md` (2026-08-07, 2026-08-08), the ossuary
+  incident citations in `RUNBOOK.md`, the defect records in `tools/build.py`, and deferral
+  register ⑦ in `packs/foundation/spec.md`. A 2026-08-20 retirement note is appended to
+  `COLLISION.md` rather than edited into those rows. Note that the `ossuary-v2.4.1` heading
+  below never had a body written and no `ossuary-v2.4.1` tag exists — the newest ossuary tag is
+  `ossuary-v2.4.0`. It is left as found rather than back-filled.
+
 ## [ossuary-v2.4.1] - 2026-08-18
 
 - (fill in)

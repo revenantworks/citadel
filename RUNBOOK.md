@@ -4,10 +4,9 @@
 **edit -> `python tools/build.py` -> commit -> tag `<pack>-vX.Y.Z` -> push -> CI attaches all member zips.**
 
 **One command runs the whole close-of-pass loop (added 2026-08-17):**
-`python tools/release.py foundation=X.Y.Z [ossuary=X.Y.Z] -m "<message>"` —
+`python tools/release.py foundation=X.Y.Z -m "<message>"` —
 bump-pack, changelog gate, build, `--check`, tests, commit, tag, push with
-tags, longshot mirror re-sync (commit + push there under its own identity),
-`~/.claude/brand` refresh, then the list of member zips that changed and the
+tags, `~/.claude/brand` refresh, then the list of member zips that changed and the
 exact claude.ai upload list. Add `--swaps <dir> [<peer-dir>]` to also build
 the branded brandwright install zip, `--export-dir <dir>` to copy every zip
 plus a README.txt there, `--dry-run` to see the plan. Steps 1 to 5 below
@@ -15,15 +14,13 @@ describe what it does by hand.
 
 ## The rig install ritual (2026-08-17 — replaces the marketplace plugins)
 
-**Edit in the repo; it is live next session.** Every foundation member and
-bonecaller load on the owner's rig by user-scope junction —
-`~/.claude/skills/<member>` -> `packs/<pack>/skills/<member>/` in this
-working tree (PowerShell `New-Item -ItemType Junction`). linecaller's
-junction points at the longshot repo's mirror copy instead: the cloud
-routine and the rig must read the same file. The marketplace plugins
-`foundation@revenantworks` and `ossuary@revenantworks` were uninstalled from
-the rig the same day; `claude plugin update` and the two-surface sync ritual
-are **no longer part of the rig loop**. The marketplace registration itself
+**Edit in the repo; it is live next session.** Every foundation member loads
+on the owner's rig by user-scope junction —
+`~/.claude/skills/<member>` -> `packs/foundation/skills/<member>/` in this
+working tree (PowerShell `New-Item -ItemType Junction`). The marketplace
+plugin `foundation@revenantworks` was uninstalled from the rig the same day;
+`claude plugin update` and the two-surface sync ritual are **no longer part
+of the rig loop**. The marketplace registration itself
 stays — it is how the public installs. `python tools/build.py --parity`
 remains for CI and public consumers (it skips cleanly with no plugin
 installed) and is not a rig step. Verify the junctions with
@@ -74,8 +71,8 @@ blocking; no `ask` rules anywhere in this repo.
      Either tag it or record the skip — silence is the failure.
 5. **Owner machine: nothing to sync (2026-08-17).** The rig loads every
    member by junction into this working tree (see *The rig install ritual*
-   above), so the tag changes nothing here beyond the longshot mirror, which
-   `release.py` re-syncs. Then re-upload changed members on claude.ai below.
+   above), so the tag changes nothing here. Then re-upload changed members on
+   claude.ai below.
 
    > History: until 2026-08-17 this step was a two-surface ritual —
    > `claude plugin marketplace update revenantworks`, then
@@ -87,19 +84,15 @@ blocking; no `ask` rules anywhere in this repo.
 ## Install / update on claude.ai
 Per skill: download the member zip from Releases -> Customize -> Skills -> + ->
 Create skill -> upload. `python tools/release.py` prints, at the end of every
-release, which member zips changed and marks the two that are **required** on
-claude.ai — bonecaller (claude.ai is its only surface) and brandwright's
-branded install variant (the only brand carrier; built by
-`apply-install-swaps.py`, see below) — the rest are optional convenience
-copies. Every SKILL.md frontmatter carries only the six keys the upload form
-accepts (name, description, license, compatibility, metadata, allowed-tools —
-`build.py --check` does not enforce this; the 2026-08-14 upload failure was on
-`compatibility` length, which it does). **Take the zip from the newest release overall, never
-the newest release of the member's own pack.** Every release carries the full
-member set frozen at that moment (12 today: 10 foundation, 2 ossuary), so a pack tag advertises whatever the
-other pack's members were that day: `foundation-v2.3.0` still ships a
-bonecaller zip whose `compatibility` the upload form rejects. Only the latest
-release has every member current. Releases stay immutable — this is a reading
+release, which member zips changed and marks the one that is **required** on
+claude.ai — brandwright's branded install variant (the only brand carrier;
+built by `apply-install-swaps.py`, see below) — the rest are optional
+convenience copies. Every SKILL.md frontmatter carries only the six keys the
+upload form accepts (name, description, license, compatibility, metadata,
+allowed-tools — `build.py --check` does not enforce this; the 2026-08-14
+upload failure was on `compatibility` length, which it does). Every release
+carries the full foundation member set frozen at that moment (10 members).
+Releases stay immutable — this is a reading
 rule, not an asset to go back and fix. Updating is delete-then-re-upload — the unavoidable
 manual step **on personal accounts**. Team/Enterprise accounts have had
 org-wide admin provisioning since Dec 2025 (as of 2026-08-01; Organization
@@ -173,8 +166,7 @@ block, and a pack router at `packs/<pack>/CLAUDE.md`.
 If a pack's members must also exist somewhere else — a repo whose runner clones
 only itself — the outside copy is a **declared downstream mirror**, never a
 second source of truth: keep it byte-identical, name this repo (`revenantworks/claude-skills`) as canonical in a
-header note at the mirror, and record it in that repo's file map. `ossuary`'s
-copy in `MickMacPW/longshot` is the worked example.
+header note at the mirror, and record it in that repo's file map.
 
 ## Policies
 Restamp per pack (registry Notes; default lazy): rebuild/upload only changed

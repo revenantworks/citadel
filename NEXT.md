@@ -1,6 +1,6 @@
 # NEXT — remaining follow-ups
 
-Updated 2026-08-17.
+Updated 2026-08-20.
 
 ## Standing decisions (2026-08-17)
 
@@ -11,30 +11,27 @@ Updated 2026-08-17.
   than hidden: tokenwright's `measurement.md` stamp (2026-07-27) reaches 60
   days on 2026-09-25 and is left for the upkeep routine to flag; refreshing
   it is an owner call under the freeze.
-- **Ossuary marketplace release train frozen.** The pack stays canonical in
-  this repo and ships to its only consumer by the longshot mirror
-  (`tools/release.py` re-syncs it) plus the rig junctions (linecaller → the
-  mirror, bonecaller → this repo). `ossuary-v2.4.0` (this session) is the
-  closing release; a later ossuary change is mirrored and junction-live
-  without a marketplace tag unless the owner asks for one. The public
-  marketplace entry stays registered.
+- **Ossuary pack retired from this repo (2026-08-20).** Both members —
+  linecaller and bonecaller — ported to the private repo `MickMacPW/longshot`
+  and renamed to personal North Star skills (`northstar-ledger-cardkeeper`,
+  `northstar-ledger-stakekeeper`). longshot is now their canonical home; this
+  repo has no further claim on them. The `ossuary@revenantworks` marketplace
+  catalog entry was removed in the same pass — the repo now ships one pack,
+  foundation.
 - **Rig install is by junction** — see RUNBOOK. `claude plugin update` is out
   of the loop; `--parity` is CI/public-only.
 
 ## Owed by hand
 
 - **Cold re-judges and re-runs owed** after the 2026-08-17 audit: every
-  member's `evals/` head lists them (authored-not-run injection probes on
-  every ingesting entry point; linecaller R5/R6/R12, bonecaller B1/B6, and
-  the trigger re-judges older bumps already owed). None is claimed.
+  foundation member's `evals/` head lists them (authored-not-run injection
+  probes on every ingesting entry point, and the trigger re-judges older
+  bumps already owed). None is claimed. (The linecaller R5/R6/R12 and
+  bonecaller B1/B6 items ported with the pack to `MickMacPW/longshot`
+  2026-08-20 — track them there under the renamed skills.)
 - **claude.ai re-uploads** — see the `README.txt` in the estate's
   `artifacts/exports/skills-2026-08-17/` folder (bonecaller and the branded
   brandwright install zip are required; the rest optional).
-- **longshot:** a `python -m longshot` subcommand for the first-Monday
-  ledger block arithmetic (linecaller 1.7.0 computes it with `PY` from the
-  two files for now); the routine prompt's fixed-artifact publish step now
-  duplicates linecaller step 8 — drop it from the prompt at the next prompt
-  edit and re-capture `docs/routine.md`.
 - The rig's local marketplace registration still names the source
   `revenantworks/citadel` (GitHub redirects); harmless, cosmetic.
 

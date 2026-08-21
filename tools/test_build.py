@@ -123,24 +123,19 @@ class LiveRegistry(unittest.TestCase):
             self.assertIn(seam[0], members, seam[:2])
             self.assertIn(seam[1], members, seam[:2])
 
-    def test_ossuary_registered(self):
-        self.assertIn("ossuary", build.registry_packs(self.text))
-
-    def test_ossuary_roster_budgets_agree(self):
-        members = {m[0] for m in build.pack_members(self.text, "ossuary")}
-        budgets = set(build.pack_budgets(self.text, "ossuary"))
-        self.assertEqual(members, budgets)
-        self.assertEqual(len(members), 2)
-
     def test_each_pack_has_its_own_conformance_line(self):
         # Guards the borrowed-conformance bug on the LIVE registry, not just the fixture:
-        # two packs must not resolve to the same (adopted, checks) pair by accident.
+        # every registered pack carries a conformance line of its own. The cross-pack half
+        # — two packs must not resolve to the same (adopted, checks) pair by accident —
+        # needs two live packs; with one registered it is carried by the SYNTH fixture in
+        # test_pack_lines_does_not_borrow_another_packs_conformance. Add the second name to
+        # the tuple the moment a second pack lands and the pairwise check returns for free.
         seen = {}
-        for pack in ("foundation", "ossuary"):
+        for pack in ("foundation",):
             notes = build.registry_pack_notes(self.text, pack)
             self.assertIn("Conformance checks (", notes, pack)
             seen[pack] = build.pack_lines(self.text, pack, notes)[2]
-        self.assertNotEqual(seen["foundation"], seen["ossuary"])
+        self.assertEqual(len(set(seen.values())), len(seen), "two packs share one conformance line")
 
 
 if __name__ == "__main__":

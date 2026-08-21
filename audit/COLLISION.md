@@ -185,3 +185,19 @@ agentcaller,promptcaller,claude-caller} · pypi.org/pypi/{same}/json ·
 crates.io/api/v1/crates/{ossuary,linecaller,cardcaller} ·
 github.com/mrmekon/ossuary · github.com/bszonye/ossuary ·
 npmjs.com/package/ossuary · pypi.org/project/ossuary/
+
+## Supersession — 2026-08-20: `ossuary` and the `-caller` motif retired
+
+The `ossuary` pack (`revenantworks-ossuary-linecaller`,
+`revenantworks-ossuary-bonecaller`) left this repo on 2026-08-20: both
+members were ported to the private repo `MickMacPW/longshot` and renamed to
+`northstar-ledger-cardkeeper` and `northstar-ledger-stakekeeper` — personal
+North Star skills using the `-keeper` motif, not `-caller`. This repo ships
+no `-caller`-motif skill and no `ossuary` pack name as of this date. The
+2026-08-07 and 2026-08-08 rows above are kept verbatim as the record those
+rename decisions were gated on; `-caller` and `ossuary` are released back to
+unclaimed in this repo's naming ledger, on the same terms `-picker` was
+released at the 2026-08-07 row above.
+
+Verified: not re-run against live registries — this is a retirement record,
+not a fresh C2 pass. No new collision search performed.
