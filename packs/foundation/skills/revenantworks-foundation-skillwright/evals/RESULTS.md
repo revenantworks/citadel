@@ -496,3 +496,27 @@ authoring skill packages". The Entry — Pack core case holds under the new
 role; same Expected, PASS. The 43/43 wright-listing baseline above is
 unaffected — one query's wording moved and was re-judged alone; the standing
 full-suite re-run debts recorded earlier are neither discharged nor enlarged.
+
+---
+
+## 2026-08-20 — v1.3.3 — **BLIND COLD TRIGGER RE-JUDGE, 42 / 43** — runner: one blind cold judge (name + description only, all ten members)
+
+Executed inside the dispatch run `2026-08-20-close-outstanding` (unit U4 judged, unit U5 recorded this entry). The judge held only the frontmatter `name` + `description` of **all ten** foundation members — dispatchwright included — and judged every row of `evals/trigger-evals.md` cold against that listing alone. No body, no README, no reference file, no repo access beyond the suite file itself. AMBIGUOUS is scored as a miss, not as a pass.
+
+**Score: 42 / 43.** One miss:
+
+| # | Query | Judge's verdict | Expected |
+|---|---|---|---|
+| 30 | "keep going" | **AMBIGUOUS** (judge's own confidence: low) | ❌ no |
+
+The judge's reasoning on #30 is the row's own edge note reproduced blind: with no prior turn to anchor it, nothing in any of the ten descriptions matches bare continuation text, and the suite's `Why` column already concedes that "only the continuation context routes it". A cold judge cannot resolve #30 either way — that is what this run found, and the row is left exactly as written.
+
+**#26 held.** The row the provenance line named as the one to judge first — "build me a skill that triages invoices, and make sure it ships with a full eval suite" — fired skillwright, at medium confidence, on the build verb plus the shipped `Every build ships trigger evals.` clause. The security partition (#38–#40 vs #41–#43) and the prose-pass seam (#35/#36 vs #18/#37) both held clean.
+
+**Description length as the judge measured it: 939 characters** — the same figure `tools/build.py`'s own regex returns for the shipped line, so the two agree.
+
+**Debt.** This **closes the 43-query cold re-run owed since v1.2.0** and restated as still owed by the 2026-08-20 pack-audit re-anchor at v1.3.3. 42/43 is what was executed; 43/43 is not available from this run and is not claimed.
+
+**Format caveat, recorded not hidden.** The suite is a single Markdown table with `Query` and `Should trigger?` in the same row, so the Expected value was in the judge's field of view the moment each query was read. The judge disclosed this rather than claiming a clean blind pass and states each verdict was re-derived from the ten descriptions before comparison. Treat the 41 confirmations as weaker evidence than a true column-isolated run would give; the miss is unaffected by the leak.
+
+**Nothing was changed to make a row pass.** No query, no Expected value, no count, no edge note, no `SKILL.md`, no version, and no CHANGELOG was touched by this entry. A miss recorded here is a finding for a human to act on, not a defect for the recorder to paper over.

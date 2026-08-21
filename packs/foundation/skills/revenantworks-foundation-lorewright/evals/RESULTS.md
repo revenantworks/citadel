@@ -372,3 +372,21 @@ Judged against the current frontmatter descriptions of all eight foundation memb
 | 20 | SHOULD NOT — open ideation with no verification component; nearest member is brandwright (naming), not lorewright | SHOULD NOT (ideation, not verified knowledge) | pass |
 
 **Pass rate: 20/20.** No failures. Closest calls: row 8, where agentwright's "scheduled agent" and untrusted-content language competes with lorewright's verbatim "go/no-go" and only the decision-shaped verb settles it; and row 10, where skillwright's lexical overlap ("skill", "registry") could distract a weaker router from the which-should-I-pick shape — both held, but they are the rows to watch on any future description edit to lorewright, agentwright, or skillwright.
+
+---
+
+## 2026-08-20 — v1.1.6 — **BLIND COLD TRIGGER RE-JUDGE, 20 / 20** — runner: one blind cold judge (name + description only, all ten members)
+
+Executed inside the dispatch run `2026-08-20-close-outstanding` (unit U4 judged, unit U5 recorded this entry). The judge held only the frontmatter `name` + `description` of **all ten** foundation members — dispatchwright included — and judged every row of `evals/trigger-evals.md` cold against that listing alone. No body, no README, no reference file, no repo access beyond the suite file itself. AMBIGUOUS is scored as a miss, not as a pass.
+
+**Score: 20 / 20. No miss** — all ten should rows fired lorewright and all ten should-not rows did not, with the named handoffs landing where the suite puts them: promptwright (#12), skillwright (#13), commwright (#14), agentwright (#18).
+
+Four rows were returned at medium confidence and are worth recording as the suite's soft spots, since none is a miss: **#8** (a go/no-go framed around a scheduled agent — agentwright could plausibly claim the subject matter), **#15** (API documentation), **#19** (a broad spec dump) and **#20** (channel-name brainstorm). #11 versus #9 — the not-reports carve-out, this suite's own sharpest pair — held.
+
+**Description length as the judge measured it: 797 characters.** `tools/build.py`'s regex returns **791** for the same shipped line; the 6-character gap is unreconciled and is recorded rather than smoothed.
+
+**Debt.** lorewright had **no outstanding trigger re-judge** — the 2026-08-20 re-anchor at v1.1.6 is provenance-only and the `description` has been byte-identical across every anchor since the re-baseline — so this is a **confirmation run**, not a debt closure.
+
+**Format note.** This is the one clean run in the wave: the judge extracted the query column with `awk` and reports the Expected column never entered its context or its reasoning. The 20/20 here is therefore the strongest evidence of the ten — it is a genuine blind pass, not a pass with a disclosed leak.
+
+**Nothing was changed to make a row pass.** No query, no Expected value, no count, no edge note, no `SKILL.md`, no version, and no CHANGELOG was touched by this entry. A miss recorded here is a finding for a human to act on, not a defect for the recorder to paper over.

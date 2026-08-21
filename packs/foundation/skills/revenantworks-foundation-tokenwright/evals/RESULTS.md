@@ -283,3 +283,21 @@ The two before-hits: (a) `**Platform cap — 1,536 characters per listing entry*
 **Counts for this entry: 1 case re-run (2 turns) — 2 PASS, 0 FAIL.** Suite-wide, the v1.1.6 counts stand as recorded (17 PASS / 1 FAIL); the FAIL row is superseded here, not re-scored.
 
 **What this does not fix.** Doctrine findings 1 (stamped cache floor), 3 (unmeasured counts, no test coverage), and 4 (role-blind churn thresholds) are untouched by this pass and remain open exactly as written above. Case 13's assert also still checks only that the re-sync happened, not that the sweep was mechanically complete — the sweep discipline now lives in doctrine, so a runner that skips the grep is violating a stated rule rather than merely being lucky, but no assert in `test-cases.md` yet demands the before/after counts be reported. That test-coverage gap is left recorded, not silently closed. `python tools/build.py --check` after the change: `check: clean`.
+
+---
+
+## 2026-08-20 — v1.2.3 — **BLIND COLD TRIGGER RE-JUDGE, 22 / 22** — runner: one blind cold judge (name + description only, all ten members)
+
+Executed inside the dispatch run `2026-08-20-close-outstanding` (unit U4 judged, unit U5 recorded this entry). The judge held only the frontmatter `name` + `description` of **all ten** foundation members — dispatchwright included — and judged every row of `evals/trigger-evals.md` cold against that listing alone. No body, no README, no reference file, no repo access beyond the suite file itself. AMBIGUOUS is scored as a miss, not as a pass.
+
+**Score: 22 / 22. No miss** — all eleven Y rows fired tokenwright and all eleven N rows did not, each N row landing on the sibling the suite names (N1/N6 promptwright, N2/N7 skillwright, N3 commwright, N5 evalwright, N11 rigwright) or on no foundation member at all (N4, N8, N9, N10).
+
+**The rigwright seam pair held, which is what the debt was opened for.** **Y11** ("my CLAUDE.md costs too much per session — slim it, but keep every rule exactly as it is") fired tokenwright and **N11** ("trim my CLAUDE.md — half these rules probably belong in hooks or a skill anyway") routed to rigwright, which is exactly the split the v1.2.0 clause rewrite was written to produce. Y11 and Y6 were returned at medium confidence — both turn on the cost-cue-versus-conformance boundary reading cleanly, and the judge would not call either high.
+
+**Description length as the judge measured it: 974 characters** — the same figure `tools/build.py`'s regex returns for the shipped line. (The 894 in this suite's 1.1.0 provenance clause is a predecessor-era count and is not restated as current here.)
+
+**Debt.** This **closes the cold re-judge of all 22 rows owed since v1.2.0**, restated as still owed by the 2026-08-20 re-anchor at v1.2.3. Executed under the member's freeze without touching the member: this entry records a run, not a change.
+
+**Format caveat, recorded not hidden.** The `Y`/`N` row ids and the `## Should trigger` / `## Should NOT trigger` headers are themselves the answer key, and the judge also disclosed a five-row glimpse of the Expected text from an early file preview. The fire/no-fire half of this result is therefore weaker evidence than the routing-target half, where the judge had to name a sibling from the descriptions with no help from the file.
+
+**Nothing was changed to make a row pass.** No query, no Expected value, no count, no edge note, no `SKILL.md`, no version, and no CHANGELOG was touched by this entry. A miss recorded here is a finding for a human to act on, not a defect for the recorder to paper over.

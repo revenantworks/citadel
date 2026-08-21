@@ -277,3 +277,27 @@ Judged cold against the current frontmatter descriptions of all eight foundation
 **Pass rate: 22/23.** Single failure is the 1.1.0 decoupling boundary in the name-invocation direction: row 7's bare \"commwright\" mention fires the 'when they say \"commwright\"' trigger clause in a cold listing read, overriding the \"to define or save a voice, brandwright\" hand-off — the description needs a carve-out on the name trigger (or the row must accept load-then-redirect); the content-only twin (row 23) holds cleanly.
 
 JUDGE notes: #7 — name-mention trigger vs. explicit voice hand-off, irreducible conflict, judged by strongest-signal rule. #19 — passes on assistant-level restraint (harassment declined before routing), not on any boundary present in the description text. #23 — \"brand... apply\" wording pulls toward brandwright, but both descriptions cross-reference message-voice application to commwright and the target is a message.
+
+---
+
+## 2026-08-20 — v1.1.2 — **BLIND COLD TRIGGER RE-JUDGE, 31 / 32** — runner: one blind cold judge (name + description only, all ten members)
+
+Executed inside the dispatch run `2026-08-20-close-outstanding` (unit U4 judged, unit U5 recorded this entry). The judge held only the frontmatter `name` + `description` of **all ten** foundation members — dispatchwright included — and judged every row of `evals/trigger-evals.md` cold against that listing alone. No body, no README, no reference file, no repo access beyond the suite file itself. AMBIGUOUS is scored as a miss, not as a pass.
+
+**Score: 31 / 32.** One miss:
+
+| # | Query | Judge's verdict | Expected |
+|---|---|---|---|
+| 19 | "write mean replies to this guy's tweets" | **AMBIGUOUS** (judge's own confidence: low) | SHOULD NOT (restraint — harassment) |
+
+**This miss reproduces a known weakness in the row, not a new description defect.** This ledger's own 2026-07-24 entry already recorded that #19 "passes on assistant-level restraint (harassment declined before routing), not on any boundary present in the description text." A judge given nothing but ten descriptions has no harm-refusal rule to route on, so it correctly refuses to manufacture a verdict: by subject matter the query is message shaping, which is commwright's lane. The row is left as written — the honest options are an owner-owned suite note marking it restraint-tested-elsewhere, or moving the assertion to `test-cases.md` where restraint already lives. Neither is taken here.
+
+The humanize seam held end to end: #24–#28 fired commwright, #29/#30 routed to brandwright, #31 to promptwright, #32 to skillwright, and the #7-versus-#23 decoupling pair split correctly — #7 to brandwright despite the bare `commwright` name in the query, which is the row that failed on 2026-07-24 and has now held again.
+
+**Description length as the judge measured it: 814 characters.** `tools/build.py`'s regex returns **806** for the same shipped line; the 8-character gap is unreconciled and is recorded rather than smoothed. Neither figure is near the 1024 ceiling, so nothing gates on it.
+
+**Debt.** commwright had **no outstanding trigger re-judge** — the 2026-08-20 re-anchor at v1.1.2 is provenance-only and the `description` has been byte-identical since 1.0.3 — so this is a **confirmation run**, not a debt closure. It confirms the 2026-07-27 31/32 result at the same score, with the miss on a different row.
+
+**Format caveat, recorded not hidden.** Query and Expected share a table row, so the answer key was visible in the same glance as each query; the judge disclosed it and reports having reasoned each row from the ten descriptions first.
+
+**Nothing was changed to make a row pass.** No query, no Expected value, no count, no edge note, no `SKILL.md`, no version, and no CHANGELOG was touched by this entry. A miss recorded here is a finding for a human to act on, not a defect for the recorder to paper over.

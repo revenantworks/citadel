@@ -343,3 +343,29 @@ claim, exactly the seam the description rewrite was for. **Row 19 passes under
 its SHOULD conversion** (1.2.2): the design ask routes here; restraint applies
 after routing, asserted in test-cases Case 11. Recorded as the wright-listing
 baseline (prior: 28/29 on the eight-member listing).
+
+---
+
+## 2026-08-20 — v1.2.3 — **BLIND COLD TRIGGER RE-JUDGE, 33 / 34** — runner: one blind cold judge (name + description only, all ten members)
+
+Executed inside the dispatch run `2026-08-20-close-outstanding` (unit U4 judged, unit U5 recorded this entry). The judge held only the frontmatter `name` + `description` of **all ten** foundation members — dispatchwright included — and judged every row of `evals/trigger-evals.md` cold against that listing alone. No body, no README, no reference file, no repo access beyond the suite file itself. AMBIGUOUS is scored as a miss, not as a pass.
+
+**Score: 33 / 34.** One miss:
+
+| # | Query | Judge's verdict | Expected |
+|---|---|---|---|
+| 18 | "set up the actual cron job on my server" | **AMBIGUOUS** (judge's own confidence: low) | SHOULD NOT (execution — surface/infra) |
+
+**#18 is a first-time miss on this row and is left standing as a finding.** The judge could not decide, from the ten descriptions alone, whether "the actual cron job" is agentwright's Emit entry rendering a scheduled task into its native form or a literal remote-execution request outside every member's scope. The Emit entry added at 1.3.0 is the reason the ambiguity now exists: the description advertises rendering into a target's native form, and a cron job is a native form. No fix is applied here — the choice between tightening the execution boundary and marking #18 known-ambiguous is owner-owned.
+
+**Row 19 carries a disclosed contamination flag.** Before extracting the query column the judge read this suite's provenance paragraph, which narrates row 19's conversion to SHOULD and its reasoning. The judge's verdict (SHOULD) is independently justifiable from the trigger text — "design an agent that…" matches the description's design trigger verbatim — but this run **cannot certify row 19 as blind** and does not claim it.
+
+Everything else held: the emit seam (#30–#32 fire, #33/#34 route to rigwright), the security partition (#24–#26 fire, #27 skillwright, #28 a code-level harness), and #21 to evalwright.
+
+**Description length as the judge measured it: 962 characters.** `tools/build.py`'s regex returns **950** for the same shipped line — the figure this suite's 1.1.0 provenance clause also records. The 12-character gap is unreconciled and is recorded rather than smoothed.
+
+**Debt.** This **closes the cold re-judge of all 34 rows owed since v1.1.0** (the 950-character slim), carried unchanged through 1.2.0, 1.2.1, 1.2.2 and the 2026-08-20 provenance re-anchor at 1.2.3. The three rows that clause named as most worth judging first — #33, #34 and #8 — all held.
+
+**Format caveat, recorded not hidden.** The judge extracted the query column mechanically and never read the Expected field; the only disclosed exposure is the provenance narrative flagged on row 19 above. This is the cleanest of the ten runs in this wave apart from lorewright's.
+
+**Nothing was changed to make a row pass.** No query, no Expected value, no count, no edge note, no `SKILL.md`, no version, and no CHANGELOG was touched by this entry. A miss recorded here is a finding for a human to act on, not a defect for the recorder to paper over.

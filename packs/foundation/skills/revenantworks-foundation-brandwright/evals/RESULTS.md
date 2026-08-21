@@ -260,3 +260,32 @@ The 1.2.0 deferral-register item 2 (description regime) slimmed all eight member
 | 22 | SHOULD | SHOULD | PASS |
 
 **Pass rate: 22/22.** No FAIL rows. #14 flipped FAIL → PASS: the boundary erosion the baseline flagged is closed at the description level — skillwright port now owns skill-set re-issue and brandwright's closer defers to it, so \"rebrand this whole skill set\" routes clean without restoring the dropped keyword. #11 held as the suite's sharpest near-miss — \"on-brand\" pulls toward brandwright, but the message-object boundary carries it to commwright. Slim did not erode any prior PASS.
+
+---
+
+## 2026-08-20 — v1.4.0 — **BLIND COLD TRIGGER RE-JUDGE, 28 / 30** — runner: one blind cold judge (name + description only, all ten members)
+
+Executed inside the dispatch run `2026-08-20-close-outstanding` (unit U4 judged, unit U5 recorded this entry). The judge held only the frontmatter `name` + `description` of **all ten** foundation members — dispatchwright included — and judged every row of `evals/trigger-evals.md` cold against that listing alone. No body, no README, no reference file, no repo access beyond the suite file itself. AMBIGUOUS is scored as a miss, not as a pass.
+
+**Score: 28 / 30.** Two misses:
+
+| # | Query | Judge's verdict | Expected |
+|---|---|---|---|
+| 8 | "our repos use three different naming schemes — standardize the convention" | **AMBIGUOUS** (judge's own confidence: low) | SHOULD |
+| 17 | "pick brand colors that convert better" | **AMBIGUOUS** (judge's own confidence: low) | SHOULD NOT — marketing optimization |
+
+**#17 has now missed on three consecutive cold runs** — 2026-07-27, both judges on 2026-08-08, and this one. The reasoning is the same every time and it is a description reading, not judge error: `palette` is named as brandwright's territory and nothing in the closing boundary carves out a conversion-rate framing, so a cold router can plausibly fire. Twice now this ledger has called it a candidate for a known-ambiguous suite note and declined to hotfix it. It is not hotfixed here either — but a row that has failed three cold runs on identical reasoning is past the point where "pre-existing borderline" is a complete answer, and the owner call is either the suite note or a boundary clause.
+
+**#8 is a new miss.** The judge reads brandwright's `naming` as scoped to brand identity — product names, handles — while "our repos use three different naming schemes" reads as a file/repo convention, which is rigwright's object. Recorded, not fixed.
+
+**#15 held this time**, having missed on both prior cold runs; the judge routed it SHOULD NOT at medium confidence. All four peer-selection pairs held (#23–#26 fire, #27–#30 stay out).
+
+**The owed row-27 re-judge is discharged by this run.** #27's reworded form — "rebrand my whole personal skill set under the studio brand" — was judged cold and routed to **skillwright**, matching its Expected. The single re-judge owed since 2026-08-08 is closed.
+
+**Description length as the judge measured it: 803 characters** — the same figure `tools/build.py`'s regex returns for the shipped line. The judge notes a byte-count reads 814 because of five em dashes, and that 803 is the character count.
+
+**Debt.** brandwright's outstanding item was the single row-27 re-judge, and this run closes it. The full-suite re-judge was not itself owed — the `description` has been byte-identical since 1.2.1 — so the other 29 rows here are a **confirmation run**.
+
+**Format caveat, recorded not hidden.** Query and Expected share a table row, so the answer key was visible the moment the file opened. The judge disclosed it, reports judging each row before comparing, and — usefully — reported two disagreements with the key rather than smoothing them, which is the behaviour that makes the disclosure credible.
+
+**Nothing was changed to make a row pass.** No query, no Expected value, no count, no edge note, no `SKILL.md`, no version, and no CHANGELOG was touched by this entry. A miss recorded here is a finding for a human to act on, not a defect for the recorder to paper over.

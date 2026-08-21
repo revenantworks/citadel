@@ -181,3 +181,21 @@ The three load-bearing clauses flagged in the before run ("count integrity", "re
 | 20 | SHOULD NOT | SHOULD NOT | pass |
 
 **Pass rate: 20/20.** No failure pattern; the two JUDGE rows (5 — bare "check my suite" with no domain named, 7 — agent-spec audit contested by agentwright) both resolved correctly only because the description's specific terms "count integrity" and "regression coverage" carried them — those clauses are load-bearing and should not be trimmed.
+
+---
+
+## 2026-08-20 — v1.1.1 — **BLIND COLD TRIGGER RE-JUDGE, 20 / 20** — runner: one blind cold judge (name + description only, all ten members)
+
+Executed inside the dispatch run `2026-08-20-close-outstanding` (unit U4 judged, unit U5 recorded this entry). The judge held only the frontmatter `name` + `description` of **all ten** foundation members — dispatchwright included — and judged every row of `evals/trigger-evals.md` cold against that listing alone. No body, no README, no reference file, no repo access beyond the suite file itself. AMBIGUOUS is scored as a miss, not as a pass.
+
+**Score: 20 / 20. No miss** — all ten should rows fired evalwright and all ten should-not rows did not, with #12 to skillwright, #13 to promptwright, #16 to lorewright, and the rest correctly landing outside the pack (code tests, test strategy, execution, web QA, content feedback).
+
+Two rows were returned at medium confidence, both on the routing target rather than on the no-fire half: **#17** (A/B testing marketing copy) and **#18** (benchmarking two models on a workload). Neither has a clean home among the ten descriptions, so the judge named an out-of-pack tool as a guess and said so. The suite's own sharpest pair, **#2 versus #11**, held.
+
+**Description length as the judge measured it: 788 characters** — the same figure `tools/build.py`'s regex returns for the shipped line. The judge notes a byte-count of the same field reads 798 because of the em dashes, and that 788 is the character count.
+
+**Debt.** evalwright had **no outstanding trigger re-judge** — the description has been byte-identical since 1.0.2 and both later anchors are provenance-only — so this is a **confirmation run**, not a debt closure. Executed under the member's freeze without touching the member.
+
+**Format caveat, recorded not hidden.** Query and Expected share a table row, so the answer key was visible alongside each query. The judge disclosed it and grounds the clean sweep in the description's unusually explicit self-exclusions — it names code unit tests, QA, and skill-creator's benchmark loops by name — rather than in the key.
+
+**Nothing was changed to make a row pass.** No query, no Expected value, no count, no edge note, no `SKILL.md`, no version, and no CHANGELOG was touched by this entry. A miss recorded here is a finding for a human to act on, not a defect for the recorder to paper over.

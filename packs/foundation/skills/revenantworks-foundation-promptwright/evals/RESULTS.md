@@ -353,3 +353,21 @@ Method: each of the 25 queries in `evals/trigger-evals.md` read cold against the
 | 25 | ✅ trigger | ✅ yes | ✅ JUDGE |
 
 **Pass rate: 25/25.** No failures; nearest miss is #25, which passes only on loose semantic matching — the description's model clauses remain prompt-bound ("which model or tier *a prompt* should run on") while #25 is a promptless task pick, so the 1.1.0 Entry — Model feature is not yet reflected in the trigger language (promptwright still wins the listing because no other member's description mentions model selection; lorewright's "which X should I pick" is generic).
+
+---
+
+## 2026-08-20 — v1.4.1 — **BLIND COLD TRIGGER RE-JUDGE, 34 / 34** — runner: one blind cold judge (name + description only, all ten members)
+
+Executed inside the dispatch run `2026-08-20-close-outstanding` (unit U4 judged, unit U5 recorded this entry). The judge held only the frontmatter `name` + `description` of **all ten** foundation members — dispatchwright included — and judged every row of `evals/trigger-evals.md` cold against that listing alone. No body, no README, no reference file, no repo access beyond the suite file itself. AMBIGUOUS is scored as a miss, not as a pass.
+
+**Score: 34 / 34. No miss** — seventeen should rows and seventeen should-not rows, matching the suite's declared split.
+
+**The plan-grain rows the 2026-08-01 entry named are the point of this run, and they held.** **#31** (a build plan handed in with a targets ask) and **#32** (an emergent mid-session subtask) both fired promptwright on the plan clause; **#33** — the watch row that entry flagged, since "plan" now appears in the description and only the missing targets ask keeps a bare decomposition out — stayed out, though the judge called it the softest call in the set and would not name a confident routing target for it. **#34** landed on rigwright, at medium confidence, since the description names `.claude` layout but not an agents roster. The #27-versus-#30 red-team seam held: #27 fired on the verb-plus-object basis, #30 routed to agentwright on "kill switches" and tool grants.
+
+**Description length as the judge measured it: 918 characters** — the same figure `tools/build.py`'s regex returns for the shipped line, and the same figure the 2026-08-01 entry recorded.
+
+**Debt.** This **closes the blind-judge instrumentation owed for the 1.1.0 description** — the 2026-08-01 entry recorded 34/34 as the build session's own cold read and stated explicitly that the blind-judge class of run stayed owed. That class of run has now been executed against the 1.4.1 text, whose `description` is byte-identical to 1.1.0's, and returns the same 34/34.
+
+**Format caveat, recorded not hidden.** The suite is one Markdown table with `Query`, `Should trigger?` and `Why` adjacent, and its header prose states the 17/17 split outright, so reading the queries put the answer key and its reasoning in front of the judge in the same output. The judge flagged this and states each verdict was formed from the ten descriptions before being written down, but cannot certify zero anchoring. Read this 34/34 as consistent-with rather than as an independent validation.
+
+**Nothing was changed to make a row pass.** No query, no Expected value, no count, no edge note, no `SKILL.md`, no version, and no CHANGELOG was touched by this entry. A miss recorded here is a finding for a human to act on, not a defect for the recorder to paper over.
