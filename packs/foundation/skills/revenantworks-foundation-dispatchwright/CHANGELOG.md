@@ -1,5 +1,47 @@
 # Changelog — revenantworks-foundation-dispatchwright
 
+## [1.2.0] — 2026-08-21
+
+Earned the standalone profile back by removing what disqualified it, not by
+relabelling. 1.1.0 flipped this member to `standard` because it shipped
+executable code and read as hard-depending on `git` and the surface's
+Task/Agent/Workflow tools. Both findings were correct. This release removes the
+first and corrects the second, and the profile follows as a result.
+
+- **The two forcing hooks left the package.** `dispatch_gate.py`,
+  `dispatch_ledger_guard.py` and `dispatch_patterns.txt` moved out of
+  `references/hooks/` and into the `claude-skills` repo's own `.claude/hooks/`,
+  beside the brand firewall and the pack-bump check. They are rig
+  infrastructure keyed to `~/.claude/dispatch-mode.json`, not skill payload,
+  and a marketplace installer of this pack has no business receiving
+  auto-installed `PreToolUse` hooks. The files moved with `git mv`, so history
+  follows them; no line of either script changed, and both `--selftest` runs
+  pass byte-identical from the new location. The live hooks a session actually
+  executes still live under `~/.claude/hooks/` and are untouched by this move.
+- **This member now ships no executable code.** That was the one hard bar the
+  standalone profile sets, and it is the change that clears it. `references/`
+  holds three Markdown files and nothing else.
+- **`git` and subagent tools restated as optional, with the degradation
+  named.** Neither was ever required to finish a plan; the old wording implied
+  they were. Without `git`, a run still plans, tiers, dispatches and records —
+  a row it cannot check against origin is reported unverified rather than done,
+  which is section 8's existing rule, not a new one. Without subagent or Task
+  tools, a run ends at the tiered plan and the ledger, handed back for a human
+  or a later session to launch. This follows skillwright's own precedent: an
+  optional dependency with stated degradation does not break standalone, a hard
+  one does.
+- **`profile: standalone` restored as a consequence.** The declaration is true
+  because the package changed, not because the label did. Load budget was
+  already inside the standalone ceiling — a plan opens one reference, a
+  dispatch two, an audit one — and dropping the hooks costs a run no load,
+  since executables were never read into context.
+- **Stale claim removed.** SKILL.md and README both pointed a reader at "that
+  folder's own README" for the hook install block. No such README has ever
+  existed in `references/hooks/`; the sentence is gone rather than repointed.
+- No behavior change anywhere else. The workflow, the wave caps, the durability
+  contract, the ledger schema, the anti-patterns and the three seams are
+  unchanged, and the description did not move.
+
 ## [1.1.0] — 2026-08-20
 
 Pack-wide skillwright audit findings, P1-1 and P1-2. Both were self-inflicted

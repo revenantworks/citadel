@@ -54,5 +54,11 @@ name), then verify: `python .claude/hooks/firewall.py --selftest`.
 - **Frozen (2026-08-17):** tokenwright, commwright, evalwright — no bumps
   unless broken (a security finding counts as broken).
 - **No `ask` rules** in any tracked `.claude/settings.json`; a committed `ask`
-  freezes an unattended run. Hooks here: the brand firewall (PreToolUse) and
-  the post-commit pack-bump nudge (PostToolUse on `git commit`).
+  freezes an unattended run. Hooks wired here: the brand firewall (PreToolUse)
+  and the post-commit pack-bump nudge (PostToolUse on `git commit`).
+- **`.claude/hooks/` also stores what it does not arm.** Since 2026-08-21 it
+  version-controls dispatchwright's two forcing hooks — `dispatch_gate.py`,
+  `dispatch_ledger_guard.py` and their `dispatch_patterns.txt` — which are
+  deliberately **not** wired in this repo's `settings.json`. A rig installs
+  them into `~/.claude/hooks/`, and that installed copy is the one that fires.
+  Wiring them here as well would double-fire against an already-armed rig.

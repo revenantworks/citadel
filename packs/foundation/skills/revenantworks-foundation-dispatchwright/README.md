@@ -31,10 +31,7 @@ revenantworks-foundation-dispatchwright/
 ├── references/
 │   ├── ledger-schema.md          # the run ledger's fields, a worked row, and where it lives
 │   ├── unit-brief-template.md    # the copy-paste brief every dispatched unit carries
-│   ├── anti-patterns.md          # the 13 failure modes, one line each, with the 2026-08-17 examples
-│   └── hooks/                    # version-controlled copies of the two forcing hooks — the
-│                                  # installed copies a session actually runs live under
-│                                  # ~/.claude/hooks/ (dispatch_gate.py, dispatch_ledger_guard.py)
+│   └── anti-patterns.md          # the 13 failure modes, one line each, with the 2026-08-17 examples
 └── evals/                        # in full folder-zips, excluded from .skill
     ├── trigger-evals.md          # 10 should-fire, 10 should-not, 2 injection probes
     └── RESULTS.md                # authored-not-run ledger — what running the suite still owes
@@ -45,8 +42,14 @@ revenantworks-foundation-dispatchwright/
 Follows the [Agent Skills](https://agentskills.io/) open standard. Drop the folder into your
 skills directory, or upload the archive in Claude settings. Trigger it by saying `dispatchwright`,
 by describing a request that spans many agents, repos, skills, or files at once, or by naming a
-stalled fan-out that needs to resume without redoing landed work. Self-contained: no tools are
-shipped; a run without subagent/Task tools can still plan and tier but cannot dispatch.
+stalled fan-out that needs to resume without redoing landed work. Self-contained: no executable
+code ships. `git` and the surface's subagent/Task tools are optional — without `git` a run still
+plans, tiers and dispatches but reports an unverifiable row as unverified rather than done;
+without subagent tools a run ends at the tiered plan and the ledger.
+
+The two forcing hooks are not package contents. They are rig infrastructure, kept in the
+`claude-skills` repo under `.claude/hooks/` and installed from there into `~/.claude/hooks/` by a
+rig that wants them. Nothing below depends on them.
 
 ## Entry points
 
@@ -89,6 +92,15 @@ action — never the last.
   `dispatch_ledger_guard.py` had drifted to the pre-fix, fail-open versions while the installed
   hooks at `~/.claude/hooks/` were repaired (D1-D4, see CHANGELOG.md). Both files are now byte-for-
   byte the fixed versions, and both selftests pass against the copies shipped here.
+
+## What landed at 1.2.0
+
+- **The forcing hooks left the package; the profile went back to standalone.** `dispatch_gate.py`,
+  `dispatch_ledger_guard.py` and `dispatch_patterns.txt` moved to the `claude-skills` repo's own
+  `.claude/hooks/`. No line of either script changed and both selftests pass from the new
+  location. With no executable code shipped, and `git` and subagent tools restated as optional
+  with their degradation named, `profile: standalone` is true again — earned by the change, not
+  by the label.
 
 ## Changelog
 

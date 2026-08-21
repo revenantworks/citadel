@@ -1,6 +1,12 @@
 # Trigger evals — description tuning
 
 Provenance: authored at member version 1.0.0, 2026-08-18, alongside the member's first build.
+**Re-anchored to v1.2.0, 2026-08-21 — provenance only, nothing was executed here:** 1.2.0 moved
+the two forcing hooks out of the package into the `claude-skills` repo's `.claude/hooks/`,
+restated `git` and subagent tools as optional with their degradation named, and restored
+`profile: standalone` as a result. The `description` is byte-for-byte unchanged, so the routing
+surface every row below is judged against did not move: no query, expected value, boundary pair,
+or injection probe was added, removed, or rewritten. Still 22 rows (10 / 10 / 2).
 Not yet run — see `RESULTS.md`.
 
 Ten queries that should fire dispatchwright, ten that should not (including the four named

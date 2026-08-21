@@ -14,8 +14,9 @@ one session's fan-out, not a durable artifact the repo should carry forward, and
 left behind after a run reads as a second source of truth for what happened.
 
 An override path may be set via `CLAUDE_DISPATCH_LEDGER` when a run's units span more than one
-repo and need to write to a shared location; `dispatch_ledger_guard.py` (the PreToolUse hook —
-see `references/hooks/`) reads the same override, so the two must agree.
+repo and need to write to a shared location; `dispatch_ledger_guard.py` (the PreToolUse hook, an
+optional rig install kept in the `claude-skills` repo under `.claude/hooks/`) reads the same
+override, so the two must agree.
 
 ## Fields
 

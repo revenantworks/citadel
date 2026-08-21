@@ -17,6 +17,29 @@ This log starts at the foundation 1.0.0 baseline.
 > because it records what was true when written; read it as a date, not a tag.
 > Live code and runbooks cite dates instead, for exactly this reason.
 
+## dispatchwright hooks moved into the repo's own .claude/hooks - 2026-08-21
+
+`revenantworks-foundation-dispatchwright` stopped shipping executable code. Its two forcing hooks
+and their pattern file moved out of the member's `references/hooks/` and into this repo's own
+`.claude/hooks/`, beside the brand firewall and the pack-bump check. The member goes to 1.2.0 and
+its declared profile returns to `standalone` — earned by the packaging change, not by relabelling
+the same package.
+
+- **`git mv`, not delete-and-recreate.** `dispatch_gate.py`, `dispatch_ledger_guard.py` and
+  `dispatch_patterns.txt` moved as renames, so history follows the files. No line of either
+  script changed; both `--selftest` runs pass from the new location. Both scripts already
+  resolved their own directory at runtime, so nothing needed repathing.
+- **The live hooks are untouched.** The copies a session actually executes live under
+  `~/.claude/hooks/`, outside this repo. Only the version-controlled copies moved.
+- **Stored here, not armed here.** The pair is intentionally absent from `.claude/settings.json`.
+  A rig installs them into `~/.claude/hooks/`; wiring them a second time from the repo would
+  double-fire. `CLAUDE.md`'s hard rules now say so.
+- **Distribution consequence, stated rather than hidden.** The `.skill` archive packages the
+  member's own folder, so an installer of this pack no longer receives the hook scripts at all.
+  That is the intended outcome — a marketplace install has no business auto-installing
+  `PreToolUse` hooks — and the member's SKILL.md and README now describe that model instead of
+  the shipped-with-the-skill one.
+
 ## Ossuary pack removed - 2026-08-20
 
 The `ossuary` pack leaves this repo. Both members — `revenantworks-ossuary-linecaller` and
