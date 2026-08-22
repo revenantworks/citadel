@@ -80,6 +80,20 @@ members, unchanged by this pass.
 
 - (fill in)
 
+## [foundation-v2.6.2] - 2026-08-21
+
+Patch release: brandwright 1.4.1, doctrine only. Two new palette-derivation rules in
+`audit-doctrine.md` — D-8 (measure a mark against the ground it actually sits on, not the ground
+its token was designed against) and D-9 (a second form channel where an ordinal state or severity
+set shares one hue between adjacent levels) — landed after a render pass on an external estate's
+published dashboards surfaced both failure modes live: a status dot correct in its definition's
+own table failing 2.72:1 against the raised surface it was actually painted on, and a four-level
+severity ladder sharing one hue across two adjacent levels with no second channel to tell them
+apart. No new audit category, no description change, no member-count change; the palette-drift
+category gloss now cites both rules. Eval provenance re-anchored (`test-cases.md`,
+`trigger-evals.md`) — both D-8 and D-9 are authored-not-covered, the same status D-1 to D-7
+carried at their own introduction.
+
 ## [foundation-v2.6.1] - 2026-08-18
 
 Estate-sweep patch: four findings from an adversarial audit of the 2.6.0 release, fixed rather

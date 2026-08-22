@@ -2,6 +2,29 @@
 
 > Renamed from `revenant-foundation-brandwright` on 2026-08-07 (pack 2.0.0 — the `revenant` → `revenantworks` marketplace migration). Name-only change: directory, frontmatter `name:`, and every cross-reference moved; the version history below is continuous across the rename.
 
+## [1.4.1] — 2026-08-21
+
+**Two new palette-derivation rules, D-8 and D-9, in `audit-doctrine.md`.**
+Patch bump — doctrine deepened on an existing category (palette drift), no
+new audit category, no description change, so the routing surface did not
+move. Landed after a render pass on an external estate's published dashboards
+surfaced both failure modes live.
+
+- **D-8 — measure against the composed ground, not the designed one.** A
+  mark's contrast can be correct in the definition's own table and still fail
+  in the browser if the component paints it onto a different elevation than
+  the one its ratio was computed for (a status dot on a raised chip, not the
+  base ground). The palette-drift category gloss now requires recomputing
+  contrast against the actual CSS background a mark's parent carries.
+- **D-9 — a second form channel where an ordinal set shares a hue.** D-5
+  already requires colour never carry state alone; D-9 covers the case D-5
+  doesn't — two ADJACENT levels of one severity/state ladder sharing a single
+  hue because the palette doesn't have a spare one to spend. The label alone
+  isn't enough for a column scanned by colour; a width, weight, or dash
+  difference is required between the two.
+- No `metadata.body_budget` or frontmatter change — both rules live in
+  `audit-doctrine.md`, which the pack registry does not budget.
+
 ## [1.4.0] — 2026-08-17
 
 **The definition is read from a fixed user path.** Owner decision 2026-08-17:

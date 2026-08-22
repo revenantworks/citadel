@@ -16,6 +16,9 @@ on:
 # tagged ref (verified against the ossuary-v2.2.4 run: check skipped, release
 # success). It is a sub-minute job; there is no ref it is not worth running on.
 
+permissions:
+  contents: read
+
 jobs:
   check:
     runs-on: ubuntu-latest

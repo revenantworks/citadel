@@ -3,7 +3,7 @@ name: revenantworks-foundation-brandwright
 description: Defines a brand and its voice — identity, naming, palette, taglines, firewall — and applies them on request across skills, packs, artifacts, docs, and repos. Ships neutral — no brand exists until one is built or handed in; outputs spec-clean. Trigger to create, define, rebuild, or consolidate a brand, voice, or style guide; to apply a brand or voice to a built skill, artifact, repo, or doc; to audit a repo, tree, or skill set for drift — wrong names, off-palette colors, off-voice copy, stale handles or taglines; to export a voice profile or HTML brand-guide card; or say brandwright build / apply / audit / export. Applying a voice to one message is commwright's via the exported profile; a whole skill set's rebrand is a handoff — brandwright defines the identity, skillwright port propagates it.
 license: MIT
 metadata:
-  version: "1.4.0"
+  version: "1.4.1"
   profile: standalone
   pack: foundation
   brand: revenantworks
